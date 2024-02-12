@@ -19,6 +19,16 @@ book:
         - sintesisNumerica.qmd
         - graficos.qmd
         
+    - part: Parte_Variabilidad.qmd
+      chapters: 
+        - variablesAleatorias.qmd
+        - distribucionesProbabilidad.qmd
+        
+    - part: Parte_Estimacion.qmd
+      chapters: 
+        - Proporciones.qmd
+        - tamañoPoblacion.qmd   
+        
     - part: Parte_Corre_Regre.qmd
       chapters:
         - correlacion.qmd
