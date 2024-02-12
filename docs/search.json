@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Estadística a vista de pájaro",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "Presentación\nEstoy haciendo pruebas."
   },
   {
     "objectID": "presentacion.html",
@@ -61,5 +61,47 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "correlacion.html#necesidad-de-una-medida-de-relación",
+    "href": "correlacion.html#necesidad-de-una-medida-de-relación",
+    "title": "3  Correlación",
+    "section": "3.1 Necesidad de una medida de relación",
+    "text": "3.1 Necesidad de una medida de relación\nSee Knuth (1984) for additional discussion of literate programming."
+  },
+  {
+    "objectID": "correlacion.html#la-covarianza",
+    "href": "correlacion.html#la-covarianza",
+    "title": "3  Correlación",
+    "section": "3.2 La covarianza",
+    "text": "3.2 La covarianza"
+  },
+  {
+    "objectID": "correlacion.html#de-la-covarianza-al-coeficiente-de-correlación",
+    "href": "correlacion.html#de-la-covarianza-al-coeficiente-de-correlación",
+    "title": "3  Correlación",
+    "section": "3.3 De la covarianza al coeficiente de correlación",
+    "text": "3.3 De la covarianza al coeficiente de correlación"
+  },
+  {
+    "objectID": "correlacion.html#propiedades-del-coeficiente-de-correlación",
+    "href": "correlacion.html#propiedades-del-coeficiente-de-correlación",
+    "title": "3  Correlación",
+    "section": "3.4 Propiedades del coeficiente de correlación",
+    "text": "3.4 Propiedades del coeficiente de correlación\n\n3.4.1 Acotado entre 0 y 1.\n\n\n3.4.2 Correlación no implica relación causa-efecto\n\n\n3.4.3 Correlación estadísticamente significativa\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "correlacion.html#covarianza",
+    "href": "correlacion.html#covarianza",
+    "title": "3  Correlación",
+    "section": "3.2 Covarianza",
+    "text": "3.2 Covarianza\nCon mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.\n\n3.2.1 Deducción de la fórmula\nAquí deducción de la fórmula\n\n\n3.2.2 Propiedades\nAquí propiedades"
+  },
+  {
+    "objectID": "correlacion.html#coeficiente-de-correlación",
+    "href": "correlacion.html#coeficiente-de-correlación",
+    "title": "3  Correlación",
+    "section": "3.3 Coeficiente de correlación",
+    "text": "3.3 Coeficiente de correlación\nEste sí se usa.\n\n3.3.1 De la covarianza al coeficiente de correlación\nDividir por el producto de las desviaciones típicas.\n\n\n3.3.2 Propiedades del coeficiente de correlación\nAcotado entre 0 y 1.\n\n\n3.3.3 Correlación no implica relación causa-efecto\n\n\n3.3.4 Correlación estadísticamente significativa\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]

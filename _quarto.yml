@@ -13,7 +13,6 @@ book:
 
   chapters:
     - index.qmd
-    - presentacion.qmd
     
     - part: Parte_Descriptiva.qmd
       chapters: 
