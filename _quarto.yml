@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: docs
+lang: es
+
+book: 
+  title: "Estadística a vista de pájaro"
+  subtitle: "Estoy haciendo pruebas"
+  date: today
+  date-format: medium
+  author: "Pere Grima"
+  site-url: https://peregrima.github.io/VistaDePajaro/
+
+  chapters:
+    - index.qmd
+    - presentacion.qmd
+    
+    - part: Parte_Descriptiva.qmd
+      chapters: 
+        - sintesisNumerica.qmd
+        - graficos.qmd
+        
+    - part: Parte_Corre_Regre.qmd
+      chapters:
+        - correlacion.qmd
+        - regresion.qmd
+        - references.qmd
+
+bibliography: references.bib
+
+# Fuentes ----------------------------
+mainfont: Verdana
+monofont: Verdana
+mathfont: Arial
+fontfamily: baskervald    # -> Solo en PDF
+fontsize: 10pt
+# systemfonts::system_fonts(): Lista de fuentes disponibles en el ordenador.
+
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
