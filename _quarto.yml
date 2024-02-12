@@ -27,7 +27,12 @@ book:
     - part: Parte_Estimacion.qmd
       chapters: 
         - Proporciones.qmd
-        - tamañoPoblacion.qmd   
+        - tamañoPoblacion.qmd
+        
+    - part: Parte_Experimentos.qmd
+      chapters: 
+        - floresAspirina.qmd
+        - duracionPilas.qmd   
         
     - part: Parte_Corre_Regre.qmd
       chapters:

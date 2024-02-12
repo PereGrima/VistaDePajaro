@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/index.html</loc>
-    <lastmod>2024-02-12T13:47:41.279Z</lastmod>
+    <lastmod>2024-02-12T13:56:18.047Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/presentacion.html</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/Parte_Descriptiva.html</loc>
-    <lastmod>2024-02-12T13:45:39.730Z</lastmod>
+    <lastmod>2024-02-12T13:57:00.842Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/sintesisNumerica.html</loc>
-    <lastmod>2024-02-12T10:56:04.868Z</lastmod>
+    <lastmod>2024-02-12T13:57:03.567Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/graficos.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/Parte_Corre_Regre.html</loc>
-    <lastmod>2024-02-12T13:44:38.742Z</lastmod>
+    <lastmod>2024-02-12T13:53:23.930Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/correlacion.html</loc>
@@ -51,5 +51,25 @@
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/tamañoPoblacion.html</loc>
     <lastmod>2024-02-12T13:44:52.880Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/Parte_Variabilidad.html</loc>
+    <lastmod>2024-02-12T13:53:02.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/Parte_Estimacion.html</loc>
+    <lastmod>2024-02-12T13:54:18.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/Parte_Experimentos.html</loc>
+    <lastmod>2024-02-12T13:54:17.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/floresAspirina.html</loc>
+    <lastmod>2024-02-12T13:54:17.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/duracionPilas.html</loc>
+    <lastmod>2024-02-12T13:54:17.603Z</lastmod>
   </url>
 </urlset>
