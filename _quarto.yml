@@ -43,11 +43,11 @@ book:
 bibliography: references.bib
 
 # Fuentes ----------------------------
-mainfont: Verdana
+mainfont: Calibri
 monofont: Verdana
-mathfont: Arial
+mathfont: CambriaMath
 fontfamily: baskervald    # -> Solo en PDF
-fontsize: 10pt
+fontsize: 13pt
 # systemfonts::system_fonts(): Lista de fuentes disponibles en el ordenador.
 
 

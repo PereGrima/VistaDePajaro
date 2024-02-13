@@ -51,7 +51,7 @@
   {
     "objectID": "regresion.html",
     "href": "regresion.html",
-    "title": "5  Regresión",
+    "title": "10  Regresión",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
@@ -65,9 +65,9 @@
   {
     "objectID": "correlacion.html#necesidad-de-una-medida-de-relación",
     "href": "correlacion.html#necesidad-de-una-medida-de-relación",
-    "title": "7  Correlación",
-    "section": "7.1 Necesidad de una medida de relación",
-    "text": "7.1 Necesidad de una medida de relación\nSee Knuth (1984) for additional discussion of literate programming."
+    "title": "9  Correlación",
+    "section": "9.1 Necesidad de una medida de relación",
+    "text": "9.1 Necesidad de una medida de relación\nSee Knuth (1984) for additional discussion of literate programming."
   },
   {
     "objectID": "correlacion.html#la-covarianza",
@@ -93,16 +93,16 @@
   {
     "objectID": "correlacion.html#covarianza",
     "href": "correlacion.html#covarianza",
-    "title": "7  Correlación",
-    "section": "7.2 Covarianza",
-    "text": "7.2 Covarianza\nCon mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.\n\n7.2.1 Deducción de la fórmula\nAquí deducción de la fórmula\n\n\n7.2.2 Propiedades\nAquí propiedades"
+    "title": "9  Correlación",
+    "section": "9.2 Covarianza",
+    "text": "9.2 Covarianza\nCon mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.\n\n9.2.1 Deducción de la fórmula\nAquí deducción de la fórmula\n\n\n9.2.2 Propiedades\nAquí propiedades"
   },
   {
     "objectID": "correlacion.html#coeficiente-de-correlación",
     "href": "correlacion.html#coeficiente-de-correlación",
-    "title": "7  Correlación",
-    "section": "7.3 Coeficiente de correlación",
-    "text": "7.3 Coeficiente de correlación\nEste sí se usa.\n\n7.3.1 De la covarianza al coeficiente de correlación\nDividir por el producto de las desviaciones típicas.\n\n\n7.3.2 Propiedades del coeficiente de correlación\nAcotado entre 0 y 1.\n\n\n7.3.3 Correlación no implica relación causa-efecto\n\n\n7.3.4 Correlación estadísticamente significativa\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+    "title": "9  Correlación",
+    "section": "9.3 Coeficiente de correlación",
+    "text": "9.3 Coeficiente de correlación\nEste sí se usa.\n\n9.3.1 De la covarianza al coeficiente de correlación\nDividir por el producto de las desviaciones típicas.\n\n\n9.3.2 Propiedades del coeficiente de correlación\nAcotado entre 0 y 1.\n\n\n9.3.3 Correlación no implica relación causa-efecto\n\n\n9.3.4 Correlación estadísticamente significativa\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "variablesAleatorias.html",
@@ -142,14 +142,14 @@
   {
     "objectID": "Parte_Estimacion.html",
     "href": "Parte_Estimacion.html",
-    "title": "DISEÑO DE EXPERIMENTOS",
+    "title": "ESTIMACIÓN",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "Parte_Experimentos.html",
     "href": "Parte_Experimentos.html",
-    "title": "ESTIMACIÓN",
+    "title": "DISEÑO DE EXPERIMENTOS",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
