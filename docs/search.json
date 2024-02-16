@@ -25,12 +25,12 @@
     "href": "sintesisNumerica.html",
     "title": "1  Síntesis numérica de datos",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\n\n\n#    \n\n\nSample  \n\n\nIQR’s from Q\n\n\n\n\n\n\n1\n\n\n3\n\n\n3.3\n\n\n\n\n\n\n2\n\n\n2\n\n\n2.8\n\n\n\n\n\n\n3\n\n\n3\n\n\n2.7\n\n\n\n\n\n\n4\n\n\n4\n\n\n2.6\n\n\n\n\n\n\n5\n\n\n4\n\n\n2.4\n\n\n\n\n\n\n6\n\n\n3\n\n\n1.9\n\n\n\n\n\n\n7\n\n\n2\n\n\n1.7\n\n\n\n\n\n\n8\n\n\n1\n\n\n1.6\n\n\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "graficos.html",
     "href": "graficos.html",
-    "title": "3  Representaciones gráficas",
+    "title": "2  Representaciones gráficas",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
