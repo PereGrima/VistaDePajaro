@@ -6,7 +6,7 @@ Qué es. Símil del retrato robot.
 
 ### Media aritmética {.unnumbered}
 
-Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes, quizá por su aplicación para saber si se aprobará a la vista de los resultados obtenidos durante el curso.
+Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Seguramente ayuda su utilidad para saber si se aprobará una asignatura a la vista de los resultados obtenidos durante el curso.
 
 Cuando los datos se presentan tabulados hay que tener presente que estos se repiten tantas veces como indica su **frecuencia absoluta**. Por ejemplo, en la @tbl-hijosFamilia, el número de hijos (*X*) es la variable considerada y el número de familias (*n*) que tienen ese número de hijos es su frecuencia absoluta.
 
