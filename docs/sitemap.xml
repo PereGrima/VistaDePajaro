@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/index.html</loc>
-    <lastmod>2024-02-17T06:33:23.256Z</lastmod>
+    <lastmod>2024-02-18T06:26:40.757Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/presentacion.html</loc>
@@ -10,15 +10,15 @@
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/Parte_Descriptiva.html</loc>
-    <lastmod>2024-02-16T04:22:50.041Z</lastmod>
+    <lastmod>2024-02-18T06:21:59.631Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/sintesisNumerica.html</loc>
-    <lastmod>2024-02-17T06:33:24.613Z</lastmod>
+    <lastmod>2024-02-18T06:43:17.224Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/graficos.html</loc>
-    <lastmod>2024-02-16T04:22:57.490Z</lastmod>
+    <lastmod>2024-02-18T06:35:35.367Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/Parte_Corre_Regre.html</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/variablesAleatorias.html</loc>
-    <lastmod>2024-02-16T04:23:05.260Z</lastmod>
+    <lastmod>2024-02-18T06:47:00.722Z</lastmod>
   </url>
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/distribucionesProbabilidad.html</loc>
@@ -71,5 +71,9 @@
   <url>
     <loc>https://peregrima.github.io/VistaDePajaro/duracionPilas.html</loc>
     <lastmod>2024-02-16T03:36:24.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://peregrima.github.io/VistaDePajaro/conceptosGenerales.html</loc>
+    <lastmod>2024-02-18T06:38:48.673Z</lastmod>
   </url>
 </urlset>

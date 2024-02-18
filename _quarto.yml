@@ -13,6 +13,7 @@ book:
 
   chapters:
     - index.qmd
+    - conceptosGenerales.qmd
     
     - part: Parte_Descriptiva.qmd
       chapters: 
