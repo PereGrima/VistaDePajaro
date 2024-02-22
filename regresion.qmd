@@ -28,7 +28,7 @@ Se traza la recta directamente sobre el papel o se identifican dos puntos de pas
 |<i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i>  | - No se tienen medidas de calidad del ajuste ni de significación de los coeficientes |
 +-----------------------------------------------------------------------+--------------------------------------------------------------------------------------+
 : {tbl-colwidths="[10,90]"}
-: Sample grid table.
+
 
 No es tan tonto como parece. 
 
