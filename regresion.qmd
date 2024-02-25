@@ -40,8 +40,8 @@ A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es 
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No se tienen medidas de calidad del ajuste                                  |
 |                                                                                | -   Solo sirve para regresión simple                                            |
 +--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
-: Método de Ishikawa. Ventajas e inconvenientes {#tbl-letters}
-: {tbl-colwidths="\[10,90\]"}
+
+: Método de Ishikawa. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ### Minimizando la suma de los residuos {.unnumbered}
 
@@ -51,27 +51,33 @@ $$ n\bar{Y} - nb_0 - b_1 n \bar{X} = 0$$ Por tanto, con cualquier par de valores
 
 Que haya infinitas rectas que cumplan esa condición ya es mala señal, porque seguro que no todas son adecuadas. Para los valores representados en la figura X tenemos que $\bar{X}= 6$ y $\bar{Y}= 9$. Rectas que cumplen la condicion de minimizar la suma de los residuos son, por ejemplo, la que tiene coeficientes $b_0=9$ y $b_1=0$, es decir: $Y = 9$, o también $b_0 = 12$ y $b_1 = -0.5$, es decir: $Y = 12 -0.5X$.
 
-![Dos ajustes -claramente muy malos- con suma de residuos igual a cero.](ScriptsR/sumaValorAbsoluto.png){fig-align="center" width="100%" #fig-sumaCero}
+![Dos ajustes -claramente muy malos- con suma de residuos igual a cero.](ScriptsR/sumaValorAbsoluto.png){#fig-sumaCero fig-align="center" width="100%"}
 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Ninguno                                                                                         |
-|                                                                                |                                                                                                     |
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Ninguna                                                                                         |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Da un número infinito de soluciones (una de ellas coincide con el ajuste por mínimos cuadrados) |
-|                                                                                |                                                                                                     |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-: Minimizar la suma de los residups. Ventajas e inconvenientes {#tbl-letters}
-: {tbl-colwidths="\[10,90\]"}
 
+: Minimizar la suma de los residups. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ### Minimizando la suma de los residuos en valor absoluto {.unnumbered}
 
-De entrada parece bastante más razonable que el anterior. Tiene solución única pero el manejo de la función "valor absoluto" es no existe una expresión analítica para determinarla (c
-sí la habrá cuando el objetivo sea minimizar la suma de los cuadrados de los residuos) esta debe hallarse ****POR AQUÍ VOY****
+De entrada parece bastante más razonable que el anterior. Puede no tener solución única, pero los resultados que da no son disparados como en el caso anterior \***referencia a figura\***. Tiene solución única pero no existen expresiones para los coeficientes debido a las dificultades en el manejo de la función "valor absoluto".
+
+![Dos ajustes -claramente muy malos- con suma de residuos igual a cero.](ScriptsR/residuosValorAbsoluto.png){fig-align="center" width="100%"}
+
+Mas información: [Wikipedia](abline(out$coefficients%5B1%5D,%20out$coefficients%5B2%5D) "Más información")
 
 ### Minizando la suma de los cuadrados de los residuos {.unnumbered}
 
+aquí texto
+
+![Dos ajustes -claramente muy malos- con suma de residuos igual a cero.](ScriptsR/residuosMinimosCuadrados.png){fig-align="center" width="100%"}
+
 ## Mínimos cuadrados. Cálculo de los coeficientes
+
+Aquí texto
 
 ### Con fuerza bruta {.unnumbered}
 
