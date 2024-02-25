@@ -56,6 +56,7 @@ format:
   html:
     theme: cosmo
     code-fold: true
+    css: styles.css
     header-includes:
       <script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
   pdf:
