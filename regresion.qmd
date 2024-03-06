@@ -18,6 +18,10 @@ Se realiza con el objetivo de minimizar la suma de los cuadrados de los residuos
 
 Se traza la recta directamente sobre el papel o se identifican dos puntos de paso y a partir de ellos se calculan los coeficientes del modelo.
 
+A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del "perfecto" y no se cometeran errores de bulto debido a la presencia de valores anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.
+
+![Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.](ScriptsR/regresionAOjo.png){#fig-sumaCero fig-align="right"  width="100%"}
+
 +--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
 | **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Intuitivo. Muy fácil de entender                                                   |
 |                                                                                | -   No se comenten errores de mucho bulto                                              |
@@ -29,7 +33,6 @@ Se traza la recta directamente sobre el papel o se identifican dos puntos de pas
 
 : {tbl-colwidths="\[10,90\]"}
 
-A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del "perfecto" y no se cometeran errores de mucho bulto debido a la presencia de valroes anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.
 
 ### Método de Ishikawa {.unnumbered}
 

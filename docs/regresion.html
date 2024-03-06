@@ -315,6 +315,13 @@ div.csl-indent {
 <section id="a-ojo" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="a-ojo">A ojo</h3>
 <p>Se traza la recta directamente sobre el papel o se identifican dos puntos de paso y a partir de ellos se calculan los coeficientes del modelo.</p>
+<p>A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del “perfecto” y no se cometeran errores de bulto debido a la presencia de valores anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.</p>
+<div id="fig-sumaCero" class="quarto-figure quarto-figure-right anchored">
+<figure class="figure">
+<p><img src="ScriptsR/regresionAOjo.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.1: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
+</figure>
+</div>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -338,7 +345,6 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p>A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del “perfecto” y no se cometeran errores de mucho bulto debido a la presencia de valroes anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.</p>
 </section>
 <section id="método-de-ishikawa" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="método-de-ishikawa">Método de Ishikawa</h3>
@@ -376,7 +382,7 @@ div.csl-indent {
 <div id="fig-sumaCero" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/sumaValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.1: Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;11.2: Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
 </figure>
 </div>
 <div id="tbl-letters" class="anchored">
