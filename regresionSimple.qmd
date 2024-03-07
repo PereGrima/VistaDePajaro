@@ -73,7 +73,7 @@ Que haya infinitas rectas que cumplan esa condición ya es mala señal, porque s
 
 De entrada parece bastante más razonable que el anterior. Puede no tener solución única, pero los resultados que da no son disparados como en el caso anterior \***referencia a figura\***. Tiene solución única pero no existen expresiones para los coeficientes debido a las dificultades en el manejo de la función "valor absoluto".
 
-![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/residuosValorAbsoluto.png){#fig-sumaVAbsoluto fig-align="center" width="100%"}
+![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/residuosValorAbsoluto.png){fig-align="center" width="100%"}
 
 Mas información: [Wikipedia](abline(out$coefficients%5B1%5D,%20out$coefficients%5B2%5D) "Más información")
 
@@ -81,7 +81,7 @@ Mas información: [Wikipedia](abline(out$coefficients%5B1%5D,%20out$coefficients
 
 aquí texto
 
-![**** y ajuste minimizando la suma de los cuadrados de los residuos.](ScriptsR/residuosMinimosCuadrados.png){#fig-sumaCuadrados fig-align="center" width="100%"}
+![\*\*\*\* y ajuste minimizando la suma de los cuadrados de los residuos.](ScriptsR/residuosMinimosCuadrados.png){#fig-sumaCuadrados fig-align="center" width="100%"}
 
 ## Mínimos cuadrados. Cálculo de los coeficientes
 
@@ -93,8 +93,7 @@ Podemos hacer una primera estimación de los coeficientes a ojo, y mediante un p
 
 Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
 
-Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). Ajustando a ojo hemos obtenido unos valores de b0 = ** y b1 = **. Sería mucha casualidad que esos fueran exactamente los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero también es verdad que seguramente no serán valores muy distintos de estos. Podemos crear una malla de valores de b0 y b1 y para cada de valores determinar la suma de los cuadrados de los residuos que se tienen con esa recta. Eligiremos el par de valores que minimizan esa suma.
-
+Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). Ajustando a ojo hemos obtenido unos valores de b0 = \*\* y b1 = \*\*. Sería mucha casualidad que esos fueran exactamente los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero también es verdad que seguramente no serán valores muy distintos de estos. Podemos crear una malla de valores de b0 y b1 y para cada de valores determinar la suma de los cuadrados de los residuos que se tienen con esa recta. Eligiremos el par de valores que minimizan esa suma.
 
 ### Usando las expresiones de $b_0$ y $b_1$ que minimizan la suma de los cuadrados de los residuos {.unnumbered}
 
