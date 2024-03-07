@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Estadística a vista de pájaro - 11&nbsp; Regresión</title>
+<title>Estadística a vista de pájaro - 11&nbsp; Regresión Simple</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./regresionMultiple.html" rel="next">
 <link href="./correlacion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +97,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./regresion.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./regresionSimple.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión Simple</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -243,8 +243,14 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regresion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></span></a>
+  <a href="./regresionSimple.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regresionMultiple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -287,7 +293,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión Simple</span></h1>
 </div>
 
 
@@ -308,6 +314,7 @@ div.csl-indent {
 <p>Normalidad de la respuesta</p>
 <p>Estimación de los parámetros</p>
 <p>Modelo, no ecuación</p>
+<p>Regresión simple vs.&nbsp;múltiple</p>
 </section>
 <section id="determinación-de-la-recta-ajustada" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="determinación-de-la-recta-ajustada"><span class="header-section-number">11.2</span> Determinación de la recta ajustada</h2>
@@ -349,10 +356,10 @@ div.csl-indent {
 <section id="método-de-ishikawa" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="método-de-ishikawa">Método de Ishikawa</h3>
 <p>Aquí texto,</p>
-<div id="fig-sumaCero" class="quarto-figure quarto-figure-right anchored">
+<div id="fig-Ishikawa" class="quarto-figure quarto-figure-right anchored">
 <figure class="figure">
 <p><img src="ScriptsR/regresionIshikawa.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.2: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;11.2: Ajuste por el método de Ishikawa y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
 </figure>
 </div>
 <div id="tbl-letters" class="anchored">
@@ -386,9 +393,9 @@ div.csl-indent {
 <p>Entendemos que se trata de minimizar la suma en valor absoluto, ya que un valor muy grande con signo negativo se logra simplemente aumentando los valores de <span class="math inline">\(b_0\)</span> y/o de <span class="math inline">\(b_1\)</span>. Por tanto, se trata de minimizar <span class="math inline">\(|\sum(Y_i - (b_0 - b_1 X_i))|\)</span>. Haciendo esta expresión igual a cero (mínimo valor posible), tenemos:</p>
 <p><span class="math display">\[ n\bar{Y} - nb_0 - b_1 n \bar{X} = 0\]</span> Por tanto, con cualquier par de valores <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que verifiquen la expresión <span class="math inline">\(\bar{Y} = b_0 + b_1 \bar{X}\)</span>, es decir, con cualquier recta que pase por (<span class="math inline">\(X_0\)</span>, <span class="math inline">\(Y_0\)</span>) tendremos una suma de residuos en valor absoluto igual a cero.</p>
 <p>Que haya infinitas rectas que cumplan esa condición ya es mala señal, porque seguro que no todas son adecuadas. Para los valores representados en la figura X tenemos que <span class="math inline">\(\bar{X}= 6\)</span> y <span class="math inline">\(\bar{Y}= 9\)</span>. Rectas que cumplen la condicion de minimizar la suma de los residuos son, por ejemplo, la que tiene coeficientes <span class="math inline">\(b_0=9\)</span> y <span class="math inline">\(b_1=0\)</span>, es decir: <span class="math inline">\(Y = 9\)</span>, o también <span class="math inline">\(b_0 = 12\)</span> y <span class="math inline">\(b_1 = -0.5\)</span>, es decir: <span class="math inline">\(Y = 12 -0.5X\)</span>.</p>
-<div id="fig-sumaCero" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-sumaVAbsoluto" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="ScriptsR/sumaValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="ScriptsR/sumaCero.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.3: Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
 </figure>
 </div>
@@ -419,10 +426,10 @@ div.csl-indent {
 <section id="minimizando-la-suma-de-los-residuos-en-valor-absoluto" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="minimizando-la-suma-de-los-residuos-en-valor-absoluto">Minimizando la suma de los residuos en valor absoluto</h3>
 <p>De entrada parece bastante más razonable que el anterior. Puede no tener solución única, pero los resultados que da no son disparados como en el caso anterior *<strong>referencia a figura*</strong>. Tiene solución única pero no existen expresiones para los coeficientes debido a las dificultades en el manejo de la función “valor absoluto”.</p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-sumaVAbsoluto" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/residuosValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;11.4: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
 </figure>
 </div>
 <p>Mas información: <a href="abline(out$coefficients[1], out$coefficients[2])" title="Más información">Wikipedia</a></p>
@@ -430,10 +437,10 @@ div.csl-indent {
 <section id="minizando-la-suma-de-los-cuadrados-de-los-residuos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="minizando-la-suma-de-los-cuadrados-de-los-residuos">Minizando la suma de los cuadrados de los residuos</h3>
 <p>aquí texto</p>
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-sumaCuadrados" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/residuosMinimosCuadrados.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;11.5: **** y ajuste minimizando la suma de los cuadrados de los residuos.</figcaption>
 </figure>
 </div>
 </section>
@@ -443,6 +450,9 @@ div.csl-indent {
 <p>Aquí texto</p>
 <section id="con-fuerza-bruta" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="con-fuerza-bruta">Con fuerza bruta</h3>
+<p>Podemos hacer una primera estimación de los coeficientes a ojo, y mediante un pequeño programa -o también usando una hoja de cálculo- realizar un barrido de la suma de los cuadrados de los residuos que se obtienen con valores de b0 y b1 en torno a los estimados, identificando el par de valores que minimiza esa suma de cuadrados.</p>
+<p>Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.</p>
+<p>Vayamos a los datos de la figura <a href="#fig-sumaCero">Figura&nbsp;<span>11.1</span></a> (que son también los de <a href="#fig-Ishikawa">Figura&nbsp;<span>11.2</span></a>)</p>
 </section>
 <section id="usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos">Usando las expresiones de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que minimizan la suma de los cuadrados de los residuos</h3>
@@ -699,8 +709,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./regresionMultiple.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

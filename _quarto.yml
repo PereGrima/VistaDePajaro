@@ -38,7 +38,8 @@ book:
     - part: Parte_Corre_Regre.qmd
       chapters:
         - correlacion.qmd
-        - regresion.qmd
+        - regresionSimple.qmd
+        - regresionMultiple.qmd
         - references.qmd
 
 bibliography: references.bib

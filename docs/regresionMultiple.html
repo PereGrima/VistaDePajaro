@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Estadística a vista de pájaro - 11&nbsp; Regresión</title>
+<title>Estadística a vista de pájaro - 12&nbsp; Regresión Múltiple</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -50,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./correlacion.html" rel="prev">
+<link href="./regresionSimple.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -82,8 +116,6 @@ div.csl-indent {
 }</script>
 <script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -97,7 +129,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./regresion.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./regresionMultiple.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -243,8 +275,14 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regresion.html" class="sidebar-item-text sidebar-link active">
+  <a href="./regresionSimple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regresionMultiple.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,19 +303,18 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definiciones" id="toc-definiciones" class="nav-link active" data-scroll-target="#definiciones"><span class="header-section-number">11.1</span> Definiciones</a></li>
-  <li><a href="#determinación-de-la-recta-ajustada" id="toc-determinación-de-la-recta-ajustada" class="nav-link" data-scroll-target="#determinación-de-la-recta-ajustada"><span class="header-section-number">11.2</span> Determinación de la recta ajustada</a>
+  <li><a href="#necesidad-de-una-medida-de-relación" id="toc-necesidad-de-una-medida-de-relación" class="nav-link active" data-scroll-target="#necesidad-de-una-medida-de-relación"><span class="header-section-number">12.1</span> Necesidad de una medida de relación</a></li>
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">12.2</span> Covarianza</a>
   <ul class="collapse">
-  <li><a href="#a-ojo" id="toc-a-ojo" class="nav-link" data-scroll-target="#a-ojo">A ojo</a></li>
-  <li><a href="#método-de-ishikawa" id="toc-método-de-ishikawa" class="nav-link" data-scroll-target="#método-de-ishikawa">Método de Ishikawa</a></li>
-  <li><a href="#minimizando-la-suma-de-los-residuos" id="toc-minimizando-la-suma-de-los-residuos" class="nav-link" data-scroll-target="#minimizando-la-suma-de-los-residuos">Minimizando la suma de los residuos</a></li>
-  <li><a href="#minimizando-la-suma-de-los-residuos-en-valor-absoluto" id="toc-minimizando-la-suma-de-los-residuos-en-valor-absoluto" class="nav-link" data-scroll-target="#minimizando-la-suma-de-los-residuos-en-valor-absoluto">Minimizando la suma de los residuos en valor absoluto</a></li>
-  <li><a href="#minizando-la-suma-de-los-cuadrados-de-los-residuos" id="toc-minizando-la-suma-de-los-cuadrados-de-los-residuos" class="nav-link" data-scroll-target="#minizando-la-suma-de-los-cuadrados-de-los-residuos">Minizando la suma de los cuadrados de los residuos</a></li>
+  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula"><span class="header-section-number">12.2.1</span> Deducción de la fórmula</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades"><span class="header-section-number">12.2.2</span> Propiedades</a></li>
   </ul></li>
-  <li><a href="#mínimos-cuadrados.-cálculo-de-los-coeficientes" id="toc-mínimos-cuadrados.-cálculo-de-los-coeficientes" class="nav-link" data-scroll-target="#mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">11.3</span> Mínimos cuadrados. Cálculo de los coeficientes</a>
+  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">12.3</span> Coeficiente de correlación</a>
   <ul class="collapse">
-  <li><a href="#con-fuerza-bruta" id="toc-con-fuerza-bruta" class="nav-link" data-scroll-target="#con-fuerza-bruta">Con fuerza bruta</a></li>
-  <li><a href="#usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos" id="toc-usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos" class="nav-link" data-scroll-target="#usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos">Usando las expresiones de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que minimizan la suma de los cuadrados de los residuos</a></li>
+  <li><a href="#de-la-covarianza-al-coeficiente-de-correlación" id="toc-de-la-covarianza-al-coeficiente-de-correlación" class="nav-link" data-scroll-target="#de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">12.3.1</span> De la covarianza al coeficiente de correlación</a></li>
+  <li><a href="#propiedades-del-coeficiente-de-correlación" id="toc-propiedades-del-coeficiente-de-correlación" class="nav-link" data-scroll-target="#propiedades-del-coeficiente-de-correlación"><span class="header-section-number">12.3.2</span> Propiedades del coeficiente de correlación</a></li>
+  <li><a href="#correlación-no-implica-relación-causa-efecto" id="toc-correlación-no-implica-relación-causa-efecto" class="nav-link" data-scroll-target="#correlación-no-implica-relación-causa-efecto"><span class="header-section-number">12.3.3</span> Correlación no implica relación causa-efecto</a></li>
+  <li><a href="#correlación-estadísticamente-significativa" id="toc-correlación-estadísticamente-significativa" class="nav-link" data-scroll-target="#correlación-estadísticamente-significativa"><span class="header-section-number">12.3.4</span> Correlación estadísticamente significativa</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -287,7 +324,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></h1>
 </div>
 
 
@@ -302,152 +339,48 @@ div.csl-indent {
 
 </header>
 
-<section id="definiciones" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="definiciones"><span class="header-section-number">11.1</span> Definiciones</h2>
-<p>Residuos</p>
-<p>Normalidad de la respuesta</p>
-<p>Estimación de los parámetros</p>
-<p>Modelo, no ecuación</p>
-</section>
-<section id="determinación-de-la-recta-ajustada" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="determinación-de-la-recta-ajustada"><span class="header-section-number">11.2</span> Determinación de la recta ajustada</h2>
-<p>Se realiza con el objetivo de minimizar la suma de los cuadrados de los residuos. Pero existen otros métodos. Veamos algunos.</p>
-<section id="a-ojo" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="a-ojo">A ojo</h3>
-<p>Se traza la recta directamente sobre el papel o se identifican dos puntos de paso y a partir de ellos se calculan los coeficientes del modelo.</p>
-<p>A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del “perfecto” y no se cometeran errores de bulto debido a la presencia de valores anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.</p>
-<div id="fig-sumaCero" class="quarto-figure quarto-figure-right anchored">
-<figure class="figure">
-<p><img src="ScriptsR/regresionAOjo.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.1: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
-</figure>
-</div>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
-<td><ul>
-<li>Intuitivo. Muy fácil de entender</li>
-<li>No se comenten errores de mucho bulto</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
-<td><ul>
-<li>No se logra el ajuste “perfecto” de acuerdo con el criterio establecido</li>
-<li>No se tienen medidas de calidad del ajuste ni de significación de los coeficientes</li>
-<li>Solo sirve para regresión simple</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="método-de-ishikawa" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="método-de-ishikawa">Método de Ishikawa</h3>
-<p>Aquí texto,</p>
-<div id="fig-sumaCero" class="quarto-figure quarto-figure-right anchored">
-<figure class="figure">
-<p><img src="ScriptsR/regresionIshikawa.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.2: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
-</figure>
-</div>
-<div id="tbl-letters" class="anchored">
-<table class="table">
-<caption>Tabla&nbsp;11.1: Método de Ishikawa. Ventajas e inconvenientes</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
-<td><ul>
-<li>Fácil de entender</li>
-<li>Robusto frente a la presencia de valores anómalos o con excesiva influencia</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
-<td><ul>
-<li>No se tienen medidas de calidad del ajuste</li>
-<li>Solo sirve para regresión simple</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="minimizando-la-suma-de-los-residuos" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="minimizando-la-suma-de-los-residuos">Minimizando la suma de los residuos</h3>
-<p>Entendemos que se trata de minimizar la suma en valor absoluto, ya que un valor muy grande con signo negativo se logra simplemente aumentando los valores de <span class="math inline">\(b_0\)</span> y/o de <span class="math inline">\(b_1\)</span>. Por tanto, se trata de minimizar <span class="math inline">\(|\sum(Y_i - (b_0 - b_1 X_i))|\)</span>. Haciendo esta expresión igual a cero (mínimo valor posible), tenemos:</p>
-<p><span class="math display">\[ n\bar{Y} - nb_0 - b_1 n \bar{X} = 0\]</span> Por tanto, con cualquier par de valores <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que verifiquen la expresión <span class="math inline">\(\bar{Y} = b_0 + b_1 \bar{X}\)</span>, es decir, con cualquier recta que pase por (<span class="math inline">\(X_0\)</span>, <span class="math inline">\(Y_0\)</span>) tendremos una suma de residuos en valor absoluto igual a cero.</p>
-<p>Que haya infinitas rectas que cumplan esa condición ya es mala señal, porque seguro que no todas son adecuadas. Para los valores representados en la figura X tenemos que <span class="math inline">\(\bar{X}= 6\)</span> y <span class="math inline">\(\bar{Y}= 9\)</span>. Rectas que cumplen la condicion de minimizar la suma de los residuos son, por ejemplo, la que tiene coeficientes <span class="math inline">\(b_0=9\)</span> y <span class="math inline">\(b_1=0\)</span>, es decir: <span class="math inline">\(Y = 9\)</span>, o también <span class="math inline">\(b_0 = 12\)</span> y <span class="math inline">\(b_1 = -0.5\)</span>, es decir: <span class="math inline">\(Y = 12 -0.5X\)</span>.</p>
-<div id="fig-sumaCero" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ScriptsR/sumaValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.3: Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
-</figure>
-</div>
-<div id="tbl-letters" class="anchored">
-<table class="table">
-<caption>Tabla&nbsp;11.2: Minimizar la suma de los residups. Ventajas e inconvenientes</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
-<td><ul>
-<li>Ninguna</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
-<td><ul>
-<li>Da un número infinito de soluciones (una de ellas coincide con el ajuste por mínimos cuadrados)</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="minimizando-la-suma-de-los-residuos-en-valor-absoluto" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="minimizando-la-suma-de-los-residuos-en-valor-absoluto">Minimizando la suma de los residuos en valor absoluto</h3>
-<p>De entrada parece bastante más razonable que el anterior. Puede no tener solución única, pero los resultados que da no son disparados como en el caso anterior *<strong>referencia a figura*</strong>. Tiene solución única pero no existen expresiones para los coeficientes debido a las dificultades en el manejo de la función “valor absoluto”.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ScriptsR/residuosValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
-</figure>
-</div>
-<p>Mas información: <a href="abline(out$coefficients[1], out$coefficients[2])" title="Más información">Wikipedia</a></p>
-</section>
-<section id="minizando-la-suma-de-los-cuadrados-de-los-residuos" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="minizando-la-suma-de-los-cuadrados-de-los-residuos">Minizando la suma de los cuadrados de los residuos</h3>
-<p>aquí texto</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ScriptsR/residuosMinimosCuadrados.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="mínimos-cuadrados.-cálculo-de-los-coeficientes" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">11.3</span> Mínimos cuadrados. Cálculo de los coeficientes</h2>
-<p>Aquí texto</p>
-<section id="con-fuerza-bruta" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="con-fuerza-bruta">Con fuerza bruta</h3>
-</section>
-<section id="usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="usando-las-expresiones-de-b_0-y-b_1-que-minimizan-la-suma-de-los-cuadrados-de-los-residuos">Usando las expresiones de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que minimizan la suma de los cuadrados de los residuos</h3>
-<p>Curiosidad con el redondeo</p>
+<p>This is a book created from markdown and executable code.</p>
+<section id="necesidad-de-una-medida-de-relación" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="necesidad-de-una-medida-de-relación"><span class="header-section-number">12.1</span> Necesidad de una medida de relación</h2>
 <p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+</section>
+<section id="covarianza" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">12.2</span> Covarianza</h2>
+<p>Con mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.</p>
+<section id="deducción-de-la-fórmula" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="deducción-de-la-fórmula"><span class="header-section-number">12.2.1</span> Deducción de la fórmula</h3>
+<p>Aquí deducción de la fórmula</p>
+</section>
+<section id="propiedades" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="propiedades"><span class="header-section-number">12.2.2</span> Propiedades</h3>
+<p>Aquí propiedades</p>
+</section>
+</section>
+<section id="coeficiente-de-correlación" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">12.3</span> Coeficiente de correlación</h2>
+<p>Este sí se usa.</p>
+<section id="de-la-covarianza-al-coeficiente-de-correlación" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">12.3.1</span> De la covarianza al coeficiente de correlación</h3>
+<p>Dividir por el producto de las desviaciones típicas.</p>
+</section>
+<section id="propiedades-del-coeficiente-de-correlación" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="propiedades-del-coeficiente-de-correlación"><span class="header-section-number">12.3.2</span> Propiedades del coeficiente de correlación</h3>
+<p>Acotado entre 0 y 1.</p>
+</section>
+<section id="correlación-no-implica-relación-causa-efecto" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="correlación-no-implica-relación-causa-efecto"><span class="header-section-number">12.3.3</span> Correlación no implica relación causa-efecto</h3>
+</section>
+<section id="correlación-estadísticamente-significativa" class="level3" data-number="12.3.4">
+<h3 data-number="12.3.4" class="anchored" data-anchor-id="correlación-estadísticamente-significativa"><span class="header-section-number">12.3.4</span> Correlación estadísticamente significativa</h3>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -694,8 +627,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./correlacion.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlación</span></span>
+      <a href="./regresionSimple.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -1,0 +1,39 @@
+# Regresión Múltiple
+
+This is a book created from markdown and executable code.
+
+## Necesidad de una medida de relación
+
+See @knuth84 for additional discussion of literate programming.
+
+## Covarianza
+
+Con mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.
+
+### Deducción de la fórmula
+
+Aquí deducción de la fórmula
+
+### Propiedades
+
+Aquí propiedades
+
+## Coeficiente de correlación
+
+Este sí se usa.
+
+### De la covarianza al coeficiente de correlación
+
+Dividir por el producto de las desviaciones típicas.
+
+### Propiedades del coeficiente de correlación
+
+Acotado entre 0 y 1.
+
+### Correlación no implica relación causa-efecto
+
+### Correlación estadísticamente significativa
+
+```{r}
+1 + 1
+```
