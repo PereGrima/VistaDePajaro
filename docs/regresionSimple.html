@@ -455,14 +455,27 @@ div.csl-indent {
 <p>Aquí texto</p>
 <section id="con-fuerza-bruta" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="con-fuerza-bruta">Con fuerza bruta</h3>
-<p>Podemos hacer una primera estimación de los coeficientes a ojo, y mediante un pequeño programa -o también usando una hoja de cálculo- realizar un barrido de la suma de los cuadrados de los residuos que se obtienen con valores de b0 y b1 en torno a los estimados, identificando el par de valores que minimiza esa suma de cuadrados.</p>
-<p>Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.</p>
-<p>Vayamos a los datos de la figura <a href="#fig-sumaCero">Figura&nbsp;<span>11.1</span></a> (que son también los de <a href="#fig-Ishikawa">Figura&nbsp;<span>11.2</span></a>). La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) y es inmediato deducir que <span class="math inline">\(b_1\)</span> = 5,71 y <span class="math inline">\(b_0\)</span> = 27,14. Sería mucha casualidad que esos fueran los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero seguramente no andarán muy lejos. Vamos a crear una malla de valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>. Los valores de b0 variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de b0 irán de 20 a 35 también en saltos de 0,1. Cada combinación de estos dos valroes corresponde a una recta, y a cada recta le corresponde una suma de los cuadrados de los residuos. Vamos a ver cual es el par de valores bo, b1 que minimiza la suma de los cuadrados de los residuos.</p>
+<p>Podemos hacer una primera estimación de los coeficientes a ojo y a continuación, mediante un pequeño programa -o también usando una hoja de cálculo-, realizar un barrido de los valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> en torno a los estimados, identidicando el par que minimiza la suma de los cuadrados de los residuos.</p>
+<p>Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas de los coeficientes o -mejor todavía- usar un paquete de software o una hoja de cálculo, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.</p>
+<p>Vayamos a los datos de la figura <a href="#fig-sumaCero">Figura&nbsp;<span>11.1</span></a> (que son también los de <a href="#fig-Ishikawa">Figura&nbsp;<span>11.2</span></a>). Hemos trazado la recta ajustada a ojo de manera que pasa por los puntos (-4,75; 0) y (5,75, 60) por lo que sus coeficientes son: <span class="math inline">\(b_1\)</span> = 5,71 y <span class="math inline">\(b_0\)</span> = 27,14. Sería mucha casualidad que esos fueran los valores exactos que estamos buscando, pero no andarán muy lejos. Vamos a crear una malla de valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>. Los valores de <span class="math inline">\(b_0\)</span> variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de <span class="math inline">\(b_0\)</span> irán de 20 a 35 también en saltos de 0,1. A cada combinación de esos dos valores corresponde a una recta, y a cada recta una suma de los cuadrados de los residuos. El par de valores que minimizan esa suma de cuadrados son: <span class="math inline">\(b_0\)</span> = 27,0 y <span class="math inline">\(b_1\)</span> = 4,8. Ver figura <a href="#fig-fuerzaBruta">Figura&nbsp;<span>11.5</span></a>.</p>
 <div id="fig-fuerzaBruta" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/coeficientesFuerzaBruta.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.5: Recta ajustada a ojo y por el método de los mínimos cuadrados, MC (izq.) y suma de los cuadrados de los residuos para cada par de valores <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>. En rojo, valores que la minimizan (der.).</figcaption>
 </figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Paraboloide de la suma de cuadrados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de <span class="math inline">\(X\)</span> sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.</p>
+</div>
 </div>
 </section>
 <section id="usando-las-fórmulas" class="level3 unnumbered">

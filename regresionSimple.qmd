@@ -89,15 +89,21 @@ Aquí texto
 
 ### Con fuerza bruta {.unnumbered}
 
-Podemos hacer una primera estimación de los coeficientes a ojo, y mediante un pequeño programa -o también usando una hoja de cálculo- realizar un barrido de la suma de los cuadrados de los residuos que se obtienen con valores de b0 y b1 en torno a los estimados, identificando el par de valores que minimiza esa suma de cuadrados.
+Podemos hacer una primera estimación de los coeficientes a ojo y a continuación, mediante un pequeño programa -o también usando una hoja de cálculo-, realizar un barrido de los valores de $b_0$ y $b_1$ en torno a los estimados, identidicando el par que minimiza la suma de los cuadrados de los residuos.
 
-Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
+Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas de los coeficientes o -mejor todavía- usar un paquete de software o una hoja de cálculo, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
 
-Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) y es inmediato deducir que $b_1$ = 5,71 y $b_0$ = 27,14. Sería mucha casualidad que esos fueran los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero seguramente no andarán muy lejos. Vamos a crear una malla de valores de $b_0$ y $b_1$. Los valores de b0 variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de b0 irán de 20 a 35 también en saltos de 0,1. Cada combinación de estos dos valroes corresponde a una recta, y a cada recta le corresponde una suma de los cuadrados de los residuos. Vamos a ver cual es el par de valores bo, b1 que minimiza la suma de los cuadrados de los residuos.
+Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). Hemos trazado la recta ajustada a ojo de manera que pasa por los puntos (-4,75; 0) y (5,75, 60) por lo que sus coeficientes son: $b_1$ = 5,71 y $b_0$ = 27,14. Sería mucha casualidad que esos fueran los valores exactos que estamos buscando, pero no andarán muy lejos. Vamos a crear una malla de valores de $b_0$ y $b_1$. Los valores de $b_0$ variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de $b_0$ irán de 20 a 35 también en saltos de 0,1. A cada combinación de esos dos valores corresponde a una recta, y a cada recta una suma de los cuadrados de los residuos. El par de valores que minimizan esa suma de cuadrados son: $b_0$ = 27,0 y $b_1$ = 4,8. Ver figura @fig-fuerzaBruta.
 
 ![Recta ajustada a ojo y por el método de los mínimos cuadrados, MC (izq.) y suma de los cuadrados de los residuos para cada par de valores $b_0$ y $b_1$. En rojo, valores que la minimizan (der.).](ScriptsR/coeficientesFuerzaBruta.png){#fig-fuerzaBruta fig-align="center" width="100%"}
 
-### Usando las fórmulas{.unnumbered}
+::: callout-note
+## Paraboloide de la suma de cuadrados
+
+Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de $X$ sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.
+:::
+
+### Usando las fórmulas {.unnumbered}
 
 Curiosidad con el redondeo
 
@@ -107,7 +113,7 @@ R2
 
 ## Las cosas se complican: Lo que tenemos es una muestra
 
-### Condiciones que deben reunir los datos{.unnumbered}
+### Condiciones que deben reunir los datos {.unnumbered}
 
 Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.
 
