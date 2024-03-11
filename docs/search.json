@@ -249,7 +249,7 @@
     "href": "regresionSimple.html#mínimos-cuadrados.-cálculo-de-los-coeficientes",
     "title": "11  Regresión Simple",
     "section": "11.3 Mínimos cuadrados. Cálculo de los coeficientes",
-    "text": "11.3 Mínimos cuadrados. Cálculo de los coeficientes\nAquí texto\n\nCon fuerza bruta\nPodemos hacer una primera estimación de los coeficientes a ojo, y mediante un pequeño programa -o también usando una hoja de cálculo- realizar un barrido de la suma de los cuadrados de los residuos que se obtienen con valores de b0 y b1 en torno a los estimados, identificando el par de valores que minimiza esa suma de cuadrados.\nNatrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.\nVayamos a los datos de la figura Figura 11.1 (que son también los de Figura 11.2). Ajustando a ojo hemos obtenido unos valores de b0 = ** y b1 = **. Sería mucha casualidad que esos fueran exactamente los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero también es verdad que seguramente no serán valores muy distintos de estos. Podemos crear una malla de valores de b0 y b1 y para cada de valores determinar la suma de los cuadrados de los residuos que se tienen con esa recta. Eligiremos el par de valores que minimizan esa suma.\n\n\n\nAquí descripción de la figura.\n\n\n\n\nUsando las expresiones de \\(b_0\\) y \\(b_1\\) que minimizan la suma de los cuadrados de los residuos\nCuriosidad con el redondeo\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "11.3 Mínimos cuadrados. Cálculo de los coeficientes\nAquí texto\n\nCon fuerza bruta\nPodemos hacer una primera estimación de los coeficientes a ojo, y mediante un pequeño programa -o también usando una hoja de cálculo- realizar un barrido de la suma de los cuadrados de los residuos que se obtienen con valores de b0 y b1 en torno a los estimados, identificando el par de valores que minimiza esa suma de cuadrados.\nNatrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.\nVayamos a los datos de la figura Figura 11.1 (que son también los de Figura 11.2). La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) y es inmediato deducir que \\(b_1\\) = 5,71 y \\(b_0\\) = 27,14. Sería mucha casualidad que esos fueran los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero seguramente no andarán muy lejos. Vamos a crear una malla de valores de \\(b_0\\) y \\(b_1\\). Los valores de b0 variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de b0 irán de 20 a 35 también en saltos de 0,1. Cada combinación de estos dos valroes corresponde a una recta, y a cada recta le corresponde una suma de los cuadrados de los residuos. Vamos a ver cual es el par de valores bo, b1 que minimiza la suma de los cuadrados de los residuos.\n\n\n\nFigura 11.5: Recta ajustada a ojo y por el método de los mínimos cuadrados, MC (izq.) y suma de los cuadrados de los residuos para cada par de valores \\(b_0\\) y \\(b_1\\). En rojo, valores que la minimizan (der.).\n\n\n\n\nUsando las fórmulas\nCuriosidad con el redondeo"
   },
   {
     "objectID": "regresionMultiple.html#necesidad-de-una-medida-de-relación",
@@ -271,5 +271,33 @@
     "title": "12  Regresión Múltiple",
     "section": "12.3 Coeficiente de correlación",
     "text": "12.3 Coeficiente de correlación\nEste sí se usa.\n\n12.3.1 De la covarianza al coeficiente de correlación\nDividir por el producto de las desviaciones típicas.\n\n\n12.3.2 Propiedades del coeficiente de correlación\nAcotado entre 0 y 1.\n\n\n12.3.3 Correlación no implica relación causa-efecto\n\n\n12.3.4 Correlación estadísticamente significativa\n\n\nCódigo\n1 + 1\n\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "regresionSimple.html#medida-de-calidad-del-ajuste",
+    "href": "regresionSimple.html#medida-de-calidad-del-ajuste",
+    "title": "11  Regresión Simple",
+    "section": "11.4 Medida de calidad del ajuste",
+    "text": "11.4 Medida de calidad del ajuste\nR2"
+  },
+  {
+    "objectID": "regresionSimple.html#lo-que-tenemos-es-una-muestra",
+    "href": "regresionSimple.html#lo-que-tenemos-es-una-muestra",
+    "title": "11  Regresión Simple",
+    "section": "11.5 Lo que tenemos es una muestra",
+    "text": "11.5 Lo que tenemos es una muestra\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "regresionSimple.html#las-cosas-se-complican-lo-que-tenemos-es-una-muestra",
+    "href": "regresionSimple.html#las-cosas-se-complican-lo-que-tenemos-es-una-muestra",
+    "title": "11  Regresión Simple",
+    "section": "11.5 Las cosas se complican: Lo que tenemos es una muestra",
+    "text": "11.5 Las cosas se complican: Lo que tenemos es una muestra\n\nCondiciones que deben reunir los datos\nCuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "regresionSimple.html#calidad-del-ajuste",
+    "href": "regresionSimple.html#calidad-del-ajuste",
+    "title": "11  Regresión Simple",
+    "section": "11.4 Calidad del ajuste",
+    "text": "11.4 Calidad del ajuste\nR2"
   }
 ]

@@ -93,12 +93,22 @@ Podemos hacer una primera estimación de los coeficientes a ojo, y mediante un p
 
 Natrualmente, es mucho más rápido y más práctico echar mano de las fórmulas para b0 y b1 o -mejor todavía- usar un paquete de software o una hoja de cálculo que los da de forma automática, pero hacerlo a mano permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
 
-Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). Ajustando a ojo hemos obtenido unos valores de b0 = \*\* y b1 = \*\*. Sería mucha casualidad que esos fueran exactamente los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero también es verdad que seguramente no serán valores muy distintos de estos. Podemos crear una malla de valores de b0 y b1 y para cada de valores determinar la suma de los cuadrados de los residuos que se tienen con esa recta. Eligiremos el par de valores que minimizan esa suma.
+Vayamos a los datos de la figura @fig-sumaCero (que son también los de @fig-Ishikawa). La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) y es inmediato deducir que $b_1$ = 5,71 y $b_0$ = 27,14. Sería mucha casualidad que esos fueran los valores de los coeficientes que minimizan la suma de los cuadrados de los residuos, pero seguramente no andarán muy lejos. Vamos a crear una malla de valores de $b_0$ y $b_1$. Los valores de b0 variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de b0 irán de 20 a 35 también en saltos de 0,1. Cada combinación de estos dos valroes corresponde a una recta, y a cada recta le corresponde una suma de los cuadrados de los residuos. Vamos a ver cual es el par de valores bo, b1 que minimiza la suma de los cuadrados de los residuos.
 
-![Aquí descripción de la figura.](ScriptsR/coeficientesFuerzaBruta.png){fig-align="center" width="100%"}
+![Recta ajustada a ojo y por el método de los mínimos cuadrados, MC (izq.) y suma de los cuadrados de los residuos para cada par de valores $b_0$ y $b_1$. En rojo, valores que la minimizan (der.).](ScriptsR/coeficientesFuerzaBruta.png){#fig-fuerzaBruta fig-align="center" width="100%"}
 
-### Usando las expresiones de $b_0$ y $b_1$ que minimizan la suma de los cuadrados de los residuos {.unnumbered}
+### Usando las fórmulas{.unnumbered}
 
 Curiosidad con el redondeo
+
+## Calidad del ajuste
+
+R2
+
+## Las cosas se complican: Lo que tenemos es una muestra
+
+### Condiciones que deben reunir los datos{.unnumbered}
+
+Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.
 
 See @knuth84 for additional discussion of literate programming.
