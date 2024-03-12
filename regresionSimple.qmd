@@ -105,6 +105,23 @@ Con los datos de nuestro ejemplo, la superficie que representa la suma de los cu
 
 ### Usando las fórmulas {.unnumbered}
 
+En el diagrama que representa la relación entre $X$ e $Y$ cada punto puede ser identificado por sus coordenadas $(x_i, y_i)$ con $1 \leq i \leq n$ siendo $n$ el número total de puntos.
+
+Cada uno de los puntos tiene un residuo asociado y ese residuo es la diferencia entre el valor real de $y$, es decir, $y_i$ y su valor estimado, el que estará sobre la recta y que será igual a $b_0 + b_1 x_i$. Por tanto, el valor del residuo asociado al punto $i$ lo podemos escribir de la forma:
+
+$$ y_i - \left( b_0 + b_1 x_i \right) $$
+Por tanto, la suma de los cuadrados de los residuos, $S$, será:
+
+$$ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 $$
+Tanto los valores de $y_i$ como los de $x_i$ vienen dados. La suma de cuadrados $S$ es función de los valores de $b_0$ y de $b_1$ y podemos escribir $S \left(b_0, b_1 \right )$ y se trata de hallar los valores de $b_0$ y de $b_1$ que minimizan la suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de $S \left(b_0, b_1 \right )$ respecto a $b_0$ y respecto a $b_1$ es igual a cero. También habrá que verificar que es un mínimo comprobando que la segunda derivada es un valor positivo.
+
+$$ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) = 0$$
+$$ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i = 0$$
+Igualando a cero estas expresiones:
+
+$$ \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) = 0 $$ {#eq-derivada_b0}
+
+
 Curiosidad con el redondeo
 
 ## Calidad del ajuste
