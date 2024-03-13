@@ -1,11 +1,7 @@
-# Los saltos son de 0.5 para b0 y de 0.2 para b1 porque de esta forma
-# la malla no aparece tan espesa.
-# El mínimo para b1 es 4.9 y no 4.8 como aparece si los saltos son de 0.2
-# En regresionFuerzaBruta2.R está con incrementos de 0.1 tanto para b0 como para b1.
 
 datos = read.csv2("regresionFuerzaBruta.csv")
 
-png("coeficientesFuerzaBruta.png", width=1800, height=950, res = 300)
+#png("coeficientesFuerzaBruta2.png", width=1800, height=950, res = 300)
 
 par(fig = c(0, 0.35, 0.3, 1), mar = c(1.5, 2, 1.6, 0.5), family = "serif")
 
@@ -27,16 +23,16 @@ legend(-6, 60, legend=c("A ojo", "MC"),
 #####################
 
 t = 0.85
-sumQ = matrix(rep(NA, 31*31), ncol=31)
-for (i in 1:31) {
-  b0 = 19.5 + 0.5*i
-  for (j in 1:31) {
-    b1 = 1.8 + 0.2*j
+sumQ = matrix(rep(NA, 151*61), ncol=61)
+for (i in 1:151) {
+  b0 = 19.9 + 0.1*i
+  for (j in 1:61) {
+    b1 = 1.9 + 0.1*j
     sumQ[i, j] = sum((datos$Y - (b0 + b1*datos$X))^2)
   }
 }
-b0 = seq(20, 35, by=0.5)
-b1 = seq(2, 8, by=0.2)
+b0 = seq(20, 35, by=0.1)
+b1 = seq(2, 8, by=0.1)
 
 par(fig = c(0.4, 1, 0, 1), mar = c(0.3, 0, 1, 0), new = TRUE)
 
@@ -56,9 +52,8 @@ for (i in seq_along(lines)) {
   lines(trans3d(segment$x, segment$y, bottom, trans))
 }
 m = which(sumQ == min(sumQ), arr.ind = TRUE)
-b0min = 19.5 + 0.5*m[1]
-#b1min = 1.8 + 0.2*m[2]
-b1min = 4.9
+b0min = 19.9 + 0.1*m[1]
+b1min = 1.9 + 0.1*m[2]
 lines(trans3d(b0min, seq(2, b1min, by=0.1),  z = 0, trans), col ="red", lty = 2)
 lines(trans3d(b0min:35, b1min, z = 0, trans), col ="red", lty = 2)
 
@@ -83,8 +78,7 @@ a = as.character(round(b0min,1))
 d = "27.0" # para que salga el ,0
 text(trans3d(27, 1.5, 0,trans), d, col = "red", cex = t)
 b = as.character(b1min)
-#text(trans3d(36, 4.8, 0,trans), b, col = "red", cex = t)
-text(trans3d(36, 4.9, 0,trans), b, col = "red", cex = t)
+text(trans3d(36, 4.8, 0,trans), b, col = "red", cex = t)
 
 a1 = as.character(20)
 a2 = as.character(25)
@@ -102,9 +96,6 @@ text(trans3d(30, 1.6, 0,trans), a3, col = "black", cex = t)
 
 lines(trans3d(35, seq(1.9, 2, by=0.1),  z = 0, trans), col ="black")
 text(trans3d(35, 1.6, 0,trans), a4, col = "black", cex = t, xpd = NA)
-
-
-
 
 ###############
 
@@ -138,6 +129,6 @@ for (i in 1:5) {
   text(trans3d(20, 1.3, i*500, trans), cc[i], col = "black", xpd = NA, cex = t)
 }
 
-dev.off()
+#dev.off()
 
 #Ref: https://stackoverflow.com/questions/77900826/how-can-i-add-contour-lines-to-a-3d-plot-built-with-persp

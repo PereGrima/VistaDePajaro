@@ -168,16 +168,6 @@ Calculando los coeficientes que corresponden a los datos de la figura [-@fig-fue
 
 
 $$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$
-redondeando estos resultados con un solo decimal, el valor de $b_0$ queda igual a 27,0 que es el valor que habíamos obtenido por el método que hemos denominado "fuerza bruta", pero $b_1$ queda igual a 4,9 y antes nos había salido 4,8. ¿Por qué?
-
-
-::: callout-note
-## Curiosidad sobre el redondeo de los coeficientes del modelo
-
-De la anterior expresón para $b_0$ también se decude que $\bar{y} = b_0 + b_1\bar{x}$. Es decir, la recta ajustada minimizando la suma de los cuadrados de los residuos siempre pasa por el punto $(\bar{x}, \bar{y})$ .
-:::
-
-
 
 
 ## Calidad del ajuste
