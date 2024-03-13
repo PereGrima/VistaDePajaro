@@ -484,9 +484,58 @@ Paraboloide de la suma de cuadrados
 <p>Cada uno de los puntos tiene un residuo asociado y ese residuo es la diferencia entre el valor real de <span class="math inline">\(y\)</span>, es decir, <span class="math inline">\(y_i\)</span> y su valor estimado, el que estará sobre la recta y que será igual a <span class="math inline">\(b_0 + b_1 x_i\)</span>. Por tanto, el valor del residuo asociado al punto <span class="math inline">\(i\)</span> lo podemos escribir de la forma:</p>
 <p><span class="math display">\[ y_i - \left( b_0 + b_1 x_i \right) \]</span> Por tanto, la suma de los cuadrados de los residuos, <span class="math inline">\(S\)</span>, será:</p>
 <p><span class="math display">\[ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 \]</span> Tanto los valores de <span class="math inline">\(y_i\)</span> como los de <span class="math inline">\(x_i\)</span> vienen dados. La suma de cuadrados <span class="math inline">\(S\)</span> es función de los valores de <span class="math inline">\(b_0\)</span> y de <span class="math inline">\(b_1\)</span> y podemos escribir <span class="math inline">\(S \left(b_0, b_1 \right )\)</span> y se trata de hallar los valores de <span class="math inline">\(b_0\)</span> y de <span class="math inline">\(b_1\)</span> que minimizan la suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de <span class="math inline">\(S \left(b_0, b_1 \right )\)</span> respecto a <span class="math inline">\(b_0\)</span> y respecto a <span class="math inline">\(b_1\)</span> es igual a cero. También habrá que verificar que es un mínimo comprobando que la segunda derivada es un valor positivo.</p>
-<p><span class="math display">\[ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) = 0\]</span> <span class="math display">\[ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i = 0\]</span> Igualando a cero estas expresiones:</p>
-<p><span id="eq-derivada_b0"><span class="math display">\[ \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) = 0  \tag{11.1}\]</span></span></p>
-<p>Curiosidad con el redondeo</p>
+<p><span class="math display">\[ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) \]</span> <span class="math display">\[ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i \]</span> Igualando a cero estas expresiones:</p>
+<p><span id="eq-derivada_b0"><span class="math display">\[ \sum_{í=1}^n y_i - nb_0 - b_1 \sum_{í=1}^n x_i = 0  \tag{11.1}\]</span></span></p>
+<p><span id="eq-derivada_b1"><span class="math display">\[ \sum_{í=1}^n x_i y_i - b_0 \sum_{í=1}^n x_i - b_1 \sum_{í=1}^n  x_i^2  = 0  \tag{11.2}\]</span></span></p>
+<p>Dividiendo por <span class="math inline">\(n\)</span> todos los términos de la ecuación <a href="#eq-derivada_b0"><span>11.1</span></a> tenemos:</p>
+<p><span class="math display">\[ b_0 = \bar{y} - b_1 \bar{x} \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y})\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De la anterior expresón para <span class="math inline">\(b_0\)</span> también se decude que <span class="math inline">\(\bar{y} = b_0 + b_1\bar{x}\)</span>. Es decir, la recta ajustada minimizando la suma de los cuadrados de los residuos siempre pasa por el punto <span class="math inline">\((\bar{x}, \bar{y})\)</span> .</p>
+</div>
+</div>
+<p>Sustituyendo la expresión de <span class="math inline">\(b_0\)</span> en la ecuación <a href="#eq-derivada_b1"><span>11.2</span></a> tenemos:</p>
+<p><span class="math display">\[ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 \]</span> Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span>. Despejando <span class="math inline">\(b_1\)</span> llegamos a:</p>
+<p><span class="math display">\[ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} \]</span> También la expresión de <span class="math inline">\(b_1\)</span> se suele dar de la forma:</p>
+<p><span id="eq-expresion_b1"><span class="math display">\[ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}  \tag{11.3}\]</span></span> Las dos expresiones son equivalentes ya que en el numerador:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})(y_i - \bar{y}) &amp;= \sum x_i y_i - \bar{x} \sum y_i - \bar{y} \sum x_i + n\bar{x}\bar{y} =\\\\
+                                    &amp;= \sum x_i y_i -2n\bar{x}\bar{y} + n\bar{x}\bar{y} =\\\\
+                                    &amp;= \sum x_i y_i -n\bar{x}\bar{y} = \sum x_i y_i - \bar{y} \sum x_i
+\end{split}
+\end{equation}\]</span></p>
+<p>y en el denominador:</p>
+<p><span class="math display">\[\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})^2 &amp;= \sum x_i^2 - 2 \bar{x} \sum x_i + n \bar{x}^2 =\\\\
+                                    &amp;= \sum x_i^2 -n\bar{x}^2 = \sum x_i^2 - \bar{x} \sum x_i
+\end{split}
+\end{equation}\]</span></p>
+<p>Finalmente, a partir de la ecuación <a href="#eq-expresion_b1"><span>11.3</span></a> y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:</p>
+<p><span class="math display">\[ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} \]</span> Calculando los coeficientes que corresponden a los datos de la figura <a href="#fig-fuerzaBruta"><span>11.5</span></a> se obtiene:</p>
+<p><span class="math display">\[ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 \]</span> redondeando estos resultados con un solo decimal, el valor de <span class="math inline">\(b_0\)</span> queda igual a 27,0 que es el valor que habíamos obtenido por el método que hemos denominado “fuerza bruta”, pero <span class="math inline">\(b_1\)</span> queda igual a 4,9 y antes nos había salido 4,8. ¿Por qué?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Curiosidad sobre el redondeo de los coeficientes del modelo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De la anterior expresón para <span class="math inline">\(b_0\)</span> también se decude que <span class="math inline">\(\bar{y} = b_0 + b_1\bar{x}\)</span>. Es decir, la recta ajustada minimizando la suma de los cuadrados de los residuos siempre pasa por el punto <span class="math inline">\((\bar{x}, \bar{y})\)</span> .</p>
+</div>
+</div>
 </section>
 </section>
 <section id="calidad-del-ajuste" class="level2" data-number="11.4">

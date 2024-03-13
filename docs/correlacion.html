@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Estadística a vista de pájaro - 9&nbsp; Correlación</title>
+<title>Estadística a vista de pájaro - 10&nbsp; Correlación</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./regresion.html" rel="next">
+<link href="./regresionSimple.html" rel="next">
 <link href="./Parte_Corre_Regre.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -114,8 +114,10 @@ div.csl-indent {
     "search-label": "Buscar"
   }
 }</script>
+<script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -127,7 +129,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./correlacion.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlación</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./correlacion.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlación</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,6 +160,12 @@ div.csl-indent {
  <span class="menu-text">Presentación</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conceptosGenerales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Conceptos generales</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Parte_Descriptiva.html" class="sidebar-item-text sidebar-link">
@@ -170,13 +178,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sintesisNumerica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./graficos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representaciones gráficas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Representaciones gráficas</span></span></a>
   </div>
 </li>
       </ul>
@@ -193,13 +201,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variablesAleatorias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distribucionesProbabilidad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
   </div>
 </li>
       </ul>
@@ -216,13 +224,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Proporciones.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tamañoPoblacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
   </div>
 </li>
       </ul>
@@ -239,13 +247,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./floresAspirina.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./duracionPilas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regresión</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regresión</span></span></a>
   </div>
 </li>
       </ul>
@@ -262,13 +270,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./correlacion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlación</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlación</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regresion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regresión</span></span></a>
+  <a href="./regresionSimple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regresionMultiple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,18 +303,18 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#necesidad-de-una-medida-de-relación" id="toc-necesidad-de-una-medida-de-relación" class="nav-link active" data-scroll-target="#necesidad-de-una-medida-de-relación"><span class="header-section-number">9.1</span> Necesidad de una medida de relación</a></li>
-  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">9.2</span> Covarianza</a>
+  <li><a href="#necesidad-de-una-medida-de-relación" id="toc-necesidad-de-una-medida-de-relación" class="nav-link active" data-scroll-target="#necesidad-de-una-medida-de-relación"><span class="header-section-number">10.1</span> Necesidad de una medida de relación</a></li>
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">10.2</span> Covarianza</a>
   <ul class="collapse">
-  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula"><span class="header-section-number">9.2.1</span> Deducción de la fórmula</a></li>
-  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades"><span class="header-section-number">9.2.2</span> Propiedades</a></li>
+  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula"><span class="header-section-number">10.2.1</span> Deducción de la fórmula</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades"><span class="header-section-number">10.2.2</span> Propiedades</a></li>
   </ul></li>
-  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">9.3</span> Coeficiente de correlación</a>
+  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">10.3</span> Coeficiente de correlación</a>
   <ul class="collapse">
-  <li><a href="#de-la-covarianza-al-coeficiente-de-correlación" id="toc-de-la-covarianza-al-coeficiente-de-correlación" class="nav-link" data-scroll-target="#de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">9.3.1</span> De la covarianza al coeficiente de correlación</a></li>
-  <li><a href="#propiedades-del-coeficiente-de-correlación" id="toc-propiedades-del-coeficiente-de-correlación" class="nav-link" data-scroll-target="#propiedades-del-coeficiente-de-correlación"><span class="header-section-number">9.3.2</span> Propiedades del coeficiente de correlación</a></li>
-  <li><a href="#correlación-no-implica-relación-causa-efecto" id="toc-correlación-no-implica-relación-causa-efecto" class="nav-link" data-scroll-target="#correlación-no-implica-relación-causa-efecto"><span class="header-section-number">9.3.3</span> Correlación no implica relación causa-efecto</a></li>
-  <li><a href="#correlación-estadísticamente-significativa" id="toc-correlación-estadísticamente-significativa" class="nav-link" data-scroll-target="#correlación-estadísticamente-significativa"><span class="header-section-number">9.3.4</span> Correlación estadísticamente significativa</a></li>
+  <li><a href="#de-la-covarianza-al-coeficiente-de-correlación" id="toc-de-la-covarianza-al-coeficiente-de-correlación" class="nav-link" data-scroll-target="#de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">10.3.1</span> De la covarianza al coeficiente de correlación</a></li>
+  <li><a href="#propiedades-del-coeficiente-de-correlación" id="toc-propiedades-del-coeficiente-de-correlación" class="nav-link" data-scroll-target="#propiedades-del-coeficiente-de-correlación"><span class="header-section-number">10.3.2</span> Propiedades del coeficiente de correlación</a></li>
+  <li><a href="#correlación-no-implica-relación-causa-efecto" id="toc-correlación-no-implica-relación-causa-efecto" class="nav-link" data-scroll-target="#correlación-no-implica-relación-causa-efecto"><span class="header-section-number">10.3.3</span> Correlación no implica relación causa-efecto</a></li>
+  <li><a href="#correlación-estadísticamente-significativa" id="toc-correlación-estadísticamente-significativa" class="nav-link" data-scroll-target="#correlación-estadísticamente-significativa"><span class="header-section-number">10.3.4</span> Correlación estadísticamente significativa</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -310,7 +324,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlación</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Correlación</span></h1>
 </div>
 
 
@@ -326,40 +340,43 @@ div.csl-indent {
 </header>
 
 <p>This is a book created from markdown and executable code.</p>
-<section id="necesidad-de-una-medida-de-relación" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="necesidad-de-una-medida-de-relación"><span class="header-section-number">9.1</span> Necesidad de una medida de relación</h2>
+<section id="necesidad-de-una-medida-de-relación" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="necesidad-de-una-medida-de-relación"><span class="header-section-number">10.1</span> Necesidad de una medida de relación</h2>
 <p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
 </section>
-<section id="covarianza" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">9.2</span> Covarianza</h2>
+<section id="covarianza" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">10.2</span> Covarianza</h2>
 <p>Con mucho protagonismo en la explicación del comportamiento de variables aleatorias a nivel teórico, pero prácticamente no se usa para cuantificar la relación de dos variables a partir de dos conjuntos de datos.</p>
-<section id="deducción-de-la-fórmula" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="deducción-de-la-fórmula"><span class="header-section-number">9.2.1</span> Deducción de la fórmula</h3>
+<section id="deducción-de-la-fórmula" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="deducción-de-la-fórmula"><span class="header-section-number">10.2.1</span> Deducción de la fórmula</h3>
 <p>Aquí deducción de la fórmula</p>
 </section>
-<section id="propiedades" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="propiedades"><span class="header-section-number">9.2.2</span> Propiedades</h3>
+<section id="propiedades" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="propiedades"><span class="header-section-number">10.2.2</span> Propiedades</h3>
 <p>Aquí propiedades</p>
 </section>
 </section>
-<section id="coeficiente-de-correlación" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">9.3</span> Coeficiente de correlación</h2>
+<section id="coeficiente-de-correlación" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">10.3</span> Coeficiente de correlación</h2>
 <p>Este sí se usa.</p>
-<section id="de-la-covarianza-al-coeficiente-de-correlación" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">9.3.1</span> De la covarianza al coeficiente de correlación</h3>
+<section id="de-la-covarianza-al-coeficiente-de-correlación" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="de-la-covarianza-al-coeficiente-de-correlación"><span class="header-section-number">10.3.1</span> De la covarianza al coeficiente de correlación</h3>
 <p>Dividir por el producto de las desviaciones típicas.</p>
 </section>
-<section id="propiedades-del-coeficiente-de-correlación" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="propiedades-del-coeficiente-de-correlación"><span class="header-section-number">9.3.2</span> Propiedades del coeficiente de correlación</h3>
+<section id="propiedades-del-coeficiente-de-correlación" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="propiedades-del-coeficiente-de-correlación"><span class="header-section-number">10.3.2</span> Propiedades del coeficiente de correlación</h3>
 <p>Acotado entre 0 y 1.</p>
 </section>
-<section id="correlación-no-implica-relación-causa-efecto" class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="correlación-no-implica-relación-causa-efecto"><span class="header-section-number">9.3.3</span> Correlación no implica relación causa-efecto</h3>
+<section id="correlación-no-implica-relación-causa-efecto" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="correlación-no-implica-relación-causa-efecto"><span class="header-section-number">10.3.3</span> Correlación no implica relación causa-efecto</h3>
 </section>
-<section id="correlación-estadísticamente-significativa" class="level3" data-number="9.3.4">
-<h3 data-number="9.3.4" class="anchored" data-anchor-id="correlación-estadísticamente-significativa"><span class="header-section-number">9.3.4</span> Correlación estadísticamente significativa</h3>
+<section id="correlación-estadísticamente-significativa" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="correlación-estadísticamente-significativa"><span class="header-section-number">10.3.4</span> Correlación estadísticamente significativa</h3>
 <div class="cell">
+<details>
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -615,8 +632,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./regresion.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regresión</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./regresionSimple.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
