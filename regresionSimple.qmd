@@ -109,15 +109,11 @@ En el diagrama que representa la relación entre $X$ e $Y$ cada punto puede ser 
 
 Cada uno de los puntos tiene un residuo asociado y ese residuo es la diferencia entre el valor real de $y$, es decir, $y_i$ y su valor estimado, el que estará sobre la recta y que será igual a $b_0 + b_1 x_i$. Por tanto, el valor del residuo asociado al punto $i$ lo podemos escribir de la forma:
 
-$$ y_i - \left( b_0 + b_1 x_i \right) $$
-Por tanto, la suma de los cuadrados de los residuos, $S$, será:
+$$ y_i - \left( b_0 + b_1 x_i \right) $$ Por tanto, la suma de los cuadrados de los residuos, $S$, será:
 
-$$ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 $$
-Tanto los valores de $y_i$ como los de $x_i$ vienen dados. La suma de cuadrados $S$ es función de los valores de $b_0$ y de $b_1$ y podemos escribir $S \left(b_0, b_1 \right )$ y se trata de hallar los valores de $b_0$ y de $b_1$ que minimizan la suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de $S \left(b_0, b_1 \right )$ respecto a $b_0$ y respecto a $b_1$ es igual a cero. También habrá que verificar que es un mínimo comprobando que la segunda derivada es un valor positivo.
+$$ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 $$ Tanto los valores de $y_i$ como los de $x_i$ vienen dados. La suma de cuadrados $S$ es función de los valores de $b_0$ y de $b_1$ y podemos escribir $S \left(b_0, b_1 \right )$ y se trata de hallar los valores de $b_0$ y de $b_1$ que minimizan la suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de $S \left(b_0, b_1 \right )$ respecto a $b_0$ y respecto a $b_1$ es igual a cero. También habrá que verificar que es un mínimo comprobando que la segunda derivada es un valor positivo.
 
-$$ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) $$
-$$ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i $$
-Igualando a cero estas expresiones:
+$$ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) $$ $$ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i $$ Igualando a cero estas expresiones:
 
 $$ \sum_{í=1}^n y_i - nb_0 - b_1 \sum_{í=1}^n x_i = 0 $$ {#eq-derivada_b0}
 
@@ -135,15 +131,13 @@ De la anterior expresón para $b_0$ también se decude que $\bar{y} = b_0 + b_1\
 
 Sustituyendo la expresión de $b_0$ en la ecuación [-@eq-derivada_b1] tenemos:
 
-$$ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 $$
-Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde $i=1$ hasta $n$. Despejando $b_1$ llegamos a:
+$$ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 $$ Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde $i=1$ hasta $n$. Despejando $b_1$ llegamos a:
 
-$$ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} $$
-También la expresión de $b_1$ se suele dar de la forma:
+$$ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} $$ También la expresión de $b_1$ se suele dar de la forma:
 
-$$ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} $$ {#eq-expresion_b1}
-Las dos expresiones son equivalentes ya que en el numerador:
+$$ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} $$ {#eq-expresion_b1} Las dos expresiones son equivalentes ya que en el numerador:
 
+```{=tex}
 \begin{equation}
 \begin{split}
 \sum (x_i - \bar{x})(y_i - \bar{y}) &= \sum x_i y_i - \bar{x} \sum y_i - \bar{y} \sum x_i + n\bar{x}\bar{y} =\\\\
@@ -151,28 +145,36 @@ Las dos expresiones son equivalentes ya que en el numerador:
                                     &= \sum x_i y_i -n\bar{x}\bar{y} = \sum x_i y_i - \bar{y} \sum x_i
 \end{split}
 \end{equation}
-
+```
 y en el denominador:
 
+```{=tex}
 \begin{equation}
 \begin{split}
 \sum (x_i - \bar{x})^2 &= \sum x_i^2 - 2 \bar{x} \sum x_i + n \bar{x}^2 =\\\\
                                     &= \sum x_i^2 -n\bar{x}^2 = \sum x_i^2 - \bar{x} \sum x_i
 \end{split}
 \end{equation}
-
+```
 Finalmente, a partir de la ecuación [-@eq-expresion_b1] y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:
 
-$$ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} $$
-Calculando los coeficientes que corresponden a los datos de la figura [-@fig-fuerzaBruta] se obtiene: 
-
+$$ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} $$ Calculando los coeficientes que corresponden a los datos de la figura [-@fig-fuerzaBruta] se obtiene:
 
 $$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$
 
-
 ## Calidad del ajuste
 
-R2
+R2 ![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/ArbolMano.png){fig-align="center" width="100%"}
+
+::: callout-note
+## Caso particular: Recta por el origen
+
+Aquí texto.
+:::
+
+## Relación polinómica entre $x$ e $y$
+
+texto
 
 ## Las cosas se complican: Lo que tenemos es una muestra
 

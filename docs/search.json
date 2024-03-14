@@ -290,14 +290,21 @@
     "objectID": "regresionSimple.html#las-cosas-se-complican-lo-que-tenemos-es-una-muestra",
     "href": "regresionSimple.html#las-cosas-se-complican-lo-que-tenemos-es-una-muestra",
     "title": "11  Regresión Simple",
-    "section": "11.5 Las cosas se complican: Lo que tenemos es una muestra",
-    "text": "11.5 Las cosas se complican: Lo que tenemos es una muestra\n\nCondiciones que deben reunir los datos\nCuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+    "section": "11.6 Las cosas se complican: Lo que tenemos es una muestra",
+    "text": "11.6 Las cosas se complican: Lo que tenemos es una muestra\n\nCondiciones que deben reunir los datos\nCuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
     "objectID": "regresionSimple.html#calidad-del-ajuste",
     "href": "regresionSimple.html#calidad-del-ajuste",
     "title": "11  Regresión Simple",
     "section": "11.4 Calidad del ajuste",
-    "text": "11.4 Calidad del ajuste\nR2"
+    "text": "11.4 Calidad del ajuste\nR2 \n\n\n\n\n\n\nCaso particular: Recta por el origen\n\n\n\nAquí texto."
+  },
+  {
+    "objectID": "regresionSimple.html#relación-polinómica-entre-x-e-y",
+    "href": "regresionSimple.html#relación-polinómica-entre-x-e-y",
+    "title": "11  Regresión Simple",
+    "section": "11.5 Relación polinómica entre \\(x\\) e \\(y\\)",
+    "text": "11.5 Relación polinómica entre \\(x\\) e \\(y\\)\ntexto"
   }
 ]

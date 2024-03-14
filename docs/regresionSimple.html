@@ -286,7 +286,8 @@ div.csl-indent {
   <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
   </ul></li>
   <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</a></li>
-  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.5</span> Las cosas se complican: Lo que tenemos es una muestra</a>
+  <li><a href="#relación-polinómica-entre-x-e-y" id="toc-relación-polinómica-entre-x-e-y" class="nav-link" data-scroll-target="#relación-polinómica-entre-x-e-y"><span class="header-section-number">11.5</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></a></li>
+  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
   <ul class="collapse">
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
   </ul></li>
@@ -506,20 +507,20 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 <p><span class="math display">\[ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 \]</span> Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span>. Despejando <span class="math inline">\(b_1\)</span> llegamos a:</p>
 <p><span class="math display">\[ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} \]</span> También la expresión de <span class="math inline">\(b_1\)</span> se suele dar de la forma:</p>
 <p><span id="eq-expresion_b1"><span class="math display">\[ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}  \tag{11.3}\]</span></span> Las dos expresiones son equivalentes ya que en el numerador:</p>
-<p><span class="math display">\[\begin{equation}
+<span class="math display">\[\begin{equation}
 \begin{split}
 \sum (x_i - \bar{x})(y_i - \bar{y}) &amp;= \sum x_i y_i - \bar{x} \sum y_i - \bar{y} \sum x_i + n\bar{x}\bar{y} =\\\\
                                     &amp;= \sum x_i y_i -2n\bar{x}\bar{y} + n\bar{x}\bar{y} =\\\\
                                     &amp;= \sum x_i y_i -n\bar{x}\bar{y} = \sum x_i y_i - \bar{y} \sum x_i
 \end{split}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>y en el denominador:</p>
-<p><span class="math display">\[\begin{equation}
+<span class="math display">\[\begin{equation}
 \begin{split}
 \sum (x_i - \bar{x})^2 &amp;= \sum x_i^2 - 2 \bar{x} \sum x_i + n \bar{x}^2 =\\\\
                                     &amp;= \sum x_i^2 -n\bar{x}^2 = \sum x_i^2 - \bar{x} \sum x_i
 \end{split}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>Finalmente, a partir de la ecuación <a href="#eq-expresion_b1"><span>11.3</span></a> y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:</p>
 <p><span class="math display">\[ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} \]</span> Calculando los coeficientes que corresponden a los datos de la figura <a href="#fig-fuerzaBruta"><span>11.5</span></a> se obtiene:</p>
 <p><span class="math display">\[ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 \]</span></p>
@@ -527,10 +528,27 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </section>
 <section id="calidad-del-ajuste" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</h2>
-<p>R2</p>
+<p>R2 <img src="ScriptsR/ArbolMano.png" class="img-fluid" style="width:100.0%" data-fig-align="center" alt="Múltiples opciones para minimizar la suma de los residuos en valor absoluto."></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caso particular: Recta por el origen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí texto.</p>
+</div>
+</div>
 </section>
-<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.5</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
+<section id="relación-polinómica-entre-x-e-y" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="relación-polinómica-entre-x-e-y"><span class="header-section-number">11.5</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></h2>
+<p>texto</p>
+</section>
+<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
 <section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.</p>
