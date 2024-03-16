@@ -164,7 +164,19 @@ $$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$
 
 ## Calidad del ajuste
 
-R2 ![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/ArbolMano.png){fig-align="center" width="100%"}
+Observe los siguientes modelos ajustados:
+
+$$ y = -36,94 + 5.066 X $$
+$$ y = 79.23 - 1.367 X $$
+¿Cuál le parece más util para explicar la relación entre las dos varibles? SOlo a la vista del modelo ajustado es imposible saber si ese modelo representa la relación entre las variables consideradas o si no sirve para nada porque entre esas variables no hay ninguna relación.
+
+En gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de arbol y el volumen de madera que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera se obtiene (tal como era de esperar) y la ecuación obtenido es útil para estimar el volumen de madera que se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 .
+
+
+
+![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/ArbolMano.png){#fig-ArbolMano fig-align="center" width="100%"}
+
+
 
 ::: callout-note
 ## Caso particular: Recta por el origen
@@ -181,5 +193,11 @@ texto
 ### Condiciones que deben reunir los datos {.unnumbered}
 
 Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.
+
+### References
+
+::: {#refs}
+:::
+
 
 See @knuth84 for additional discussion of literate programming.

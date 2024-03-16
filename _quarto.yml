@@ -42,7 +42,14 @@ book:
         - regresionMultiple.qmd
         - references.qmd
 
-bibliography: references.bib
+# Referencias
+biblio-title: "Referencias"
+link-citations: true
+link-bibliography: true
+cite-method: citeproc         # Solo PDF
+biblio-style: 'authoryear'    # Solo PDF
+citations-hover: true         # Solo HTML
+bibliography: references.bib 
 
 # Fuentes ----------------------------
 mainfont: Calibri

@@ -291,14 +291,14 @@
     "href": "regresionSimple.html#las-cosas-se-complican-lo-que-tenemos-es-una-muestra",
     "title": "11  Regresión Simple",
     "section": "11.6 Las cosas se complican: Lo que tenemos es una muestra",
-    "text": "11.6 Las cosas se complican: Lo que tenemos es una muestra\n\nCondiciones que deben reunir los datos\nCuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "11.6 Las cosas se complican: Lo que tenemos es una muestra\n\nCondiciones que deben reunir los datos\nCuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.\n\n\n11.6.1 References\n\n\nDraper, N. R., and H. Smith. 1998. Applied Regression Analysis.\n3rd ed. USA: John Wiley & Sons, Inc.\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nWilson, M. E., and L. E. Mather. 1974. “Lefe Expectancy.”\nJournal of the American Medical Association 229 (11): 1421–22.\n\n\nWolfram_Data_Repository. 2016. Sample Data: Black Cherry Trees. https://doi.org/10.24097/wolfram.76288.data.\n\n\nSee Knuth (1984) for additional discussion of literate programming."
   },
   {
     "objectID": "regresionSimple.html#calidad-del-ajuste",
     "href": "regresionSimple.html#calidad-del-ajuste",
     "title": "11  Regresión Simple",
     "section": "11.4 Calidad del ajuste",
-    "text": "11.4 Calidad del ajuste\nR2 \n\n\n\n\n\n\nCaso particular: Recta por el origen\n\n\n\nAquí texto."
+    "text": "11.4 Calidad del ajuste\nObserve los siguientes modelos ajustados:\n\\[ y = -36,94 + 5.066 X \\] \\[ y = 79.23 - 1.367 X \\] ¿Cuál le parece más util para explicar la relación entre las dos varibles? SOlo a la vista del modelo ajustado es imposible saber si ese modelo representa la relación entre las variables consideradas o si no sirve para nada porque entre esas variables no hay ninguna relación.\nEn gráfico de la izquierda de la figura 11.6 muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de arbol y el volumen de madera que se puede obtener de ellos (Fuente: Wolfram_Data_Repository 2016). Se observa que a más circunferencia mayor volumen de madera se obtiene (tal como era de esperar) y la ecuación obtenido es útil para estimar el volumen de madera que se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por Wilson y Mather (1974) citado por Draper y Smith (1998) .\n\n\n\nFigura 11.6: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.\n\n\n\n\n\n\n\n\nCaso particular: Recta por el origen\n\n\n\nAquí texto."
   },
   {
     "objectID": "regresionSimple.html#relación-polinómica-entre-x-e-y",

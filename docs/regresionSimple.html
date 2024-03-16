@@ -290,6 +290,7 @@ div.csl-indent {
   <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
   <ul class="collapse">
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.6.1</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -528,7 +529,15 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </section>
 <section id="calidad-del-ajuste" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</h2>
-<p>R2 <img src="ScriptsR/ArbolMano.png" class="img-fluid" style="width:100.0%" data-fig-align="center" alt="Múltiples opciones para minimizar la suma de los residuos en valor absoluto."></p>
+<p>Observe los siguientes modelos ajustados:</p>
+<p><span class="math display">\[ y = -36,94 + 5.066 X \]</span> <span class="math display">\[ y = 79.23 - 1.367 X \]</span> ¿Cuál le parece más util para explicar la relación entre las dos varibles? SOlo a la vista del modelo ajustado es imposible saber si ese modelo representa la relación entre las variables consideradas o si no sirve para nada porque entre esas variables no hay ninguna relación.</p>
+<p>En gráfico de la izquierda de la figura <a href="#fig-ArbolMano"><span>11.6</span></a> muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de arbol y el volumen de madera que se puede obtener de ellos <span class="citation" data-cites="WolframData2016">(Fuente: <a href="regresionSimple.html#ref-WolframData2016" role="doc-biblioref">Wolfram_Data_Repository 2016</a>)</span>. Se observa que a más circunferencia mayor volumen de madera se obtiene (tal como era de esperar) y la ecuación obtenido es útil para estimar el volumen de madera que se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por <span class="citation" data-cites="Wilson74">Wilson y Mather (<a href="regresionSimple.html#ref-Wilson74" role="doc-biblioref">1974</a>)</span> citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="regresionSimple.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> .</p>
+<div id="fig-ArbolMano" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/ArbolMano.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.6: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -552,14 +561,29 @@ Caso particular: Recta por el origen
 <section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+</section>
+<section id="references" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.6.1</span> References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Draper98" class="csl-entry" role="listitem">
+Draper, N. R., and H. Smith. 1998. <em>Applied Regression Analysis</em>.
+3rd ed. USA: John Wiley &amp; Sons, Inc.
+</div>
 <div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>«Literate Programming»</span>. <em>Comput. J.</em> 27 (2): 97-111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput.
+J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-Wilson74" class="csl-entry" role="listitem">
+Wilson, M. E., and L. E. Mather. 1974. <span>“Lefe Expectancy.”</span>
+<em>Journal of the American Medical Association</em> 229 (11): 1421–22.
+</div>
+<div id="ref-WolframData2016" class="csl-entry" role="listitem">
+Wolfram_Data_Repository. 2016. Sample Data: Black Cherry Trees. <a href="https://doi.org/10.24097/wolfram.76288.data">https://doi.org/10.24097/wolfram.76288.data</a>.
 </div>
 </div>
+<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="regresionSimple.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+
+
 </section>
 </section>
 
