@@ -168,14 +168,65 @@ Observe los siguientes modelos ajustados:
 
 $$ y = -36,94 + 5.066 X $$
 $$ y = 79.23 - 1.367 X $$
-¿Cuál le parece más util para explicar la relación entre las dos varibles? SOlo a la vista del modelo ajustado es imposible saber si ese modelo representa la relación entre las variables consideradas o si no sirve para nada porque entre esas variables no hay ninguna relación.
+¿Cuál le parece más util para explicar la relación entre las dos varibles? Solo a la vista del modelo ajustado es imposible saber si ese modelo representa la relación entre las variables consideradas o si no sirve para nada porque entre esas variables no hay ninguna relación.
 
-En gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de arbol y el volumen de madera que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera se obtiene (tal como era de esperar) y la ecuación obtenido es útil para estimar el volumen de madera que se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 .
-
-
+En gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de arbol y el volumen de madera que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera se obtiene (tal como era de esperar) y la ecuación obtenido es útil para estimar el volumen de madera que se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 donde -a partir de una muestra de 50 difuntos- se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables y el modelo ajustado no seirve absolutamente para nada. Pero los dos modelos tienen exactamente el mismo aspecto y solo a la vista de su expresión es imposible saber cual de los dos es útil.
 
 ![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/ArbolMano.png){#fig-ArbolMano fig-align="center" width="100%"}
 
+Hace falta, por tanto, completar el modelo con una medida que informe sobre la bondad del ajuste y esa medida es el coeficiente de determinación $R^2$.
+
+Para calcular el valor de $R^2$ en primer lugar nos ponemos en el peor de los casos: $X$ no tiene ninguna relación con $Y$ y, por tanto, Y no depende del valor de X y la recta más adecuada en este caso sería una recta horizontal que pase por el punto ybarra ya que en ausencia de cualquier otro tipo de información, ybarra es nuestra mejor apuesta para el valor de y. A esta suma de cuadrados le llamaremos $Q_Y$.
+
+A continuación calculamos la suma de los cuadrados de los residuos correspondientes a la recta ajustada y le llamaremos $Q_R$. Cuanto mejor sea el ajuste menor será el valor de $Q_R$ y mayor la diferencia entre $Q_Y$ y $Q_R$.
+
+El valor de $R^2$ es igual a la proporción de $Q_Y$ (suma de los cuadrados de los residuos cuando no se hace uso de X) explicada por X, es decir, la proporción en que disminuye $Q_Y$ gracias a la introducción de X como variable explicativa, es decir:
+
+$$ R^2 = \frac{Q_Y - Q_R}{Q_Y} $$
+Veamos este cálculo en un ejemplo con datos sencillos. En la figura *** tenemos 5 puntos (son datos ficticios) que podrían representar la relación entre el peso y la estatura de 5 individuos. Si ajustamos estos puntos a una recta obtenemos que $Q_R = 16$. SI no tuviéramos información sobre la estatura, nuestra mejor estimación sobre el peso de una persona sería la media de los pesos disponibles, sería como ajustar a una recta horizontal y obtendremos $Q_Y = 56$.
+
+¿Qué parte de $Q_Y$ somos capaces de explicar gracias a la información aportada por X?
+
+$Q_Y$ (suma de los cuadrados de los residuos cuando X no aporta nada): 56
+
+$Q_R$ Suma de los cuadrados de los residuos que falta por explicar una vez introducido $X$: 16
+
+$Q_Y -Q_R$: parte de la suma de cuadrados explicada por X.
+
+Por tanto:
+
+$$ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 $$
+
+Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%.
+
+**************
+
+Otra forma de verlo, que además sirve para probar que $r$ no puede estar fuera de ese intervalo, es usando la expresión del coeficiente de determinación $R^2$:{$R^2$}
+$$R^2 = \frac{\sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2}{\sum_{i=1}^{n}( y_i - \bar{y})^2} $$
+
+Este coeficiente solo puede variar entre 0 y 1. Es igual a 0 cuando los valores estimados $\hat{y_i}$ siguen una recta horizontal, es decir, cuando la predicción de $y$ no depende del valor de $x$, y es igual a 1 cuando la explicación es perfecta: todos los valores previstos $\hat{y_i}$ coinciden con sus correspondientes valores reales $y_i$. En el numerador tenemos:
+
+```{=tex}
+\begin{equation*}
+	\begin{split}
+		 \sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2 &=   \sum_{i=1}^{n}( b_0 + b_1 x_i - \bar{y} ) ^2 =  \sum_{i=1}^{n}( \bar{y} - b_1 \bar{x}+ b_1 x_i - \bar{y} ) ^2 n\\ 
+		&=  b_1^2  \sum_{i=1}^n \left ( x_i -  \bar{x} \right )^2  \\
+	\end{split}
+\end{equation*}
+
+```
+
+Sustituyendo el numerador de $R^2$ por esta nueva expresión:
+
+```{=tex}
+\begin{equation*}
+	\begin{split}
+		R^2 &= b_1^2  \cdot \frac{\sum( x_i - \bar{x} ) ^2}{\sum( y_i - \bar{y})^2} =
+		\frac{\left[ \sum(x_i-\bar{x})(y_i-\bar{y}) \right]^2}{\left [\sum (x_i- \bar{x})^2 \right]^2} \cdot  \frac{\sum ( x_i - \bar{x} ) ^2}{\sum ( y_i - \bar{y})^2} =\\[10pt]
+		&= \left[ \frac{\sum(x_i-\bar{x})(y_i-\bar{y})} {\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}} \right] ^2 = r^2\\
+	\end{split}
+\end{equation*}
+```
 
 
 ::: callout-note
