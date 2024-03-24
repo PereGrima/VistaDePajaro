@@ -162,68 +162,50 @@ $$ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y
 
 $$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$
 
+Sobre si es mínimo o máximo. https://uregina.ca/\~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf
+
 ## Calidad del ajuste
 
-El gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia ($X$) de los troncos de un determinado tipo de arbol y el volumen de madera ($Y$) que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera se obtiene, tal como era de esperar, y la ecuación obtenida es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 donde -a partir de una muestra de 50 personas fallecidas- se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen exactamente el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.
+El gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia (*X*) de los troncos de un determinado tipo de árbol y el volumen de madera (*Y*) que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.
 
 ![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/ArbolMano.png){#fig-ArbolMano fig-align="center" width="100%"}
 
-Es necesario, por tanto, completar el modelo con una medida que informe de la bondad del ajuste realizado. Esa medida es el coeficiente de determinación $R^2$.
+Es necesario, por tanto, completar el modelo con una medida que informe de la calidad del ajuste obtenido. Esa medida es el coeficiente de determinación *R*^2^.
 
-Para calcular el valor de *R*^2^ empezamos poniéndonos en el peor de los casos: suponemos que *X* e *Y* son independientes y que, por tanto, el valor de *X* no aporta ninguna información sobre el valor de *Y*. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de *Y* es siempre la misma, sin importar el valor de *X*, y la mejor apuesta para ese valor de *Y* -a falta de cualquier otra información- es su valor medio $\bar{y}$. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por $\bar{y}$ le llamamos $Q_Y$.
+Para calcular el valor de *R*^2^ empezamos poniéndonos en el peor de los casos: suponemos que *X* e *Y* son independientes, el valor de *X* no aporta ninguna información sobre el valor de *Y*. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de *Y* es siempre la misma, sin importar el valor de *X*, y la mejor apuesta para ese valor de *Y* -a falta de cualquier otra información- es su valor medio $\bar{y}$. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por $\bar{y}$ le llamamos $Q_Y$.
 
 A continuación calculamos la suma de los cuadrados de los residuos correspondientes a nuestra recta ajustada (la que minimiza la suma de los cuadrados de los residuos) y le llamaremos $Q_R$. Cuanto mejor sea el ajuste menor será el valor de $Q_R$ y mayor la diferencia entre $Q_Y$ y $Q_R$.
 
-El valor de $R^2$ es igual a la proporción de $Q_Y$ explicada por X, es decir, la proporción en que disminuye $Q_Y$ gracias a la introducción de X como variable explicativa, es decir:
+El valor de $R^2$ es igual a la proporción de $Q_Y$ explicada por *X*, es decir, la proporción en que disminuye $Q_Y$ gracias a la introducción de *X* como variable explicativa, es decir:
 
 $$ R^2 = \frac{Q_Y - Q_R}{Q_Y} $$
 
-Veamos este cálculo en un ejemplo con datos sencillos. En la figura \*\*\* tenemos 5 puntos (son datos ficticios) que podrían representar la relación entre el peso y la estatura de 5 individuos. Si ajustamos estos puntos a una recta obtenemos que $Q_R = 16$. SI no tuviéramos información sobre la estatura, nuestra mejor estimación sobre el peso de una persona sería la media de los pesos disponibles, sería como ajustar a una recta horizontal y obtendremos $Q_Y = 56$.
+Veamos este cálculo en un ejemplo con datos sencillos. En la figura [-@fig-R2_01] tenemos 5 puntos que podrían representar la relación entre el peso y la estatura de 5 individuos. Si, ignorando la información aportada por la estatura, siempre damos la misma estimación del peso (igual a su valor medio) será como ajustar a una recta horizontal y tendremos una suma de los cuadrados de los residuos *Q*~Y~ = 56. Sin embargo, si utilizamos la información que aporta la estatura y realizamos el ajuste minimizando la suma de los cuadrados de los residuos tenemos *Q*\_R\_ = 16.
 
-¿Qué parte de $Q_Y$ somos capaces de explicar gracias a la información aportada por X?
+![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/R2_01.png){#fig-R2_01 fig-align="center" width="100%"}
 
-$Q_Y$ (suma de los cuadrados de los residuos cuando X no aporta nada): 56
-
-$Q_R$ Suma de los cuadrados de los residuos que falta por explicar una vez introducido $X$: 16
-
-$Q_Y -Q_R$: parte de la suma de cuadrados explicada por X.
-
-Por tanto:
+Hemos reducido la suma de los cuadrados de los residuos de 56 a 16, por tanto:
 
 $$ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 $$
 
 Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%.
 
-------------------------------------------------------------------------
-
-Otra forma de verlo, que además sirve para probar que $r$ no puede estar fuera de ese intervalo, es usando la expresión del coeficiente de determinación $R^2$:{$R^2$} $$R^2 = \frac{\sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2}{\sum_{i=1}^{n}( y_i - \bar{y})^2} $$
-
-Este coeficiente solo puede variar entre 0 y 1. Es igual a 0 cuando los valores estimados $\hat{y_i}$ siguen una recta horizontal, es decir, cuando la predicción de $y$ no depende del valor de $x$, y es igual a 1 cuando la explicación es perfecta: todos los valores previstos $\hat{y_i}$ coinciden con sus correspondientes valores reales $y_i$. En el numerador tenemos:
-
-```{=tex}
-\begin{equation*}
-    \begin{split}
-         \sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2 &=   \sum_{i=1}^{n}( b_0 + b_1 x_i - \bar{y} ) ^2 =  \sum_{i=1}^{n}( \bar{y} - b_1 \bar{x}+ b_1 x_i - \bar{y} ) ^2 n\\ 
-        &=  b_1^2  \sum_{i=1}^n \left ( x_i -  \bar{x} \right )^2  \\
-    \end{split}
-\end{equation*}
-```
-Sustituyendo el numerador de $R^2$ por esta nueva expresión:
-
-```{=tex}
-\begin{equation*}
-    \begin{split}
-        R^2 &= b_1^2  \cdot \frac{\sum( x_i - \bar{x} ) ^2}{\sum( y_i - \bar{y})^2} =
-        \frac{\left[ \sum(x_i-\bar{x})(y_i-\bar{y}) \right]^2}{\left [\sum (x_i- \bar{x})^2 \right]^2} \cdot  \frac{\sum ( x_i - \bar{x} ) ^2}{\sum ( y_i - \bar{y})^2} =\\[10pt]
-        &= \left[ \frac{\sum(x_i-\bar{x})(y_i-\bar{y})} {\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}} \right] ^2 = r^2\\
-    \end{split}
-\end{equation*}
-```
 ::: callout-note
-## Caso particular: Recta por el origen
-
-Aquí texto.
+## $R^2$ es el cuadrado del coeficiente de correlación $r$
+Efectivamente, en el caso que estamos considerando de regresión simple, el coeficiente de determinación $R^2$ es igual al cuadrado del coeficiente de correlación $r$. Este último puede variar entre $-1$ y $1$ por lo que, obviamente, $R^2$ varía entre 0 y 1. La demostración es corta y fácil de encontrar en internet. Por ejemplo en: 
 :::
+
+
+## Caso particular: Recta por el origen
+En algunos casos, cuando por nuestro conocimiento del fenómeno que estudiamos sabemos que si $x=0$ entonces seguro que $y=0$, y la zona que estamos estudiando (nuestro rango de valroes) está próximo al origen, podemos forzar que la recta pase por el punto $(0, 0)$ para íncluya el conocimiento que ya tenemos del fennómeno que estamos estudiando. Conviene insistir en que también es necesario que los valores disponibles estén cerca del origen. Por ejemplo, al modelar el peso en función de la estatura sabemos que si la estatura es cero, el peso también será cero, pero no ajustamos a una recta por el origen porque los valores que se ajustan están lejos del origen y no se puede extrapolar la relación.
+
+Si la recta debe pasar por el origen su ecuación será: $y = b_1 X$. Para deducir la expresión de $b_1$ solo hay que minimizar: $S = \sum (y_i -b_1x_i)^2$ y siguiendo el procedimiento habitual tenemos:
+$$ \frac{\mathrm{d}S}{\mathrm{d}b_1}  = \frac{\mathrm{d}(\sum y_i^2-\sum 2y_ib_1x_i+ \sum b_1^2x_i^2)} {\mathrm{d} b_1} = -2 \sum x_iy_i +2 \sum x_i^2b_1$$
+
+\noindent Está claro que la segunda derivada es positiva (es una suma de cuadrados) por lo que tendremos un mínimo. Igualando a cero y despejando el valor de $b_1$ se obtiene: $$b_1 = \frac{\sum x_iy_i}{\sum x_i^2} $$
+
+En este caso la recta no se ha ajustado con el método de los mínimos cuadrados (minimizando la suma de los cuadrados de los residuos) y algunas propiedades que se derivan esa formad e ajuste no se cumplen en este caso. Por ejemplo, el valor de $R^2$ no es el cuadrado del coeficiente de correlación. R2 no es una buena medida de la calidad del ajuste.
+
 
 ## Relación polinómica entre $x$ e $y$
 

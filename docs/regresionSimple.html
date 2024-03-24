@@ -286,11 +286,12 @@ div.csl-indent {
   <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
   </ul></li>
   <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</a></li>
-  <li><a href="#relación-polinómica-entre-x-e-y" id="toc-relación-polinómica-entre-x-e-y" class="nav-link" data-scroll-target="#relación-polinómica-entre-x-e-y"><span class="header-section-number">11.5</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></a></li>
-  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
+  <li><a href="#caso-particular-recta-por-el-origen" id="toc-caso-particular-recta-por-el-origen" class="nav-link" data-scroll-target="#caso-particular-recta-por-el-origen"><span class="header-section-number">11.5</span> Caso particular: Recta por el origen</a></li>
+  <li><a href="#relación-polinómica-entre-x-e-y" id="toc-relación-polinómica-entre-x-e-y" class="nav-link" data-scroll-target="#relación-polinómica-entre-x-e-y"><span class="header-section-number">11.6</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></a></li>
+  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</a>
   <ul class="collapse">
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.6.1</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.7.1</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -525,73 +526,66 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 <p>Finalmente, a partir de la ecuación <a href="#eq-expresion_b1"><span>11.3</span></a> y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:</p>
 <p><span class="math display">\[ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} \]</span> Calculando los coeficientes que corresponden a los datos de la figura <a href="#fig-fuerzaBruta"><span>11.5</span></a> se obtiene:</p>
 <p><span class="math display">\[ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 \]</span></p>
+<p>Sobre si es mínimo o máximo. https://uregina.ca/~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf</p>
 </section>
 </section>
 <section id="calidad-del-ajuste" class="level2" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</h2>
-<p>El gráfico de la izquierda de la figura <a href="#fig-ArbolMano"><span>11.6</span></a> muestra la relación entre la longitud de la circunferencia (<span class="math inline">\(X\)</span>) de los troncos de un determinado tipo de arbol y el volumen de madera (<span class="math inline">\(Y\)</span>) que se puede obtener de ellos <span class="citation" data-cites="WolframData2016">(Fuente: <a href="regresionSimple.html#ref-WolframData2016" role="doc-biblioref">Wolfram_Data_Repository 2016</a>)</span>. Se observa que a más circunferencia mayor volumen de madera se obtiene, tal como era de esperar, y la ecuación obtenida es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por <span class="citation" data-cites="Wilson74">Wilson y Mather (<a href="regresionSimple.html#ref-Wilson74" role="doc-biblioref">1974</a>)</span> citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="regresionSimple.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> donde -a partir de una muestra de 50 personas fallecidas- se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen exactamente el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.</p>
+<p>El gráfico de la izquierda de la figura <a href="#fig-ArbolMano"><span>11.6</span></a> muestra la relación entre la longitud de la circunferencia (<em>X</em>) de los troncos de un determinado tipo de árbol y el volumen de madera (<em>Y</em>) que se puede obtener de ellos <span class="citation" data-cites="WolframData2016">(Fuente: <a href="regresionSimple.html#ref-WolframData2016" role="doc-biblioref">Wolfram_Data_Repository 2016</a>)</span>. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por <span class="citation" data-cites="Wilson74">Wilson y Mather (<a href="regresionSimple.html#ref-Wilson74" role="doc-biblioref">1974</a>)</span> citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="regresionSimple.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.</p>
 <div id="fig-ArbolMano" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/ArbolMano.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.6: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
 </figure>
 </div>
-<p>Es necesario, por tanto, completar el modelo con una medida que informe de la bondad del ajuste realizado. Esa medida es el coeficiente de determinación <span class="math inline">\(R^2\)</span>.</p>
-<p>Para calcular el valor de <em>R</em><sup>2</sup> empezamos poniéndonos en el peor de los casos: suponemos que <em>X</em> e <em>Y</em> son independientes y que, por tanto, el valor de <em>X</em> no aporta ninguna información sobre el valor de <em>Y</em>. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de <em>Y</em> es siempre la misma, sin importar el valor de <em>X</em>, y la mejor apuesta para ese valor de <em>Y</em> -a falta de cualquier otra información- es su valor medio <span class="math inline">\(\bar{y}\)</span>. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por <span class="math inline">\(\bar{y}\)</span> le llamamos <span class="math inline">\(Q_Y\)</span>.</p>
+<p>Es necesario, por tanto, completar el modelo con una medida que informe de la calidad del ajuste obtenido. Esa medida es el coeficiente de determinación <em>R</em><sup>2</sup>.</p>
+<p>Para calcular el valor de <em>R</em><sup>2</sup> empezamos poniéndonos en el peor de los casos: suponemos que <em>X</em> e <em>Y</em> son independientes, el valor de <em>X</em> no aporta ninguna información sobre el valor de <em>Y</em>. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de <em>Y</em> es siempre la misma, sin importar el valor de <em>X</em>, y la mejor apuesta para ese valor de <em>Y</em> -a falta de cualquier otra información- es su valor medio <span class="math inline">\(\bar{y}\)</span>. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por <span class="math inline">\(\bar{y}\)</span> le llamamos <span class="math inline">\(Q_Y\)</span>.</p>
 <p>A continuación calculamos la suma de los cuadrados de los residuos correspondientes a nuestra recta ajustada (la que minimiza la suma de los cuadrados de los residuos) y le llamaremos <span class="math inline">\(Q_R\)</span>. Cuanto mejor sea el ajuste menor será el valor de <span class="math inline">\(Q_R\)</span> y mayor la diferencia entre <span class="math inline">\(Q_Y\)</span> y <span class="math inline">\(Q_R\)</span>.</p>
-<p>El valor de <span class="math inline">\(R^2\)</span> es igual a la proporción de <span class="math inline">\(Q_Y\)</span> explicada por X, es decir, la proporción en que disminuye <span class="math inline">\(Q_Y\)</span> gracias a la introducción de X como variable explicativa, es decir:</p>
+<p>El valor de <span class="math inline">\(R^2\)</span> es igual a la proporción de <span class="math inline">\(Q_Y\)</span> explicada por <em>X</em>, es decir, la proporción en que disminuye <span class="math inline">\(Q_Y\)</span> gracias a la introducción de <em>X</em> como variable explicativa, es decir:</p>
 <p><span class="math display">\[ R^2 = \frac{Q_Y - Q_R}{Q_Y} \]</span></p>
-<p>Veamos este cálculo en un ejemplo con datos sencillos. En la figura *** tenemos 5 puntos (son datos ficticios) que podrían representar la relación entre el peso y la estatura de 5 individuos. Si ajustamos estos puntos a una recta obtenemos que <span class="math inline">\(Q_R = 16\)</span>. SI no tuviéramos información sobre la estatura, nuestra mejor estimación sobre el peso de una persona sería la media de los pesos disponibles, sería como ajustar a una recta horizontal y obtendremos <span class="math inline">\(Q_Y = 56\)</span>.</p>
-<p>¿Qué parte de <span class="math inline">\(Q_Y\)</span> somos capaces de explicar gracias a la información aportada por X?</p>
-<p><span class="math inline">\(Q_Y\)</span> (suma de los cuadrados de los residuos cuando X no aporta nada): 56</p>
-<p><span class="math inline">\(Q_R\)</span> Suma de los cuadrados de los residuos que falta por explicar una vez introducido <span class="math inline">\(X\)</span>: 16</p>
-<p><span class="math inline">\(Q_Y -Q_R\)</span>: parte de la suma de cuadrados explicada por X.</p>
-<p>Por tanto:</p>
+<p>Veamos este cálculo en un ejemplo con datos sencillos. En la figura <a href="#fig-R2_01"><span>11.7</span></a> tenemos 5 puntos que podrían representar la relación entre el peso y la estatura de 5 individuos. Si, ignorando la información aportada por la estatura, siempre damos la misma estimación del peso (igual a su valor medio) será como ajustar a una recta horizontal y tendremos una suma de los cuadrados de los residuos <em>Q</em><sub>Y</sub> = 56. Sin embargo, si utilizamos la información que aporta la estatura y realizamos el ajuste minimizando la suma de los cuadrados de los residuos tenemos <em>Q</em>_R_ = 16.</p>
+<div id="fig-R2_01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/R2_01.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.7: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+<p>Hemos reducido la suma de los cuadrados de los residuos de 56 a 16, por tanto:</p>
 <p><span class="math display">\[ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 \]</span></p>
 <p>Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%.</p>
-<hr>
-<p>Otra forma de verlo, que además sirve para probar que <span class="math inline">\(r\)</span> no puede estar fuera de ese intervalo, es usando la expresión del coeficiente de determinación <span class="math inline">\(R^2\)</span>:{<span class="math inline">\(R^2\)</span>} <span class="math display">\[R^2 = \frac{\sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2}{\sum_{i=1}^{n}( y_i - \bar{y})^2} \]</span></p>
-<p>Este coeficiente solo puede variar entre 0 y 1. Es igual a 0 cuando los valores estimados <span class="math inline">\(\hat{y_i}\)</span> siguen una recta horizontal, es decir, cuando la predicción de <span class="math inline">\(y\)</span> no depende del valor de <span class="math inline">\(x\)</span>, y es igual a 1 cuando la explicación es perfecta: todos los valores previstos <span class="math inline">\(\hat{y_i}\)</span> coinciden con sus correspondientes valores reales <span class="math inline">\(y_i\)</span>. En el numerador tenemos:</p>
-<span class="math display">\[\begin{equation*}
-    \begin{split}
-         \sum_{i=1}^{n}( \hat{y_i} - \bar{y} ) ^2 &amp;=   \sum_{i=1}^{n}( b_0 + b_1 x_i - \bar{y} ) ^2 =  \sum_{i=1}^{n}( \bar{y} - b_1 \bar{x}+ b_1 x_i - \bar{y} ) ^2 n\\
-        &amp;=  b_1^2  \sum_{i=1}^n \left ( x_i -  \bar{x} \right )^2  \\
-    \end{split}
-\end{equation*}\]</span>
-<p>Sustituyendo el numerador de <span class="math inline">\(R^2\)</span> por esta nueva expresión:</p>
-<span class="math display">\[\begin{equation*}
-    \begin{split}
-        R^2 &amp;= b_1^2  \cdot \frac{\sum( x_i - \bar{x} ) ^2}{\sum( y_i - \bar{y})^2} =
-        \frac{\left[ \sum(x_i-\bar{x})(y_i-\bar{y}) \right]^2}{\left [\sum (x_i- \bar{x})^2 \right]^2} \cdot  \frac{\sum ( x_i - \bar{x} ) ^2}{\sum ( y_i - \bar{y})^2} =\\[10pt]
-        &amp;= \left[ \frac{\sum(x_i-\bar{x})(y_i-\bar{y})} {\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}} \right] ^2 = r^2\\
-    \end{split}
-\end{equation*}\]</span>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caso particular: Recta por el origen
+<span class="math inline">\(R^2\)</span> es el cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Aquí texto.</p>
+<p>Efectivamente, en el caso que estamos considerando de regresión simple, el coeficiente de determinación <span class="math inline">\(R^2\)</span> es igual al cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>. Este último puede variar entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(1\)</span> por lo que, obviamente, <span class="math inline">\(R^2\)</span> varía entre 0 y 1. La demostración es corta y fácil de encontrar en internet. Por ejemplo en:</p>
 </div>
 </div>
 </section>
-<section id="relación-polinómica-entre-x-e-y" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="relación-polinómica-entre-x-e-y"><span class="header-section-number">11.5</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></h2>
+<section id="caso-particular-recta-por-el-origen" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="caso-particular-recta-por-el-origen"><span class="header-section-number">11.5</span> Caso particular: Recta por el origen</h2>
+<p>En algunos casos, cuando por nuestro conocimiento del fenómeno que estudiamos sabemos que si <span class="math inline">\(x=0\)</span> entonces seguro que <span class="math inline">\(y=0\)</span>, y la zona que estamos estudiando (nuestro rango de valroes) está próximo al origen, podemos forzar que la recta pase por el punto <span class="math inline">\((0, 0)\)</span> para íncluya el conocimiento que ya tenemos del fennómeno que estamos estudiando. Conviene insistir en que también es necesario que los valores disponibles estén cerca del origen. Por ejemplo, al modelar el peso en función de la estatura sabemos que si la estatura es cero, el peso también será cero, pero no ajustamos a una recta por el origen porque los valores que se ajustan están lejos del origen y no se puede extrapolar la relación.</p>
+<p>Si la recta debe pasar por el origen su ecuación será: <span class="math inline">\(y = b_1 X\)</span>. Para deducir la expresión de <span class="math inline">\(b_1\)</span> solo hay que minimizar: <span class="math inline">\(S = \sum (y_i -b_1x_i)^2\)</span> y siguiendo el procedimiento habitual tenemos: <span class="math display">\[ \frac{\mathrm{d}S}{\mathrm{d}b_1}  = \frac{\mathrm{d}(\sum y_i^2-\sum 2y_ib_1x_i+ \sum b_1^2x_i^2)} {\mathrm{d} b_1} = -2 \sum x_iy_i +2 \sum x_i^2b_1\]</span></p>
+<p>Está claro que la segunda derivada es positiva (es una suma de cuadrados) por lo que tendremos un mínimo. Igualando a cero y despejando el valor de <span class="math inline">\(b_1\)</span> se obtiene: <span class="math display">\[b_1 = \frac{\sum x_iy_i}{\sum x_i^2} \]</span></p>
+<p>En este caso la recta no se ha ajustado con el método de los mínimos cuadrados (minimizando la suma de los cuadrados de los residuos) y algunas propiedades que se derivan esa formad e ajuste no se cumplen en este caso. Por ejemplo, el valor de <span class="math inline">\(R^2\)</span> no es el cuadrado del coeficiente de correlación. R2 no es una buena medida de la calidad del ajuste.</p>
+</section>
+<section id="relación-polinómica-entre-x-e-y" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="relación-polinómica-entre-x-e-y"><span class="header-section-number">11.6</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></h2>
 <p>texto</p>
 </section>
-<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
+<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
 <section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.</p>
 </section>
-<section id="references" class="level3" data-number="11.6.1">
-<h3 data-number="11.6.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.6.1</span> References</h3>
+<section id="references" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.7.1</span> References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Draper98" class="csl-entry" role="listitem">
 Draper, N. R., and H. Smith. 1998. <em>Applied Regression Analysis</em>.
