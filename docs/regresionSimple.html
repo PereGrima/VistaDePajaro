@@ -286,12 +286,11 @@ div.csl-indent {
   <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
   </ul></li>
   <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</a></li>
-  <li><a href="#caso-particular-recta-por-el-origen" id="toc-caso-particular-recta-por-el-origen" class="nav-link" data-scroll-target="#caso-particular-recta-por-el-origen"><span class="header-section-number">11.5</span> Caso particular: Recta por el origen</a></li>
-  <li><a href="#relación-polinómica-entre-x-e-y" id="toc-relación-polinómica-entre-x-e-y" class="nav-link" data-scroll-target="#relación-polinómica-entre-x-e-y"><span class="header-section-number">11.6</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></a></li>
-  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</a>
+  <li><a href="#relación-no-lineal-entre-x-e-y" id="toc-relación-no-lineal-entre-x-e-y" class="nav-link" data-scroll-target="#relación-no-lineal-entre-x-e-y"><span class="header-section-number">11.5</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></a></li>
+  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
   <ul class="collapse">
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.7.1</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.6.1</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -552,7 +551,7 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </div>
 <p>Hemos reducido la suma de los cuadrados de los residuos de 56 a 16, por tanto:</p>
 <p><span class="math display">\[ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 \]</span></p>
-<p>Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%.</p>
+<p>Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%. En los ejemplos de la figura ****</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -567,25 +566,32 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </div>
 </div>
 </section>
-<section id="caso-particular-recta-por-el-origen" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="caso-particular-recta-por-el-origen"><span class="header-section-number">11.5</span> Caso particular: Recta por el origen</h2>
-<p>En algunos casos, cuando por nuestro conocimiento del fenómeno que estudiamos sabemos que si <span class="math inline">\(x=0\)</span> entonces seguro que <span class="math inline">\(y=0\)</span>, y la zona que estamos estudiando (nuestro rango de valroes) está próximo al origen, podemos forzar que la recta pase por el punto <span class="math inline">\((0, 0)\)</span> para íncluya el conocimiento que ya tenemos del fennómeno que estamos estudiando. Conviene insistir en que también es necesario que los valores disponibles estén cerca del origen. Por ejemplo, al modelar el peso en función de la estatura sabemos que si la estatura es cero, el peso también será cero, pero no ajustamos a una recta por el origen porque los valores que se ajustan están lejos del origen y no se puede extrapolar la relación.</p>
-<p>Si la recta debe pasar por el origen su ecuación será: <span class="math inline">\(y = b_1 X\)</span>. Para deducir la expresión de <span class="math inline">\(b_1\)</span> solo hay que minimizar: <span class="math inline">\(S = \sum (y_i -b_1x_i)^2\)</span> y siguiendo el procedimiento habitual tenemos: <span class="math display">\[ \frac{\mathrm{d}S}{\mathrm{d}b_1}  = \frac{\mathrm{d}(\sum y_i^2-\sum 2y_ib_1x_i+ \sum b_1^2x_i^2)} {\mathrm{d} b_1} = -2 \sum x_iy_i +2 \sum x_i^2b_1\]</span></p>
-<p>Está claro que la segunda derivada es positiva (es una suma de cuadrados) por lo que tendremos un mínimo. Igualando a cero y despejando el valor de <span class="math inline">\(b_1\)</span> se obtiene: <span class="math display">\[b_1 = \frac{\sum x_iy_i}{\sum x_i^2} \]</span></p>
-<p>En este caso la recta no se ha ajustado con el método de los mínimos cuadrados (minimizando la suma de los cuadrados de los residuos) y algunas propiedades que se derivan esa formad e ajuste no se cumplen en este caso. Por ejemplo, el valor de <span class="math inline">\(R^2\)</span> no es el cuadrado del coeficiente de correlación. R2 no es una buena medida de la calidad del ajuste.</p>
+<section id="relación-no-lineal-entre-x-e-y" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="relación-no-lineal-entre-x-e-y"><span class="header-section-number">11.5</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></h2>
+<p>Si la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no es lineal, puede utilizarse el conocimiento del fenómeno que se estudia para plantear un modelo que se adapte a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos. Si nuestros datos se ajustan a una función del tipo <span class="math inline">\(y = \beta_0 e^{\beta_1 x}\)</span> podemos realizar el cambio <span class="math inline">\(y' = \ln y\)</span> obteniendo el modelo lineal: <span class="math inline">\(y' = \ln \beta_0 + \beta_1 x\)</span> a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones pueden consultar <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span> pág. 90. o <span class="citation" data-cites="PeñaRegre">Peña (<a href="regresionSimple.html#ref-PeñaRegre" role="doc-biblioref">2002</a>)</span> pág. 314.</p>
+<p>La figura <a href="#fig-Poli_01"><span>11.8</span></a> muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92).</p>
+<div id="fig-Poli_01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/polinomica_01.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.8: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+<p>Aquí más texto</p>
+<div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/polinomica_02.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.9: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
 </section>
-<section id="relación-polinómica-entre-x-e-y" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="relación-polinómica-entre-x-e-y"><span class="header-section-number">11.6</span> Relación polinómica entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span></h2>
-<p>texto</p>
-</section>
-<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
+<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
 <section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.</p>
 </section>
-<section id="references" class="level3" data-number="11.7.1">
-<h3 data-number="11.7.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.7.1</span> References</h3>
+<section id="references" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.6.1</span> References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Draper98" class="csl-entry" role="listitem">
 Draper, N. R., and H. Smith. 1998. <em>Applied Regression Analysis</em>.
@@ -594,6 +600,14 @@ Draper, N. R., and H. Smith. 1998. <em>Applied Regression Analysis</em>.
 <div id="ref-knuth84" class="csl-entry" role="listitem">
 Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput.
 J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-MontgomeryPeck" class="csl-entry" role="listitem">
+Montgomery, D. C., and E. A. Peck. 1992. <em>Introduction to Linear
+Regression Analysis</em>. 2nd ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-PeñaRegre" class="csl-entry" role="listitem">
+Peña, D. 2002. <em>Regresión y Diseño de Experimentos</em>. 1st ed.
+Madrid: Alianza Editorial.
 </div>
 <div id="ref-Wilson74" class="csl-entry" role="listitem">
 Wilson, M. E., and L. E. Mather. 1974. <span>“Lefe Expectancy.”</span>
