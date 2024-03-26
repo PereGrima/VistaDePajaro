@@ -21,7 +21,6 @@ mtext(expression('Producción de electridad'),
       side=2, line=1.5, cex=t, las=0, family = "sans")
 text(14, 96, TeX("$ Y = -36.94 + 5.066 \\cdot X$"), cex = t+0.1, xpd = NA)
 
-#abline(lm(yArbol~xArbol), col = "black")
 #####################
 
 par(mar = c(2.2, 3.1, 1.5, 2))

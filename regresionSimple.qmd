@@ -200,13 +200,25 @@ Efectivamente, en el caso que estamos considerando de regresión simple, el coef
 
 Si la relación entre $X$ e $Y$ no es lineal, puede utilizarse el conocimiento del fenómeno que se estudia para plantear un modelo que se adapte a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de $X$, los de $Y$, o ambos. Si nuestros datos se ajustan a una función del tipo $y = \beta_0 e^{\beta_1 x}$ podemos realizar el cambio $y' = \ln y$ obteniendo el modelo lineal: $y' = \ln \beta_0 + \beta_1 x$ a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones pueden consultar @MontgomeryPeck pág. 90. o @PeñaRegre pág. 314.
 
-La figura [-@fig-Poli_01] muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en @MontgomeryPeck, pág. 92).
+La figura [-@fig-Poli_01] muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: @MontgomeryPeck, pág. 92). Se observa una relación no lineal, cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene $y = -1,156 + 0,7229x -0,03812x^2$ con un coeficiende de determinación $R^2 = 96,8%$, lo cual no está nada mal.
 
-![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/polinomica_01.png){#fig-Poli_01 fig-align="center" width="100%"}
+![Texto figura.](ScriptsR/polinomica_01.png){#fig-Poli_01 fig-align="center" width="100%"}
 
-Aquí más texto
+Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento. Creamos la variable $X' = 1/X$ y obtenemos el ajuste: $y = 2,979 - 6,935/x$ con un $R^2 = 97,9%$ que es también un valor excelente y, además, con un modelo más compacto.
+
 
 ![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/polinomica_02.png){#fig-Poli_02 fig-align="center" width="100%"}
+
+Obsesionarse con el mejor ajuste (mayor valor de $R^2$) no suele ser una buena idea. *** Ir subiendo el grado del polinomio.
+
+::: {layout-nrow=2}
+![](ScriptsR/polinomica_03.png)
+
+![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](ScriptsR/polinomica_04.png){#fig-Poli_02 fig-align="center" width="100%"}
+:::
+
+
+Se trata de prever lo que pasará, no de explicar lo que ya ha pasado, pero de eso hablamos en el siguiente apartado.
 
 ## Las cosas se complican: Lo que tenemos es una muestra
 

@@ -569,20 +569,39 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 <section id="relación-no-lineal-entre-x-e-y" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="relación-no-lineal-entre-x-e-y"><span class="header-section-number">11.5</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></h2>
 <p>Si la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no es lineal, puede utilizarse el conocimiento del fenómeno que se estudia para plantear un modelo que se adapte a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos. Si nuestros datos se ajustan a una función del tipo <span class="math inline">\(y = \beta_0 e^{\beta_1 x}\)</span> podemos realizar el cambio <span class="math inline">\(y' = \ln y\)</span> obteniendo el modelo lineal: <span class="math inline">\(y' = \ln \beta_0 + \beta_1 x\)</span> a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones pueden consultar <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span> pág. 90. o <span class="citation" data-cites="PeñaRegre">Peña (<a href="regresionSimple.html#ref-PeñaRegre" role="doc-biblioref">2002</a>)</span> pág. 314.</p>
-<p>La figura <a href="#fig-Poli_01"><span>11.8</span></a> muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92).</p>
+<p>La figura <a href="#fig-Poli_01"><span>11.8</span></a> muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92). Se observa una relación no lineal, cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene <span class="math inline">\(y = -1,156 + 0,7229x -0,03812x^2\)</span> con un coeficiende de determinación <span class="math inline">\(R^2 = 96,8%\)</span>, lo cual no está nada mal.</p>
 <div id="fig-Poli_01" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/polinomica_01.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;11.8: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;11.8: Texto figura.</figcaption>
 </figure>
 </div>
-<p>Aquí más texto</p>
+<p>Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento. Creamos la variable <span class="math inline">\(X' = 1/X\)</span> y obtenemos el ajuste: <span class="math inline">\(y = 2,979 - 6,935/x\)</span> con un <span class="math inline">\(R^2 = 97,9%\)</span> que es también un valor excelente y, además, con un modelo más compacto.</p>
 <div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/polinomica_02.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.9: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
 </figure>
 </div>
+<p>Obsesionarse con el mejor ajuste (mayor valor de <span class="math inline">\(R^2\)</span>) no suele ser una buena idea. *** Ir subiendo el grado del polinomio.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="ScriptsR/polinomica_03.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/polinomica_04.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.10: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Se trata de prever lo que pasará, no de explicar lo que ya ha pasado, pero de eso hablamos en el siguiente apartado.</p>
 </section>
 <section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
