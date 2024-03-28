@@ -287,10 +287,11 @@ div.csl-indent {
   </ul></li>
   <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">11.4</span> Calidad del ajuste</a></li>
   <li><a href="#relación-no-lineal-entre-x-e-y" id="toc-relación-no-lineal-entre-x-e-y" class="nav-link" data-scroll-target="#relación-no-lineal-entre-x-e-y"><span class="header-section-number">11.5</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></a></li>
-  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
+  <li><a href="#transformación-logarítmica" id="toc-transformación-logarítmica" class="nav-link" data-scroll-target="#transformación-logarítmica"><span class="header-section-number">11.6</span> Transformación logarítmica</a></li>
+  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</a>
   <ul class="collapse">
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.6.1</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11.7.1</span> References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -568,22 +569,23 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </section>
 <section id="relación-no-lineal-entre-x-e-y" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="relación-no-lineal-entre-x-e-y"><span class="header-section-number">11.5</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></h2>
-<p>Si la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no es lineal, puede utilizarse el conocimiento del fenómeno que se estudia para plantear un modelo que se adapte a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos. Si nuestros datos se ajustan a una función del tipo <span class="math inline">\(y = \beta_0 e^{\beta_1 x}\)</span> podemos realizar el cambio <span class="math inline">\(y' = \ln y\)</span> obteniendo el modelo lineal: <span class="math inline">\(y' = \ln \beta_0 + \beta_1 x\)</span> a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones pueden consultar <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span> pág. 90. o <span class="citation" data-cites="PeñaRegre">Peña (<a href="regresionSimple.html#ref-PeñaRegre" role="doc-biblioref">2002</a>)</span> pág. 314.</p>
-<p>La figura <a href="#fig-Poli_01"><span>11.8</span></a> muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92). Se observa una relación no lineal, cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene <span class="math inline">\(y = -1,156 + 0,7229x -0,03812x^2\)</span> con un coeficiende de determinación <span class="math inline">\(R^2 = 96,8%\)</span>, lo cual no está nada mal.</p>
+<p>Si la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no es lineal, puede utilizarse el conocimiento del fenómeno que se estudia para plantear un modelo que se ajuste a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos. Si nuestros datos se ajustan a una función del tipo <span class="math inline">\(y = \beta_0 e^{\beta_1 x}\)</span>, podemos realizar el cambio <span class="math inline">\(y' = \ln y\)</span> obteniendo el modelo lineal: <span class="math inline">\(y' = \ln \beta_0 + \beta_1 x\)</span> a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones para linealizar la dependencia pueden consultar <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span> pág. 90. o <span class="citation" data-cites="PeñaRegre">Peña (<a href="regresionSimple.html#ref-PeñaRegre" role="doc-biblioref">2002</a>)</span> pág. 314.</p>
+<p>La figura <a href="#fig-Poli_01"><span>11.8</span></a> muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="regresionSimple.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92). Se observa una relación no lineal ya que cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene <span class="math inline">\(y = -1,156 + 0,7229x -0,03812x^2\)</span> con un coeficiende de determinación <span class="math inline">\(R^2 = 96,8%\)</span>, lo cual no está nada mal.</p>
 <div id="fig-Poli_01" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/polinomica_01.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.8: Texto figura.</figcaption>
 </figure>
 </div>
-<p>Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento. Creamos la variable <span class="math inline">\(X' = 1/X\)</span> y obtenemos el ajuste: <span class="math inline">\(y = 2,979 - 6,935/x\)</span> con un <span class="math inline">\(R^2 = 97,9%\)</span> que es también un valor excelente y, además, con un modelo más compacto.</p>
+<p>Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento (figura <a href="#fig-Poli_02"><span>11.11</span></a>). Creamos la variable <span class="math inline">\(X' = 1/X\)</span> y obtenemos el ajuste: <span class="math inline">\(y = 2,979 - 6,935/x\)</span> con un <span class="math inline">\(R^2 = 97,9%\)</span> que es también un valor excelente y, además, con un modelo más compacto. En general, trabajar con la inversa de <span class="math inline">\(X\)</span> puede ser una buena alternativa al modelo cuadrático.</p>
 <div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/polinomica_02.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.9: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
 </figure>
 </div>
-<p>Obsesionarse con el mejor ajuste (mayor valor de <span class="math inline">\(R^2\)</span>) no suele ser una buena idea. *** Ir subiendo el grado del polinomio.</p>
+<p>Hay que tener en cuenta que el modelo más adecuado no necesariamente es el que tiene el <span class="math inline">\(R^2\)</span> más elevado. Nos interesa que el modelo sea compacto y que pueda interpretarse y sea coherente con nuestro conocimiento del fenómeno en estudio. Si vamos aumentando el grado del polinomio ajustado cada vez tendremos un mayor valor de <span class="math inline">\(R^2\)</span> incluso, si tenemos pocos datos, podemos llegar a un <span class="math inline">\(R^2\)</span> del 100% siendo el modelo obtenido totalmente inútil.</p>
+<p>Volviendo a los datos de la figura <a href="#fig-R2_01"><span>11.7</span></a> donde a partir de los pesos de 5 personas (efectivamente son muy pocas, es solo un ejemplo) queremos modelar la relación entre peso y estatura, el modelo lineal es el más razonable. Si ajustamos los datos a un modelo cuadrático se tiene un máximo de peso en torno a una estatura de 175 cm que no tiene sentido. El polinomio de tercer grado presenta una forma que tampoco parece razonable y el de cuarto grado es un modelo con 5 parámetros (los 4 coeficientes y la ordenada en el origen) y como tenemos 5 puntos ajusta perfectamente, pero ni es un modelo razonable ni sirve en absoluto para estimar el peso de un individuo a partir de su altura (sí lo explica para los 5 individuos usados para construir el modelo, pero para esos ya lo sabíamos, no hace falta una fórmula para deducir uno en función del otro). Recuerdeo que dos puntos se ajustan perfectamente a un modelo con dos parámetros (una recta) tres puntos a un modelo con tres parámetros, … etc. Estos son modelos que explican muy bien lo que ya se sabe, pero son totalmente inútiles para hacer predicciones que es lo que -en general- se pretende. [citar la figura <a href="#fig-Poli_04"><span>11.10</span></a>].</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -592,7 +594,7 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-Poli_04" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="ScriptsR/polinomica_04.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figura&nbsp;11.10: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
@@ -603,14 +605,38 @@ La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y
 </div>
 <p>Se trata de prever lo que pasará, no de explicar lo que ya ha pasado, pero de eso hablamos en el siguiente apartado.</p>
 </section>
-<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
+<section id="transformación-logarítmica" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="transformación-logarítmica"><span class="header-section-number">11.6</span> Transformación logarítmica</h2>
+<p>texto</p>
+<div id="fig-Poli_02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="ScriptsR/brainBody.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;11.11: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+<p>texto</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Transformación logarítmica: No importa la base
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Efectivamente, en el caso que estamos considerando de regresión simple, el coeficiente de determinación <span class="math inline">\(R^2\)</span> es igual al cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>. Este último puede variar entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(1\)</span> por lo que, obviamente, <span class="math inline">\(R^2\)</span> varía entre 0 y 1. La demostración es corta y fácil de encontrar en internet. Por ejemplo en:</p>
+</div>
+</div>
+</section>
+<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">11.7</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
 <section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Cuanto más pedimos a los datos, más exigentes debemos ser con las condiciones que deben cumplir.</p>
 </section>
-<section id="references" class="level3" data-number="11.6.1">
-<h3 data-number="11.6.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.6.1</span> References</h3>
+<section id="references" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="references"><span class="header-section-number">11.7.1</span> References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Draper98" class="csl-entry" role="listitem">
 Draper, N. R., and H. Smith. 1998. <em>Applied Regression Analysis</em>.
