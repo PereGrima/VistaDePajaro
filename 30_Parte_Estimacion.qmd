@@ -1,0 +1,13 @@
+# ESTIMACIÓN
+
+Lo típico. Como estimar las características de una población a partir de los datos de una muestra.
+
+Propiedades que deseamos tener en los estimadores
+
+Estimación de proporciones. Intervalo de confianza, margen de error, etc.
+
+Estimación de medias
+
+Estimación del tamaño de una población (peces y taxis)
+
+Anexo: Sondeos electorales.

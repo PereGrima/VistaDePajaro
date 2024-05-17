@@ -1,0 +1,11 @@
+# ESTADÍSTICA DESCRIPTIVA
+
+Síntesis numérica de datos y representaciones gráficas.
+
+Ideas de:
+
+-   Libro Preguntas frecuentes: Media, mediana, por qué dividimos por n-1, como calcular los cuartiles.
+
+-   Artículo analogías: Síntesis numérica y retrato robot, el rio tiene una profundidad media de 1,5 m
+
+-   Libro matemáticas en primera plana: Buenos y malos usos de las representaciones gráficas.

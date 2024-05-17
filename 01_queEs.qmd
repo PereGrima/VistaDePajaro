@@ -1,0 +1,15 @@
+# ¿Qué es la estadística? {.unnumbered}
+
+Estoy haciendo pruebas.
+
+### Estadística y matemáticas
+
+texto
+
+### Estadística y probabilidad
+
+texto
+
+### Estadística y *Data Science*
+
+texto

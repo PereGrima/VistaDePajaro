@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estadística a vista de pájaro - 14&nbsp; Regresión Simple</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./63_regresionMultiple.html" rel="next">
+<link href="./61_correlacion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./60_Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./62_regresionSimple.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión Simple</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Estadística a vista de pájaro</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PRESENTACIÓN</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_queEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">¿Qué es la estadística?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./10_Parte_Descriptiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ESTADÍSTICA DESCRIPTIVA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_sintesisNumerica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_graficos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representaciones gráficas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./20_Parte_Variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SOBRE LA VARIABILIDAD</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_variablesAleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_distribucionesProbabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./30_Parte_Estimacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ESTIMACIÓN</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_estimacionProporciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimación de proporciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_estimacionMedias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimación de medias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_estimacionTamañoPoblacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimación del tamaño de la población</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./40_Parte_Contraste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CONTRASTE DE HIPÓTESIS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_Conceptos_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conceptos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_Proceso_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Esquema de razonamiento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_tiposError_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tipos de error</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./50_Parte_Experimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DISEÑO DE EXPERIMENTOS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_floresAspirina.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">¿La Aspirina alarga la vida de las flores?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_duracionPilas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">¿Duran más las pilas caras?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./60_Parte_Corre_Regre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORRELACIÓN Y REGRESIÓN</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_correlacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Medidas de relación lineal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./62_regresionSimple.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./63_regresionMultiple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#ajuste-a-una-recta" id="toc-ajuste-a-una-recta" class="nav-link active" data-scroll-target="#ajuste-a-una-recta"><span class="header-section-number">14.1</span> Ajuste a una recta</a>
+  <ul class="collapse">
+  <li><a href="#a-ojo" id="toc-a-ojo" class="nav-link" data-scroll-target="#a-ojo">A ojo</a></li>
+  <li><a href="#método-de-ishikawa" id="toc-método-de-ishikawa" class="nav-link" data-scroll-target="#método-de-ishikawa">Método de Ishikawa</a></li>
+  <li><a href="#haciendo-que-la-suma-de-los-residuos-sea-igual-a-cero" id="toc-haciendo-que-la-suma-de-los-residuos-sea-igual-a-cero" class="nav-link" data-scroll-target="#haciendo-que-la-suma-de-los-residuos-sea-igual-a-cero">Haciendo que la suma de los residuos sea igual a cero</a></li>
+  <li><a href="#minimizando-la-suma-del-valor-absoluto-de-los-residuos" id="toc-minimizando-la-suma-del-valor-absoluto-de-los-residuos" class="nav-link" data-scroll-target="#minimizando-la-suma-del-valor-absoluto-de-los-residuos">Minimizando la suma del valor absoluto de los residuos</a></li>
+  <li><a href="#minimizando-la-suma-de-los-cuadrados-de-los-residuos" id="toc-minimizando-la-suma-de-los-cuadrados-de-los-residuos" class="nav-link" data-scroll-target="#minimizando-la-suma-de-los-cuadrados-de-los-residuos">Minimizando la suma de los cuadrados de los residuos</a></li>
+  </ul></li>
+  <li><a href="#mínimos-cuadrados.-cálculo-de-los-coeficientes" id="toc-mínimos-cuadrados.-cálculo-de-los-coeficientes" class="nav-link" data-scroll-target="#mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</a>
+  <ul class="collapse">
+  <li><a href="#sin-fórmulas" id="toc-sin-fórmulas" class="nav-link" data-scroll-target="#sin-fórmulas">Sin fórmulas</a></li>
+  <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
+  </ul></li>
+  <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">14.3</span> Calidad del ajuste</a></li>
+  <li><a href="#relación-no-lineal-entre-x-e-y" id="toc-relación-no-lineal-entre-x-e-y" class="nav-link" data-scroll-target="#relación-no-lineal-entre-x-e-y"><span class="header-section-number">14.4</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></a></li>
+  <li><a href="#transformación-logarítmica" id="toc-transformación-logarítmica" class="nav-link" data-scroll-target="#transformación-logarítmica"><span class="header-section-number">14.5</span> Transformación logarítmica</a></li>
+  <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">14.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-los-coeficientes" id="toc-distribución-de-los-coeficientes" class="nav-link" data-scroll-target="#distribución-de-los-coeficientes">Distribución de los coeficientes</a></li>
+  <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
+  <li><a href="#pruebas-de-significación-e-intervalos-de-confianza" id="toc-pruebas-de-significación-e-intervalos-de-confianza" class="nav-link" data-scroll-target="#pruebas-de-significación-e-intervalos-de-confianza">Pruebas de significación e intervalos de confianza</a></li>
+  </ul></li>
+  <li><a href="#apéndice-10.1" id="toc-apéndice-10.1" class="nav-link" data-scroll-target="#apéndice-10.1">Apéndice 10.1</a>
+  <ul class="collapse">
+  <li><a href="#dos-fórmulas-equivalentes-para-b_1" id="toc-dos-fórmulas-equivalentes-para-b_1" class="nav-link" data-scroll-target="#dos-fórmulas-equivalentes-para-b_1">Dos fórmulas equivalentes para <span class="math inline">\(b_1\)</span></a></li>
+  </ul></li>
+  <li><a href="#apéndice-10.2" id="toc-apéndice-10.2" class="nav-link" data-scroll-target="#apéndice-10.2">Apéndice 10.2</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-los-coeficientes-de-la-recta-ajustada" id="toc-distribución-de-los-coeficientes-de-la-recta-ajustada" class="nav-link" data-scroll-target="#distribución-de-los-coeficientes-de-la-recta-ajustada">Distribución de los coeficientes de la recta ajustada</a></li>
+  </ul></li>
+  <li><a href="#apéndice-10.3" id="toc-apéndice-10.3" class="nav-link" data-scroll-target="#apéndice-10.3">Apéndice 10.3</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-de-datos-que-no-cumplen-las-condiciones-requeridas" id="toc-ejemplo-de-datos-que-no-cumplen-las-condiciones-requeridas" class="nav-link" data-scroll-target="#ejemplo-de-datos-que-no-cumplen-las-condiciones-requeridas">Ejemplo de datos que no cumplen las condiciones requeridas</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión Simple</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Cuando se observa algún tipo de relación entre dos variables, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, puede interesar explicarla a través de una función del tipo <span class="math inline">\(y =f(x)\)</span>, donde a <span class="math inline">\(y\)</span> le llamamos variable dependiente o respuesta y a <span class="math inline">\(x\)</span> variable explicativa o regresora. Esta función sirve para entender qué tipo de influencia tiene <span class="math inline">\(x\)</span> sobre <span class="math inline">\(y\)</span>, y también para realizar estimaciones sobre el valor que tomará <span class="math inline">\(y\)</span> dado un valor de <span class="math inline">\(x\)</span>.</p>
+<p>Si la relación es lineal tendremos la ecuación de una recta que escribiremos de la forma: <span class="math inline">\(y = b_0 +b_1x\)</span>, donde <span class="math inline">\(b_1\)</span> es la pendiente y a <span class="math inline">\(b_0\)</span> a veces se le denomina “constante” (aunque no lo es) o “intercepto” porque es el valor en que la recta “intercepta” al eje de ordenadas. Nosotros le llamaremos “ordenada en el origen” un nombre más largo pero que no necesita explicación.</p>
+<p>La ecuación obtenida es un modelo estadístico que llamamos modelo de regresión. Se denomina regresión simple cuando solo se contempla una sola variable regresora y múltiple cuando se tiene más de una.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Modelo determinista frente a modelo estadístico
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La fórmula que aparece en los libros de física sobre el alcance de un tiro parabólico es un modelo determinista. Dando valores a las variables que intervienen (ángulo, velocidad inicial) se obtiene el valor exacto del alcance. Estos modelos pertenecen al ámbito de la teoría o son una simplificación de la realidad. En la práctica intervienen otras variables no controladas, o no somos capaces de fijar las variables que intervienen en el valor exacto que deben tener, por lo que el resultado siempre está afectado por una cierta incertidumbre.</p>
+<p>En los modelos estadísticos esa incertidumbre está explícita. Sabemos que el volumen de madera que se puede obtener de un arbol depende de su altura y del diámetro del tronco, pero dados los valores de estas variables no podemos determinar “exactametne” el volumen de madera que se va a obtener. A partir de los volumnes y de las características de otros árboles similares podemos crear un modelo estadístico.</p>
+</div>
+</div>
+<p>En un modelo estadístico entendemos que la ecuación obtenida indica -con más o menos precisión- la zona en que se encuentra la respuesta para un determinado valor de la variable regresora. Si tenemos <span class="math inline">\(n\)</span> puntos, el modelo de regresión lineal simple lo escribimos de la forma:</p>
+<p><span class="math display">\[y_i = b_0 + b_1 x_i + e_i \quad \text{para} \quad i = 1, 2, \cdots, n\]</span></p>
+<p>Donde el verdadero valor de la respuesta, <span class="math inline">\(y_i\)</span> es igual al punto sobre la recta más un valor <span class="math inline">\(e_i\)</span> que llamamos residuo y no podemos prever. Al punto sobre la recta le llamamos “valor estimado” y para distinguirlo del valor real le colocamos una especia de gorro encima: <span class="math inline">\(\hat{y}_i\)</span>. Por tanto, también podemos escribir:</p>
+<p><span class="math display">\[\hat{y}_i = b_0 + b_1 x_i \quad \text{para} \quad i = 1, 2, \cdots, n\]</span></p>
+<p>La figura <a href="#fig-Residuos"><span>14.1</span></a> (izquierda) contiene un diagrama bivariante con 6 puntos y su recta ajustada, mostrando el residuo correspondiente a cada punto. A la derecha tenemos la ecuación de la recta y la identificación de sus parámetros.</p>
+<div id="fig-Residuos" class="quarto-figure quarto-figure-right anchored">
+<figure class="figure">
+<p><img src="regresionSimple/010_resiRecta.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.1: Para cada punto se indica su residuo. A la derecha, ecuación de la recta.</figcaption>
+</figure>
+</div>
+<p>Los residuos juegan un papel protagonista cuando se ajusta un modelo de regresión. El método de ajuste habitual consiste en elegir la ecuación que minimiza la suma de los cuadrados de los residuos. Trataremos este método con detalle pero vamos a empezar explorando otras posibles alternativas.</p>
+<p>=== Interpretación basándonos en los datos de Pearson === ## Determinación de la recta ajustada</p>
+<section id="ajuste-a-una-recta" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="ajuste-a-una-recta"><span class="header-section-number">14.1</span> Ajuste a una recta</h2>
+<p>Si entre la respuesta y la variable regresora se observa una relación lineal se determina la ecuación de la recta que mejor se adapta a los puntos disponibles. Lo que significa “mejor” es discutible. Veamos algunas formas de hacerlo.</p>
+<section id="a-ojo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-ojo">A ojo</h3>
+<p>Se traza la recta directamente sobre el papel o se identifican dos puntos de paso y a partir de ellos se calculan los coeficientes del modelo.</p>
+<p>A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del “perfecto” y no se cometeran errores de bulto debido a la presencia de valores anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.</p>
+<div id="fig-regresionAOjo" class="quarto-figure quarto-figure-right anchored">
+<figure class="figure">
+<p><img src="regresionSimple/020_regresionAOjo.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.2: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
+</figure>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Intuitivo. Muy fácil de entender.</li>
+<li>No se comenten errores de mucho bulto.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>No se logra el ajuste “perfecto” de acuerdo con el criterio establecido. |</li>
+<li>No se tienen medidas de calidad del ajuste. |</li>
+<li>Solo sirve para regresión simple.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="método-de-ishikawa" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="método-de-ishikawa">Método de Ishikawa</h3>
+<p>Se identifica el primer y el tercer cuartil de los valores de <span class="math inline">\(X\)</span> <span class="math inline">\((X_{Q1}\)</span> y <span class="math inline">\(X_{Q3})\)</span>, e igual para los valores de <span class="math inline">\(Y\)</span> <span class="math inline">\((Y_{Q1}\)</span> y <span class="math inline">\(Y_{Q3})\)</span>. Se traza la recta por los puntos <span class="math inline">\((X_{Q1}\)</span> y <span class="math inline">\(Y_{Q1})\)</span> y <span class="math inline">\((X_{Q3}\)</span> y <span class="math inline">\(Y_{Q3})\)</span>. Se obtiene una recta muy razonable sin necesidad de realizar cálculos ni de aplicar fórmulas de las que se desconoce su lógica.</p>
+<div id="fig-Ishikawa" class="quarto-figure quarto-figure-right anchored">
+<figure class="figure">
+<p><img src="regresionSimple/030_regresionIshikawa.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.3: Ajuste por el método de Ishikawa y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
+</figure>
+</div>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;14.1: Método de Ishikawa. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Fácil de entender</li>
+<li>Robusto frente a la presencia de valores anómalos o con excesiva influencia</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>No se tienen medidas de calidad del ajuste</li>
+<li>Solo sirve para regresión simple</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kaoru Ishikawa (1915-1989)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fue un ingeniero japonés, considerado uno de los artífices del llamado “milagro japonés” que condujo los productos japoneses desde la mediocridad hasta arrasar en los mercados mundiales (electrónica, fotografía, automoción,…). Una de las claves del éxito fue el uso intensivo de técnicas estadísticas para el control y la mejora de la calidad. Ishikawa es conocido por proponer el uso de herramientas sencillas, que todos puedan entender y aplicar de forma habitual.</p>
+</div>
+</div>
+</section>
+<section id="haciendo-que-la-suma-de-los-residuos-sea-igual-a-cero" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="haciendo-que-la-suma-de-los-residuos-sea-igual-a-cero">Haciendo que la suma de los residuos sea igual a cero</h3>
+<p>Se trata de obtener los valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que cumplen la expresión:</p>
+<p><span class="math display">\[\sum_{i=1}^n \left[ Y_i - (b_0 - b_1 X_i) \right]= 0\]</span> qye es equivalente a:</p>
+<p><span class="math display">\[ n\bar{Y} - nb_0 - b_1 n \bar{X} = 0\]</span> Por tanto, con cualquier par de valores <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> que verifiquen la expresión <span class="math inline">\(\bar{Y} = b_0 + b_1 \bar{X}\)</span>, es decir, con cualquier recta que pase por (<span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(\bar{Y}\)</span>) tendremos una suma de residuos igual a cero.</p>
+<p>Que haya infinitas rectas que cumplan esa condición es una mala señal, porque seguro que no todas son adecuadas. Para los valores representados en la figura <a href="#fig-residuosSuma"><span>14.4</span></a> tenemos que <span class="math inline">\(\bar{X}= 6\)</span> y <span class="math inline">\(\bar{Y}= 9\)</span>. Rectas que hacen que la suma de los residuos sea igual a cero son, por ejemplo, la que tiene coeficientes <span class="math inline">\(b_0=9\)</span> y <span class="math inline">\(b_1=0\)</span>, es decir: <span class="math inline">\(Y = 9\)</span>, o también <span class="math inline">\(b_0 = 12\)</span> y <span class="math inline">\(b_1 = -0.5\)</span>, es decir: <span class="math inline">\(Y = 12 -0.5X\)</span> y ambos son claramente muy malos ajustes.</p>
+<div id="fig-residuosSuma" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/040_residuosSuma.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.4: Dos ajustes -claramente muy malos- con suma de residuos igual a cero.</figcaption>
+</figure>
+</div>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;14.2: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Ninguna</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Da un número infinito de soluciones (una de ellas coincide con el ajuste por mínimos cuadrados)</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="minimizando-la-suma-del-valor-absoluto-de-los-residuos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="minimizando-la-suma-del-valor-absoluto-de-los-residuos">Minimizando la suma del valor absoluto de los residuos</h3>
+<p>Se trata de minimizar:</p>
+<p><span class="math display">\[S=\sum_{i=1}^n \left| Y_i - (b_0 - b_1 X_i) \right|= 0\]</span></p>
+<p>Puede no tener solución única, pero los resultados posibles son mucho más razonables que en el caso anterior. Un problema específico de este caso es que no existen expresiones analíticas para los coeficientes debido a las dificultades en el manejo de la función “valor absoluto”.</p>
+<p>La figura <a href="#fig-residuosValorAbsoluto"><span>14.5</span></a> muestra dos diagramas con los mismos 4 puntos y ñas rectas que cumplen el criterio estableciso, en todas ellas la suma del valor absoluto de los residuos es igual a 2. La línea azul, que es la misma en los dos diagramas, es la que también minimiza la suma de los cuadrados de los residuos.</p>
+<div id="fig-residuosValorAbsoluto" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/050_residuosValorAbsoluto.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.5: Posibles opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;14.3: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Poco sensible a la presencia de valores anómalos</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>No da un ajuste equilibrado entre todos los puntos</li>
+<li>No existe expresión analítica para el cálculo de los coeficientes</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Mas información: [Wikipedia](https://en.wikipedia.org/wiki/Least_absolute_deviations) -->
+</section>
+<section id="minimizando-la-suma-de-los-cuadrados-de-los-residuos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="minimizando-la-suma-de-los-cuadrados-de-los-residuos">Minimizando la suma de los cuadrados de los residuos</h3>
+<p>Elevamos los residuos al cuadrado en vez de usar su valor absoluto para evitar que al sumarlos se compensen los positivos y negativos. Ahora se trata de minimizar:</p>
+<p><span class="math display">\[S=\sum_{i=1}^n \left[ Y_i - (b_0 - b_1 X_i) \right]^2= 0\]</span></p>
+<p>En vez de decir que el criterio de ajuste ha sido “minimizar la suma de los cuadrados de los residuos”, decimos que hemos ajustado por “mínimos cuadrados”. Este es el método usado en la inmensa mayoría de los casos, produce un ajuste equilibrado de la nube de puntos y está en perfecta sintonía con otras técnicas y medidas, que se contruyen en torno a criterios similares. Un inconveniente de este método de ajuste es que el modelo obtenido es sensible a la presencia de valores anómalos, cosa que no ocurre si se minimiza la suma de valores absolutos.</p>
+<p>En la primera fila de la figura <a href="#fig-sumaCuadrados"><span>14.6</span></a> tenemos una situación típica en que el ajuste por mínimos cuadrados da un mejor resultado que minimizando la suma del valor absoluto. Sin embargo, en la segunda fila tenemos un cado de puntos perfectamente alineados excepto un que muy probablemente sería un valor anómalo. Si minimizamos el valor aboluto de los residuos el ajuste ignora el valor anómalo mientras que ajustado por mínimos cuadrados el valor anómalo tiene una notable influencia sobre la recta ajustada.</p>
+<div id="fig-sumaCuadrados" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/060_residuosMinimosCuadrados.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.6: Ajustes obtenidos minimizando la suma de valores absolutos y la suma de los cuadrados de los residuos</figcaption>
+</figure>
+</div>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;14.4: Minimizar la suma de los cuadrados de los residuos. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Proporciona un ajuste muy razonable. El que queremos hacer cuando ajustamos a ojo.</li>
+<li>Encaja perfectamente con el resto de técnicas estadísticas que utilizamos.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Los valores anómales (errores o valores singulares) pueden tener bastante influencia sobre el modelo estimado. Hay que estar atentos para tratar esos puntos adecuadamente</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="mínimos-cuadrados.-cálculo-de-los-coeficientes" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</h2>
+<p>Existe una fórmula cerrada y con solución única para cada coeficiente, pero vamos a empezar identificando el valor de los coeficientes sin hacer uso de las fórmulas. Naturalmente, es mucho más rápido y más práctico usarlas o -mejor todavía- usar un paquete de software estadístico o una hoja de cálculo, pero hacerlo sin fórmulas permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.</p>
+<section id="sin-fórmulas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sin-fórmulas">Sin fórmulas</h3>
+<p>Realizamos a ojo una primera estimación del valor de los coeficientes. A continuación, mediante un pequeño programa -o también usando una hoja de cálculo-, hacemos un barrido de los valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span> en torno a los estimados, identidicando el par que minimiza la suma de los cuadrados de los residuos.</p>
+<p>Vayamos al diagrama de la figura <a href="#fig-coefSinFormulas"><span>14.7</span></a> (izquierda) que ya habíamos visto en las figuras <a href="#fig-regresionAOjo"><span>14.2</span></a> y <a href="#fig-Ishikawa"><span>14.3</span></a>. La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) por lo que sus coeficientes son: <span class="math inline">\(b_1\)</span> = 5,71 y <span class="math inline">\(b_0\)</span> = 27,14. Sería mucha casualidad que esos fueran los valores exactos que estamos buscando, pero no andarán muy lejos. Vamos a crear una malla de valores de <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>. Los valores de <span class="math inline">\(b_0\)</span> variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de <span class="math inline">\(b_0\)</span> irán de 20 a 35 también en saltos de 0,1. A cada combinación de esos dos valores corresponde a una recta, y a cada recta una suma de los cuadrados de los residuos. El par de valores que minimizan esa suma de cuadrados son: <span class="math inline">\(b_0\)</span> = 27,0 y <span class="math inline">\(b_1\)</span> = 4,8.</p>
+<div id="fig-coefSinFormulas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/070_coeficientesSinFormulas.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.7: Recta ajustada a ojo (izq.) y suma de los cuadrados de los residuos para cada par de valores <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>. En rojo, valores que la minimizan (der.).</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Paraboloide de la suma de cuadrados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de <span class="math inline">\(X\)</span> sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.</p>
+</div>
+</div>
+</section>
+<section id="usando-las-fórmulas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="usando-las-fórmulas">Usando las fórmulas</h3>
+<p>En el diagrama que representa la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> cada punto puede ser identificado por sus coordenadas <span class="math inline">\((x_i, y_i)\)</span> con <span class="math inline">\(1 \leq i \leq n\)</span> siendo <span class="math inline">\(n\)</span> el número total de puntos. [creo que esto es redundante y habría que mejorarlo]</p>
+<p>Cada uno de los puntos tiene un residuo asociado <span class="math inline">\(e_i\)</span> y ese residuo es la diferencia entre el valor real de <span class="math inline">\(y\)</span>, es decir, <span class="math inline">\(y_i\)</span> y su valor estimado <span class="math inline">\(\hat{y}_i\)</span>, el que estará sobre la recta y que será igual a <span class="math inline">\(b_0 + b_1 x_i\)</span>. Por tanto, el valor del residuo asociado al punto <span class="math inline">\(i\)</span> lo podemos escribir de la forma:</p>
+<p><span class="math display">\[ e_i = y_i - \left( b_0 + b_1 x_i \right) \]</span> Por tanto, la suma de los cuadrados de los residuos, <span class="math inline">\(S\)</span>, será:</p>
+<p><span class="math display">\[ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 \]</span></p>
+<p>Tanto los valores de <span class="math inline">\(y_i\)</span> como los de <span class="math inline">\(x_i\)</span> vienen dados. La suma de cuadrados <span class="math inline">\(S\)</span> es función de los valores de <span class="math inline">\(b_0\)</span> y de <span class="math inline">\(b_1\)</span>. Se trata de hallar los valores de <span class="math inline">\(b_0\)</span> y de <span class="math inline">\(b_1\)</span> que minimizan esa suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de <span class="math inline">\(S \left(b_0, b_1 \right )\)</span> respecto a <span class="math inline">\(b_0\)</span> y respecto a <span class="math inline">\(b_1\)</span> es igual a cero. Seguro que es un mínimo porque el máximo no está definido.</p>
+<p><span class="math display">\[ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) \]</span></p>
+<p><span class="math display">\[ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i \]</span></p>
+<p>Igualando a cero estas expresiones:</p>
+<p><span id="eq-derivada_b0"><span class="math display">\[ \sum_{í=1}^n y_i - nb_0 - b_1 \sum_{í=1}^n x_i = 0  \tag{14.1}\]</span></span></p>
+<p><span id="eq-derivada_b1"><span class="math display">\[ \sum_{í=1}^n x_i y_i - b_0 \sum_{í=1}^n x_i - b_1 \sum_{í=1}^n  x_i^2  = 0  \tag{14.2}\]</span></span></p>
+<p>Dividiendo por <span class="math inline">\(n\)</span> todos los términos de la ecuación <a href="#eq-derivada_b0"><span>14.1</span></a> tenemos:</p>
+<p><span class="math display">\[ b_0 = \bar{y} - b_1 \bar{x} \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La recta ajustada pasa por el punto <span class="math inline">\((\bar{x}, \bar{y})\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De la anterior expresón para <span class="math inline">\(b_0\)</span> también se decude que <span class="math inline">\(\bar{y} = b_0 + b_1\bar{x}\)</span>. Es decir, la recta ajustada minimizando la suma de los cuadrados de los residuos siempre pasa por el punto <span class="math inline">\((\bar{x}, \bar{y})\)</span> .</p>
+</div>
+</div>
+<p>Sustituyendo la expresión de <span class="math inline">\(b_0\)</span> en la ecuación <a href="#eq-derivada_b1"><span>14.2</span></a> tenemos:</p>
+<p><span class="math display">\[ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 \]</span></p>
+<p>Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde <span class="math inline">\(i=1\)</span> hasta <span class="math inline">\(n\)</span>. Despejando <span class="math inline">\(b_1\)</span> llegamos a:</p>
+<p><span class="math display">\[ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} \]</span> También la expresión de <span class="math inline">\(b_1\)</span> se suele dar de la forma (ver Apéndice 10.1):</p>
+<p><span id="eq-expresion_b1"><span class="math display">\[ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}  \tag{14.3}\]</span></span></p>
+<p>A partir de la ecuación <a href="#eq-expresion_b1"><span>14.3</span></a> y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:</p>
+<p><span class="math display">\[ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} \]</span> Calculando los coeficientes que corresponden a los datos de la figura <a href="#fig-coefSinFormulas"><span>14.7</span></a> se obtiene:</p>
+<p><span class="math display">\[ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 \]</span> Ahora sí, con todos los decimales que queramos, aunque dar más decimales de los que tienen los datos es añadir números que no aportant ninguna información, dan una falsa sensación de precisión y complican la lectura del resultado.</p>
+<!-- Sobre si es mínimo o máximo. https://uregina.ca/\~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Por qué le llamamos modelo de regresión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sean, por ejemplo, los puntos: (4; 3), (6; 8), (8; 12), (10; 10), (12; 12). La recta ajustada es: <span class="math inline">\(y = 1+x\)</span>. Si en vez de ajustar <span class="math inline">\(y = f(x)\)</span> se ajusta <span class="math inline">\(x=f(y)\)</span> ¿se obtendrá la ecuación resultante de despejar <span class="math inline">\(x\)</span> en <span class="math inline">\(y=f(x)\)</span>, es decir: <span class="math inline">\(x = -1 + y\)</span>? Si ajustamos <span class="math inline">\(x=f(y)\)</span> la ecuación será: <span class="math inline">\(x=1,57+0,714x\)</span>. No es lo mismo minimizar la suma de los cuadrados de los residuos medidos en dirección vertical que en dirección horizontal (esto último no son los residuos).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="calidad-del-ajuste" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="calidad-del-ajuste"><span class="header-section-number">14.3</span> Calidad del ajuste</h2>
+<p>El gráfico de la izquierda de la figura <a href="#fig-ArbolMano"><span>14.8</span></a> muestra la relación entre la longitud de la circunferencia (<em>X</em>) de los troncos de un determinado tipo de árbol y el volumen de madera (<em>Y</em>) que se puede obtener de ellos <span class="citation" data-cites="WolframData2016">(Fuente: <a href="references.html#ref-WolframData2016" role="doc-biblioref">Wolfram_Data_Repository 2016</a>)</span>. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por <span class="citation" data-cites="Wilson74">Wilson y Mather (<a href="references.html#ref-Wilson74" role="doc-biblioref">1974</a>)</span> citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="references.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.</p>
+<div id="fig-ArbolMano" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/080_ArbolMano.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.8: Relación muy clara y relación inexistent, situaciones que no pueden distinguirse solo a la vista del modelo ajustado.</figcaption>
+</figure>
+</div>
+<p>Es necesario, por tanto, completar el modelo con una medida que informe de la calidad del ajuste obtenido. Esa medida es el coeficiente de determinación <span class="math inline">\(R^2\)</span>.</p>
+<p>Para calcular el valor de <span class="math inline">\(R^2\)</span> empezamos poniéndonos en el peor de los casos: suponemos que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes, es decir, que el valor de <span class="math inline">\(X\)</span> no aporta ninguna información sobre el valor de <span class="math inline">\(Y\)</span>. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de <span class="math inline">\(Y\)</span> es siempre la misma, sin importar el valor de <span class="math inline">\(X\)</span>, y la mejor apuesta para ese valor de <span class="math inline">\(Y\)</span> -a falta de cualquier otra información- es su valor medio <span class="math inline">\(\bar{y}\)</span>. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por <span class="math inline">\(\bar{y}\)</span> le llamamos <span class="math inline">\(Q_Y\)</span>.</p>
+<p>A continuación calculamos la suma de los cuadrados de los residuos correspondientes a nuestra recta ajustada (la que minimiza la suma de los cuadrados de los residuos) y le llamaremos <span class="math inline">\(Q_R\)</span>. Cuanto mejor sea el ajuste menor será el valor de <span class="math inline">\(Q_R\)</span> y mayor la diferencia entre <span class="math inline">\(Q_Y\)</span> y <span class="math inline">\(Q_R\)</span>.</p>
+<p>El valor de <span class="math inline">\(R^2\)</span> es igual a la proporción de <span class="math inline">\(Q_Y\)</span> explicada por <span class="math inline">\(X\)</span>, es decir, la proporción en que disminuye <span class="math inline">\(Q_Y\)</span> gracias a la introducción de <span class="math inline">\(X\)</span> como variable explicativa, es decir:</p>
+<p><span class="math display">\[ R^2 = \frac{Q_Y - Q_R}{Q_Y} \]</span></p>
+<p>Veamos este cálculo en un ejemplo con datos sencillos. En la figura <a href="#fig-R2"><span>14.9</span></a> tenemos 5 puntos que podrían representar la relación entre el peso y la estatura de 5 individuos. Si, ignorando la información aportada por la estatura, siempre damos una estimación del peso igual a su valor medio, será como ajustar a una recta horizontal y tendremos una suma de los cuadrados de los residuos <span class="math inline">\(Q_Y = 56\)</span>. Sin embargo, si utilizamos la información que aporta la estatura y realizamos el ajuste minimizando la suma de los cuadrados de los residuos tenemos <span class="math inline">\(Q_R = 16\)</span>.</p>
+<div id="fig-R2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/090_R2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.9: Múltiples opciones para minimizar la suma de los residuos en valor absoluto.</figcaption>
+</figure>
+</div>
+<p>Hemos reducido la suma de los cuadrados de los residuos de 56 a 16, por tanto:</p>
+<p><span class="math display">\[ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 \]</span></p>
+<p>Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%. En los ejemplos de la figura <a href="#fig-ArbolMano"><span>14.8</span></a> estos valores son del 93,5% (volumen de madera) y 1,5% (edad al morir).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="math inline">\(R^2\)</span> es el cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Efectivamente, en el caso que estamos considerando de regresión simple, el coeficiente de determinación <span class="math inline">\(R^2\)</span> es igual al cuadrado del coeficiente de correlación <span class="math inline">\(r\)</span>. Este último puede variar entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(1\)</span> por lo que, obviamente, <span class="math inline">\(R^2\)</span> varía entre 0 y 1. La demostración es corta y fácil de encontrar en internet. Por ejemplo en:</p>
+</div>
+</div>
+</section>
+<section id="relación-no-lineal-entre-x-e-y" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="relación-no-lineal-entre-x-e-y"><span class="header-section-number">14.4</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></h2>
+<p>Si a la vista del diagrama bivariante se observa que la relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no es lineal, se puede utilizar el aspecto de la nube de puntos y el conocimiento del fenómeno que se estudia para plantear un modelo que se ajuste a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos. Si nuestros datos se ajustan a una función del tipo <span class="math inline">\(y = \beta_0 e^{\beta_1 x}\)</span>, podemos realizar el cambio <span class="math inline">\(y' = \ln y\)</span> obteniendo el modelo lineal: <span class="math inline">\(y' = \ln \beta_0 + \beta_1 x\)</span> a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones para linealizar la dependencia pueden consultar <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="references.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span> pág. 90. o <span class="citation" data-cites="PeñaRegre">Peña (<a href="references.html#ref-PeñaRegre" role="doc-biblioref">2002</a>)</span> pág. 314.</p>
+<p>La figura <a href="#fig-Poli_01"><span>14.10</span></a> (izquierda) muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: <span class="citation" data-cites="MontgomeryPeck">Montgomery y Peck (<a href="references.html#ref-MontgomeryPeck" role="doc-biblioref">1992</a>)</span>, pág. 92). Se observa una relación no lineal ya que cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene <span class="math inline">\(y = -1,156 + 0,7229x -0,03812x^2\)</span> con un coeficiende de determinación <span class="math inline">\(R^2 = 96,8%\)</span>, lo cual no está nada mal.</p>
+<p>Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento (figura de la derecha). Creamos la variable <span class="math inline">\(X' = 1/X\)</span> y obtenemos el ajuste: <span class="math inline">\(y = 2,979 - 6,935/x\)</span> con un <span class="math inline">\(R^2 = 97,9%\)</span> que es también un valor excelente y, además, con un modelo más compacto. En general, trabajar con la inversa de <span class="math inline">\(X\)</span> puede ser una buena alternativa al modelo cuadrático.</p>
+<div id="fig-Poli_01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/100_molinoViento.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.10: Texto figura.</figcaption>
+</figure>
+</div>
+<p>Hay que tener en cuenta que el modelo más adecuado no necesariamente es el que tiene el <span class="math inline">\(R^2\)</span> más elevado. Nos interesa que el modelo sea compacto y que pueda interpretarse y sea coherente con nuestro conocimiento del fenómeno en estudio. Si vamos aumentando el grado del polinomio ajustado cada vez tendremos un mayor valor de <span class="math inline">\(R^2\)</span> incluso, si tenemos pocos datos, podemos llegar a un <span class="math inline">\(R^2\)</span> del 100% siendo el modelo obtenido totalmente inútil.</p>
+<p>Volviendo a los datos de la figura <a href="#fig-R2"><span>14.9</span></a> donde a partir de los pesos de 5 personas (efectivamente son muy pocas, es solo un ejemplo) queremos modelar la relación entre peso y estatura, el modelo lineal es el más razonable. Si ajustamos los datos a un modelo cuadrático se tiene un máximo de peso en torno a una estatura de 175 cm que no tiene sentido. El polinomio de tercer grado presenta una forma que tampoco parece razonable y el de cuarto grado es un modelo con 5 parámetros (los 4 coeficientes y la ordenada en el origen) y como tenemos 5 puntos ajusta perfectamente, pero ni es un modelo razonable ni sirve en absoluto para estimar el peso de un individuo a partir de su altura (sí lo explica para los 5 individuos usados para construir el modelo, pero para esos ya lo sabíamos). Recuerde que dos puntos se ajustan perfectamente a un modelo con dos parámetros (una recta) tres puntos a un modelo con tres parámetros, … etc. Estos son modelos que explican muy bien lo que ya se sabe, pero son totalmente inútiles para hacer predicciones que es lo que -en general- se pretende.</p>
+<div id="fig-ajustePolinomio" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/110_ajustePolinomio.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.11: Aumentando el grado del polinomio la curva de adapta a los puntos pero solo explica lo que ya sabemos.</figcaption>
+</figure>
+</div>
+</section>
+<section id="transformación-logarítmica" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="transformación-logarítmica"><span class="header-section-number">14.5</span> Transformación logarítmica</h2>
+<p>En algunos casos, los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamímeros <span class="citation" data-cites="Weisberg">(<a href="references.html#ref-Weisberg" role="doc-biblioref">Weisberg 2014</a>, pág. 186)</span>. La mayoria de esos mamíferos pesan poco –la mediana es de 3,34 kg– pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro (<span class="math inline">\(Y\)</span>) frente al peso de cuerpo (<span class="math inline">\(X\)</span>) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.</p>
+<div id="fig-brainBodyOriginal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/120_brainBodyOriginal.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.12: Relación entre el peso del cerebro y el peso del cuerpo en 62 especies de mamíferos.</figcaption>
+</figure>
+</div>
+<p>Uno puede caer en la tentación de considerar a los elefantes como valores anómalos y eliminarlos, pero esa no es una buena decisión por dos razones:</p>
+<ol type="1">
+<li><p>Restringe la validez del modelo, ya no valdrá para todos los mamíferos considerados.</p></li>
+<li><p>Al eliminar esos valores y reescalar el gráfico aparecen otros valores anómalos: la persona humana (que da más reparo eliminar), la jirafa, el caballo, la vaca… y al final nos vamos quedando sin puntos.</p></li>
+</ol>
+<p>En casos como este, la transformación logarítmica “estira” los datos permitiendo un ajuste en el que todos los puntos tienen una influencia similar. Realizando esta transformación en nuestros datos se obtiene -casi parece un milagro- una nube de puntos tal como esperamos tener cuando ajustamos a una recta.</p>
+<div id="fig-brainBodyTransfo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/130_brainBodyTransfo.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.13: Peso del cerebro frente al peso del cuerpo antes y después de la transformación logarítmica.</figcaption>
+</figure>
+</div>
+<p>El modelo obtenido es:</p>
+<p><span class="math display">\[\log(Y) = 0,9271 + 0,7517 \log(X) \quad \text{con} \quad R^2 = 91,95\%\]</span> Volviendo a las variable soriginales nos queda (el cuerpo está en kg y el del cerebro en g):</p>
+<p><span class="math display">\[Y = 8,45 · X^{3/4}\]</span> La transformación logarítmica de los datos es, sin duda, una buena opción en casos como este, pero también tiene efectos secundarios no deseados.</p>
+<p>En primer lugar hay que tener en cuenta que los residuos (diferencia entre el valor real y el valor previsto) también están en escala logarítmica. POr ejemplo, para el elefante africano (el mayor, parece que la recta pasa por el punto) el valor real del peso del cerebro es de 5712 g y la previsión es de 6229 (+9%) y para el elefante asiático el valor real es de 4603 g mientras que el valor previsto es de 3031 g (-34%). El mamífero que presenta mayor residuo positivo es la persona humana (valor real: 1320, previsto: 185, -86%) mientras que el de mayor residuo negativo corresponde al Yapok (en inglés: Water opossum). Seguramente más interesante que el modelo en sí es conocer qué animales se separan más -por encima y por debajo- del patrón general. Sobre este tema existen muchas publicaciones. Los interesados pueden empezar explorando la Wikipedia y las referencias que incluye.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Transformación logarítmica: No importa la base
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En efecto, sea <span class="math inline">\(y = \ln (x)\)</span> y <span class="math inline">\(z = \log_{10}(x)\)</span>. Tendremos que <span class="math inline">\(e^y = x\)</span> y también que <span class="math inline">\(10^z = x\)</span>, luego <span class="math inline">\(e^y = 10^z\)</span>. Por tanto, <span class="math inline">\(\ln(e^y) = \ln(10^z)\)</span> y es inmediato que: <span class="math inline">\(y = \ln(10)·z\)</span>.</p>
+<p>Por tanto, cambiar la base del logaritmo equivale a multiplicar por una constante. En particular, para pasar del logaritmo neperiano al decimal basta con multiplicar por <span class="math inline">\(\ln(10)\)</span>. El aspecto del diagrama bivariante es el mismo con independencia de la base utilizada para la transformación logarítmica, solo cambian las escalas, aunque para que al volver a las variables originales la expresión sea más compacta puede interesar elegir una base u otra.</p>
+</div>
+</div>
+<p><strong><em>Posibilidad de usar los datos de Hooker, parece relación lineal pero no lo es y la transformación logarítmica da buen resultado</em></strong> </p><div style="page-break-after: always;"></div><p></p>
+</section>
+<section id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">14.6</span> Las cosas se complican: Lo que tenemos es una muestra</h2>
+<p>La interpretación de los resultados se complica cuando caemos en la cuenta de que los datos disponibles son solo una muestra de la población de interés. Supongamos que deseamos estudiar la relación entre peso y estatura en los jóvenes de cierta edad (haríamos bien en separar hombres y mujeres, pero aquí vamos a ignorar ese aspecto que trataremos en el siguiente capítulo) y que disponemos de una muestra de -pongamos- 20 jóvenes. Con los datos de esa muestra ajustamos una recta pero, en realidad, esa no es la recta que andamos buscando. Si hubiéramos tomado otra muestra la recta sería otra -distitnta- pero tan válida como la primera. Entonces, ¿cómo se interpreta la recta obtenida?</p>
+<p>Como en otros casos, una forma de ver lo que ocurre es simulando. En los diagramas de la figura <a href="#fig-regreVA"><span>14.14</span></a> las estaturas (<span class="math inline">\(X\)</span>) se han generado aleatoriamente de una distribución N(170; 8) y a cada estatura se le ha asignado un peso (<span class="math inline">\(Y\)</span>) mediante la expresión <span class="math inline">\(Y = X -100 +e\)</span>, donde <span class="math inline">\(e\)</span> un valor también generado aleatoriamente de una distribución N(0; 5). Tanto los valores de la estatura (en cm) como los obtenidos para los pesos (en kg) son valores razonables para una población joven. Hemos repetido la simulación 6 veces y, como es natural, cada vez hemos obtenido unos datos distintos y, por tanto, también una recta ajustada distinta.</p>
+<div id="fig-regreVA" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/140_regresionVariablesAleatorias.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.14: Rectas ajustadas a partir de muestras de n=20 datos de una misma población. La línea negra representa el modelo teórico</figcaption>
+</figure>
+</div>
+<p>En la figura <a href="#fig-regreVAsuper"><span>14.15</span></a> (izq.) se han superpuesto los 6 diagramas anteriores pudiéndose observar el haz de rectas que se obtiene. A la derecha tenemos la misma situación superponiendo 50 simulaciones (cada una con 20 datos) añadiendo, de color verde, la recta que representa el modelo teórico, es decir, la población.</p>
+<div id="fig-regreVAsuper" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/150_regreVAsuperpuestas.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.15: Superposición de 6 (izq.) y 50 (der.) simulaciones de conjuntos de 20 datos del modelo representado con una línea verde en el gráfico de la derecha.</figcaption>
+</figure>
+</div>
+<section id="distribución-de-los-coeficientes" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribución-de-los-coeficientes">Distribución de los coeficientes</h3>
+<p>La buena noticia es que si los datos cumplen unas ciertas condiciones –que en general se cumplirán– los valores de los coeficientes pertenecen a distribuciones Normales con parámetros conocidos. Siguiendo con el ejemplo anterior hemos repetido 10.000 veces la simulación obteniendo otras tantas rectas ajustadas. La <a href="#fig-distCoeficientes"><span>14.16</span></a> muestra los histogramas de los 10.000 valores obtenidos para <span class="math inline">\(b_0\)</span> y <span class="math inline">\(b_1\)</span>.</p>
+<div id="fig-distCoeficientes" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/160_distribucionCoeficientes.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.16: Distribución de los coeficientes.</figcaption>
+</figure>
+</div>
+<p>Observe que las medias de las distribuciones coinciden con verdadero valor del parámetro estimado (estamos de suerte). Las desviaciones típicas dependen de:</p>
+<ul>
+<li><p>Número de datos: Cuanto más datos mayor información y menos incertidumbre, por tanto, menos desviación típica en la distribución de los coeficientes.</p></li>
+<li><p>Desviación típica de la respuesta: A mayor variabilidad de la respuesta mayor incertidumbre y mayor variabilidad en la distribución del los coeficientes.</p></li>
+<li><p>El rango de variación de los valores de la variable regresora: Si los valores de <span class="math inline">\(x\)</span> están muy próximos a su media habrá mayor variabilidad en los distribución de los coeficientes. Quizá este aspecto no es tan intuitivo como los anteriores, pero se entiende muy bien a la vista de un gráfico como el de la figura <a href="#fig-distCoeficientes"><span>14.16</span></a>. En la izquierda tenemos el mismo gráfico que en la figura <a href="#fig-regreVAsuper"><span>14.15</span></a> con valores de X generados de una distribución N(170; 8) mientras que en el de la derecha se ha construido de la misma forma pero los valores de X se han generadod de una N(170; 3). Al tener menos variabilidad los valores de X tenemos mayor variabilidad en los valroes de los coeficientes.</p></li>
+</ul>
+<div id="fig-regreRangoX" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/170_regreRangoX.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.17: Distribución de los coeficientes.</figcaption>
+</figure>
+</div>
+<p>Conocer la distribución de los coeficientes hace posible calcular intervalos de confianza o realizar constrastes de hipótesis sobre sus valores.</p>
+</section>
+<section id="condiciones-que-deben-reunir-los-datos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
+<p>Para que los coeficientes tengan las distribuciones descritas anteriormente los datos utilizados para ajustar el modelo deben cumplir las siguientes condiciones:</p>
+<ul>
+<li><strong>Distribución de</strong> <span class="math inline">\(Y\)</span>: Dado un valor de <span class="math inline">\(X\)</span>, los valores de <span class="math inline">\(Y\)</span> deben seguir una distribución Normal. Si <span class="math inline">\(X\)</span> es la estatura e <span class="math inline">\(Y\)</span> es el peso, no hace falta suponer que el peso –globalmente– sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución (figura <a href="#fig-regreComportaY"><span>14.18</span></a>).</li>
+</ul>
+<div id="fig-regreComportaY" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/180_regreComportaY.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.18: Los valores del peso (en general, <span class="math inline">\(Y\)</span>) siguen una distribución Normal para cada valor de la estatura (en general, <span class="math inline">\(X\)</span>). Observe que hay una mayor densidad de puntos –observaciones– en torno a la línea verde que representa el modelo teórico.</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Variabilidad de</strong> <span class="math inline">\(Y\)</span>: Supondremos que la variabilidad de <span class="math inline">\(Y\)</span> no depende del valor de <span class="math inline">\(X\)</span>. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es decir, las dos “campanas” que aparecen en la figura <a href="#fig-regreComportaY"><span>14.18</span></a>, y las correspondientes a cualquiera de las estaturas, tienen la misma anchura. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de <span class="math inline">\(X\)</span>. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.</p></li>
+<li><p><strong>Valores de</strong> <span class="math inline">\(X\)</span>: No hay ninguna exigencia especial sobre estos valores. Solo es necesario que la variable sea cuantitativa. Es decir, el día de la semana, codificado como: lunes = 1, martes = 2, … no puede ser una variable regresora porque el modelo entedería que el domingo es igual a 7 veces el lunes. Aun así, también hay formas de incluir este tipo de variables. Lo veremos en el próximo capítulo en el caso de que solo puedan tomar dos valoros posibles.</p></li>
+<li><p><strong>Independencia de los residuos</strong>: La desviación respecto al valor previsto (valor sobre la recta) en en un punto no da ninguna pista sobre la desviación en el punto siguiente. Esto no ocurre con las variables que evolucionan en el tiempo, como la temperatura o la cotización de acciones en la bolsa, en que el valor de un día está influenciado por el valor de día anterior.</p></li>
+</ul>
+<p>Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de <span class="math inline">\(Y\)</span> frente a <span class="math inline">\(X\)</span> ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. SI nada hace suponer lo contrario, supondremos que las condiciones se cumplen. Si no se cumplen exactamente (en realidad, nunca se cumpliran “exactamente”) los intervalos de confianza y las pruebas de significación en que estamos interesdos, seguirán siendo válidos a efectos prácticos.</p>
+</section>
+<section id="pruebas-de-significación-e-intervalos-de-confianza" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-e-intervalos-de-confianza">Pruebas de significación e intervalos de confianza</h3>
+<p>Hemos visto que si se cumplen determinadas condiciones podemos considerar que los coeficientes del modelo son valores de una distribución Normal centrada en el verdadero valor del parámetro estimado (el coeficiente en la población) y desviación típica conocida.</p>
+<p>Esto nos permite realizar pruebas de significación para los coeficientes del modelo.</p>
+<ul>
+<li><p>Contraste <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Observe que el contraste se realiza sobre el valor teórico, no sobre el valor obtenido que ya vemos cual es. Este contraste tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p></li>
+<li><p>Contraste <span class="math inline">\(H_0: \beta_1=0\)</span> frente a <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>. Este es el contraste que tiene más interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los da5tos por lo que 5no se puede descartar que la variable regrora no sirvwe para explicar el comportaminto de la respuersta.</p></li>
+</ul>
+<p>Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++</p>
+<p>Tenemos que :</p>
+<span class="math display">\[\begin{equation}
+    \begin{aligned}
+        b_0 &amp;\sim N \left(\beta_0; \; \sigma_{\beta_0} \right) \\[5pt]
+        b_1 &amp;\sim N \left(\beta_1; \; \sigma_{\beta_0} \right)
+    \end{aligned}
+\end{equation}\]</span>
+<p>Por tanto, si contrastamos <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span> a partir del valor obtenido para <span class="math inline">\(b_0\)</span> tendremos:</p>
+<p><span class="math display">\[ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) \]</span> y analogamente para <span class="math inline">\(b_1\)</span>:</p>
+<p><span class="math display">\[ \frac{b_1-0}{\sigma_{\beta_1}} \sim N (0; 1) \]</span></p>
+<p>Pero los valroes de <span class="math inline">\(\sigma_{\beta_0}\)</span> y los de <span class="math inline">\(\sigma_{\beta_1}\)</span> no se conocen exactamente, pero se pueden estimar a partir de los datos disponibles. En la estimación de la desviación típica de los coeficientes aparece la variaza de los residuos. Los residuos tienen dos restricciones por lo que la t-Student tiene <span class="math inline">\(n-2\)</span> grados de libertad.</p>
+<p>-Pruebas de significación para <span class="math inline">\(b_1\)</span></p>
+<p>Tiene especial interés contrastar la hipótesis nula de que la pendiente de la recta (<span class="math inline">\(\beta_1\)</span>) es igual a cero.</p>
+<p>-Intervalos de confianza para las predicciones.</p>
+<ul>
+<li>Salida paquete de software</li>
+</ul>
+<p>-IC para las observaciones.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ligando las pruebas se significación para <span class="math inline">\(r\)</span> y para <span class="math inline">\(b_1\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí texto</p>
+</div>
+</div>
+</section>
+</section>
+<section id="apéndice-10.1" class="level1 unnumbered">
+<h1 class="unnumbered">Apéndice 10.1</h1>
+<section id="dos-fórmulas-equivalentes-para-b_1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dos-fórmulas-equivalentes-para-b_1">Dos fórmulas equivalentes para <span class="math inline">\(b_1\)</span></h3>
+<p>En la expresión:</p>
+<p><span class="math display">\[ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} \]</span></p>
+<p>Podemos poner el numerador de la forma:</p>
+<span class="math display">\[\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})(y_i - \bar{y}) &amp;= \sum x_i y_i - \bar{x} \sum y_i - \bar{y} \sum x_i + n\bar{x}\bar{y} =\\\\
+                                    &amp;= \sum x_i y_i -2n\bar{x}\bar{y} + n\bar{x}\bar{y} =\\\\
+                                    &amp;= \sum x_i y_i -n\bar{x}\bar{y} = \\\\
+                                    &amp;= \sum x_i y_i - \bar{y} \sum x_i
+\end{split}
+\end{equation}\]</span>
+<p>y el denominador:</p>
+<span class="math display">\[\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})^2 &amp;= \sum x_i^2 - 2 \bar{x} \sum x_i + n \bar{x}^2 =\\\\
+                                    &amp;= \sum x_i^2 -n\bar{x}^2 =\\\\
+                                    &amp;= \sum x_i^2 - \bar{x} \sum x_i
+\end{split}
+\end{equation}\]</span>
+<p>Por tanto,</p>
+<p><span class="math display">\[ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}  = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} \]</span></p>
+</section>
+</section>
+<section id="apéndice-10.2" class="level1 unnumbered">
+<h1 class="unnumbered">Apéndice 10.2</h1>
+<section id="distribución-de-los-coeficientes-de-la-recta-ajustada" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distribución-de-los-coeficientes-de-la-recta-ajustada">Distribución de los coeficientes de la recta ajustada</h3>
+<p>Las expresiones generales de las distribuciones de los coeficientes son:</p>
+<span class="math display">\[\begin{equation}
+    \begin{aligned}
+        b_0 &amp;\sim N \left(\beta_0; \sqrt{\frac{\sigma^2}{n} \frac{\sum x_i^2}{\sum \left(x_i - \bar{x} \right)^2 }} \right) \\[10pt]
+        b_1 &amp;\sim N \left(\beta_1; \sqrt{\frac{\sigma^2}{\sum \left(x_i - \bar{x} \right)^2}} \right)
+    \end{aligned}
+\end{equation}\]</span>
+<p>Falta deducción.</p>
+</section>
+</section>
+<section id="apéndice-10.3" class="level1 unnumbered">
+<h1 class="unnumbered">Apéndice 10.3</h1>
+<section id="ejemplo-de-datos-que-no-cumplen-las-condiciones-requeridas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ejemplo-de-datos-que-no-cumplen-las-condiciones-requeridas">Ejemplo de datos que no cumplen las condiciones requeridas</h3>
+<p>Veamos un caso en que no se cumplen las condiciones requeridas sobre el comportamiento de los datos para poder realizar pruebas de significación y calcular intervalos de confianza sobre los parámetros del modelo de la forma habitual.</p>
+<p>Hemos generado 6 números aleatorios de una distribución uniforme entre 0 y 100. Esos números definen 3 puntos en el plano y hemos calculado el perímetro y el área del triángulo definido por esos tres puntos. Repitiendo esta operación 200 veces hemos obtenido el gráfico de la figura *** donde se represetna el áera de cada triángulo en función de su perímetro. Aunque el coeficiente de correlación es claramente significativo, no es una buena idea intentar explicar el área en función del perímetro.</p>
+<p>+++++++++++++++</p>
+<p>Observe que las condiciones se exigen al comportamiento de los errores, es decir, de los valroes en la población, lo hacemos con los residuos que es lo más parecido.</p>
+<p>Cuando se construyen modelos de una cierta complejidad conviene analizar los residuos con detenimiento antes de dar el modelo por bueno para detectar posibles comportamientos que pongan de manifiesto el inclumplimiento de las condiciones que deben reunir los datos.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Draper98" class="csl-entry" role="listitem">
+Draper, N. R., y H. Smith. 1998. <em>Applied Regression Analysis</em>. 3.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-MontgomeryPeck" class="csl-entry" role="listitem">
+Montgomery, D. C., y E. A. Peck. 1992. <em>Introduction to Linear Regression Analysis</em>. 2.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-PeñaRegre" class="csl-entry" role="listitem">
+Peña, D. 2002. <em>Regresión y diseño de experimentos</em>. 1.ª ed. Madrid: Alianza Editorial.
+</div>
+<div id="ref-Weisberg" class="csl-entry" role="listitem">
+Weisberg, S. 2014. <em>Applied Linear Regression</em>. 4.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-Wilson74" class="csl-entry" role="listitem">
+Wilson, M. E., y L. E. Mather. 1974. <span>«Lefe expectancy»</span>. <em>Journal of the American Medical Association</em> 229 (11): 1421-22.
+</div>
+<div id="ref-WolframData2016" class="csl-entry" role="listitem">
+Wolfram_Data_Repository. 2016. Sample Data: Black Cherry Trees. <a href="https://doi.org/10.24097/wolfram.76288.data">https://doi.org/10.24097/wolfram.76288.data</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./61_correlacion.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Medidas de relación lineal</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./63_regresionMultiple.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,11 @@
+# SOBRE LA VARIABILIDAD
+
+Importancia de saberse mover en un contexto de variabilidad. No todas las variabilidades son iguales.
+
+Estoy pensando en empezar planteando el tema de la fecha de nacimiento de los futbolistas profesionales y a partir de ahí introducir la distribución binomial y su utilidad para separar señal y ruido.
+
+Siguiendo con el mundo de futbol, podría introducir la distribución de Poisson con el ejemplo del número de goles por partido.
+
+La distribución Normal se puede introducir como límite de histograma. También partiendo de la distribución Normal.
+
+No creo que -al menos aquí- haya que hablar de distribuciones de referencia teóricas: t-Student, Chi-cuadrado, F de Snededor.

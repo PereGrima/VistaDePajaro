@@ -1,0 +1,457 @@
+# Regresión Simple
+
+Cuando se observa algún tipo de relación entre dos variables, $x$ e $y$, puede interesar explicarla a través de una función del tipo $y =f(x)$, donde a $y$ le llamamos variable dependiente o respuesta y a $x$ variable explicativa o regresora. Esta función sirve para entender qué tipo de influencia tiene $x$ sobre $y$, y también para realizar estimaciones sobre el valor que tomará $y$ dado un valor de $x$.
+
+Si la relación es lineal tendremos la ecuación de una recta que escribiremos de la forma: $y = b_0 +b_1x$, donde $b_1$ es la pendiente y a $b_0$ a veces se le denomina "constante" (aunque no lo es) o "intercepto" porque es el valor en que la recta "intercepta" al eje de ordenadas. Nosotros le llamaremos "ordenada en el origen" un nombre más largo pero que no necesita explicación.
+
+La ecuación obtenida es un modelo estadístico que llamamos modelo de regresión. Se denomina regresión simple cuando solo se contempla una sola variable regresora y múltiple cuando se tiene más de una.
+
+::: callout-note
+## Modelo determinista frente a modelo estadístico
+
+La fórmula que aparece en los libros de física sobre el alcance de un tiro parabólico es un modelo determinista. Dando valores a las variables que intervienen (ángulo, velocidad inicial) se obtiene el valor exacto del alcance. Estos modelos pertenecen al ámbito de la teoría o son una simplificación de la realidad. En la práctica intervienen otras variables no controladas, o no somos capaces de fijar las variables que intervienen en el valor exacto que deben tener, por lo que el resultado siempre está afectado por una cierta incertidumbre.
+
+En los modelos estadísticos esa incertidumbre está explícita. Sabemos que el volumen de madera que se puede obtener de un arbol depende de su altura y del diámetro del tronco, pero dados los valores de estas variables no podemos determinar "exactametne" el volumen de madera que se va a obtener. A partir de los volumnes y de las características de otros árboles similares podemos crear un modelo estadístico.
+:::
+
+En un modelo estadístico entendemos que la ecuación obtenida indica -con más o menos precisión- la zona en que se encuentra la respuesta para un determinado valor de la variable regresora. Si tenemos $n$ puntos, el modelo de regresión lineal simple lo escribimos de la forma:
+
+$$y_i = b_0 + b_1 x_i + e_i \quad \text{para} \quad i = 1, 2, \cdots, n$$
+
+Donde el verdadero valor de la respuesta, $y_i$ es igual al punto sobre la recta más un valor $e_i$ que llamamos residuo y no podemos prever. Al punto sobre la recta le llamamos "valor estimado" y para distinguirlo del valor real le colocamos una especia de gorro encima: $\hat{y}_i$. Por tanto, también podemos escribir:
+
+$$\hat{y}_i = b_0 + b_1 x_i \quad \text{para} \quad i = 1, 2, \cdots, n$$
+
+La figura [-@fig-Residuos] (izquierda) contiene un diagrama bivariante con 6 puntos y su recta ajustada, mostrando el residuo correspondiente a cada punto. A la derecha tenemos la ecuación de la recta y la identificación de sus parámetros.
+
+![Para cada punto se indica su residuo. A la derecha, ecuación de la recta.](regresionSimple/010_resiRecta.png){#fig-Residuos fig-align="right" width="100%"}
+
+Los residuos juegan un papel protagonista cuando se ajusta un modelo de regresión. El método de ajuste habitual consiste en elegir la ecuación que minimiza la suma de los cuadrados de los residuos. Trataremos este método con detalle pero vamos a empezar explorando otras posibles alternativas.
+
+=== Interpretación basándonos en los datos de Pearson === \## Determinación de la recta ajustada
+
+## Ajuste a una recta
+
+Si entre la respuesta y la variable regresora se observa una relación lineal se determina la ecuación de la recta que mejor se adapta a los puntos disponibles. Lo que significa "mejor" es discutible. Veamos algunas formas de hacerlo.
+
+### A ojo {.unnumbered}
+
+Se traza la recta directamente sobre el papel o se identifican dos puntos de paso y a partir de ellos se calculan los coeficientes del modelo.
+
+A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es un método tan malo como parece. Con un poco de práctica el ajuste no será muy distinto del "perfecto" y no se cometeran errores de bulto debido a la presencia de valores anómalos, cosa que sí puede ocurrir si se tratan los datos de forma automática sin mnirarlos.
+
+![Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.](regresionSimple/020_regresionAOjo.png){#fig-regresionAOjo fig-align="right" width="100%"}
+
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Intuitivo. Muy fácil de entender.                                           |
+|                                                                                | -   No se comenten errores de mucho bulto.                                      |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No se logra el ajuste "perfecto" de acuerdo con el criterio establecido. \| |
+|                                                                                | -   No se tienen medidas de calidad del ajuste. \|                              |
+|                                                                                | -   Solo sirve para regresión simple.                                           |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+
+: {tbl-colwidths="\[10,90\]"}
+
+### Método de Ishikawa {.unnumbered}
+
+Se identifica el primer y el tercer cuartil de los valores de $X$ $(X_{Q1}$ y $X_{Q3})$, e igual para los valores de $Y$ $(Y_{Q1}$ y $Y_{Q3})$. Se traza la recta por los puntos $(X_{Q1}$ y $Y_{Q1})$ y $(X_{Q3}$ y $Y_{Q3})$. Se obtiene una recta muy razonable sin necesidad de realizar cálculos ni de aplicar fórmulas de las que se desconoce su lógica.
+
+![Ajuste por el método de Ishikawa y el que minimiza la suma de los cuadrados de los residuos.](regresionSimple/030_regresionIshikawa.png){#fig-Ishikawa fig-align="right" width="100%"}
+
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Fácil de entender                                                           |
+|                                                                                | -   Robusto frente a la presencia de valores anómalos o con excesiva influencia |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No se tienen medidas de calidad del ajuste                                  |
+|                                                                                | -   Solo sirve para regresión simple                                            |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+
+: Método de Ishikawa. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+::: callout-note
+## Kaoru Ishikawa (1915-1989)
+
+Fue un ingeniero japonés, considerado uno de los artífices del llamado "milagro japonés" que condujo los productos japoneses desde la mediocridad hasta arrasar en los mercados mundiales (electrónica, fotografía, automoción,...). Una de las claves del éxito fue el uso intensivo de técnicas estadísticas para el control y la mejora de la calidad. Ishikawa es conocido por proponer el uso de herramientas sencillas, que todos puedan entender y aplicar de forma habitual.
+:::
+
+### Haciendo que la suma de los residuos sea igual a cero {.unnumbered}
+
+Se trata de obtener los valores de $b_0$ y $b_1$ que cumplen la expresión:
+
+$$\sum_{i=1}^n \left[ Y_i - (b_0 - b_1 X_i) \right]= 0$$ qye es equivalente a:
+
+$$ n\bar{Y} - nb_0 - b_1 n \bar{X} = 0$$ Por tanto, con cualquier par de valores $b_0$ y $b_1$ que verifiquen la expresión $\bar{Y} = b_0 + b_1 \bar{X}$, es decir, con cualquier recta que pase por ($\bar{X}$, $\bar{Y}$) tendremos una suma de residuos igual a cero.
+
+Que haya infinitas rectas que cumplan esa condición es una mala señal, porque seguro que no todas son adecuadas. Para los valores representados en la figura [-@fig-residuosSuma] tenemos que $\bar{X}= 6$ y $\bar{Y}= 9$. Rectas que hacen que la suma de los residuos sea igual a cero son, por ejemplo, la que tiene coeficientes $b_0=9$ y $b_1=0$, es decir: $Y = 9$, o también $b_0 = 12$ y $b_1 = -0.5$, es decir: $Y = 12 -0.5X$ y ambos son claramente muy malos ajustes.
+
+![Dos ajustes -claramente muy malos- con suma de residuos igual a cero.](regresionSimple/040_residuosSuma.png){#fig-residuosSuma fig-align="center" width="100%"}
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Ninguna                                                                                         |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Da un número infinito de soluciones (una de ellas coincide con el ajuste por mínimos cuadrados) |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+
+: Suma de los residuos igual a cero. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+### Minimizando la suma del valor absoluto de los residuos {.unnumbered}
+
+Se trata de minimizar:
+
+$$S=\sum_{i=1}^n \left| Y_i - (b_0 - b_1 X_i) \right|= 0$$
+
+Puede no tener solución única, pero los resultados posibles son mucho más razonables que en el caso anterior. Un problema específico de este caso es que no existen expresiones analíticas para los coeficientes debido a las dificultades en el manejo de la función "valor absoluto".
+
+La figura [-@fig-residuosValorAbsoluto] muestra dos diagramas con los mismos 4 puntos y ñas rectas que cumplen el criterio estableciso, en todas ellas la suma del valor absoluto de los residuos es igual a 2. La línea azul, que es la misma en los dos diagramas, es la que también minimiza la suma de los cuadrados de los residuos.
+
+![Posibles opciones para minimizar la suma de los residuos en valor absoluto.](regresionSimple/050_residuosValorAbsoluto.png){#fig-residuosValorAbsoluto fig-align="center" width="100%"}
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Poco sensible a la presencia de valores anómalos                  |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No da un ajuste equilibrado entre todos los puntos                |
+|                                                                                | -   No existe expresión analítica para el cálculo de los coeficientes |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+
+: Suma de los residuos igual a cero. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+<!-- Mas información: [Wikipedia](https://en.wikipedia.org/wiki/Least_absolute_deviations) -->
+
+### Minimizando la suma de los cuadrados de los residuos {.unnumbered}
+
+Elevamos los residuos al cuadrado en vez de usar su valor absoluto para evitar que al sumarlos se compensen los positivos y negativos. Ahora se trata de minimizar:
+
+$$S=\sum_{i=1}^n \left[ Y_i - (b_0 - b_1 X_i) \right]^2= 0$$
+
+En vez de decir que el criterio de ajuste ha sido "minimizar la suma de los cuadrados de los residuos", decimos que hemos ajustado por "mínimos cuadrados". Este es el método usado en la inmensa mayoría de los casos, produce un ajuste equilibrado de la nube de puntos y está en perfecta sintonía con otras técnicas y medidas, que se contruyen en torno a criterios similares. Un inconveniente de este método de ajuste es que el modelo obtenido es sensible a la presencia de valores anómalos, cosa que no ocurre si se minimiza la suma de valores absolutos.
+
+En la primera fila de la figura [-@fig-sumaCuadrados] tenemos una situación típica en que el ajuste por mínimos cuadrados da un mejor resultado que minimizando la suma del valor absoluto. Sin embargo, en la segunda fila tenemos un cado de puntos perfectamente alineados excepto un que muy probablemente sería un valor anómalo. Si minimizamos el valor aboluto de los residuos el ajuste ignora el valor anómalo mientras que ajustado por mínimos cuadrados el valor anómalo tiene una notable influencia sobre la recta ajustada.
+
+![Ajustes obtenidos minimizando la suma de valores absolutos y la suma de los cuadrados de los residuos](regresionSimple/060_residuosMinimosCuadrados.png){#fig-sumaCuadrados fig-align="center" width="100%"}
+
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Proporciona un ajuste muy razonable. El que queremos hacer cuando ajustamos a ojo.                                                                                         |
+|                                                                                | -   Encaja perfectamente con el resto de técnicas estadísticas que utilizamos.                                                                                                 |
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Los valores anómales (errores o valores singulares) pueden tener bastante influencia sobre el modelo estimado. Hay que estar atentos para tratar esos puntos adecuadamente |
++--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+: Minimizar la suma de los cuadrados de los residuos. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+## Mínimos cuadrados. Cálculo de los coeficientes
+
+Existe una fórmula cerrada y con solución única para cada coeficiente, pero vamos a empezar identificando el valor de los coeficientes sin hacer uso de las fórmulas. Naturalmente, es mucho más rápido y más práctico usarlas o -mejor todavía- usar un paquete de software estadístico o una hoja de cálculo, pero hacerlo sin fórmulas permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
+
+### Sin fórmulas {.unnumbered}
+
+Realizamos a ojo una primera estimación del valor de los coeficientes. A continuación, mediante un pequeño programa -o también usando una hoja de cálculo-, hacemos un barrido de los valores de $b_0$ y $b_1$ en torno a los estimados, identidicando el par que minimiza la suma de los cuadrados de los residuos.
+
+Vayamos al diagrama de la figura [-@fig-coefSinFormulas] (izquierda) que ya habíamos visto en las figuras [-@fig-regresionAOjo] y [-@fig-Ishikawa]. La recta ajustada a ojo pasa por los puntos (-4,75; 0) y (5,75, 60) por lo que sus coeficientes son: $b_1$ = 5,71 y $b_0$ = 27,14. Sería mucha casualidad que esos fueran los valores exactos que estamos buscando, pero no andarán muy lejos. Vamos a crear una malla de valores de $b_0$ y $b_1$. Los valores de $b_0$ variarán de 2 a 8 con incrementos de 0,1 y para cada uno de esos, los de $b_0$ irán de 20 a 35 también en saltos de 0,1. A cada combinación de esos dos valores corresponde a una recta, y a cada recta una suma de los cuadrados de los residuos. El par de valores que minimizan esa suma de cuadrados son: $b_0$ = 27,0 y $b_1$ = 4,8.
+
+![Recta ajustada a ojo (izq.) y suma de los cuadrados de los residuos para cada par de valores $b_0$ y $b_1$. En rojo, valores que la minimizan (der.).](regresionSimple/070_coeficientesSinFormulas.png){#fig-coefSinFormulas fig-align="center" width="100%"}
+
+::: callout-note
+## Paraboloide de la suma de cuadrados
+
+Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de $X$ sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.
+:::
+
+### Usando las fórmulas {.unnumbered}
+
+En el diagrama que representa la relación entre $X$ e $Y$ cada punto puede ser identificado por sus coordenadas $(x_i, y_i)$ con $1 \leq i \leq n$ siendo $n$ el número total de puntos. \[creo que esto es redundante y habría que mejorarlo\]
+
+Cada uno de los puntos tiene un residuo asociado $e_i$ y ese residuo es la diferencia entre el valor real de $y$, es decir, $y_i$ y su valor estimado $\hat{y}_i$, el que estará sobre la recta y que será igual a $b_0 + b_1 x_i$. Por tanto, el valor del residuo asociado al punto $i$ lo podemos escribir de la forma:
+
+$$ e_i = y_i - \left( b_0 + b_1 x_i \right) $$ Por tanto, la suma de los cuadrados de los residuos, $S$, será:
+
+$$ S = \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right )^2 $$
+
+Tanto los valores de $y_i$ como los de $x_i$ vienen dados. La suma de cuadrados $S$ es función de los valores de $b_0$ y de $b_1$. Se trata de hallar los valores de $b_0$ y de $b_1$ que minimizan esa suma de cuadrados. El mínimo lo tendremos en el punto en que la derivada de $S \left(b_0, b_1 \right )$ respecto a $b_0$ y respecto a $b_1$ es igual a cero. Seguro que es un mínimo porque el máximo no está definido.
+
+$$ \frac{\partial S}{\partial b_0} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) $$
+
+$$ \frac{\partial S}{\partial b_1} = -2 \sum_{í=1}^n \left(y_i - b_0 - b_1 x_i \right ) x_i $$
+
+Igualando a cero estas expresiones:
+
+$$ \sum_{í=1}^n y_i - nb_0 - b_1 \sum_{í=1}^n x_i = 0 $$ {#eq-derivada_b0}
+
+$$ \sum_{í=1}^n x_i y_i - b_0 \sum_{í=1}^n x_i - b_1 \sum_{í=1}^n  x_i^2  = 0 $$ {#eq-derivada_b1}
+
+Dividiendo por $n$ todos los términos de la ecuación [-@eq-derivada_b0] tenemos:
+
+$$ b_0 = \bar{y} - b_1 \bar{x} $$
+
+::: callout-note
+## La recta ajustada pasa por el punto $(\bar{x}, \bar{y})$
+
+De la anterior expresón para $b_0$ también se decude que $\bar{y} = b_0 + b_1\bar{x}$. Es decir, la recta ajustada minimizando la suma de los cuadrados de los residuos siempre pasa por el punto $(\bar{x}, \bar{y})$ .
+:::
+
+Sustituyendo la expresión de $b_0$ en la ecuación [-@eq-derivada_b1] tenemos:
+
+$$ \sum_{í=1}^n x_i y_i - \bar{y} \sum_{í=1}^n x_i +  b_1\bar{x} \sum_{í=1}^n x_i- b_1 \sum_{í=1}^n  x_i^2  = 0 $$
+
+Para aligerar la notación no pondremos los límites a los sumatorios, que siempre son desde $i=1$ hasta $n$. Despejando $b_1$ llegamos a:
+
+$$ b_1 = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} $$ También la expresión de $b_1$ se suele dar de la forma (ver Apéndice 10.1):
+
+$$ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} $$ {#eq-expresion_b1}
+
+A partir de la ecuación [-@eq-expresion_b1] y recordando las expresiones de la covarianza y del coeficiente de correlación, llegamos a una expresión que también se ve con frecuencia en los libros de texto, seguramente porque una calculadora sencilla da directamente los tres valores que intervienen:
+
+$$ b_1 = \frac{Cov(XY)}{s_X^2} = \frac{r_{XY} s_X s_Y}{s_X^2} = r_{XY} \frac{s_Y}{s_X} $$ Calculando los coeficientes que corresponden a los datos de la figura [-@fig-coefSinFormulas] se obtiene:
+
+$$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$ Ahora sí, con todos los decimales que queramos, aunque dar más decimales de los que tienen los datos es añadir números que no aportant ninguna información, dan una falsa sensación de precisión y complican la lectura del resultado.
+
+<!-- Sobre si es mínimo o máximo. https://uregina.ca/\~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf -->
+
+::: callout-note
+## Por qué le llamamos modelo de regresión
+
+Sean, por ejemplo, los puntos: (4; 3), (6; 8), (8; 12), (10; 10), (12; 12). La recta ajustada es: $y = 1+x$. Si en vez de ajustar $y = f(x)$ se ajusta $x=f(y)$ ¿se obtendrá la ecuación resultante de despejar $x$ en $y=f(x)$, es decir: $x = -1 + y$? Si ajustamos $x=f(y)$ la ecuación será: $x=1,57+0,714x$. No es lo mismo minimizar la suma de los cuadrados de los residuos medidos en dirección vertical que en dirección horizontal (esto último no son los residuos).
+:::
+
+## Calidad del ajuste
+
+El gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia (*X*) de los troncos de un determinado tipo de árbol y el volumen de madera (*Y*) que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.
+
+![Relación muy clara y relación inexistent, situaciones que no pueden distinguirse solo a la vista del modelo ajustado.](regresionSimple/080_ArbolMano.png){#fig-ArbolMano fig-align="center" width="100%"}
+
+Es necesario, por tanto, completar el modelo con una medida que informe de la calidad del ajuste obtenido. Esa medida es el coeficiente de determinación $R^2$.
+
+Para calcular el valor de $R^2$ empezamos poniéndonos en el peor de los casos: suponemos que $X$ e $Y$ son independientes, es decir, que el valor de $X$ no aporta ninguna información sobre el valor de $Y$. En este caso, la recta que muestra la relación entre ambas variables es una recta horizontal: la estimación del valor de $Y$ es siempre la misma, sin importar el valor de $X$, y la mejor apuesta para ese valor de $Y$ -a falta de cualquier otra información- es su valor medio $\bar{y}$. A la suma de los cuadrados de los residuos correspondientes a esa recta horizontal que pasa por $\bar{y}$ le llamamos $Q_Y$.
+
+A continuación calculamos la suma de los cuadrados de los residuos correspondientes a nuestra recta ajustada (la que minimiza la suma de los cuadrados de los residuos) y le llamaremos $Q_R$. Cuanto mejor sea el ajuste menor será el valor de $Q_R$ y mayor la diferencia entre $Q_Y$ y $Q_R$.
+
+El valor de $R^2$ es igual a la proporción de $Q_Y$ explicada por $X$, es decir, la proporción en que disminuye $Q_Y$ gracias a la introducción de $X$ como variable explicativa, es decir:
+
+$$ R^2 = \frac{Q_Y - Q_R}{Q_Y} $$
+
+Veamos este cálculo en un ejemplo con datos sencillos. En la figura [-@fig-R2] tenemos 5 puntos que podrían representar la relación entre el peso y la estatura de 5 individuos. Si, ignorando la información aportada por la estatura, siempre damos una estimación del peso igual a su valor medio, será como ajustar a una recta horizontal y tendremos una suma de los cuadrados de los residuos $Q_Y = 56$. Sin embargo, si utilizamos la información que aporta la estatura y realizamos el ajuste minimizando la suma de los cuadrados de los residuos tenemos $Q_R = 16$.
+
+![Múltiples opciones para minimizar la suma de los residuos en valor absoluto.](regresionSimple/090_R2.png){#fig-R2 fig-align="center" width="100%"}
+
+Hemos reducido la suma de los cuadrados de los residuos de 56 a 16, por tanto:
+
+$$ R^2 = \frac{Q_Y - Q_R}{Q_Y} = \frac{56 - 16}{56} = 0.7143 $$
+
+Normalmente nos referimos a este valor como un porcentaje. En este caso sería el 71.43%. En los ejemplos de la figura [-@fig-ArbolMano] estos valores son del 93,5% (volumen de madera) y 1,5% (edad al morir).
+
+::: callout-note
+## $R^2$ es el cuadrado del coeficiente de correlación $r$
+
+Efectivamente, en el caso que estamos considerando de regresión simple, el coeficiente de determinación $R^2$ es igual al cuadrado del coeficiente de correlación $r$. Este último puede variar entre $-1$ y $1$ por lo que, obviamente, $R^2$ varía entre 0 y 1. La demostración es corta y fácil de encontrar en internet. Por ejemplo en:
+:::
+
+## Relación no lineal entre $X$ e $Y$
+
+Si a la vista del diagrama bivariante se observa que la relación entre $X$ e $Y$ no es lineal, se puede utilizar el aspecto de la nube de puntos y el conocimiento del fenómeno que se estudia para plantear un modelo que se ajuste a los datos. Los modelos polinómicos de segundo grado son muy versátiles y pueden ser una buena opción. También se puede ajustar a modelos linealizables transformando los valores de $X$, los de $Y$, o ambos. Si nuestros datos se ajustan a una función del tipo $y = \beta_0 e^{\beta_1 x}$, podemos realizar el cambio $y' = \ln y$ obteniendo el modelo lineal: $y' = \ln \beta_0 + \beta_1 x$ a partir del cual se deducen de forma inmediata los coeficientes del modelo original. Interesados en este tipo de transformaciones para linealizar la dependencia pueden consultar @MontgomeryPeck pág. 90. o @PeñaRegre pág. 314.
+
+La figura [-@fig-Poli_01] (izquierda) muestra los datos de producción de electricidad de un aerogenerador según sea la velocidad del viento (datos en: @MontgomeryPeck, pág. 92). Se observa una relación no lineal ya que cuando la velocidad del viento es baja, pequeños incrementos en la velocidad tienen un impacto importante en la producción de electricidad, mientras que para velocidades altas la producción tiende a estabilizarse. Ajustando a una parábola se obtiene $y = -1,156 + 0,7229x -0,03812x^2$ con un coeficiende de determinación $R^2 = 96,8%$, lo cual no está nada mal.
+
+Otra opción es estudiar la producción de electricidad en función de la inversa de la velocidad del viento (figura de la derecha). Creamos la variable $X' = 1/X$ y obtenemos el ajuste: $y = 2,979 - 6,935/x$ con un $R^2 = 97,9%$ que es también un valor excelente y, además, con un modelo más compacto. En general, trabajar con la inversa de $X$ puede ser una buena alternativa al modelo cuadrático.
+
+![Texto figura.](regresionSimple/100_molinoViento.png){#fig-Poli_01 fig-align="center" width="100%"}
+
+Hay que tener en cuenta que el modelo más adecuado no necesariamente es el que tiene el $R^2$ más elevado. Nos interesa que el modelo sea compacto y que pueda interpretarse y sea coherente con nuestro conocimiento del fenómeno en estudio. Si vamos aumentando el grado del polinomio ajustado cada vez tendremos un mayor valor de $R^2$ incluso, si tenemos pocos datos, podemos llegar a un $R^2$ del 100% siendo el modelo obtenido totalmente inútil.
+
+Volviendo a los datos de la figura [-@fig-R2] donde a partir de los pesos de 5 personas (efectivamente son muy pocas, es solo un ejemplo) queremos modelar la relación entre peso y estatura, el modelo lineal es el más razonable. Si ajustamos los datos a un modelo cuadrático se tiene un máximo de peso en torno a una estatura de 175 cm que no tiene sentido. El polinomio de tercer grado presenta una forma que tampoco parece razonable y el de cuarto grado es un modelo con 5 parámetros (los 4 coeficientes y la ordenada en el origen) y como tenemos 5 puntos ajusta perfectamente, pero ni es un modelo razonable ni sirve en absoluto para estimar el peso de un individuo a partir de su altura (sí lo explica para los 5 individuos usados para construir el modelo, pero para esos ya lo sabíamos). Recuerde que dos puntos se ajustan perfectamente a un modelo con dos parámetros (una recta) tres puntos a un modelo con tres parámetros, ... etc. Estos son modelos que explican muy bien lo que ya se sabe, pero son totalmente inútiles para hacer predicciones que es lo que -en general- se pretende.
+
+![Aumentando el grado del polinomio la curva de adapta a los puntos pero solo explica lo que ya sabemos.](regresionSimple/110_ajustePolinomio.png){#fig-ajustePolinomio fig-align="center" width="100%"}
+
+## Transformación logarítmica
+
+En algunos casos, los valores de $X$, los de $Y$, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamímeros [@Weisberg, pág. 186]. La mayoria de esos mamíferos pesan poco --la mediana es de 3,34 kg-- pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro ($Y$) frente al peso de cuerpo ($X$) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.
+
+![Relación entre el peso del cerebro y el peso del cuerpo en 62 especies de mamíferos.](regresionSimple/120_brainBodyOriginal.png){#fig-brainBodyOriginal fig-align="center" width="100%"}
+
+Uno puede caer en la tentación de considerar a los elefantes como valores anómalos y eliminarlos, pero esa no es una buena decisión por dos razones:
+
+1.  Restringe la validez del modelo, ya no valdrá para todos los mamíferos considerados.
+
+2.  Al eliminar esos valores y reescalar el gráfico aparecen otros valores anómalos: la persona humana (que da más reparo eliminar), la jirafa, el caballo, la vaca... y al final nos vamos quedando sin puntos.
+
+En casos como este, la transformación logarítmica "estira" los datos permitiendo un ajuste en el que todos los puntos tienen una influencia similar. Realizando esta transformación en nuestros datos se obtiene -casi parece un milagro- una nube de puntos tal como esperamos tener cuando ajustamos a una recta.
+
+![Peso del cerebro frente al peso del cuerpo antes y después de la transformación logarítmica.](regresionSimple/130_brainBodyTransfo.png){#fig-brainBodyTransfo fig-align="center" width="100%"}
+
+El modelo obtenido es:
+
+$$\log(Y) = 0,9271 + 0,7517 \log(X) \quad \text{con} \quad R^2 = 91,95\%$$ Volviendo a las variable soriginales nos queda (el cuerpo está en kg y el del cerebro en g):
+
+$$Y = 8,45 · X^{3/4}$$ La transformación logarítmica de los datos es, sin duda, una buena opción en casos como este, pero también tiene efectos secundarios no deseados.
+
+En primer lugar hay que tener en cuenta que los residuos (diferencia entre el valor real y el valor previsto) también están en escala logarítmica. POr ejemplo, para el elefante africano (el mayor, parece que la recta pasa por el punto) el valor real del peso del cerebro es de 5712 g y la previsión es de 6229 (+9%) y para el elefante asiático el valor real es de 4603 g mientras que el valor previsto es de 3031 g (-34%). El mamífero que presenta mayor residuo positivo es la persona humana (valor real: 1320, previsto: 185, -86%) mientras que el de mayor residuo negativo corresponde al Yapok (en inglés: Water opossum). Seguramente más interesante que el modelo en sí es conocer qué animales se separan más -por encima y por debajo- del patrón general. Sobre este tema existen muchas publicaciones. Los interesados pueden empezar explorando la Wikipedia y las referencias que incluye.
+
+::: callout-note
+## Transformación logarítmica: No importa la base
+
+En efecto, sea $y = \ln (x)$ y $z = \log_{10}(x)$. Tendremos que $e^y = x$ y también que $10^z = x$, luego $e^y = 10^z$. Por tanto, $\ln(e^y) = \ln(10^z)$ y es inmediato que: $y = \ln(10)·z$.
+
+Por tanto, cambiar la base del logaritmo equivale a multiplicar por una constante. En particular, para pasar del logaritmo neperiano al decimal basta con multiplicar por $\ln(10)$. El aspecto del diagrama bivariante es el mismo con independencia de la base utilizada para la transformación logarítmica, solo cambian las escalas, aunque para que al volver a las variables originales la expresión sea más compacta puede interesar elegir una base u otra.
+:::
+
+***Posibilidad de usar los datos de Hooker, parece relación lineal pero no lo es y la transformación logarítmica da buen resultado*** {{< pagebreak >}}
+
+## Las cosas se complican: Lo que tenemos es una muestra
+
+La interpretación de los resultados se complica cuando caemos en la cuenta de que los datos disponibles son solo una muestra de la población de interés. Supongamos que deseamos estudiar la relación entre peso y estatura en los jóvenes de cierta edad (haríamos bien en separar hombres y mujeres, pero aquí vamos a ignorar ese aspecto que trataremos en el siguiente capítulo) y que disponemos de una muestra de -pongamos- 20 jóvenes. Con los datos de esa muestra ajustamos una recta pero, en realidad, esa no es la recta que andamos buscando. Si hubiéramos tomado otra muestra la recta sería otra -distitnta- pero tan válida como la primera. Entonces, ¿cómo se interpreta la recta obtenida?
+
+Como en otros casos, una forma de ver lo que ocurre es simulando. En los diagramas de la figura [-@fig-regreVA] las estaturas ($X$) se han generado aleatoriamente de una distribución N(170; 8) y a cada estatura se le ha asignado un peso ($Y$) mediante la expresión $Y = X -100 +e$, donde $e$ un valor también generado aleatoriamente de una distribución N(0; 5). Tanto los valores de la estatura (en cm) como los obtenidos para los pesos (en kg) son valores razonables para una población joven. Hemos repetido la simulación 6 veces y, como es natural, cada vez hemos obtenido unos datos distintos y, por tanto, también una recta ajustada distinta.
+
+![Rectas ajustadas a partir de muestras de n=20 datos de una misma población. La línea negra representa el modelo teórico](regresionSimple/140_regresionVariablesAleatorias.png){#fig-regreVA fig-align="center" width="100%"}
+
+En la figura [-@fig-regreVAsuper] (izq.) se han superpuesto los 6 diagramas anteriores pudiéndose observar el haz de rectas que se obtiene. A la derecha tenemos la misma situación superponiendo 50 simulaciones (cada una con 20 datos) añadiendo, de color verde, la recta que representa el modelo teórico, es decir, la población.
+
+![Superposición de 6 (izq.) y 50 (der.) simulaciones de conjuntos de 20 datos del modelo representado con una línea verde en el gráfico de la derecha.](regresionSimple/150_regreVAsuperpuestas.png){#fig-regreVAsuper fig-align="center" width="100%"}
+
+### Distribución de los coeficientes {.unnumbered}
+
+La buena noticia es que si los datos cumplen unas ciertas condiciones --que en general se cumplirán-- los valores de los coeficientes pertenecen a distribuciones Normales con parámetros conocidos. Siguiendo con el ejemplo anterior hemos repetido 10.000 veces la simulación obteniendo otras tantas rectas ajustadas. La [-@fig-distCoeficientes] muestra los histogramas de los 10.000 valores obtenidos para $b_0$ y $b_1$.
+
+![Distribución de los coeficientes.](regresionSimple/160_distribucionCoeficientes.png){#fig-distCoeficientes fig-align="center" width="100%"}
+
+Observe que las medias de las distribuciones coinciden con verdadero valor del parámetro estimado (estamos de suerte). Las desviaciones típicas dependen de:
+
+-   Número de datos: Cuanto más datos mayor información y menos incertidumbre, por tanto, menos desviación típica en la distribución de los coeficientes.
+
+-   Desviación típica de la respuesta: A mayor variabilidad de la respuesta mayor incertidumbre y mayor variabilidad en la distribución del los coeficientes.
+
+-   El rango de variación de los valores de la variable regresora: Si los valores de $x$ están muy próximos a su media habrá mayor variabilidad en los distribución de los coeficientes. Quizá este aspecto no es tan intuitivo como los anteriores, pero se entiende muy bien a la vista de un gráfico como el de la figura [-@fig-distCoeficientes]. En la izquierda tenemos el mismo gráfico que en la figura [-@fig-regreVAsuper] con valores de X generados de una distribución N(170; 8) mientras que en el de la derecha se ha construido de la misma forma pero los valores de X se han generadod de una N(170; 3). Al tener menos variabilidad los valores de X tenemos mayor variabilidad en los valroes de los coeficientes.
+
+![Distribución de los coeficientes.](regresionSimple/170_regreRangoX.png){#fig-regreRangoX fig-align="center" width="100%"}
+
+Conocer la distribución de los coeficientes hace posible calcular intervalos de confianza o realizar constrastes de hipótesis sobre sus valores.
+
+### Condiciones que deben reunir los datos {.unnumbered}
+
+Para que los coeficientes tengan las distribuciones descritas anteriormente los datos utilizados para ajustar el modelo deben cumplir las siguientes condiciones:
+
+-   **Distribución de** $Y$: Dado un valor de $X$, los valores de $Y$ deben seguir una distribución Normal. Si $X$ es la estatura e $Y$ es el peso, no hace falta suponer que el peso --globalmente-- sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución (figura [-@fig-regreComportaY]).
+
+![Los valores del peso (en general, $Y$) siguen una distribución Normal para cada valor de la estatura (en general, $X$). Observe que hay una mayor densidad de puntos --observaciones-- en torno a la línea verde que representa el modelo teórico.](regresionSimple/180_regreComportaY.png){#fig-regreComportaY fig-align="center" width="100%"}
+
+-   **Variabilidad de** $Y$: Supondremos que la variabilidad de $Y$ no depende del valor de $X$. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es decir, las dos "campanas" que aparecen en la figura [-@fig-regreComportaY], y las correspondientes a cualquiera de las estaturas, tienen la misma anchura. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de $X$. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.
+
+-   **Valores de** $X$: No hay ninguna exigencia especial sobre estos valores. Solo es necesario que la variable sea cuantitativa. Es decir, el día de la semana, codificado como: lunes = 1, martes = 2, ... no puede ser una variable regresora porque el modelo entedería que el domingo es igual a 7 veces el lunes. Aun así, también hay formas de incluir este tipo de variables. Lo veremos en el próximo capítulo en el caso de que solo puedan tomar dos valoros posibles.
+
+-   **Independencia de los residuos**: La desviación respecto al valor previsto (valor sobre la recta) en en un punto no da ninguna pista sobre la desviación en el punto siguiente. Esto no ocurre con las variables que evolucionan en el tiempo, como la temperatura o la cotización de acciones en la bolsa, en que el valor de un día está influenciado por el valor de día anterior.
+
+Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de $Y$ frente a $X$ ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. SI nada hace suponer lo contrario, supondremos que las condiciones se cumplen. Si no se cumplen exactamente (en realidad, nunca se cumpliran "exactamente") los intervalos de confianza y las pruebas de significación en que estamos interesdos, seguirán siendo válidos a efectos prácticos.
+
+### Pruebas de significación e intervalos de confianza {.unnumbered}
+
+Hemos visto que si se cumplen determinadas condiciones podemos considerar que los coeficientes del modelo son valores de una distribución Normal centrada en el verdadero valor del parámetro estimado (el coeficiente en la población) y desviación típica conocida.
+
+Esto nos permite realizar pruebas de significación para los coeficientes del modelo.
+
+* Contraste $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$. Observe que el contraste se realiza sobre el valor teórico, no sobre el valor obtenido que ya vemos cual es. Este contraste tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.
+
+
+* Contraste $H_0: \beta_1=0$ frente a $H_1: \beta_1 \neq 0$. Este es el contraste que tiene más interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los da5tos por lo que 5no se puede descartar que la variable regrora no sirvwe para explicar el comportaminto de la respuersta.
+
+Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++
+
+Tenemos que :
+
+```{=tex}
+\begin{equation}
+    \begin{aligned}
+        b_0 &\sim N \left(\beta_0; \; \sigma_{\beta_0} \right) \\[5pt]
+        b_1 &\sim N \left(\beta_1; \; \sigma_{\beta_0} \right) 
+    \end{aligned}
+\end{equation}
+```
+
+Por tanto, si contrastamos $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$ a partir del valor obtenido para $b_0$ tendremos:
+
+$$ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) $$
+y analogamente para $b_1$:
+
+$$ \frac{b_1-0}{\sigma_{\beta_1}} \sim N (0; 1) $$
+
+Pero los valroes de $\sigma_{\beta_0}$ y los de $\sigma_{\beta_1}$ no se conocen exactamente, pero se pueden estimar a partir de los datos disponibles. En la estimación de la desviación típica de los coeficientes aparece la variaza de los residuos. Los residuos tienen dos restricciones por lo que la t-Student tiene $n-2$ grados de libertad.
+
+
+-Pruebas de significación para $b_1$
+
+Tiene especial interés contrastar la hipótesis nula de que la pendiente de la recta ($\beta_1$) es igual a cero.
+
+-Intervalos de confianza para las predicciones.
+
+-   Salida paquete de software
+
+-IC para las observaciones.
+
+::: callout-note
+## Ligando las pruebas se significación para $r$ y para $b_1$
+
+Aquí texto
+:::
+
+# Apéndice 10.1 {.unnumbered}
+
+### Dos fórmulas equivalentes para $b_1$ {.unnumbered}
+
+En la expresión:
+
+$$ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} $$
+
+Podemos poner el numerador de la forma:
+
+```{=tex}
+\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})(y_i - \bar{y}) &= \sum x_i y_i - \bar{x} \sum y_i - \bar{y} \sum x_i + n\bar{x}\bar{y} =\\\\
+                                    &= \sum x_i y_i -2n\bar{x}\bar{y} + n\bar{x}\bar{y} =\\\\
+                                    &= \sum x_i y_i -n\bar{x}\bar{y} = \\\\
+                                    &= \sum x_i y_i - \bar{y} \sum x_i
+\end{split}
+\end{equation}
+```
+y el denominador:
+
+```{=tex}
+\begin{equation}
+\begin{split}
+\sum (x_i - \bar{x})^2 &= \sum x_i^2 - 2 \bar{x} \sum x_i + n \bar{x}^2 =\\\\
+                                    &= \sum x_i^2 -n\bar{x}^2 =\\\\
+                                    &= \sum x_i^2 - \bar{x} \sum x_i
+\end{split}
+\end{equation}
+```
+Por tanto,
+
+$$ b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}  = \frac{\sum x_i y_i - \bar{y} \sum x_i}{\sum x_i^2 - \bar{x} \sum x_i} $$
+
+# Apéndice 10.2 {.unnumbered}
+
+### Distribución de los coeficientes de la recta ajustada {.unnumbered}
+
+Las expresiones generales de las distribuciones de los coeficientes son:
+
+```{=tex}
+\begin{equation}
+    \begin{aligned}
+        b_0 &\sim N \left(\beta_0; \sqrt{\frac{\sigma^2}{n} \frac{\sum x_i^2}{\sum \left(x_i - \bar{x} \right)^2 }} \right) \\[10pt]
+        b_1 &\sim N \left(\beta_1; \sqrt{\frac{\sigma^2}{\sum \left(x_i - \bar{x} \right)^2}} \right) 
+    \end{aligned}
+\end{equation}
+```
+Falta deducción.
+
+# Apéndice 10.3 {.unnumbered}
+
+### Ejemplo de datos que no cumplen las condiciones requeridas {.unnumbered}
+
+Veamos un caso en que no se cumplen las condiciones requeridas sobre el comportamiento de los datos para poder realizar pruebas de significación y calcular intervalos de confianza sobre los parámetros del modelo de la forma habitual.
+
+Hemos generado 6 números aleatorios de una distribución uniforme entre 0 y 100. Esos números definen 3 puntos en el plano y hemos calculado el perímetro y el área del triángulo definido por esos tres puntos. Repitiendo esta operación 200 veces hemos obtenido el gráfico de la figura \*\*\* donde se represetna el áera de cada triángulo en función de su perímetro. Aunque el coeficiente de correlación es claramente significativo, no es una buena idea intentar explicar el área en función del perímetro.
+
++++++++++++++++
+
+Observe que las condiciones se exigen al comportamiento de los errores, es decir, de los valroes en la población, lo hacemos con los residuos que es lo más parecido.
+
+Cuando se construyen modelos de una cierta complejidad conviene analizar los residuos con detenimiento antes de dar el modelo por bueno para detectar posibles comportamientos que pongan de manifiesto el inclumplimiento de las condiciones que deben reunir los datos.

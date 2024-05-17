@@ -1,0 +1,3 @@
+# Distribuciones de probabilidad
+
+Binomial, Poisson, Normal, otras (uniforme, equiprobable, curiosidades: unif+unif = triangular)

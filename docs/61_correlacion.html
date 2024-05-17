@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estadística a vista de pájaro - 13&nbsp; Medidas de relación lineal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./62_regresionSimple.html" rel="next">
+<link href="./60_Parte_Corre_Regre.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./60_Parte_Corre_Regre.html">CORRELACIÓN Y REGRESIÓN</a></li><li class="breadcrumb-item"><a href="./61_correlacion.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Medidas de relación lineal</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Estadística a vista de pájaro</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PRESENTACIÓN</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_queEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">¿Qué es la estadística?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./10_Parte_Descriptiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ESTADÍSTICA DESCRIPTIVA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_sintesisNumerica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Síntesis numérica de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_graficos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Representaciones gráficas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./20_Parte_Variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SOBRE LA VARIABILIDAD</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_variablesAleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables aleatorias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_distribucionesProbabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./30_Parte_Estimacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ESTIMACIÓN</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_estimacionProporciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimación de proporciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_estimacionMedias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimación de medias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_estimacionTamañoPoblacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estimación del tamaño de la población</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./40_Parte_Contraste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CONTRASTE DE HIPÓTESIS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_Conceptos_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conceptos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_Proceso_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Esquema de razonamiento</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_tiposError_CH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tipos de error</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./50_Parte_Experimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DISEÑO DE EXPERIMENTOS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_floresAspirina.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">¿La Aspirina alarga la vida de las flores?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./52_duracionPilas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">¿Duran más las pilas caras?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./60_Parte_Corre_Regre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORRELACIÓN Y REGRESIÓN</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_correlacion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Medidas de relación lineal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./62_regresionSimple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./63_regresionMultiple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regresión Múltiple</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#observación-y-cuantificación-de-la-relación" id="toc-observación-y-cuantificación-de-la-relación" class="nav-link active" data-scroll-target="#observación-y-cuantificación-de-la-relación"><span class="header-section-number">13.1</span> Observación y cuantificación de la relación</a></li>
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza"><span class="header-section-number">13.2</span> Covarianza</a>
+  <ul class="collapse">
+  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula">Deducción de la fórmula</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
+  </ul></li>
+  <li><a href="#coeficiente-de-correlación" id="toc-coeficiente-de-correlación" class="nav-link" data-scroll-target="#coeficiente-de-correlación"><span class="header-section-number">13.3</span> Coeficiente de correlación</a>
+  <ul class="collapse">
+  <li><a href="#coeficiente-de-correlación-y-diagrama-bivariante" id="toc-coeficiente-de-correlación-y-diagrama-bivariante" class="nav-link" data-scroll-target="#coeficiente-de-correlación-y-diagrama-bivariante">Coeficiente de correlación y diagrama bivariante</a></li>
+  <li><a href="#correlación-estadísticamente-significativa" id="toc-correlación-estadísticamente-significativa" class="nav-link" data-scroll-target="#correlación-estadísticamente-significativa">Correlación estadísticamente significativa</a></li>
+  <li><a href="#correlación-no-implica-relación-causa-efecto" id="toc-correlación-no-implica-relación-causa-efecto" class="nav-link" data-scroll-target="#correlación-no-implica-relación-causa-efecto">Correlación no implica relación causa-efecto</a></li>
+  <li><a href="#curiosidad-sobre-el-coeficiente-de-correlación" id="toc-curiosidad-sobre-el-coeficiente-de-correlación" class="nav-link" data-scroll-target="#curiosidad-sobre-el-coeficiente-de-correlación">Curiosidad sobre el coeficiente de correlación</a></li>
+  </ul></li>
+  <li><a href="#apéndice-9.1" id="toc-apéndice-9.1" class="nav-link" data-scroll-target="#apéndice-9.1">APÉNDICE 9.1</a>
+  <ul class="collapse">
+  <li><a href="#coeficiente-de-correlación-cuando-la-relación-lineal-es-perfecta" id="toc-coeficiente-de-correlación-cuando-la-relación-lineal-es-perfecta" class="nav-link" data-scroll-target="#coeficiente-de-correlación-cuando-la-relación-lineal-es-perfecta">Coeficiente de correlación cuando la relación lineal es perfecta</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Medidas de relación lineal</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>La forma más sencilla de analizar la posible relación entre dos variables es representar sus valores en un diagrama bivariante, también llamado diagrama de dispersión o diagrama de correlación. Cada punto corresponde a una observación (un dato) y sus coordenadas <span class="math inline">\((x; y)\)</span> corresponden a los valores de las variables consideradas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué variable se asigna a cada eje?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No es arbitrario. En el eje de las <span class="math inline">\(x\)</span> colocamos la variable <em>explicativa</em> y en el eje de las <span class="math inline">\(y\)</span> la variable <em>respuesta</em>. Si analizamos la relación entre el peso y la estatura, en el eje de las <span class="math inline">\(x\)</span> debemos colocar la estatura y en el eje de las <span class="math inline">\(y\)</span> el peso. Queremos ver si la estatura (que viene dada) influye en el valor del peso.</p>
+</div>
+</div>
+<p>El diagrama bivariante de la figura <a href="#fig-Medida_01"><span>13.1</span></a> se ha construido con unos datos que fueron obtenidos por Karl Pearson para estudiar la influencia de la herencia en la estatura. Cada punto representa la estatura de una mujer y la de una de sus hijas mayores de 18 años <span class="citation" data-cites="Weisberg">(más detalles en <a href="references.html#ref-Weisberg" role="doc-biblioref">Weisberg 2014</a>, pág. 2)</span>. La nube de puntos resultante muestra una clara relación estadística entre la altura de madres e hijas, cuanto más alta es la madre, más alta tiende a ser la hija.</p>
+<div id="fig-Medida_01" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/010_bivaDatosPearson.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.1: Diagrama bivariante de los datos obtenidos por Karl Pearson sobre las alturas de 1375 mujeres y la de una de sus hijas.</figcaption>
+</figure>
+</div>
+<p>A la vista de este diagrama surge el interés por medir la intensidad de la relación. La expresión “clara relación” que hemos usado anteriomente puede aplicarse a situaciones muy diferentes y conviene poder diferenciarlas con una medida cuantitativa. También tiene interés conocer la ecuación de la recta que refleja esa relación.</p>
+<p>En este capítulo tratamos sobre medidas de la relación lineal entre variables, centrándonos en el coeficiente de correlación propuesto por Karl Pearson, el mismo que organizó la recogida de los datos que acabamos de comentar. En el capítulo siguiente tratamos de la obtención y la interpretación de modelos de regresión cuando tenemos una sola variable explicativa (regresión simple). El último capítulo trata sobre los modelos en que interviene más de una variable explicativa (regresión múltiple), centrándonos especialmente en los peligros ante los que conviene estar atento.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Medidas de relación <strong>LINEAL</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tanto la covarianza como el coeficiente de correlación solo miden relación lineal entre variables. Dos variables pueden estar muy relacionadas mediante una función no lineal y tener una medida de relación <strong>lineal</strong> muy próxima o igual a cero.</p>
+</div>
+</div>
+<section id="observación-y-cuantificación-de-la-relación" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="observación-y-cuantificación-de-la-relación"><span class="header-section-number">13.1</span> Observación y cuantificación de la relación</h2>
+<p>Veamos los cuatro casos de la figura <a href="#fig-Medida_02"><span>13.2</span></a>. El primero muestra la relación entre la presión atmosférica (en pulgadas de Hg) y la temperatura de ebullición del agua (en ºF). Los datos fueron tomados por el botánico Joseph D. Hookeren en distintos puntos de la cordillera del Himalaya a mediados del siglo XIX. Si la presión atmosférica, y a partir de ella la altitud, se podían evaluar a partir de la temperatura de ebullición del agua (muy fácil de medir) se podía evitar el uso de los frágiles y difíciles de transportar barómetros de la época. Fue un éxito, porque entre las dos variables se observa una relación casi perfecta.</p>
+<p>El diagrama 2 muestra la relación entre la longitud de la circunferencia de los troncos de un determinado tipo de árbol y el volumen de madera que se puede obtener de ellos <span class="citation" data-cites="RyanJoiner">(<a href="references.html#ref-RyanJoiner" role="doc-biblioref">Ryan, Joiner, y Ryan 1976</a>)</span>. Se observa una estrecha relación entre ambas variables. El diagrama 3 se ha obtenido con datos de esos mismos árboles pero representa el volumen de madera en función de la altura del arbol. En este caso también se observa una relación, pero no tan clara como en el caso anterior.</p>
+<p>Finalmente, el diagrama 4 se ha realizado con los datos de un estudio publicado por Wilson y Mather (1974) citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="references.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables.</p>
+<div id="fig-Medida_02" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/020_medidaRelacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.2: Cuatro situaciones que muestran diferentes grados de relación</figcaption>
+</figure>
+</div>
+<p>Aunque la información fundamental queda reflejada en el diagrama bivariante, cuando a la vista del gráfico la relación es dudosa, o cuando interesa cuantificar la relación observada, disponemos de medidas de relación lineal. Las dos de uso más habitual son la covarianza y el coeficiente de correlación, mucho más esta última por las razones que veremos a continuación.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Notación usada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para la covarianza no tenemos un símbolo específico. Cuando nos referimos a modelos teóricos, o a nivel poblacional, escribimos <span class="math inline">\(\text{Cov}(X,Y)\)</span>. Para el valor calculado a partir de unos datos concretos (una muestra) escribimos <span class="math inline">\(\widehat{\text{Cov}}(X,Y)\)</span> colocando un “sombrero” encima de <span class="math inline">\(\text{Cov}\)</span> para indicar que se trata de un estimador. Para el coeficiente de correlación utilizamos la regla general de asignar una letra latina al valor en la muestra, en este caso <span class="math inline">\(r\)</span> y la letra griega correspondiente, <span class="math inline">\(\rho\)</span>, para la población.</p>
+</div>
+</div>
+</section>
+<section id="covarianza" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">13.2</span> Covarianza</h2>
+<p>Aparece como en las calculadoras con funciones estadísticas, en los paquetes de software y también en las hojas de cálculo, aunque en la práctica resulta poco útil como medida de relación lineal. Aquí la incluimos porque su expresión es fácil de justificar y ayuda a entender la fórmula del coeficiente de correlación.</p>
+<section id="deducción-de-la-fórmula" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="deducción-de-la-fórmula">Deducción de la fórmula</h3>
+<p>La figura <a href="#fig-covarianza"><span>13.3</span></a> muestra la relación entre dos variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. En la derecha el diagrama se ha dividido en cuatro cuadrantes trazando una línea vertical que pasa por la media de los valores de <span class="math inline">\(X\)</span> y una horizontal por la media de los valores de <span class="math inline">\(Y\)</span>. A estos valores medios los designamos <span class="math inline">\(\bar{x}\)</span> e <span class="math inline">\(\bar{y}\)</span> respectivamente. Los cuadrantes van del I al IV en el sentido de las agujas del reloj.</p>
+<div id="fig-covarianza" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/030_covarianza.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.3: Deducción de la fórmula de la covarianza</figcaption>
+</figure>
+</div>
+<p>En todos los puntos del primer cuadrante la distancia <span class="math inline">\(x - \bar{x}\)</span> es positiva, ya que todos se encuentran a la derecha de <span class="math inline">\(\bar{x}\)</span>. También será positiva la distancia <span class="math inline">\(y - \bar{y}\)</span> ya que todos están por encima de <span class="math inline">\(\bar{y}\)</span>. Por tanto, el producto de ambas distancias <span class="math inline">\((x - \bar{x})(y - \bar{y})\)</span> será positivo para todos los puntos que se hayan en el primer cuadrante.</p>
+<p>Para los del segundo cuadrante este producto es negativo ya que la distancia <span class="math inline">\(x - \bar{x}\)</span> sigue siendo positiva (todos los puntos se encuentran a la derecha de <span class="math inline">\(\bar{x}\)</span>), pero <span class="math inline">\(y - \bar{y}\)</span> será negativo (todos están por debajo de <span class="math inline">\(\bar{y}\)</span>).</p>
+<p>En el tercer cuadrante el producto de las distancias es positivo porque ambas distancias son negativas y en el cuarto vuelve a ser negativo ya que <span class="math inline">\(y - \bar{y}\)</span> es positivo pero <span class="math inline">\(x - \bar{x}\)</span> es negativo.</p>
+<p>Con <span class="math inline">\(n\)</span> puntos, la suma de todos estos productos será <span class="math inline">\(\sum_{i=1}^{n} (x_i -\bar {x})(y_i -\bar {y})\)</span>. Si la mayoría se encuentra en los cuadrantes I y III, tal como ocurre en la figura <a href="#fig-covarianza"><span>13.3</span></a>, el resultado del sumatorio será un valor positivo, mientras que si están en los cuadrantes II y IV el resultado será negativo. Si no existe ninguna relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> los puntos se repartiran de forma más menos equilibrada, tendiendo a compensarse los productos positivos con los negativos y dando un resultado alrededor de cero.</p>
+<p>La covarianza es el valor de ese sumatorio dividido por el número de puntos que intervienen en su cálculo, algo así como el promedio de los productos <span class="math inline">\((x_i -\bar {x})(y_i -\bar {y})\)</span>. Si nuestro interés no es conocer la covarianza de los datos disponibles, sino estimar su valor en la población, dividimos por <span class="math inline">\(n-1\)</span> en vez de por <span class="math inline">\(n\)</span>, por la misma razón que lo hacemos cuando estimamos el valor de la varianza. Como lo habitual es esto último, escribimos la fórmula de la forma:</p>
+<p><span class="math display">\[ \widehat{\text{Cov}}(X,Y) = \frac{\sum_{i=1}^{n} (x_i -\bar {x})(y_i -\bar {y})}{n-1} \]</span></p>
+</section>
+<section id="propiedades" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="propiedades">Propiedades</h3>
+<p>La covarianza tiene un gran protagonismo en el terreno de los modelos teóricos, pero apenas se usa para valorar la relación lineal en un conjunto de datos. Para este menester tiene el inconveniente de que su valor depende de las unidades utilizadas.</p>
+<p>Si se calcula la covarianza entre la estatura de madres e hijas con los datos representados en la figura <a href="#fig-Medida_01"><span>13.1</span></a> cuyas unidadess son pulgadas (in) se obtiene un valor de 3,005 in<sup>2</sup>. Sin embargo, si cambiamos las unidades a cm (1 pulgada = 2,54 cm) el gráfico tiene el mismo aspecto y el grado de relación sigue siendo exactamente el mismo, pero ahora el valor obtenido es 19,39 cm<sup>2</sup>, y si las estaturas se expresan en metros tenemos que la covarianza es igual a 0,0019 m<sup>2</sup>.</p>
+<p>Por otra parte, para su valoración no tenemos ningún marco de referencia que nos permita evaluar si el valor obtenido es grande o pequeño. Todos estos problemas quedan resueltos con el uso del coeficiente de correlación.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Malas noticias para la covarianza
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dados unos valores de <span class="math inline">\(X\)</span>, la máxima covarianza no se obtiene cuando los valores de <span class="math inline">\(Y\)</span> se alinean según una recta. Por ejemplo, sean los valores de <span class="math inline">\(X\)</span> = 1, 2, 3, 4 y 5, si los de <span class="math inline">\(Y\)</span> son: 2, 4, 6, 8, y 10 (relación lineal perfecta) la covarianza entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> es igual a 5 pero si sustuimos el último 10 por 15, la covarianza aumenta y pasa a valer 7,5. Esto no deja en muy buen lugar a la covarianza como medida de relación lineal.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="coeficiente-de-correlación" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="coeficiente-de-correlación"><span class="header-section-number">13.3</span> Coeficiente de correlación</h2>
+<p>Para calcular el coeficiente de correlación, <span class="math inline">\(r\)</span>, entre dos variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> basta con calcular su covarianza y dividirla por el producto de las desviaciones típicas de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, es decir:</p>
+<p><span class="math display">\[ r  = \frac{\frac{\sum_{i=1}^{n} (x_i -\bar {x})(y_i -\bar {y})}{n-1}}
+        {\sqrt \frac {{\sum_{i=1}^n \left ( x_i - \bar{x} \right )^2}}{n-1} \sqrt{ \frac {\sum_{i=1}^n \left ( y_i - \bar{y} \right )^2 }{n-1}}} \]</span></p>
+<p>Es fácil comprobar que desaparecen los denominadores tanto de la covarianza como de las desviaciones típicas, quedando:</p>
+<p><span class="math display">\[ r  = \frac{\sum_{i=1}^n \left ( x_i - \bar{x} \right ) \left ( y_i - \bar{y} \right ) }
+        {\sqrt {\sum_{i=1}^n \left ( x_i - \bar{x} \right )^2}  \sqrt{\sum_{i=1}^n \left ( y_i - \bar{y} \right )^2 }} \]</span></p>
+<p>Con esta sencilla transformación se resuelven los problemas de la covarianza:</p>
+<ul>
+<li><p>Es un valor adimensional y, por tanto, no depende de las unidades utilizadas.</p></li>
+<li><p>Su valor está acotado entre -1 y 1 (correlación perfecta negativa y positiva repectivamente).</p></li>
+</ul>
+<p>Que es adimensional es evidente, puesto que el numerador tiene las mismas unidades que el denominador. Que es igual a 1 o -1 cuando la relación lineal es perfecta lo demostramos en un apéndice de este capítulo usando álgebra elemental. Que está acotado entre -1 y 1 no es trivial, pero lo demostramos en un apéndice del siguiente capítulo usando el concepto de coeficiente de determinación de la recta ajustada (también se puede demostrar como consecuencia directa de la <a href="https://encyclopediaofmath.org/index.php?title=Cauchy_Schwarz_inequality">desigualdad de Cauchy-Schwarz</a>, pero eso no son matemáticas elementales) .</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coeficiente de correlación <em>“de Pearson”</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A la denominación del coeficiente de correlación a veces se le añade “de Pearson” porque fue este estadístico el que lo desarrolló. Aunque existen otros coeficientes de correlación de mucho menor uso, no es necesario el añadido. Si no se dice de que tipo es siempre entendemos que se refiere al de Pearson.</p>
+</div>
+</div>
+<section id="coeficiente-de-correlación-y-diagrama-bivariante" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="coeficiente-de-correlación-y-diagrama-bivariante">Coeficiente de correlación y diagrama bivariante</h3>
+<p>El valor del coeficiente de correlación no sustituye la información que proporciona el diagrama bivariante. Un mismo coeficiente de correlación puede corresponder a situaciones muy distitnas y si solo nos dan el valor de <span class="math inline">\(r\)</span> es imposible saber a cual de ellas corresponde.</p>
+<p>Una demostración de la importancia de no descuidar el análisis gráfico de los datos lo constituye el llamado “<a href="https://es.wikipedia.org/wiki/Cuarteto_de_Anscombe">cuarteto de Anscombe</a>”, formado por cuatro conjuntos de datos que presentan el mismo coeficiente de correlación y la misma recta ajustada pero que al analizarlos gráficamente muestran situaciones claramente distintas (figura <a href="#fig-anscombe"><span>13.4</span></a>).</p>
+<div id="fig-anscombe" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/040_anscombe.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.4: Cuarteto de Anscombe. Cuatro situaciones muy distintas pero todas ellas con el mismo coeficiente de correlación (<span class="math inline">\(r = 0,816\)</span>) y la misma recta ajustada (<span class="math inline">\(y = 3+0,5x\)</span>)</figcaption>
+</figure>
+</div>
+</section>
+<section id="correlación-estadísticamente-significativa" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="correlación-estadísticamente-significativa">Correlación estadísticamente significativa</h3>
+<p>El diagrama bivariante de la figura <a href="#fig-tiempoPeso"><span>13.5</span></a> está construido con los datos de 29 plantas y muestra la relación entre el peso de los frutos obtenidos y el tiempo transcurrido entre la plantación y la recolección. Se ha añadido la recta de regresión ajustada a estos puntos.</p>
+<div id="fig-tiempoPeso" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/050_tiempoPeso.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.5: Relación entre el peso de los frutos recogidos en 22 plantas y el tiempo transcurrido desde su plantación hasta la recolección</figcaption>
+</figure>
+</div>
+<p>Parece dar la sensación de que cuanto más se tarda en recoger los frutos mayor peso se obtiene. El coeficiente de correlación es positivo y está bastante alejado de cero, <span class="math inline">\(r=0,323\)</span>. ¿Quiere esto decir que para maximizar el peso de la cosecha vale la pena esperar a los 150 días?</p>
+<p>Si dos variables son totalmente independientes, como dos conjuntos de números aleatorios, no por ello hay que esperar que su coeficiente de correlación sea igual a cero. Para que esto ocurra también la covarianza debe ser igual a cero y para ello se debe dar un equilibrio perfecto en los puntos de cada cuadrante para que se compensen perfectamente los productos de las distancias, lo cual es muy difícil que se dé en la práctica.</p>
+<p>Por tanto, cuando tenemos dos conjuntos de datos que provienen de poblaciones independientes, no hay que esperar que su coeficiente de correlación sea <strong>exactamente igual</strong> a cero. Estará <strong>en torno a</strong> cero.</p>
+<p>¿Qué significa “en torno a”? La distancia que exigimes respecto a cero para tomarnos en serio la correlación depende del número de datos de que se disponga. Si solo tenemos dos datos (dos puntos sobre el diagrama) el coeficiente de correlación valdrá -1 o 1 con independencia de la relación que haya entre esas variables, por tanto, ese resultado no tiene ningún valor. Si se tienen pocos datos se exige más distancia que si se tienen muchos porque es más fácil que -por casualidad- se obtengan valores extremos.</p>
+<p>En nuestro caso de 22 datos ¿cuál es la distancia exigida? Vamos a generar 22 números aleatorios de una distribución Normal con media <span class="math inline">\(\mu = 137\)</span> y <span class="math inline">\(\sigma = 6.5\)</span> que podemos considerar que son los parámetros de la población de la que provienen los valores de los pesos, y otros 22 números aleatorios, totalmente independientes de los anteirores, en este caso también de una distribución Normal, pero con parámetros <span class="math inline">\(\mu = 6\)</span> y <span class="math inline">\(\sigma = 0.5\)</span> para simular los valores del tiempo hasta la recogida. Cuando se calcula el coefiente de correlación con ese conjunto de datos simulados se obtiene un valor que corresponde a muestras de poblaciones independientes. Este proceso se puede repetir muchas veces y cada vez se obtiene un valor del coeficiente de correlación que corresponde a una situación de variables independientes.</p>
+<p>Hemos repetido este proceso 100.000 veces, de manera que hemos obtenido 100.000 valores del coefiente de correlación entre dos conjuntos de datos de origen similar a los nuestros y que son absolutamente independientes. Los resultamos obtenidos se resumen en el histograma de la figura <a href="#fig-simulaCorre"><span>13.6</span></a> <strong>===Esto hay que explicarlo mejor===</strong></p>
+<div id="fig-simulaCorre" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/060_simulaCorre.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.6: Valores del coeficiente de correlación obtenidas por simulación</figcaption>
+</figure>
+</div>
+<p>A la vista de este histograma, podemos afirmar que si nos hubiera salido un coeficiente de correlación de, por ejemplo 0,8, podríamos afirmar con un riesgo de equivocarnos muy pequeño que nuestras variables estan correlacionadas porque si fueran independientes un valor como ese o mayor prácticamente no se da nunca. Sin embargo, si nuesto valor fuera <span class="math inline">\(r=0,2\)</span> no podríamos decir que existe correlación porque valores como ese, e incluso mayores, son muy habituales entre variables independientes cuando se calcula con muestras de <span class="math inline">\(n=22\)</span> observaciones. <strong>===todo esto hay que redactarlo mejor===</strong></p>
+<p>En nuestro caso tenemos <span class="math inline">\(r=0,323\)</span> se trata de una distancia de cero “normal” si no hay relación entre ambas variables…</p>
+<p>Hablar de las tablas, de sus características básicas y de que trataremos de como se han construido en el siguiente capítulo.</p>
+<p><strong>===Esto hay que explicarlo mejor===</strong></p>
+</section>
+<section id="correlación-no-implica-relación-causa-efecto" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="correlación-no-implica-relación-causa-efecto">Correlación no implica relación causa-efecto</h3>
+<p>===empezar comentando el gráfico===</p>
+<p>Que dos variable presenten un coeficiente de correlación estadísticamente significativo (esten correlacionadas) no significa que el cambio en una provoque -sea la causa- del cambio en la otra.</p>
+<p>Puede ocurrir que haya una tercera variable no considerada relacionada con las dos que se observan, por ejemplo, se dice que hay una alta correlación entre el número de bomberos que acuden a apagar un incendio y los daños que ese incendio causa, pero, naturalmente, a nadie se le ocurre enviar menos bomberos para que haya menor daños porque estas dos variables, aunque están correlacionadas y en el diagrama bivariante se observe una nube de puntos que marca una clara tendencia de que al aumentar el número de bomberos aumentan los daños, en este caso la variable oculta relacionada con las dos que observamos es la magnitud del incencdio, relacionada con los daños y con el número de bomberos. Existen numerosos ejemplos chistosos de este tipo de situaciones…</p>
+<div id="fig-Vino" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/070_vino.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.7: Cuatro situaciones que muestran diferentes grados de relación</figcaption>
+</figure>
+</div>
+<p>También puede ocurrir que la relación sea debida al azar. Si exploramos muchos pares de variables, seguro que algunas apareceran con una relación estrecha, aunque en realidad no tengan nada que ver. La página web https://www.tylervigen.com/spurious-correlations contiene muchos ejemplos de este tipo.</p>
+</section>
+<section id="curiosidad-sobre-el-coeficiente-de-correlación" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="curiosidad-sobre-el-coeficiente-de-correlación">Curiosidad sobre el coeficiente de correlación</h3>
+<p>Si solo tenemos n = 2 puntos sobre el diagrama bivariante, el coeficiente de correlación solo puede tomar los valores -1 y 1, ambos con la misma probabilidad . Si tenemos n = 3 aparece una distribución muy rara tanto para explicar la variabidad ligada a fenómenos naturales como en los modelos teóricos que usamos habitualmente: los valores más frecuentes están en los extremos (-1 y 1) mientras que en torno al centro (alrededor de cero) se dan los de menor probabilidad.Para n = 4 todos los valores del coeficiente de correlación son igualmente probables , para n = 5 la distribución de probabilidad tiene forma de semielipse, y a media que aumenta el valor de n va apareciendo la típica forma de campana. (figura).</p>
+<div id="fig-contraNormal" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="medidasRelacionLineal/080_contrarioNormal.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;13.8: Distribución del coeficiente de correlación según el tamaño, <span class="math inline">\(n\)</span>, de la muestra considerada</figcaption>
+</figure>
+</div>
+<p>Las distribuciones de la figura +++ se puede reproducir por simulación o directamente usando la función densidad de probabilidad de coefiente de correlación, aunque su expresión es un poco aparatosa:</p>
+<p><span class="math display">\[ f(r \mid \rho =0) = \frac{ \Gamma \left [\frac{1}{2} (n-1) \right ]} { \Gamma \left [\frac{1}{2} (n-2) \right ] \sqrt{\pi}
+} (1-r^2)^{\frac{1}{2}(n-4)} \]</span></p>
+<p><strong><em>Aclarar la notación</em></strong> Esta función no converge a la distribución Normal cuando n se hace grande, ya que está definida solo entre -1 y 1 mientras que el dominio de la distribución Normal no está acotado.</p>
+</section>
+</section>
+<section id="apéndice-9.1" class="level1 unnumbered">
+<h1 class="unnumbered">APÉNDICE 9.1</h1>
+<section id="coeficiente-de-correlación-cuando-la-relación-lineal-es-perfecta" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="coeficiente-de-correlación-cuando-la-relación-lineal-es-perfecta">Coeficiente de correlación cuando la relación lineal es perfecta</h3>
+<p>Si todos los puntos están alineados tenemos que: <span class="math inline">\(y_i =a+bx_i\)</span> y también: <span class="math inline">\(\sum y_i = \sum (a+bx_i)\)</span>, de donde <span class="math inline">\(n\bar{y} = na + bn \bar{x}\)</span>, es decir: <span class="math inline">\(\bar {y} =a+b \bar{x}\)</span>. Así pues, podemos escribir el numerador de la expresión de <span class="math inline">\(r\)</span> de la forma:</p>
+<span class="math display">\[\begin{equation*}
+    \begin{split}
+        \sum_{i=1}^n \left ( x_i - \bar{x} \right ) \left ( y_i - \bar{y} \right ) &amp;= \sum_{i=1}^n \left ( x_i - \bar{x} \right ) \left ( a+bx_i - (a+b\bar{x}) \right ) \\
+        &amp;= \sum_{i=1}^n \left ( x_i - \bar{x} \right )   b \left ( x_i - \bar{x} \right ) = b \sum_{i=1}^n \left ( x_i - \bar{x} \right )^2
+    \end{split}
+\end{equation*}\]</span>
+<p>Con un razonamineto similar, en el denominador podemos escribir el término en que aparecen los valores <span class="math inline">\(y_i\)</span> de la forma: <span class="math display">\[\begin{equation*}
+    \begin{split}
+        \sqrt{\sum_{i=1}^n \left ( y_i - \bar{y} \right )^2 } &amp;= \sqrt{\sum_{i=1}^n \left ( a+bx_i - ( a+b \bar{x} ) \right )^2 } =  b \sqrt{ \sum_{i=1}^n \left ( x_i -  \bar{x}  \right )^2 } \\
+    \end{split}
+\end{equation*}\]</span></p>
+<p>Recuperando el término correspondiente a los valores de <span class="math inline">\(x\)</span>, el denominador nos queda:</p>
+<p><span class="math display">\[  \sqrt {\sum_{i=1}^n \left ( x_i - \bar{x} \right )^2} \cdot b \sqrt{\sum_{i=1}^n \left ( x_i - \bar{x} \right )^2 } = b \sum_{i=1}^n \left ( x_i - \bar{x} \right )^2 \]</span></p>
+<p>Igual que el numerador, aunque con la diferencia de que su valor seguro que es positivo (proviene de un producto de desviaciones típicas) mientras que el valor de <span class="math inline">\(b\)</span> en el numerador será positivo o negativo según sea el signo de la pendiente de la recta.</p>
+<p>Así pues, si los puntos se alinean según una recta, el valor del coeficiente de correlación será -1 o 1 según la pendiente sea negativa o positiva.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Draper98" class="csl-entry" role="listitem">
+Draper, N. R., y H. Smith. 1998. <em>Applied Regression Analysis</em>. 3.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-RyanJoiner" class="csl-entry" role="listitem">
+Ryan, T. A., B. L Joiner, y B. F. Ryan. 1976. <em>The Minitab Student Handbook</em>. 1.ª ed. USA: Duxbury Press.
+</div>
+<div id="ref-Weisberg" class="csl-entry" role="listitem">
+Weisberg, S. 2014. <em>Applied Linear Regression</em>. 4.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./60_Parte_Corre_Regre.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">CORRELACIÓN Y REGRESIÓN</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./62_regresionSimple.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regresión Simple</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

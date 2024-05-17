@@ -1,0 +1,83 @@
+project:
+  type: book
+  output-dir: docs
+lang: es
+
+book: 
+  title: "Estadística a vista de pájaro"
+  subtitle: "Estoy haciendo pruebas"
+  date: today
+  date-format: medium
+  author: "Pere Grima"
+  cover-image: cover.jpg
+  site-url: https://peregrima.github.io/VistaDePajaro/
+
+  chapters:
+    - index.qmd
+    - 01_queEs.qmd
+    
+    - part: 10_Parte_Descriptiva.qmd
+      chapters: 
+        - 11_sintesisNumerica.qmd
+        - 12_graficos.qmd
+        
+    - part: 20_Parte_Variabilidad.qmd
+      chapters: 
+        - 21_variablesAleatorias.qmd
+        - 22_distribucionesProbabilidad.qmd
+        
+    - part: 30_Parte_Estimacion.qmd
+      chapters: 
+        - 31_estimacionProporciones.qmd
+        - 32_estimacionMedias.qmd
+        - 33_estimacionTamañoPoblacion.qmd
+        
+    - part: 40_Parte_Contraste.qmd
+      chapters: 
+        - 41_Conceptos_CH.qmd
+        - 42_Proceso_CH.qmd
+        - 43_tiposError_CH.qmd    
+        
+    - part: 50_Parte_Experimentos.qmd
+      chapters: 
+        - 51_floresAspirina.qmd
+        - 52_duracionPilas.qmd   
+        
+    - part: 60_Parte_Corre_Regre.qmd
+      chapters:
+        - 61_correlacion.qmd
+        - 62_regresionSimple.qmd
+        - 63_regresionMultiple.qmd
+        
+    - references.qmd
+
+# Referencias
+biblio-title: "Referencias"
+link-citations: true
+link-bibliography: true
+cite-method: citeproc         # Solo PDF
+biblio-style: 'authoryear'    # Solo PDF
+citations-hover: true         # Solo HTML
+bibliography: references.bib 
+
+# Fuentes ----------------------------
+mainfont: Calibri
+monofont: Verdana
+mathfont: CambriaMath
+fontfamily: baskervald    # -> Solo en PDF
+fontsize: 13pt
+# systemfonts::system_fonts(): Lista de fuentes disponibles en el ordenador.
+
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    css: styles.css
+    header-includes:
+      <script src="https://kit.fontawesome.com/98a945d90a.js" crossorigin="anonymous"></script>
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

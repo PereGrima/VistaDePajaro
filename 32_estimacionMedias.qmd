@@ -1,0 +1,3 @@
+# Estimación de medias
+
+Similar a estimación de proporciones.

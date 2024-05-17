@@ -1,0 +1,31 @@
+# Regresión Múltiple
+
+Texto
+
+## Las cosas no son como parecen
+
+Ejemplo con 3 variables. Ejemplo examen.
+
+## Fuerza bruta. Aquí va en serio.
+
+Best subsets
+
+## Un caso sencillo: Una variable cuantitativa y otra cualitativa
+
+peso, altura, sexo, y datos UFFI (creo)
+
+## Ojo con las explicaciones milagrosas
+
+Tantos parámetros como datos
+
+## Modelos explicativos y modelos predictivos
+
+texto
+
+## A tener en cuenta
+
+Análisis exploratoio más complicado Lo mismo con el análisis de los residuos
+
+Otras medidas de calidad del ajuste.
+
+La regresión no sirve para todo

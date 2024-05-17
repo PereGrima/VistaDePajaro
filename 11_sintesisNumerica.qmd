@@ -1,0 +1,142 @@
+# Síntesis numérica de datos
+
+Qué es. Símil del retrato robot.
+
+## Medidas de tendencia central
+
+### Media aritmética {.unnumbered}
+
+Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Seguramente ayuda su utilidad para saber si se aprobará una asignatura a la vista de los resultados obtenidos durante el curso.
+
+Cuando los datos se presentan tabulados hay que tener presente que estos se repiten tantas veces como indica su **frecuencia absoluta**. Por ejemplo, en la @tbl-hijosFamilia, el número de hijos (*X*) es la variable considerada y el número de familias (*n*) que tienen ese número de hijos es su frecuencia absoluta.
+
+|                        |     |     |     |     |     |     |
+|------------------------|:---:|:---:|:---:|:---:|:---:|:---:|
+| Núm de hijos (*X*):    |  0  |  1  |  2  |  3  |  4  |  5  |
+| Núm de familias (*n*): | 13  | 21  | 15  |  8  |  1  |  2  |
+
+: Número de hijos por familia {#tbl-hijosFamilia}
+
+El valor medio ($\bar{X}$) del número de hijos por famila es igual a:
+
+$$
+\bar{X} = \frac{\sum_{i} n_i X_i }{N} \:  = \:  1,48
+$$ Donde $N$ es el número total de datos disponibles ($N=60$) e $i$ es el índice que en nuestro caso va de 1 a 6 (para valores de $X$ de 0 a 5).
+
+Para cada valor de X (X_i), su **frecuencia relativa** es igual a $n_i/N$. También podemos calcular la media usando la expresión:
+
+$$
+\sum_{i} f_i X_i \:  = \:  1,48
+$$ Esta expresión es análoga a la de la esperanza matemática para una variable aleatoria (cambiando frecuencia relativa por probabilidad) que veremos más adelante.
+
+=====
+
+Notación: Media, promedio, esperanza matemática pros y contras
+
+=====
+
+### Mediana {.unnumbered}
+
+En una empresa con 500 trabajadores y la siguiente distribución de salario mensual:
+
+|                      |      |      |      |      |      |      |       |
+|----------------------|:----:|:----:|:----:|:----:|:----:|:----:|:-----:|
+| Salario mensual (€): | 1134 | 1200 | 2500 | 3500 | 5000 | 7000 | 10000 |
+| Núm de trabajadores  | 240  |  97  |  60  |  50  |  43  |  8   |   2   |
+
+: Distribución de salarios {#tbl-salarios}
+
+texto
+
+### Moda {.unnumbered}
+
+texto
+
+## Medidas de dispersión
+
+texto sobre la importancia de la dispersión y de medirla para valorarla
+
+### Rango {.unnumbered}
+
+texto
+
+### Varianza {.unnumbered}
+
+texto
+
+### Desviación típica {.unnumbered}
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+## Medidas de posición
+
+texto
+
+texto
+
+
+### Cuartilas {.unnumbered}
+
+texto
+
+texto
+
+
+### Deciles. Percentiles {.unnumbered}
+
+texto
+
+texto
+
+
+## Porcentajes
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+texto
+
+¿Qué hace esto aquí?

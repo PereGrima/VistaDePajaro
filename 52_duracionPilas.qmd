@@ -1,0 +1,7 @@
+# ¿Duran más las pilas caras?
+
+Pregunta clara y concreta
+
+Diseño de la recogida de los datos con todas sus vicisitudes.
+
+Análisis de los datos. Prueba no paramétrica y t-Student.
