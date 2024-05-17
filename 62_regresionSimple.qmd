@@ -329,11 +329,11 @@ Conocer la distribución de los coeficientes hace posible calcular intervalos de
 
 Para que los coeficientes tengan las distribuciones descritas los datos utilizados para ajustar el modelo deben cumplir las siguientes condiciones:
 
--   **Distribución de** $Y$: Dado un valor de $X$, los valores de $Y$ deben seguir una distribución Normal. Si $X$ es la estatura e $Y$ es el peso, no hace falta suponer que el peso --globalmente-- sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución (figura [-@fig-regreComportaY]).
+-   **Distribución de** $Y$: Dado un valor de $X$, los valores de $Y$ deben seguir una distribución Normal. Si $X$ es la estatura e $Y$ es el peso, no hace falta suponer que el peso --globalmente-- sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución.
 
-![Los valores del peso (en general, $Y$) siguen una distribución Normal para cada valor de la estatura (en general, $X$). Observe que hay una mayor densidad de puntos --observaciones-- en torno a la línea verde que representa el modelo teórico.](regresionSimple/180_regreComportaY.png){#fig-regreComportaY fig-align="center" width="100%"}
+<!-- ![Los valores del peso (en general, $Y$) siguen una distribución Normal para cada valor de la estatura (en general, $X$). Observe que hay una mayor densidad de puntos --observaciones-- en torno a la línea verde que representa el modelo teórico.](regresionSimple/180_regreComportaY.png){#fig-regreComportaY fig-align="center" width="100%"} -->
 
--   **Variabilidad de** $Y$: La variabilidad de $Y$ no depende del valor de $X$. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es decir, las dos "campanas" que aparecen en la figura [-@fig-regreComportaY], y las correspondientes a cualquiera de las estaturas, tienen la misma anchura. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de $X$. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.
+-   **Variabilidad de** $Y$: La variabilidad de $Y$ no depende del valor de $X$. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de $X$. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.
 
 -   **Valores de** $X$: No hay ninguna exigencia especial sobre estos valores. Solo es necesario que la variable sea cuantitativa. Es decir, el día de la semana, codificado como: lunes = 1, martes = 2, ... no puede ser una variable regresora porque el modelo entedería que el domingo es igual a 7 veces el lunes. Aun así, también hay formas de incluir este tipo de variables. Lo veremos en el próximo capítulo en el caso de que solo puedan tomar dos valoros posibles.
 
@@ -343,7 +343,16 @@ Cuando se ajustan modelos de regresión simple, la observación del diagrama biv
 
 ### Pruebas de significación para los coeficientes {.unnumbered}
 
-Conocer la distribución de los coeficientes nos permite realizar contrastes de hipótesis sobre el valor de los parámetros estimados, en nuestro caso $\beta_0$ y $\beta_1$.
+Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.
+
+::: callout-note
+## Pruebas de significación y contraste de hipótesis
+
+Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro considerado es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero
+:
+
+![Distribución de los coeficientes.](regresionSimple/200_pruebasSignaficacion.png){#fig-regreRangoX fig-align="center" width="100%"}
+
 
 **Contraste para** $\beta_0$
 

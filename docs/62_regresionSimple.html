@@ -812,16 +812,11 @@ Transformación logarítmica: No importa la base
 <h3 class="unnumbered anchored" data-anchor-id="condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</h3>
 <p>Para que los coeficientes tengan las distribuciones descritas los datos utilizados para ajustar el modelo deben cumplir las siguientes condiciones:</p>
 <ul>
-<li><strong>Distribución de</strong> <span class="math inline">\(Y\)</span>: Dado un valor de <span class="math inline">\(X\)</span>, los valores de <span class="math inline">\(Y\)</span> deben seguir una distribución Normal. Si <span class="math inline">\(X\)</span> es la estatura e <span class="math inline">\(Y\)</span> es el peso, no hace falta suponer que el peso –globalmente– sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución (figura <a href="#fig-regreComportaY"><span>14.18</span></a>).</li>
+<li><strong>Distribución de</strong> <span class="math inline">\(Y\)</span>: Dado un valor de <span class="math inline">\(X\)</span>, los valores de <span class="math inline">\(Y\)</span> deben seguir una distribución Normal. Si <span class="math inline">\(X\)</span> es la estatura e <span class="math inline">\(Y\)</span> es el peso, no hace falta suponer que el peso –globalmente– sigue un distribución Normal, pero sí que los pesos para las personas de una determinada estatura siguen esa distribución.</li>
 </ul>
-<div id="fig-regreComportaY" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regresionSimple/180_regreComportaY.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.18: Los valores del peso (en general, <span class="math inline">\(Y\)</span>) siguen una distribución Normal para cada valor de la estatura (en general, <span class="math inline">\(X\)</span>). Observe que hay una mayor densidad de puntos –observaciones– en torno a la línea verde que representa el modelo teórico.</figcaption>
-</figure>
-</div>
+<!-- ![Los valores del peso (en general, $Y$) siguen una distribución Normal para cada valor de la estatura (en general, $X$). Observe que hay una mayor densidad de puntos --observaciones-- en torno a la línea verde que representa el modelo teórico.](regresionSimple/180_regreComportaY.png){#fig-regreComportaY fig-align="center" width="100%"} -->
 <ul>
-<li><p><strong>Variabilidad de</strong> <span class="math inline">\(Y\)</span>: La variabilidad de <span class="math inline">\(Y\)</span> no depende del valor de <span class="math inline">\(X\)</span>. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es decir, las dos “campanas” que aparecen en la figura <a href="#fig-regreComportaY"><span>14.18</span></a>, y las correspondientes a cualquiera de las estaturas, tienen la misma anchura. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de <span class="math inline">\(X\)</span>. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.</p></li>
+<li><p><strong>Variabilidad de</strong> <span class="math inline">\(Y\)</span>: La variabilidad de <span class="math inline">\(Y\)</span> no depende del valor de <span class="math inline">\(X\)</span>. En nuestro ejemplo sería suponer que la variabilidad en el peso de las personas que miden 1,60 es la misma que en las personas que miden 1,80 m. Es posible que esto no sea exactamente así porque es habitual que cuando aumenta el nivel de la respuesta aumente también su variabilidad. Si esto ocurre lo veremos en el diagrama bivariante: la nube de puntos se irá ensanchando a medida que aumenta el valor de <span class="math inline">\(X\)</span>. En este caso quizá convenga transformar los datos, aunque ya estaríamos ante una situación más complicada que las que pretendemos tratar aquí.</p></li>
 <li><p><strong>Valores de</strong> <span class="math inline">\(X\)</span>: No hay ninguna exigencia especial sobre estos valores. Solo es necesario que la variable sea cuantitativa. Es decir, el día de la semana, codificado como: lunes = 1, martes = 2, … no puede ser una variable regresora porque el modelo entedería que el domingo es igual a 7 veces el lunes. Aun así, también hay formas de incluir este tipo de variables. Lo veremos en el próximo capítulo en el caso de que solo puedan tomar dos valoros posibles.</p></li>
 <li><p><strong>Independencia de los residuos</strong>: La desviación respecto al valor previsto (valor sobre la recta) en en un punto no da ninguna pista sobre la desviación en el punto siguiente. Esto no ocurre con las variables que evolucionan en el tiempo, como la temperatura o la cotización de acciones en la bolsa, en que el valor de un día está influenciado por el valor de día anterior.</p></li>
 </ul>
@@ -829,7 +824,15 @@ Transformación logarítmica: No importa la base
 </section>
 <section id="pruebas-de-significación-para-los-coeficientes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</h3>
-<p>Conocer la distribución de los coeficientes nos permite realizar contrastes de hipótesis sobre el valor de los parámetros estimados, en nuestro caso <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span>.</p>
+<p>Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.</p>
+<p>::: callout-note ## Pruebas de significación y contraste de hipótesis</p>
+<p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro considerado es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero :</p>
+<div id="fig-regreRangoX" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/200_pruebasSignaficacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.18: Distribución de los coeficientes.</figcaption>
+</figure>
+</div>
 <p><strong>Contraste para</strong> <span class="math inline">\(\beta_0\)</span></p>
 <p>===Quizá reflexión sobre como lo haríamos de manera informal===</p>
 <p>En general se contrasta <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p>
