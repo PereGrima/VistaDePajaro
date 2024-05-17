@@ -829,17 +829,22 @@ Transformación logarítmica: No importa la base
 </section>
 <section id="pruebas-de-significación-para-los-coeficientes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</h3>
-<p>Hemos visto que si se cumplen determinadas condiciones podemos considerar que los coeficientes del modelo son valores de una distribución Normal centrada en el verdadero valor del parámetro estimado (el coeficiente en la población) y desviación típica conocida.</p>
-<p>Esto nos permite realizar pruebas de significación para los coeficientes del modelo.</p>
-<ul>
-<li><p>Contraste <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Observe que el contraste se realiza sobre el valor teórico, no sobre el valor obtenido que ya vemos cual es. Este contraste tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p></li>
-<li><p>Contraste <span class="math inline">\(H_0: \beta_1=0\)</span> frente a <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>. Este es el contraste que tiene más interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los da5tos por lo que 5no se puede descartar que la variable regrora no sirvwe para explicar el comportaminto de la respuersta.</p></li>
-</ul>
+<p>Conocer la distribución de los coeficientes nos permite realizar contrastes de hipótesis sobre el valor de los parámetros estimados, en nuestro caso <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span>.</p>
+<p><strong>Contraste para</strong> <span class="math inline">\(\beta_0\)</span></p>
+<p>===Quizá reflexión sobre como lo haríamos de manera informal===</p>
+<p>En general se contrasta <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p>
+<p>Como <span class="math inline">\(b_0 \sim N \left(\beta_0; \; \sigma_{\beta_0} \right)\)</span>, si <span class="math inline">\(\beta_0 = 0\)</span> tenemos:</p>
+<p><span class="math display">\[ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) \]</span></p>
+<p>Y como no conocemos <span class="math inline">\(\sigma_{\beta_0}\)</span> sini que usamos su valor estimado usando la varianza de los residuos, tenemos:</p>
+<p><span class="math display">\[ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} \]</span> Los grados de libertad de la distribución <span class="math inline">\(t-\)</span>Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados <span class="math inline">\(\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )\)</span>.</p>
+<p>===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2====</p>
+<p><strong>Contraste para</strong> <span class="math inline">\(\beta_1\)</span></p>
+<p>De forma similar al caso anterior, lo más habitual es contrastar <span class="math inline">\(H_0: \beta_1=0\)</span> frente a <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede descartar que la variable regrora no sirve para explicar el comportamiento de la respuesta.</p>
 <p>Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++</p>
 <p>Tenemos que :</p>
 <span class="math display">\[\begin{equation}
     \begin{aligned}
-        b_0 &amp;\sim N \left(\beta_0; \; \sigma_{\beta_0} \right) \\[5pt]
+        b_0 &amp;\sim N \left(\beta_0; \; C\right) \\[5pt]
         b_1 &amp;\sim N \left(\beta_1; \; \sigma_{\beta_0} \right)
     \end{aligned}
 \end{equation}\]</span>

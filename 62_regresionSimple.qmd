@@ -343,13 +343,28 @@ Cuando se ajustan modelos de regresión simple, la observación del diagrama biv
 
 ### Pruebas de significación para los coeficientes {.unnumbered}
 
-Hemos visto que si se cumplen determinadas condiciones podemos considerar que los coeficientes del modelo son valores de una distribución Normal centrada en el verdadero valor del parámetro estimado (el coeficiente en la población) y desviación típica conocida.
+Conocer la distribución de los coeficientes nos permite realizar contrastes de hipótesis sobre el valor de los parámetros estimados, en nuestro caso $\beta_0$ y $\beta_1$.
 
-Esto nos permite realizar pruebas de significación para los coeficientes del modelo.
+**Contraste para** $\beta_0$
 
--   Contraste $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$. Observe que el contraste se realiza sobre el valor teórico, no sobre el valor obtenido que ya vemos cual es. Este contraste tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.
+===Quizá reflexión sobre como lo haríamos de manera informal===
 
--   Contraste $H_0: \beta_1=0$ frente a $H_1: \beta_1 \neq 0$. Este es el contraste que tiene más interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los da5tos por lo que 5no se puede descartar que la variable regrora no sirvwe para explicar el comportaminto de la respuersta.
+En general se contrasta $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.
+
+Como $b_0 \sim N \left(\beta_0; \; \sigma_{\beta_0} \right)$, si $\beta_0 = 0$ tenemos:
+
+$$ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) $$
+
+Y como no conocemos $\sigma_{\beta_0}$ sini que usamos su valor estimado usando la varianza de los residuos, tenemos:
+
+$$ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$
+Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
+
+===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2====
+
+**Contraste para** $\beta_1$
+
+De forma similar al caso anterior, lo más habitual es contrastar $H_0: \beta_1=0$ frente a $H_1: \beta_1 \neq 0$. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede descartar que la variable regrora no sirve para explicar el comportamiento de la respuesta.
 
 Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++
 
@@ -358,7 +373,7 @@ Tenemos que :
 ```{=tex}
 \begin{equation}
     \begin{aligned}
-        b_0 &\sim N \left(\beta_0; \; \sigma_{\beta_0} \right) \\[5pt]
+        b_0 &\sim N \left(\beta_0; \; C\right) \\[5pt]
         b_1 &\sim N \left(\beta_1; \; \sigma_{\beta_0} \right) 
     \end{aligned}
 \end{equation}
@@ -382,8 +397,6 @@ Aquí texto
 -Intervalos de confianza para las predicciones.
 
 -IC para las observaciones.
-
-
 
 # Apéndice 10.1 {.unnumbered}
 
