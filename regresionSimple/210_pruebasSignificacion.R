@@ -1,4 +1,4 @@
-png(file="200_pruebasSignaficacion.png",width=1300, height=550, res = 300)
+png(file="210_pruebasSignaficacion.png",width=1300, height=550, res = 300)
 t = 0.85
 set.seed(123)
 
