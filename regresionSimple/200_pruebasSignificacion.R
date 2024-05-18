@@ -7,7 +7,7 @@ par(mfrow=c(1,2), mar=c(1.5, 2.2, 0.5, 1.5), xaxs="i", yaxs="i", family = "serif
 x = matrix(NA, nrow = 31, ncol = 50)
 y = matrix(NA, nrow = 31, ncol = 50)
 for (i in 1:50) {
-  x[,i] = rnorm(31, 14, 3)
+  x[,i] = rnorm(31, 13.25, 3.14)
   y[,i] = 35 + rnorm(31, 0, 4.25)
   plot(x[,i], y[,i], xlim = c(6, 22), ylim = c(0,90),  col = "#FF9999", cex = t-0.15, las=1, xlab="", ylab="", xaxt = "n", yaxt = "n")
   
@@ -23,7 +23,7 @@ for (i in 1:50) {
           side=2, line=0.9, cex=t-0.2)
     
     mtext('X: Longitud circunferencia (pies)', side=1, line=0.6, cex=t-0.2)
-    segments(6, -6.55, 22, 74.5, col = "green", lwd = 1.5)
+    segments(6, -6.55, 22, 74.5, col = "green", lwd = 1)
   }
 }
 par(new = FALSE, mar=c(1.5, 1, 0.5, 2.7))

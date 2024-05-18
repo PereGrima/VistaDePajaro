@@ -825,12 +825,94 @@ Transformación logarítmica: No importa la base
 <section id="pruebas-de-significación-para-los-coeficientes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</h3>
 <p>Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.</p>
-<p>::: callout-note ## Pruebas de significación y contraste de hipótesis</p>
-<p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro considerado es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero :</p>
-<div id="fig-regreRangoX" class="quarto-figure quarto-figure-center anchored">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pruebas de significación y contraste de hipótesis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.</p>
+</div>
+</div>
+<p>Volvamos a los datos del volumen de madera en función del diámetro del tronco y de la edad al morir en función de la longitud de una línea de la mano (figura <a href="#fig-ArbolMano"><span>14.8</span></a>). Los modelos obtenidos son los que se indican en la tabla <a href="#tbl-ajusteModelos"><span>14.5</span></a>):</p>
+<div id="tbl-ajusteModelos" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;14.5: Resultado de ajustar los modelos por mínimos cuadrados</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Número de puntos, <span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">Ordenada en el origen <span class="math inline">\(b_0\)</span></th>
+<th style="text-align: center;">Pendiente de la recta <span class="math inline">\(b_1\)</span></th>
+<th style="text-align: center;">Desviación típica de los residuos <span class="math inline">\(s\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Volumen de madera:</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">-36,9</td>
+<td style="text-align: center;">5,07</td>
+<td style="text-align: center;">4,25</td>
+</tr>
+<tr class="even">
+<td>Edad al morir</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">79,2</td>
+<td style="text-align: center;">-1,37</td>
+<td style="text-align: center;">14,15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Si no hubiera ninguna relación entre la variable regresora y la respuesta, a nivel de población la pendiente de la recta sería nula(es decir <span class="math inline">\(\beta1=0\)</span>). SIn embargo, con los datos de una muestra esa pendiente estará “en torno a cero”. Para ver lo que significa ese “en torno a cero” en un caso concreto podemos simular nubes de puntos suponiendo que hay ninguna relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> pero manteniendo las peculiaridades de estas variable en nuestro caso concreto.</p>
+<p>EN el caso del volumen de madera, para los valores de <span class="math inline">\(X\)</span> generamos 31 valores (los que tenemos en la muestra) de una distribución Normal con la media y la desviación típica de los valores que aparecen en la muestra. A cada valor de <span class="math inline">\(X\)</span> de corresponderá un valor de <span class="math inline">\(Y\)</span> igual a su media en los datos disponibles (<span class="math inline">\(\bar{Y}=\)</span>) añadiendo una variabilidad aleatoria como en los datos originales, esto es, añadiendo el valor de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado (Tabla?)</p>
+<p>Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así.</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Número de puntos, <span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">Valores de <span class="math inline">\(X\)</span></th>
+<th style="text-align: center;">Valores de <span class="math inline">\(Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Volumen de madera:</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">N(13,25; 3,2)</td>
+<td style="text-align: center;">30,2 + N(0; 4,25)</td>
+</tr>
+<tr class="even">
+<td>Edad al morir</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">N(13,25; 3,2)</td>
+<td style="text-align: center;">66,7 + N(0; 14,15)</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="regresionSimple/200_pruebasSignaficacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.18: Distribución de los coeficientes.</figcaption>
+<figcaption class="figure-caption">Distribución de los coeficientes.</figcaption>
 </figure>
 </div>
 <p><strong>Contraste para</strong> <span class="math inline">\(\beta_0\)</span></p>

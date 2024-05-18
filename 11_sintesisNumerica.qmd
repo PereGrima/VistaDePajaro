@@ -88,20 +88,17 @@ texto
 
 texto
 
-
 ### Cuartilas {.unnumbered}
 
 texto
 
 texto
 
-
 ### Deciles. Percentiles {.unnumbered}
 
 texto
 
 texto
-
 
 ## Porcentajes
 

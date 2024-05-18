@@ -345,14 +345,34 @@ Cuando se ajustan modelos de regresión simple, la observación del diagrama biv
 
 Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.
 
-::: callout-note
+::: callout-note 
 ## Pruebas de significación y contraste de hipótesis
+Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.
+:::
 
-Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro considerado es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero
-:
+Volvamos a los datos del volumen de madera en función del diámetro del tronco y de la edad al morir en función de la longitud de una línea de la mano (figura [-@fig-ArbolMano]). Los modelos obtenidos son los que se indican en la tabla [-@tbl-ajusteModelos]):
 
-![Distribución de los coeficientes.](regresionSimple/200_pruebasSignaficacion.png){#fig-regreRangoX fig-align="center" width="100%"}
+|                           | Número de puntos, $n$          |  Ordenada en el origen $b_0$  |  Pendiente de la recta $b_1$   |  Desviación típica de los residuos $s$   |    
+|---------------------------|:------------------------------:|:-----------------------------:|:------------------------------:|:----------------------------------------:|
+| Volumen de madera:        |  50                            |  -36,9                        |  5,07                          |  4,25                                    |
+| Edad al morir             |  31                            | 79,2                          | -1,37                          |  14,15                                   |
 
+: Resultado de ajustar los modelos por mínimos cuadrados {#tbl-ajusteModelos}
+
+Si no hubiera ninguna relación entre la variable regresora y la respuesta, a nivel de población la pendiente de la recta sería nula(es decir $\beta1=0$). SIn embargo, con los datos de una muestra esa pendiente estará "en torno a cero". Para ver lo que significa ese "en torno a cero" en un caso concreto podemos simular nubes de puntos suponiendo que hay ninguna relación entre $X$ e $Y$ pero manteniendo las peculiaridades de estas variable en nuestro caso concreto.
+
+EN el caso del volumen de madera, para los valores de $X$ generamos 31 valores (los que tenemos en la muestra) de una distribución Normal con la media y la desviación típica de los valores que aparecen en la muestra. A cada valor de $X$ de corresponderá un valor de $Y$ igual a su media en los datos disponibles ($\bar{Y}=$) añadiendo una variabilidad aleatoria como en los datos originales, esto es, añadiendo el valor de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado (Tabla?)
+
+
+Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así.
+
+|                           | Número de puntos, $n$    |  Valores de $X$   |  Valores de  $Y$        |  
+|---------------------------|:------------------------:|:-----------------:|:-----------------------:|
+| Volumen de madera:        |  50                      |  N(13,25; 3,2)    |  30,2 + N(0; 4,25)      |
+| Edad al morir             |  31                      |  N(13,25; 3,2)    |  66,7 + N(0; 14,15)     |  
+
+
+![Distribución de los coeficientes.](regresionSimple/200_pruebasSignaficacion.png){fig-align="center" width="100%"}
 
 **Contraste para** $\beta_0$
 
@@ -366,8 +386,7 @@ $$ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) $$
 
 Y como no conocemos $\sigma_{\beta_0}$ sini que usamos su valor estimado usando la varianza de los residuos, tenemos:
 
-$$ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$
-Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
+$$ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
 
 ===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2====
 
