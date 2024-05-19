@@ -213,7 +213,7 @@ $$ b_0 = 26,9615 \qquad  \qquad b_1 = 4,8616 $$ Ahora sí, con todos los decimal
 Sean, por ejemplo, los puntos: (4; 3), (6; 8), (8; 12), (10; 10), (12; 12). La recta ajustada es: $y = 1+x$. Si en vez de ajustar $y = f(x)$ se ajusta $x=f(y)$ ¿se obtendrá la ecuación resultante de despejar $x$ en $y=f(x)$, es decir: $x = -1 + y$? Si ajustamos $x=f(y)$ la ecuación será: $x=1,57+0,714x$. No es lo mismo minimizar la suma de los cuadrados de los residuos medidos en dirección vertical que en dirección horizontal (esto último no son los residuos).
 :::
 
-## Calidad del ajuste
+## Calidad del ajuste {#sec-calidadAjuste}
 
 El gráfico de la izquierda de la figura [-@fig-ArbolMano] muestra la relación entre la longitud de la circunferencia (*X*) de los troncos de un determinado tipo de árbol y el volumen de madera (*Y*) que se puede obtener de ellos [Fuente: @WolframData2016]. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por @Wilson74 citado por @Draper98 donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.
 
@@ -341,11 +341,35 @@ Para que los coeficientes tengan las distribuciones descritas los datos utilizad
 
 Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de $Y$ frente a $X$ ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. Si nada hace suponer lo contrario, supondremos que se cumplen. En realidad nunca se cumpliran "exactamente" pero si el comportamiento de los datos no se aleja mucho de los supuestos realizados, los intervalos de confianza y las pruebas de significación en que estamos interesdos seguirán siendo válidos a efectos prácticos.
 
-{{< pagebreak >}}
-
 ### Pruebas de significación para los coeficientes {.unnumbered}
 
-Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.
+###### **Una visión intiuitiva usando la simulación** {.unnumbered}
+
+Usaremos los datos que ya vimos (apartado [-@sec-calidadAjuste] ) sobre el volumen de madera que se obtiene de un árbol en función del diámetro de su tronco y sobre la edad al morir en función de la longitud de una línea de la mano. La figura [-@fig-modelosAjustados] contiene las rectas ajustadas y también los valores que usaremos para la simulación.
+
+![Modelos ajustados. Se indica el número de datos ($n$), la desviación típica de los residuos ($s_R$), la media y la desviación típica de los valores de $X$ ($\bar{x}$ y $s_X$) y la media de los valores de Y ($\bar{y}$).](regresionSimple/200_ArbolManoModelos.png){#fig-modelosAjustados fig-align="center" width="100%"}
+
+Si no hay ninguna relación entre la variable regresora ($X$) y la respuesta ($Y$), la pendiente de la recta estará en torno a cero (será igual a cero en la población, pero no disponemos de esos datos que --además-- son solo un modelo teórico). Para ver lo que significa "en torno a cero" en los casos que estamos tratando, podemos simular nubes de puntos manteniendo las características de $X$ e $Y$ de forma independiente, suponiendo que no existe ninguna relación entre ellas.
+
+En el caso del volumen de madera empezamos generando 31 números aleatorios (una cantidad igual a nuestro tamaño de muestra) que asignamos al diámetro de los troncos. Para que estos datos se puedan considerar del mismo tipo de los que tenemos en la muestra es razonable generarlos de una distribución Normal con la media $(\bar{x} = 13.25)$ y la desviación típica $(s_X = 3.2)$ de los valores que aparecen en la muestra, es decir: $X \sim N(13.25; 3.2)$. A continuación, a cada valor de $X$ le hacemos corresponder un valor de $Y$ igual a la media de los valores disponibles $(\bar{y} = 30.2)$ añadiendo un número aleatorio de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado $(s_R = 4.25)$. Por tanto, tendremos: $Y = 30.2 + N(0; 4.25)$.
+
+Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores que corresponden. La tabla [-@tbl-parametrosSimulacion] contiene los usados en cada caso.
+
++--------------------+---------------+-----------------+----------------------+
+|                    | $n$           | Valores de $X$  | Valores de $Y$       |
++====================+:=============:+:===============:+:====================:+
+| Volumen de madera: | 31            | $N(13.25; 3.2)$ | $30.2 + N(0; 4.25)$  |
++--------------------+---------------+-----------------+----------------------+
+| Edad al morir      | 50            | $N(13.25; 3.2)$ | $66.7 + N(0; 14.15)$ |
++--------------------+---------------+-----------------+----------------------+
+
+: Valores usados para la simulación. {#tbl-parametrosSimulacion}
+
+Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura [-@fig-pruebasSignificacion] se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables.Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado para situaciones en que no hay ninguna relación entre las variables consideradas.
+
+![Distribución de los coeficientes.](regresionSimple/210_pruebasSignaficacion.png){#fig-pruebasSignificacion fig-align="center" width="100%"}
+
+Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así. Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.
 
 ::: callout-note
 ## Pruebas de significación y contraste de hipótesis
@@ -353,40 +377,7 @@ Conocer la distribución de los coeficientes nos permite realizar pruebas de sig
 Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.
 :::
 
-Volvamos a los datos del volumen de madera que se puede obtener de un árbol en función del diámetro del tronco y los datos de la edad al morir en función de la longitud de una línea de la mano. La figura [-@fig-modelosAjustados] contiene las rectas ajustadas, el número de puntos $(n)$ y el valor de la desviación típica de los residuos $(s_R)$ en cada caso.
-
-![Modelos ajustados. Los diagramas incluyen el valor de la desviación típica de los residuos.](regresionSimple/200_ArbolManoModelos.png){#fig-modelosAjustados fig-align="center" width="100%"}
-
-Si no hay ninguna relación entre la variable regresora ($X$) y la respuesta ($Y$), la pendiente de la recta estará en torno a cero (sería igual a cero en la población, pero no disponemos de esos datos que --además-- son solo un modelo teórico). Para ver lo que significa ese "en torno a cero" en los casos que estamos tratando, podemos simular nubes de puntos suponiendo que no existe ninguna relación entre $X$ e $Y$ manteniendo las características de estas variable en los ejemplos que estamos tratando.
-
-Para realizar la simulación, en el caso del volumen de madera, para el diámetro de los troncos ($X$) generamos 31 números aleatorios (una cantidad igual a nuestro tamaño de muestra) de una distribución Normal con la media y la desviación típica de los valores que aparecen en la muestra, es decir: $X \sim N(13.25; 3.2)$. A cada valor de $X$ de corresponderá un valor de la respuesta igual a la media de los valores e $Y$ --tomaremos de de los datos disponibles-- añadiendo una variabilidad aleatoria que introducimos sumando al valor de Ybarra un número aleatorio de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado. Por tanto, tendremos: $Y = 30.2 + N(0; 4.25)$.
-
-Para el modelo de la edad al morir hacemos exactamente lo mismo con los datos que corresponden. La tabla [-@tbl-parametrosSimulacion] contine los valores usados para la simulación en cada caso.
-
-
-+--------------------+---------+-----------------+----------------------+
-|                    | $n$     | Valores de $X$  | Valores de $Y$       |
-+====================+:=======:+:===============:+:====================:+
-| Volumen de madera: | 31      | $N(13.25; 3.2)$ | $30.2 + N(0; 4.25)$  |
-+--------------------+---------+-----------------+----------------------+
-| Edad al morir      | 50      | $N(13.25; 3.2)$ | $66.7 + N(0; 14.15)$ |
-+--------------------+---------+-----------------+----------------------+
-
-: Valores usados para la simulación. {#tbl-parametrosSimulacion}
-
-
-Para conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y se han ido acululando, tanto los puntos como las rectas ajustadas, en los diagramas de la figura [-@fig-pruebasSignificacion]. Está muy claro que en el caso del volumen de madera, la recta ajustada con nuestros datos no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables, sin embargo....
-
-
-
-Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así.
-
-
-![Distribución de los coeficientes.](regresionSimple/210_pruebasSignaficacion.png){#fig-pruebasSignificacion fig-align="center" width="100%"}
-
-**Contraste para** $\beta_0$
-
-===Quizá reflexión sobre como lo haríamos de manera informal===
+###### **Pruebas de significación formales** {.unnumbered}
 
 En general se contrasta $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.
 

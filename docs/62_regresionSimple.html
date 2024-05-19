@@ -319,7 +319,7 @@ div.csl-indent {
   <li><a href="#sin-fórmulas" id="toc-sin-fórmulas" class="nav-link" data-scroll-target="#sin-fórmulas">Sin fórmulas</a></li>
   <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
   </ul></li>
-  <li><a href="#calidad-del-ajuste" id="toc-calidad-del-ajuste" class="nav-link" data-scroll-target="#calidad-del-ajuste"><span class="header-section-number">14.3</span> Calidad del ajuste</a></li>
+  <li><a href="#sec-calidadAjuste" id="toc-sec-calidadAjuste" class="nav-link" data-scroll-target="#sec-calidadAjuste"><span class="header-section-number">14.3</span> Calidad del ajuste</a></li>
   <li><a href="#relación-no-lineal-entre-x-e-y" id="toc-relación-no-lineal-entre-x-e-y" class="nav-link" data-scroll-target="#relación-no-lineal-entre-x-e-y"><span class="header-section-number">14.4</span> Relación no lineal entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></a></li>
   <li><a href="#transformación-logarítmica" id="toc-transformación-logarítmica" class="nav-link" data-scroll-target="#transformación-logarítmica"><span class="header-section-number">14.5</span> Transformación logarítmica</a></li>
   <li><a href="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra" id="toc-las-cosas-se-complican-lo-que-tenemos-es-una-muestra" class="nav-link" data-scroll-target="#las-cosas-se-complican-lo-que-tenemos-es-una-muestra"><span class="header-section-number">14.6</span> Las cosas se complican: Lo que tenemos es una muestra</a>
@@ -669,8 +669,8 @@ Por qué le llamamos modelo de regresión
 </div>
 </section>
 </section>
-<section id="calidad-del-ajuste" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="calidad-del-ajuste"><span class="header-section-number">14.3</span> Calidad del ajuste</h2>
+<section id="sec-calidadAjuste" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-calidadAjuste"><span class="header-section-number">14.3</span> Calidad del ajuste</h2>
 <p>El gráfico de la izquierda de la figura <a href="#fig-ArbolMano"><span>14.8</span></a> muestra la relación entre la longitud de la circunferencia (<em>X</em>) de los troncos de un determinado tipo de árbol y el volumen de madera (<em>Y</em>) que se puede obtener de ellos <span class="citation" data-cites="WolframData2016">(Fuente: <a href="references.html#ref-WolframData2016" role="doc-biblioref">Wolfram_Data_Repository 2016</a>)</span>. Se observa que a más circunferencia mayor volumen de madera, tal como era de esperar, y la ecuación de la recta ajustada es útil para estimar cuanta madera se obtendrá de un tronco de determinado diámetro. Sin embargo, el gráfico de la derecha se ha realizado con los datos de un estudio publicado por <span class="citation" data-cites="Wilson74">Wilson y Mather (<a href="references.html#ref-Wilson74" role="doc-biblioref">1974</a>)</span> citado por <span class="citation" data-cites="Draper98">Draper y Smith (<a href="references.html#ref-Draper98" role="doc-biblioref">1998</a>)</span> donde se analiza la relación entre la edad al morir y la longitud de cierta línea de la mano a partir de una muestra de 50 personas fallecidas. A la vista del diagrama queda claro que no hay ninguna relación entre ambas variables. En este caso el modelo ajustado no sirve absolutamente para nada. Pero los dos modelos tienen el mismo aspecto y solo a la vista del valor de sus coeficientes es imposible saber cual de los dos es útil.</p>
 <div id="fig-ArbolMano" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -821,42 +821,29 @@ Transformación logarítmica: No importa la base
 <li><p><strong>Independencia de los residuos</strong>: La desviación respecto al valor previsto (valor sobre la recta) en en un punto no da ninguna pista sobre la desviación en el punto siguiente. Esto no ocurre con las variables que evolucionan en el tiempo, como la temperatura o la cotización de acciones en la bolsa, en que el valor de un día está influenciado por el valor de día anterior.</p></li>
 </ul>
 <p>Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de <span class="math inline">\(Y\)</span> frente a <span class="math inline">\(X\)</span> ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. Si nada hace suponer lo contrario, supondremos que se cumplen. En realidad nunca se cumpliran “exactamente” pero si el comportamiento de los datos no se aleja mucho de los supuestos realizados, los intervalos de confianza y las pruebas de significación en que estamos interesdos seguirán siendo válidos a efectos prácticos.</p>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="pruebas-de-significación-para-los-coeficientes" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</h3>
-<p>Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pruebas de significación y contraste de hipótesis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.</p>
-</div>
-</div>
-<p>Volvamos a los datos del volumen de madera que se puede obtener de un árbol en función del diámetro del tronco y los datos de la edad al morir en función de la longitud de una línea de la mano. La figura <a href="#fig-modelosAjustados"><span>14.18</span></a> contiene las rectas ajustadas, el número de puntos <span class="math inline">\((n)\)</span> y el valor de la desviación típica de los residuos <span class="math inline">\((s_R)\)</span> en cada caso.</p>
+<section id="una-visión-intiuitiva-usando-la-simulación" class="level6 unnumbered">
+<h6 class="unnumbered anchored" data-anchor-id="una-visión-intiuitiva-usando-la-simulación"><strong>Una visión intiuitiva usando la simulación</strong></h6>
+<p>Usaremos los datos que ya vimos (apartado <a href="#sec-calidadAjuste"><span>14.3</span></a> ) sobre el volumen de madera que se obtiene de un árbol en función del diámetro de su tronco y sobre la edad al morir en función de la longitud de una línea de la mano. La figura <a href="#fig-modelosAjustados"><span>14.18</span></a> contiene las rectas ajustadas y también los valores que usaremos para la simulación.</p>
 <div id="fig-modelosAjustados" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/200_ArbolManoModelos.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.18: Modelos ajustados. Los diagramas incluyen el valor de la desviación típica de los residuos.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;14.18: Modelos ajustados. Se indica el número de datos (<span class="math inline">\(n\)</span>), la desviación típica de los residuos (<span class="math inline">\(s_R\)</span>), la media y la desviación típica de los valores de <span class="math inline">\(X\)</span> (<span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(s_X\)</span>) y la media de los valores de Y (<span class="math inline">\(\bar{y}\)</span>).</figcaption>
 </figure>
 </div>
-<p>Si no hay ninguna relación entre la variable regresora (<span class="math inline">\(X\)</span>) y la respuesta (<span class="math inline">\(Y\)</span>), la pendiente de la recta estará en torno a cero (sería igual a cero en la población, pero no disponemos de esos datos que –además– son solo un modelo teórico). Para ver lo que significa ese “en torno a cero” en los casos que estamos tratando, podemos simular nubes de puntos suponiendo que no existe ninguna relación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> manteniendo las características de estas variable en los ejemplos que estamos tratando.</p>
-<p>Para realizar la simulación, en el caso del volumen de madera, para el diámetro de los troncos (<span class="math inline">\(X\)</span>) generamos 31 números aleatorios (una cantidad igual a nuestro tamaño de muestra) de una distribución Normal con la media y la desviación típica de los valores que aparecen en la muestra, es decir: <span class="math inline">\(X \sim N(13.25; 3.2)\)</span>. A cada valor de <span class="math inline">\(X\)</span> de corresponderá un valor de la respuesta igual a la media de los valores e <span class="math inline">\(Y\)</span> –tomaremos de de los datos disponibles– añadiendo una variabilidad aleatoria que introducimos sumando al valor de Ybarra un número aleatorio de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado. Por tanto, tendremos: <span class="math inline">\(Y = 30.2 + N(0; 4.25)\)</span>.</p>
-<p>Para el modelo de la edad al morir hacemos exactamente lo mismo con los datos que corresponden. La tabla <a href="#tbl-parametrosSimulacion"><span>14.5</span></a> contine los valores usados para la simulación en cada caso.</p>
+<p>Si no hay ninguna relación entre la variable regresora (<span class="math inline">\(X\)</span>) y la respuesta (<span class="math inline">\(Y\)</span>), la pendiente de la recta estará en torno a cero (será igual a cero en la población, pero no disponemos de esos datos que –además– son solo un modelo teórico). Para ver lo que significa “en torno a cero” en los casos que estamos tratando, podemos simular nubes de puntos manteniendo las características de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> de forma independiente, suponiendo que no existe ninguna relación entre ellas.</p>
+<p>En el caso del volumen de madera empezamos generando 31 números aleatorios (una cantidad igual a nuestro tamaño de muestra) que asignamos al diámetro de los troncos. Para que estos datos se puedan considerar del mismo tipo de los que tenemos en la muestra es razonable generarlos de una distribución Normal con la media <span class="math inline">\((\bar{x} = 13.25)\)</span> y la desviación típica <span class="math inline">\((s_X = 3.2)\)</span> de los valores que aparecen en la muestra, es decir: <span class="math inline">\(X \sim N(13.25; 3.2)\)</span>. A continuación, a cada valor de <span class="math inline">\(X\)</span> le hacemos corresponder un valor de <span class="math inline">\(Y\)</span> igual a la media de los valores disponibles <span class="math inline">\((\bar{y} = 30.2)\)</span> añadiendo un número aleatorio de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado <span class="math inline">\((s_R = 4.25)\)</span>. Por tanto, tendremos: <span class="math inline">\(Y = 30.2 + N(0; 4.25)\)</span>.</p>
+<p>Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores que corresponden. La tabla <a href="#tbl-parametrosSimulacion"><span>14.5</span></a> contiene los usados en cada caso.</p>
 <div id="tbl-parametrosSimulacion" class="anchored">
 <table class="table">
 <caption>Tabla&nbsp;14.5: Valores usados para la simulación.</caption>
 <colgroup>
+<col style="width: 26%">
+<col style="width: 20%">
+<col style="width: 22%">
 <col style="width: 28%">
-<col style="width: 13%">
-<col style="width: 24%">
-<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -882,16 +869,30 @@ Pruebas de significación y contraste de hipótesis
 </tbody>
 </table>
 </div>
-<p>Para conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y se han ido acululando, tanto los puntos como las rectas ajustadas, en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a>. Está muy claro que en el caso del volumen de madera, la recta ajustada con nuestros datos no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables, sin embargo….</p>
-<p>Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así.</p>
+<p>Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a> se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables.Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado para situaciones en que no hay ninguna relación entre las variables consideradas.</p>
 <div id="fig-pruebasSignificacion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/210_pruebasSignaficacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;14.19: Distribución de los coeficientes.</figcaption>
 </figure>
 </div>
-<p><strong>Contraste para</strong> <span class="math inline">\(\beta_0\)</span></p>
-<p>===Quizá reflexión sobre como lo haríamos de manera informal===</p>
+<p>Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así. Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pruebas de significación y contraste de hipótesis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.</p>
+</div>
+</div>
+</section>
+<section id="pruebas-de-significación-formales" class="level6 unnumbered">
+<h6 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-formales"><strong>Pruebas de significación formales</strong></h6>
 <p>En general se contrasta <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p>
 <p>Como <span class="math inline">\(b_0 \sim N \left(\beta_0; \; \sigma_{\beta_0} \right)\)</span>, si <span class="math inline">\(\beta_0 = 0\)</span> tenemos:</p>
 <p><span class="math display">\[ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) \]</span></p>
@@ -925,6 +926,7 @@ Ligando las pruebas se significación para <span class="math inline">\(r\)</span
 <p>Aquí texto</p>
 </div>
 </div>
+</section>
 </section>
 <section id="intervalos-de-confianza-para-la-respuesta" class="level3" data-number="14.6.1">
 <h3 data-number="14.6.1" class="anchored" data-anchor-id="intervalos-de-confianza-para-la-respuesta"><span class="header-section-number">14.6.1</span> Intervalos de confianza para la respuesta</h3>
