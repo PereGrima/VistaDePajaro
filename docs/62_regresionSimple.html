@@ -326,7 +326,8 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#distribución-de-los-coeficientes" id="toc-distribución-de-los-coeficientes" class="nav-link" data-scroll-target="#distribución-de-los-coeficientes">Distribución de los coeficientes</a></li>
   <li><a href="#condiciones-que-deben-reunir-los-datos" id="toc-condiciones-que-deben-reunir-los-datos" class="nav-link" data-scroll-target="#condiciones-que-deben-reunir-los-datos">Condiciones que deben reunir los datos</a></li>
-  <li><a href="#pruebas-de-significación-para-los-coeficientes" id="toc-pruebas-de-significación-para-los-coeficientes" class="nav-link" data-scroll-target="#pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</a></li>
+  <li><a href="#significación-de-los-coeficientes.-visión-intuitiva" id="toc-significación-de-los-coeficientes.-visión-intuitiva" class="nav-link" data-scroll-target="#significación-de-los-coeficientes.-visión-intuitiva">Significación de los coeficientes. Visión intuitiva</a></li>
+  <li><a href="#pruebas-de-significación-formales" id="toc-pruebas-de-significación-formales" class="nav-link" data-scroll-target="#pruebas-de-significación-formales">Pruebas de significación formales</a></li>
   <li><a href="#intervalos-de-confianza-para-la-respuesta" id="toc-intervalos-de-confianza-para-la-respuesta" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-la-respuesta"><span class="header-section-number">14.6.1</span> Intervalos de confianza para la respuesta</a></li>
   </ul></li>
   <li><a href="#apéndice-10.1" id="toc-apéndice-10.1" class="nav-link" data-scroll-target="#apéndice-10.1">Apéndice 10.1</a>
@@ -822,11 +823,10 @@ Transformación logarítmica: No importa la base
 </ul>
 <p>Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de <span class="math inline">\(Y\)</span> frente a <span class="math inline">\(X\)</span> ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. Si nada hace suponer lo contrario, supondremos que se cumplen. En realidad nunca se cumpliran “exactamente” pero si el comportamiento de los datos no se aleja mucho de los supuestos realizados, los intervalos de confianza y las pruebas de significación en que estamos interesdos seguirán siendo válidos a efectos prácticos.</p>
 </section>
-<section id="pruebas-de-significación-para-los-coeficientes" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-para-los-coeficientes">Pruebas de significación para los coeficientes</h3>
-<section id="una-visión-intiuitiva-usando-la-simulación" class="level6 unnumbered">
-<h6 class="unnumbered anchored" data-anchor-id="una-visión-intiuitiva-usando-la-simulación"><strong>Una visión intiuitiva usando la simulación</strong></h6>
+<section id="significación-de-los-coeficientes.-visión-intuitiva" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="significación-de-los-coeficientes.-visión-intuitiva">Significación de los coeficientes. Visión intuitiva</h3>
 <p>Usaremos los datos que ya vimos (apartado <a href="#sec-calidadAjuste"><span>14.3</span></a> ) sobre el volumen de madera que se obtiene de un árbol en función del diámetro de su tronco y sobre la edad al morir en función de la longitud de una línea de la mano. La figura <a href="#fig-modelosAjustados"><span>14.18</span></a> contiene las rectas ajustadas y también los valores que usaremos para la simulación.</p>
+<p>===No sé si esto se puede meter en algún sitio: Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así===</p>
 <div id="fig-modelosAjustados" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/200_ArbolManoModelos.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -869,14 +869,18 @@ Transformación logarítmica: No importa la base
 </tbody>
 </table>
 </div>
-<p>Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a> se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables.Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado para situaciones en que no hay ninguna relación entre las variables consideradas.</p>
+<p>Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a> se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables. Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado, por tanto, el valor de la pendiente queda explicado por la variabilidad intrínseca de los datos, diremos que esa diferencia no es estadísticamente significativa.</p>
 <div id="fig-pruebasSignificacion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/210_pruebasSignaficacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption class="figure-caption">Figura&nbsp;14.19: Distribución de los coeficientes.</figcaption>
 </figure>
 </div>
-<p>Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así. Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="pruebas-de-significación-formales" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-formales">Pruebas de significación formales</h3>
+<p>Conocer la distribución de los coeficientes permite realizar las pruebas de significación de manerea más directa, sin necesidad de simular. Pueden no ser necesarias en casos tan claros como los que hemos visto pero, en general, aportan informaciuón muy útil para interpretar el resultado obtenido.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -890,16 +894,19 @@ Pruebas de significación y contraste de hipótesis
 <p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.</p>
 </div>
 </div>
-</section>
-<section id="pruebas-de-significación-formales" class="level6 unnumbered">
-<h6 class="unnumbered anchored" data-anchor-id="pruebas-de-significación-formales"><strong>Pruebas de significación formales</strong></h6>
-<p>En general se contrasta <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span>. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p>
-<p>Como <span class="math inline">\(b_0 \sim N \left(\beta_0; \; \sigma_{\beta_0} \right)\)</span>, si <span class="math inline">\(\beta_0 = 0\)</span> tenemos:</p>
-<p><span class="math display">\[ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) \]</span></p>
-<p>Y como no conocemos <span class="math inline">\(\sigma_{\beta_0}\)</span> sini que usamos su valor estimado usando la varianza de los residuos, tenemos:</p>
-<p><span class="math display">\[ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} \]</span> Los grados de libertad de la distribución <span class="math inline">\(t-\)</span>Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados <span class="math inline">\(\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )\)</span>.</p>
+<section id="contraste-sobre-el-valor-de-la-ordenada-en-el-origen-beta_0" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="contraste-sobre-el-valor-de-la-ordenada-en-el-origen-beta_0"><strong>Contraste sobre el valor de la ordenada en el origen, <span class="math inline">\(\beta_0\)</span></strong></h5>
+<p>En algunos casos, por el conocimiento que se tiene del fenómeno en estudio, es razonable suponer que cuando <span class="math inline">\(X=0\)</span> tendremos <span class="math inline">\(Y=0\)</span>, es decir, que la recta pasará por el origen. En este caso, una prueba de significación del tipo: <span class="math inline">\(H_0: \beta_0=0\)</span> frente a <span class="math inline">\(H_1: \beta_0 \neq 0\)</span> permite verificar que los resultados obtenidos no están en contradicción con el supuesto realizado.</p>
+<p>Para realizar este contraste, como <span class="math inline">\(b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)\)</span>, si <span class="math inline">\(\beta_0 = 0\)</span> tenemos:</p>
+<p><span class="math display">\[ \frac{b_0-0}{\sigma_{b_0}} \sim N (0; 1) \]</span></p>
+<p>Pero no conocemos <span class="math inline">\(\sigma_{b_0}\)</span>. En su lugar usamos su valor estimado a través de la varianza de los residuos. Por tanto, respecto al valor y a la distribución del estadístico de prueba, <span class="math inline">\(T\)</span>, tenemos::</p>
+<p><span class="math display">\[ T = \frac{b_0}{s_{b_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} \]</span></p>
+<p>Los grados de libertad de la distribución <span class="math inline">\(t-\)</span>Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados <span class="math inline">\(\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )\)</span>.</p>
+<p>Como regla general, si <span class="math inline">\(T&gt;2\)</span>, es decir, el valor obtenido está a más de dos desviaciones típicas de cero, se rechaza la hipótesis nula. Por supuesto, también se puede calcular el p-valor exacto y tomar la decisión de acuerdo con el nivel de significación establecido.</p>
 <p>===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2====</p>
-<p><strong>Contraste para</strong> <span class="math inline">\(\beta_1\)</span></p>
+</section>
+<section id="contraste-sobre-el-valor-de-la-pendiente-de-la-recta-beta_1" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="contraste-sobre-el-valor-de-la-pendiente-de-la-recta-beta_1"><strong>Contraste sobre el valor de la pendiente de la recta, <span class="math inline">\(\beta_1\)</span></strong></h5>
 <p>De forma similar al caso anterior, lo más habitual es contrastar <span class="math inline">\(H_0: \beta_1=0\)</span> frente a <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede descartar que la variable regrora no sirve para explicar el comportamiento de la respuesta.</p>
 <p>Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++</p>
 <p>Tenemos que :</p>
@@ -926,6 +933,16 @@ Ligando las pruebas se significación para <span class="math inline">\(r\)</span
 <p>Aquí texto</p>
 </div>
 </div>
+<p>También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo:</p>
+<div id="fig-pendiente1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regresionSimple/220_pendiente1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.20: Distribución de los coeficientes.</figcaption>
+</figure>
+</div>
+</section>
+<section id="interpretación-de-los-resultados-presentados-por-los-paquetes-de-software-estadístico" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="interpretación-de-los-resultados-presentados-por-los-paquetes-de-software-estadístico"><strong>Interpretación de los resultados presentados por los paquetes de software estadístico</strong></h5>
 </section>
 </section>
 <section id="intervalos-de-confianza-para-la-respuesta" class="level3" data-number="14.6.1">

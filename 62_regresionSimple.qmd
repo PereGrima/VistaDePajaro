@@ -341,11 +341,11 @@ Para que los coeficientes tengan las distribuciones descritas los datos utilizad
 
 Cuando se ajustan modelos de regresión simple, la observación del diagrama bivariante de $Y$ frente a $X$ ya permite valorar si es razonable suponer que se cumplen los supuestos requeridos. Si nada hace suponer lo contrario, supondremos que se cumplen. En realidad nunca se cumpliran "exactamente" pero si el comportamiento de los datos no se aleja mucho de los supuestos realizados, los intervalos de confianza y las pruebas de significación en que estamos interesdos seguirán siendo válidos a efectos prácticos.
 
-### Pruebas de significación para los coeficientes {.unnumbered}
-
-###### **Una visión intiuitiva usando la simulación** {.unnumbered}
+### Significación de los coeficientes. Visión intuitiva {.unnumbered}
 
 Usaremos los datos que ya vimos (apartado [-@sec-calidadAjuste] ) sobre el volumen de madera que se obtiene de un árbol en función del diámetro de su tronco y sobre la edad al morir en función de la longitud de una línea de la mano. La figura [-@fig-modelosAjustados] contiene las rectas ajustadas y también los valores que usaremos para la simulación.
+
+===No sé si esto se puede meter en algún sitio: Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así===
 
 ![Modelos ajustados. Se indica el número de datos ($n$), la desviación típica de los residuos ($s_R$), la media y la desviación típica de los valores de $X$ ($\bar{x}$ y $s_X$) y la media de los valores de Y ($\bar{y}$).](regresionSimple/200_ArbolManoModelos.png){#fig-modelosAjustados fig-align="center" width="100%"}
 
@@ -365,11 +365,15 @@ Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores 
 
 : Valores usados para la simulación. {#tbl-parametrosSimulacion}
 
-Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura [-@fig-pruebasSignificacion] se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables.Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado para situaciones en que no hay ninguna relación entre las variables consideradas.
+Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura [-@fig-pruebasSignificacion] se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables. Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado, por tanto, el valor de la pendiente queda explicado por la variabilidad intrínseca de los datos, diremos que esa diferencia no es estadísticamente significativa.
 
 ![Distribución de los coeficientes.](regresionSimple/210_pruebasSignaficacion.png){#fig-pruebasSignificacion fig-align="center" width="100%"}
 
-Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de madera la pendiente es significativa y en el de la línea de la mano seguramente no lo es, vamos a comprobar por simulación que, efectivametne, es así. Conocer la distribución de los coeficientes nos permite realizar pruebas de significación o, en general, contrastes de hipótesis sobre el valor de los coeficientes.
+{{< pagebreak >}}
+
+### Pruebas de significación formales {.unnumbered}
+
+Conocer la distribución de los coeficientes permite realizar las pruebas de significación  de manerea más directa, sin necesidad de simular. Pueden no ser necesarias en casos tan claros como los que hemos visto pero, en general, aportan informaciuón muy útil para interpretar el resultado obtenido.
 
 ::: callout-note
 ## Pruebas de significación y contraste de hipótesis
@@ -377,21 +381,25 @@ Aunque a la vista de los gráficos ya se ve muy claro que el caso del volumen de
 Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.
 :::
 
-###### **Pruebas de significación formales** {.unnumbered}
+##### **Contraste sobre el valor de la ordenada en el origen, $\beta_0$**  {.unnumbered}
 
-En general se contrasta $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$. Tiene interés cuando se tienen razones para pensar que la recta pasa por el origen y se desea verificar que los resultados obtenidos no están en contradicción con ese supuesto.
+En algunos casos, por el conocimiento que se tiene del fenómeno en estudio, es razonable suponer que cuando $X=0$ tendremos $Y=0$, es decir, que la recta pasará por el origen. En este caso, una prueba de significación del tipo: $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$ permite verificar que los resultados obtenidos no están en contradicción con el supuesto realizado.
 
-Como $b_0 \sim N \left(\beta_0; \; \sigma_{\beta_0} \right)$, si $\beta_0 = 0$ tenemos:
+Para realizar este contraste, como $b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)$, si $\beta_0 = 0$ tenemos:
 
-$$ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) $$
+$$ \frac{b_0-0}{\sigma_{b_0}} \sim N (0; 1) $$
 
-Y como no conocemos $\sigma_{\beta_0}$ sini que usamos su valor estimado usando la varianza de los residuos, tenemos:
+Pero no conocemos $\sigma_{b_0}$. En su lugar usamos su valor estimado a través de la varianza de los residuos. Por tanto, respecto al valor y a la distribución del estadístico de prueba, $T$, tenemos::
 
-$$ \frac{b_0}{s_{\beta_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
+$$ T = \frac{b_0}{s_{b_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ 
 
-===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2====
+Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
 
-**Contraste para** $\beta_1$
+Como regla general, si $T>2$, es decir, el valor obtenido está a más de dos desviaciones típicas de cero, se rechaza la hipótesis nula. Por supuesto, también se puede calcular el p-valor exacto y tomar la decisión de acuerdo con el nivel de significación establecido.
+
+===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2. Si se fuera que pase por el origen ya no estamos ajustando por el método de los mínimos cuadrados. La pendiente de la recta es fácil de deducir: y no tiene interés el valor de R2====
+
+##### **Contraste sobre el valor de la pendiente de la recta, $\beta_1$** {.unnumbered}
 
 De forma similar al caso anterior, lo más habitual es contrastar $H_0: \beta_1=0$ frente a $H_1: \beta_1 \neq 0$. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede descartar que la variable regrora no sirve para explicar el comportamiento de la respuesta.
 
@@ -420,6 +428,14 @@ Pero los valroes de $\sigma_{\beta_0}$ y los de $\sigma_{\beta_1}$ no se conocen
 
 Aquí texto
 :::
+
+También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo:
+
+![Distribución de los coeficientes.](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
+
+
+##### **Interpretación de los resultados presentados por los paquetes de software estadístico** {.unnumbered}
+
 
 ### Intervalos de confianza para la respuesta
 
