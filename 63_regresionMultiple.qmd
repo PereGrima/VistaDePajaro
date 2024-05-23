@@ -28,4 +28,6 @@ Análisis exploratoio más complicado Lo mismo con el análisis de los residuos
 
 Otras medidas de calidad del ajuste.
 
-La regresión no sirve para todo
+La regresión no sirve para todo.
+
+El valor de un coeficiente, si no va acompañado del valor de su desviación típica, no sirve prácticamente para nada.

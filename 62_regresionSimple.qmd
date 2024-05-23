@@ -373,7 +373,8 @@ Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los
 
 ### Pruebas de significación formales {.unnumbered}
 
-Conocer la distribución de los coeficientes permite realizar las pruebas de significación  de manerea más directa, sin necesidad de simular. Pueden no ser necesarias en casos tan claros como los que hemos visto pero, en general, aportan informaciuón muy útil para interpretar el resultado obtenido.
+Aunque pueden no ser necesarias en casos tan claros como los que acabamos de ver, conocer la distribución de los coeficientes nos permite realizar pruebas de significación de manera más directa, sin necesidad de realizar simulaciones.
+
 
 ::: callout-note
 ## Pruebas de significación y contraste de hipótesis
@@ -381,47 +382,36 @@ Conocer la distribución de los coeficientes permite realizar las pruebas de sig
 Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.
 :::
 
-##### **Contraste sobre el valor de la ordenada en el origen, $\beta_0$**  {.unnumbered}
+Lo habitual es contrastar que el coeficiente, ya sea $beta_0$ o $\beta_1$ es igual a cero frente a la alternativa de que es distinto de cero.
 
-En algunos casos, por el conocimiento que se tiene del fenómeno en estudio, es razonable suponer que cuando $X=0$ tendremos $Y=0$, es decir, que la recta pasará por el origen. En este caso, una prueba de significación del tipo: $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$ permite verificar que los resultados obtenidos no están en contradicción con el supuesto realizado.
+###### **Sobre el valor de la ordenada en el origen, $\beta_0$**  {.unnumbered}
 
-Para realizar este contraste, como $b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)$, si $\beta_0 = 0$ tenemos:
+Tiene interés cuando hay razones para suponer que la recta pasa por el origen de coordenadas. Permite verificar que los resultados obtenidos no están en contradicción con ese supuesto.
+
+Si los datos cumplen las condiciones que antes hemos comentado tendremos:
+
+$$b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)$$
+luego si $\beta_0 = 0$:
 
 $$ \frac{b_0-0}{\sigma_{b_0}} \sim N (0; 1) $$
 
-Pero no conocemos $\sigma_{b_0}$. En su lugar usamos su valor estimado a través de la varianza de los residuos. Por tanto, respecto al valor y a la distribución del estadístico de prueba, $T$, tenemos::
+Pero como no conocemos $\sigma_{b_0}$ y usamos su estimación $s_{b_0}$, el estadístico de prueba es:
 
-$$ T = \frac{b_0}{s_{b_0}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ 
+$$ T = \frac{b_0}{s_{b_0}} $$ 
+y su distribución de referencia es una $t$-Student con $n-2$ grados de libertad, siendo $n$ el número de datos disponibles. Los 2 grados de libertad que se pierden tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
 
-Los grados de libertad de la distribución $t-$Student tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
+Como regla general, si $|T| > 2$, es decir, el valor obtenido está a más de dos desviaciones típicas de cero, se rechaza la hipótesis nula. Por supuesto, también se puede calcular el $p$-valor exacto y tomar la decisión de acuerdo con el nivel de significación establecido.
 
-Como regla general, si $T>2$, es decir, el valor obtenido está a más de dos desviaciones típicas de cero, se rechaza la hipótesis nula. Por supuesto, también se puede calcular el p-valor exacto y tomar la decisión de acuerdo con el nivel de significación establecido.
+Si se decide eliminar $b_0$ del modelo es necesario recalcular el valor de $b_1$ con una fórmula específica para esta situación puesto que ya no estamos aplicando el criterio de los mínimos cuadrados. En el apéndice 10.4 se comentan algunas peculiaridades de este caso particular.
 
-===Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2. Si se fuera que pase por el origen ya no estamos ajustando por el método de los mínimos cuadrados. La pendiente de la recta es fácil de deducir: y no tiene interés el valor de R2====
+###### **Sobre el valor de la pendiente de la recta, $\beta_1$** {.unnumbered}
 
-##### **Contraste sobre el valor de la pendiente de la recta, $\beta_1$** {.unnumbered}
+Este contraste siempre tiene interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede afirmar que haya relación entre la variable regresora y la respuesta.
 
-De forma similar al caso anterior, lo más habitual es contrastar $H_0: \beta_1=0$ frente a $H_1: \beta_1 \neq 0$. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede descartar que la variable regrora no sirve para explicar el comportamiento de la respuesta.
+El procedimiento es idéntico que para $\beta_0$. El estadístico de prueba ahora es: 
 
-Hemos comentado anteriormente que la desviación típica de los coeficientes depende de la varianza de los errores, es decir, de la variabilidaed que presentan los puntos en torno a la recta ajustada. La varianza de los errores no se conoce, se estima a través de la varianza de los residuos. Esto provoca que los valroes que tenemos de la desciaciín típica de los coeficientes sea también un valro estimado y, por tanto +++++
+$$ T = \frac{b_1}{s_{b_1}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ 
 
-Tenemos que :
-
-```{=tex}
-\begin{equation}
-    \begin{aligned}
-        b_0 &\sim N \left(\beta_0; \; C\right) \\[5pt]
-        b_1 &\sim N \left(\beta_1; \; \sigma_{\beta_0} \right) 
-    \end{aligned}
-\end{equation}
-```
-Por tanto, si contrastamos $H_0: \beta_0=0$ frente a $H_1: \beta_0 \neq 0$ a partir del valor obtenido para $b_0$ tendremos:
-
-$$ \frac{b_0-0}{\sigma_{\beta_0}} \sim N (0; 1) $$ y analogamente para $b_1$:
-
-$$ \frac{b_1-0}{\sigma_{\beta_1}} \sim N (0; 1) $$
-
-Pero los valroes de $\sigma_{\beta_0}$ y los de $\sigma_{\beta_1}$ no se conocen exactamente, pero se pueden estimar a partir de los datos disponibles. En la estimación de la desviación típica de los coeficientes aparece la variaza de los residuos. Los residuos tienen dos restricciones por lo que la t-Student tiene $n-2$ grados de libertad.
 
 ::: callout-note
 ## Ligando las pruebas se significación para $r$ y para $b_1$
@@ -429,12 +419,32 @@ Pero los valroes de $\sigma_{\beta_0}$ y los de $\sigma_{\beta_1}$ no se conocen
 Aquí texto
 :::
 
-También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo:
+
+###### **Resultados presentados por los paquetes de software estadístico** {.unnumbered}
+
+En general, los paquetes de software estadístico además de presentar los coeficientes del modelo también presentan los $p$-valores asociados a los contrastes que hemos comentado. 
+
+![Distribución de los coeficientes.](Figuras/salidaSoftwareRegresion.png){#fig-pruebasSignificacion fig-align="center" width="100%"}
+
+También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos
+
+
+
++----------------+-----+----+----+
+| Valor real (ppm)   |0    | 10 | 20 |
++----------------+-----+----+----+
+| Valor medido (ppm) |1    | 11 | 21 |
++----------------+-----+----+----+
 
 ![Distribución de los coeficientes.](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
 
 
-##### **Interpretación de los resultados presentados por los paquetes de software estadístico** {.unnumbered}
+
+También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos.
+
+ Los resultados obtenidos son:
+
+![Distribución de los coeficientes.](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
 
 
 ### Intervalos de confianza para la respuesta
@@ -501,6 +511,12 @@ Falta deducción.
 Veamos un caso en que no se cumplen las condiciones requeridas sobre el comportamiento de los datos para poder realizar pruebas de significación y calcular intervalos de confianza sobre los parámetros del modelo de la forma habitual.
 
 Hemos generado 6 números aleatorios de una distribución uniforme entre 0 y 100. Esos números definen 3 puntos en el plano y hemos calculado el perímetro y el área del triángulo definido por esos tres puntos. Repitiendo esta operación 200 veces hemos obtenido el gráfico de la figura \*\*\* donde se represetna el áera de cada triángulo en función de su perímetro. Aunque el coeficiente de correlación es claramente significativo, no es una buena idea intentar explicar el área en función del perímetro.
+
+# Apéndice 10.4 {.unnumbered}
+
+### El caso de la recta forzada a pasar por el origen {.unnumbered}
+
+Comentarios obre cuando se puede quitar b0 del modelo y, quizá, que cuandos e fuerza que la recta pase por el origen pierde interés el valor de R2. Si se fuera que pase por el origen ya no estamos ajustando por el método de los mínimos cuadrados. La pendiente de la recta es fácil de deducir: y no tiene interés el valor de R2
 
 +++++++++++++++
 
