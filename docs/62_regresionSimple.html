@@ -314,7 +314,7 @@ div.csl-indent {
   <li><a href="#minimizando-la-suma-del-valor-absoluto-de-los-residuos" id="toc-minimizando-la-suma-del-valor-absoluto-de-los-residuos" class="nav-link" data-scroll-target="#minimizando-la-suma-del-valor-absoluto-de-los-residuos">Minimizando la suma del valor absoluto de los residuos</a></li>
   <li><a href="#minimizando-la-suma-de-los-cuadrados-de-los-residuos" id="toc-minimizando-la-suma-de-los-cuadrados-de-los-residuos" class="nav-link" data-scroll-target="#minimizando-la-suma-de-los-cuadrados-de-los-residuos">Minimizando la suma de los cuadrados de los residuos</a></li>
   </ul></li>
-  <li><a href="#mínimos-cuadrados.-cálculo-de-los-coeficientes" id="toc-mínimos-cuadrados.-cálculo-de-los-coeficientes" class="nav-link" data-scroll-target="#mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</a>
+  <li><a href="#sec-calculoCoeficientes" id="toc-sec-calculoCoeficientes" class="nav-link" data-scroll-target="#sec-calculoCoeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</a>
   <ul class="collapse">
   <li><a href="#sin-fórmulas" id="toc-sin-fórmulas" class="nav-link" data-scroll-target="#sin-fórmulas">Sin fórmulas</a></li>
   <li><a href="#usando-las-fórmulas" id="toc-usando-las-fórmulas" class="nav-link" data-scroll-target="#usando-las-fórmulas">Usando las fórmulas</a></li>
@@ -412,7 +412,9 @@ Modelo determinista frente a modelo estadístico
 <figcaption class="figure-caption">Figura&nbsp;14.2: Ajuste a ojo y el que minimiza la suma de los cuadrados de los residuos.</figcaption>
 </figure>
 </div>
+<div id="tbl-letters" class="anchored">
 <table class="table">
+<caption>Tabla&nbsp;14.1: Ajuste a ojo. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -435,6 +437,7 @@ Modelo determinista frente a modelo estadístico
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="método-de-ishikawa" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="método-de-ishikawa">Método de Ishikawa</h3>
@@ -447,7 +450,7 @@ Modelo determinista frente a modelo estadístico
 </div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;14.1: Método de Ishikawa. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;14.2: Método de Ishikawa. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -498,7 +501,7 @@ Kaoru Ishikawa (1915-1989)
 </div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;14.2: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;14.3: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -534,7 +537,7 @@ Kaoru Ishikawa (1915-1989)
 </div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;14.3: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;14.4: Suma de los residuos igual a cero. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -572,7 +575,7 @@ Kaoru Ishikawa (1915-1989)
 </div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;14.4: Minimizar la suma de los cuadrados de los residuos. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;14.5: Minimizar la suma de los cuadrados de los residuos. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -596,8 +599,8 @@ Kaoru Ishikawa (1915-1989)
 </div>
 </section>
 </section>
-<section id="mínimos-cuadrados.-cálculo-de-los-coeficientes" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="mínimos-cuadrados.-cálculo-de-los-coeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</h2>
+<section id="sec-calculoCoeficientes" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sec-calculoCoeficientes"><span class="header-section-number">14.2</span> Mínimos cuadrados. Cálculo de los coeficientes</h2>
 <p>Existe una fórmula cerrada y con solución única para cada coeficiente, pero vamos a empezar identificando el valor de los coeficientes sin hacer uso de las fórmulas. Naturalmente, es mucho más rápido y más práctico usarlas o -mejor todavía- usar un paquete de software estadístico o una hoja de cálculo, pero hacerlo sin fórmulas permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.</p>
 <section id="sin-fórmulas" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="sin-fórmulas">Sin fórmulas</h3>
@@ -734,7 +737,7 @@ Por qué le llamamos modelo de regresión
 </section>
 <section id="transformación-logarítmica" class="level2" data-number="14.5">
 <h2 data-number="14.5" class="anchored" data-anchor-id="transformación-logarítmica"><span class="header-section-number">14.5</span> Transformación logarítmica</h2>
-<p>En algunos casos, los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamímeros <span class="citation" data-cites="Weisberg">(<a href="references.html#ref-Weisberg" role="doc-biblioref">Weisberg 2014</a>, pág. 186)</span>. La mayoria de esos mamíferos pesan poco –la mediana es de 3,34 kg– pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro (<span class="math inline">\(Y\)</span>) frente al peso de cuerpo (<span class="math inline">\(X\)</span>) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.</p>
+<p>En algunos casos, los valores de <span class="math inline">\(X\)</span>, los de <span class="math inline">\(Y\)</span>, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamíferos <span class="citation" data-cites="Weisberg">(<a href="references.html#ref-Weisberg" role="doc-biblioref">Weisberg 2014</a>, pág. 186)</span>. La mayoria de esos mamíferos pesan poco –la mediana es de 3,34 kg– pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro (<span class="math inline">\(Y\)</span>) frente al peso de cuerpo (<span class="math inline">\(X\)</span>) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.</p>
 <div id="fig-brainBodyOriginal" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/120_brainBodyOriginal.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -839,10 +842,10 @@ Transformación logarítmica: No importa la base
 </div>
 <p>Si no hay ninguna relación entre la variable regresora (<span class="math inline">\(X\)</span>) y la respuesta (<span class="math inline">\(Y\)</span>), la pendiente de la recta estará en torno a cero (será igual a cero en la población, pero no disponemos de esos datos que –además– son solo un modelo teórico). Para ver lo que significa “en torno a cero” en los casos que estamos tratando, podemos simular nubes de puntos manteniendo las características de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> de forma independiente, suponiendo que no existe ninguna relación entre ellas.</p>
 <p>En el caso del volumen de madera empezamos generando 31 números aleatorios (una cantidad igual a nuestro tamaño de muestra) que asignamos al diámetro de los troncos. Para que estos datos se puedan considerar del mismo tipo de los que tenemos en la muestra es razonable generarlos de una distribución Normal con la media <span class="math inline">\((\bar{x} = 13.25)\)</span> y la desviación típica <span class="math inline">\((s_X = 3.2)\)</span> de los valores que aparecen en la muestra, es decir: <span class="math inline">\(X \sim N(13.25; 3.2)\)</span>. A continuación, a cada valor de <span class="math inline">\(X\)</span> le hacemos corresponder un valor de <span class="math inline">\(Y\)</span> igual a la media de los valores disponibles <span class="math inline">\((\bar{y} = 30.2)\)</span> añadiendo un número aleatorio de una distribución Normal con media cero (ni sube ni baja de forma sistemática el valor de la respuesta) y una desviación típica igual a la que presentan los residuos del modelo ajustado <span class="math inline">\((s_R = 4.25)\)</span>. Por tanto, tendremos: <span class="math inline">\(Y = 30.2 + N(0; 4.25)\)</span>.</p>
-<p>Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores que corresponden. La tabla <a href="#tbl-parametrosSimulacion"><span>14.5</span></a> contiene los usados en cada caso.</p>
+<p>Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores que corresponden. La tabla <a href="#tbl-parametrosSimulacion"><span>14.6</span></a> contiene los usados en cada caso.</p>
 <div id="tbl-parametrosSimulacion" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;14.5: Valores usados para la simulación.</caption>
+<caption>Tabla&nbsp;14.6: Valores usados para la simulación.</caption>
 <colgroup>
 <col style="width: 26%">
 <col style="width: 20%">
@@ -873,7 +876,7 @@ Transformación logarítmica: No importa la base
 </tbody>
 </table>
 </div>
-<p>Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.20</span></a> se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables. Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado, por tanto, el valor de la pendiente queda explicado por la variabilidad intrínseca de los datos, diremos que esa diferencia no es estadísticamente significativa.</p>
+<p>Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los dos casos la simulación se ha repetido 50 veces y en los diagramas de la figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a> se han ido acumulando tanto los puntos como las rectas ajustadas. También se ha añadido, de color verde, la línea correspondiente a los datos de la muestra. Está muy claro que en el caso del volumen de madera, la recta ajustada con los datos de la muestra no se puede confundir con los generados aleatoriamente suponiendo que no hay relación entre ambas variables. Sin embargo, en el caso de la edad al morir, la recta que corresponde a los datos disponibles se confunde con las que hemos simulado, por tanto, el valor de la pendiente queda explicado por la variabilidad intrínseca de los datos, diremos que esa diferencia no es estadísticamente significativa.</p>
 <div id="fig-pruebasSignificacion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/210_pruebasSignaficacion.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -898,7 +901,7 @@ Pruebas de significación y contraste de hipótesis
 <p>Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a “significativamente distinto de cero” es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.</p>
 </div>
 </div>
-<p>Lo habitual es contrastar que el coeficiente, ya sea <span class="math inline">\(beta_0\)</span> o <span class="math inline">\(\beta_1\)</span> es igual a cero frente a la alternativa de que es distinto de cero.</p>
+<p>Lo habitual es contrastar que el coeficiente, ya sea <span class="math inline">\(\beta_0\)</span> o <span class="math inline">\(\beta_1\)</span> es igual a cero frente a la alternativa de que es distinto de cero.</p>
 <section id="sobre-el-valor-de-la-ordenada-en-el-origen-beta_0" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="sobre-el-valor-de-la-ordenada-en-el-origen-beta_0"><strong>Sobre el valor de la ordenada en el origen, <span class="math inline">\(\beta_0\)</span></strong></h6>
 <p>Tiene interés cuando hay razones para suponer que la recta pasa por el origen de coordenadas. Permite verificar que los resultados obtenidos no están en contradicción con ese supuesto.</p>
@@ -931,46 +934,86 @@ Ligando las pruebas se significación para <span class="math inline">\(r\)</span
 </section>
 <section id="resultados-presentados-por-los-paquetes-de-software-estadístico" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="resultados-presentados-por-los-paquetes-de-software-estadístico"><strong>Resultados presentados por los paquetes de software estadístico</strong></h6>
-<p>En general, los paquetes de software estadístico además de presentar los coeficientes del modelo también presentan los <span class="math inline">\(p\)</span>-valores asociados a los contrastes que hemos comentado.</p>
-<div id="fig-pruebasSignificacion" class="quarto-figure quarto-figure-center anchored">
+<p>En general, los paquetes de software estadístico además de presentar los coeficientes del modelo también presentan los <span class="math inline">\(p\)</span>-valores asociados a los contrastes que hemos comentado. La figura <a href="#fig-pruebasSignificacion"><span>14.19</span></a> muestra parte de la salida que proporciona el paquete de software estadístico Minitan en los dos casos que estamos considerando. Los coeficientes se calculan con las fórmulas que hemos deducido en el apartado <a href="#sec-calculoCoeficientes"><span>14.2</span></a> y sus desviaciones típicas con las que aparecen en el apéndice 10.2. Tal como hemos visto, el <strong>T-value</strong> que aparece en el listado es simplemente el cociente entre el coeficiente (<strong>Coef</strong>) y su desviación típica (<strong>SE Coef</strong>) y el p-valor (<strong>P-Value</strong>) es el área de cola -multiplicado por 2, ya que es una prueba bilateral- que deja ese T-Value en una distribución t-Student con <span class="math inline">\(n-2\)</span> grados de libertad, siendo <span class="math inline">\(n\)</span> el número de puntos usados en cada caso.</p>
+<div id="fig-salidaMinitab" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Figuras/salidaSoftwareRegresion.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.20: Distribución de los coeficientes.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;14.20: Salida del paquete de software estadístico Minitab al ajustar modelos de regresión en los dos ejemplos que hemos visto.</figcaption>
 </figure>
 </div>
-<p>También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos</p>
+<p>También puede interesar contrastar otros valores para la pendiente de la recta. Para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos. Los resultados obtenidos son los que se indican en la tabla <a href="#tbl-concentracion"><span>14.7</span></a> <span class="citation" data-cites="Navidi">(<a href="references.html#ref-Navidi" role="doc-biblioref">Navidi 2010</a>, pág. 585)</span>.</p>
+<div id="tbl-concentracion" class="anchored">
 <table class="table">
+<caption>Tabla&nbsp;14.7: Concentración de CO. Valores reales y valores medidos (ppm)</caption>
 <colgroup>
-<col style="width: 51%">
+<col style="width: 18%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Valor real (ppm) |0 | 10 | 20</td>
+<td>Valor real</td>
+<td>0</td>
+<td>10</td>
+<td>20</td>
+<td>30</td>
+<td>40</td>
+<td>50</td>
+<td>60</td>
+<td>70</td>
+<td>80</td>
+<td>90</td>
+<td>100</td>
 </tr>
 <tr class="even">
-<td>Valor medido (ppm) |1 | 11 | 21</td>
+<td>Valor medido</td>
+<td>1</td>
+<td>11</td>
+<td>21</td>
+<td>28</td>
+<td>37</td>
+<td>48</td>
+<td>56</td>
+<td>68</td>
+<td>75</td>
+<td>86</td>
+<td>96</td>
 </tr>
 </tbody>
 </table>
+</div>
+<p>La figura <a href="#fig-pendiente1"><span>14.21</span></a> (izq.) muestra el diagrama bivariante de los valores medidos frente a los reales con su recta ajustada. El aparato estará bien calibrado si -en promedio- el valor de la concentración medida es igual a la concentración real. Es decir, si los datos se ajustan al modelo: <span class="math inline">\(y = x\)</span>.</p>
 <div id="fig-pendiente1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="regresionSimple/220_pendiente1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.21: Distribución de los coeficientes.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;14.21: Recta ajustada de la concentración medida frente a la real (izq.). Rectas simuladas suponiendo que -en promedio- la concentración medida es igual a la real (der.)</figcaption>
 </figure>
 </div>
-<p>También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos.</p>
-<p>Los resultados obtenidos son:</p>
-<div id="fig-pendiente1" class="quarto-figure quarto-figure-center anchored">
+<p>Usando Minitab tenemos los coeficientes del modelo y la prueba de significación para sus valores (figura <a href="#fig-salidaConcentracion"><span>14.22</span></a>).</p>
+<div id="fig-salidaConcentracion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="regresionSimple/220_pendiente1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figura&nbsp;14.22: Distribución de los coeficientes.</figcaption>
+<p><img src="Figuras/salidaConcentracion.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;14.22: Salida del paquete de software estadístico Minitab al ajustar modelos de regresión en los dos ejemplos que hemos visto.</figcaption>
 </figure>
 </div>
+<p>Vemos que la ordenada en el origen (Minitab le llama “Constant” pero ya dijimos que esta no nos parece una denominación adecuada) no es significativamente distinta de cero por lo que hemos recalculado el modelo sin ese término. En el nuevo modelo el valor de <span class="math inline">\(b_1\)</span> (coeficiente de la concentración real) es claramente significativo (significativamente distinto de cero) pero no es eso lo que nos preocupa. Lo que queremos saber es si es significativamente distinto de 1. Minitab no lo hace automaticamente pero es muy fácil hacerlo a mano:</p>
+<p><span class="math display">\[  T =  \frac{b_1-1}{s_{b_1}} = \frac{0.95351-1}{0.00598} = -7.77\]</span> Si efectivamente <span class="math inline">\(\beta_1 = 1\)</span> el valor de <span class="math inline">\(T\)</span> pertenece a una distribución <span class="math inline">\(t\)</span>-Student, pero si lo fuera su valor estaría comprendido aproximadamente entre -2 y 2, y el valor que hemos obtenido está muy lejos de este intervalo. Por tanto, la hipótesis nula de que <span class="math inline">\(\beta_1=1\)</span> queda descartada. El aparato no está bien calibrado.</p>
+<p>En la figura <a href="#fig-pendiente1"><span>14.21</span></a> (der.) se han representado las rectas ajustadas (color azul) de valores de la concentración medida (<span class="math inline">\(y\)</span>) en función de la concentración real (<span class="math inline">\(x\)</span>) generados con el modelo <span class="math inline">\(y = x + e\)</span> siendo <span class="math inline">\(e\)</span> valores de una distribución Normal con media cero y una desviación típica igual a la que presentan los residuos del modelo obtenido. La recta ajustada con los datos reales aparece de color verde (es la misma que tenemos en el diagrama de la izquierda), claramente se ve que no se confunde con las generadas aleatoriamente suponiendo que el aparato está bien calibrado, a partir de una concentración de 50 tiende a dar valores menores que los reales.</p>
 </section>
 </section>
 <section id="intervalos-de-confianza-para-la-respuesta" class="level3" data-number="14.6.1">
 <h3 data-number="14.6.1" class="anchored" data-anchor-id="intervalos-de-confianza-para-la-respuesta"><span class="header-section-number">14.6.1</span> Intervalos de confianza para la respuesta</h3>
 <p>-Intervalos de confianza para las predicciones.</p>
+<p>Mas/menos dos sigmas de los residuos y listos.</p>
 <p>-IC para las observaciones.</p>
 </section>
 </section>
@@ -1039,6 +1082,9 @@ Draper, N. R., y H. Smith. 1998. <em>Applied Regression Analysis</em>. 3.ª ed. 
 </div>
 <div id="ref-MontgomeryPeck" class="csl-entry" role="listitem">
 Montgomery, D. C., y E. A. Peck. 1992. <em>Introduction to Linear Regression Analysis</em>. 2.ª ed. USA: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-Navidi" class="csl-entry" role="listitem">
+Navidi, W. 2010. <em>Statistics for Engineers and Scientists</em>. 3.ª ed. USA: McGraw Hill.
 </div>
 <div id="ref-PeñaRegre" class="csl-entry" role="listitem">
 Peña, D. 2002. <em>Regresión y diseño de experimentos</em>. 1.ª ed. Madrid: Alianza Editorial.

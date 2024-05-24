@@ -51,7 +51,7 @@ A pesar de sus evidentes limitaciones, si solo se trata de tener la recta no es 
 |                                                                                | -   Solo sirve para regresión simple.                                           |
 +--------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
 
-: {tbl-colwidths="\[10,90\]"}
+: Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ### Método de Ishikawa {.unnumbered}
 
@@ -139,7 +139,7 @@ En la primera fila de la figura [-@fig-sumaCuadrados] tenemos una situación tí
 
 : Minimizar la suma de los cuadrados de los residuos. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
-## Mínimos cuadrados. Cálculo de los coeficientes
+## Mínimos cuadrados. Cálculo de los coeficientes {#sec-calculoCoeficientes}
 
 Existe una fórmula cerrada y con solución única para cada coeficiente, pero vamos a empezar identificando el valor de los coeficientes sin hacer uso de las fórmulas. Naturalmente, es mucho más rápido y más práctico usarlas o -mejor todavía- usar un paquete de software estadístico o una hoja de cálculo, pero hacerlo sin fórmulas permite entender perfectamente qué es lo que se está haciendo, y también descubrir algún detalle interesante.
 
@@ -157,7 +157,7 @@ Vayamos al diagrama de la figura [-@fig-coefSinFormulas] (izquierda) que ya hab�
 Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de $X$ sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.
 :::
 
-### Usando las fórmulas {.unnumbered}
+### Usando las fórmulas {.unnumbered} 
 
 En el diagrama que representa la relación entre $X$ e $Y$ cada punto puede ser identificado por sus coordenadas $(x_i, y_i)$ con $1 \leq i \leq n$ siendo $n$ el número total de puntos. \[creo que esto es redundante y habría que mejorarlo\]
 
@@ -263,7 +263,7 @@ Volviendo a los datos de la figura [-@fig-R2] donde a partir de los pesos de 5 p
 
 ## Transformación logarítmica
 
-En algunos casos, los valores de $X$, los de $Y$, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamímeros [@Weisberg, pág. 186]. La mayoria de esos mamíferos pesan poco --la mediana es de 3,34 kg-- pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro ($Y$) frente al peso de cuerpo ($X$) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.
+En algunos casos, los valores de $X$, los de $Y$, o ambos, siguen una distribución asimétrica, con valores que aparecen agrupados cerca del origen y muy dispersos hacia los valores altos. Un ejemplo típico de esta situación se da al analizar la relación entre el peso del cerebro y el peso de cuerpo en 62 especies de mamíferos [@Weisberg, pág. 186]. La mayoria de esos mamíferos pesan poco --la mediana es de 3,34 kg-- pero algunos, como los elefantes, pesan varias toneladas y algo similar ocurre con el peso de los cerebros. Al realizar el diagrama bivariante del peso del cerebro ($Y$) frente al peso de cuerpo ($X$) prácticamente todos los puntos aparecen amontonados en la zona próxima al origen, En estas condiciones ajustar un modelo de regresión no tiene sentido, porque la mayoría de datos actúan como un solo punto y los que estan alejados tienen una gran influencia sobre la recta ajustada.
 
 ![Relación entre el peso del cerebro y el peso del cuerpo en 62 especies de mamíferos.](regresionSimple/120_brainBodyOriginal.png){#fig-brainBodyOriginal fig-align="center" width="100%"}
 
@@ -382,7 +382,7 @@ Aunque pueden no ser necesarias en casos tan claros como los que acabamos de ver
 Una prueba de significación es un caso particular de contraste de hipótesis donde se contrasta que el valor del parámetro es igual a cero. Significación equivale a "significativamente distinto de cero" es decir, que la variabilidad aleatoria no justifica la diferencia respecto a cero.
 :::
 
-Lo habitual es contrastar que el coeficiente, ya sea $beta_0$ o $\beta_1$ es igual a cero frente a la alternativa de que es distinto de cero.
+Lo habitual es contrastar que el coeficiente, ya sea $\beta_0$ o $\beta_1$ es igual a cero frente a la alternativa de que es distinto de cero.
 
 ###### **Sobre el valor de la ordenada en el origen, $\beta_0$**  {.unnumbered}
 
@@ -422,34 +422,42 @@ Aquí texto
 
 ###### **Resultados presentados por los paquetes de software estadístico** {.unnumbered}
 
-En general, los paquetes de software estadístico además de presentar los coeficientes del modelo también presentan los $p$-valores asociados a los contrastes que hemos comentado. 
+En general, los paquetes de software estadístico además de presentar los coeficientes del modelo también presentan los $p$-valores asociados a los contrastes que hemos comentado. La figura [-@fig-pruebasSignificacion] muestra parte de la salida que proporciona el paquete de software estadístico Minitan en los dos casos que estamos considerando. Los coeficientes se calculan con las fórmulas que hemos deducido en el apartado [-@sec-calculoCoeficientes] y sus desviaciones típicas con las que aparecen en el apéndice 10.2. Tal como hemos visto, el **T-value** que aparece en el listado es simplemente el cociente entre el coeficiente (**Coef**) y su desviación típica (**SE Coef**) y el p-valor (**P-Value**) es el área de cola -multiplicado por 2, ya que es una prueba bilateral- que deja ese T-Value en una distribución t-Student con $n-2$ grados de libertad, siendo $n$ el número de puntos usados en cada caso.
 
-![Distribución de los coeficientes.](Figuras/salidaSoftwareRegresion.png){#fig-pruebasSignificacion fig-align="center" width="100%"}
+![Salida del paquete de software estadístico Minitab al ajustar modelos de regresión en los dos ejemplos que hemos visto.](Figuras/salidaSoftwareRegresion.png){#fig-salidaMinitab fig-align="center" width="100%"}
 
-También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos
+También puede interesar contrastar otros valores para la pendiente de la recta. Para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos. Los resultados obtenidos son los que se indican en la tabla [-@tbl-concentracion] [@Navidi, pág. 585].
+
++--------------+---+----+----+----+----+----+----+----+----+----+-----+
+| Valor real   |0  | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 |
++--------------+---+----+----+----+----+----+----+----+----+----+-----+
+| Valor medido |1  | 11 | 21 | 28 | 37 | 48 | 56 | 68 | 75 | 86 |  96 |
++--------------+---+----+----+----+----+----+----+----+----+----+-----+
+: Concentración de CO. Valores reales y valores medidos (ppm) {#tbl-concentracion}
+
+La figura [-@fig-pendiente1] (izq.) muestra el diagrama bivariante de los valores medidos frente a los reales con su recta ajustada. El aparato estará bien calibrado si -en promedio- el valor de la concentración medida es igual a la concentración real. Es decir, si los datos se ajustan al modelo: $y = x$.
+
+![Recta ajustada de la concentración medida frente a la real (izq.). Rectas simuladas suponiendo que -en promedio- la concentración medida es igual a la real (der.)](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"} 
 
 
+Usando Minitab tenemos los coeficientes del modelo y la prueba de significación para sus valores (figura [-@fig-salidaConcentracion]). 
 
-+----------------+-----+----+----+
-| Valor real (ppm)   |0    | 10 | 20 |
-+----------------+-----+----+----+
-| Valor medido (ppm) |1    | 11 | 21 |
-+----------------+-----+----+----+
-
-![Distribución de los coeficientes.](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
+![Salida del paquete de software estadístico Minitab al ajustar modelos de regresión en los dos ejemplos que hemos visto.](Figuras/salidaConcentracion.png){#fig-salidaConcentracion fig-align="center" width="100%"}
 
 
+Vemos que la ordenada en el origen (Minitab le llama "Constant" pero ya dijimos que esta no nos parece una denominación adecuada) no es significativamente distinta de cero por lo que hemos recalculado el modelo sin ese término. En el nuevo modelo el valor de $b_1$ (coeficiente de la concentración real) es claramente significativo (significativamente distinto de cero) pero no es eso lo que nos preocupa. Lo que queremos saber es si es significativamente distinto de 1. Minitab no lo hace automaticamente pero es muy fácil hacerlo a mano:
 
-También puede interesar contrastar otros valores para la pendiente de la recta. Por ejemplo, para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos.
+$$  T =  \frac{b_1-1}{s_{b_1}} = \frac{0.95351-1}{0.00598} = -7.77$$
+Si efectivamente $\beta_1 = 1$ el valor de $T$ pertenece a una distribución $t$-Student, pero si lo fuera su valor estaría comprendido aproximadamente entre -2 y 2, y el valor que hemos obtenido está muy lejos de este intervalo. Por tanto, la hipótesis nula de que $\beta_1=1$ queda descartada. El aparato no está bien calibrado.
 
- Los resultados obtenidos son:
-
-![Distribución de los coeficientes.](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
+En la figura [-@fig-pendiente1] (der.) se han representado las rectas ajustadas (color azul) de valores de la concentración medida ($y$) en función de la concentración real ($x$) generados con el modelo $y = x + e$ siendo $e$ valores de una distribución Normal con media cero y una desviación típica igual a la que presentan los residuos del modelo obtenido. La recta ajustada con los datos reales aparece de color verde (es la misma que tenemos en el diagrama de la izquierda), claramente se ve que no se confunde con las generadas aleatoriamente suponiendo que el aparato está bien calibrado, a partir de una concentración de 50 tiende a dar valores menores que los reales.
 
 
 ### Intervalos de confianza para la respuesta
 
 -Intervalos de confianza para las predicciones.
+
+Mas/menos dos sigmas de los residuos y listos.
 
 -IC para las observaciones.
 

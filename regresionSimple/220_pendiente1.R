@@ -9,15 +9,19 @@ concen = read.csv2("pendiente1.csv")
 x = as.numeric(concen$True)
 y = as.numeric(concen$Measured)
 
-plot(x, y, xlim = c(-2, 102), ylim = c(-2, 100),  col = "red", pch = 19, cex = t-0.15, las=1, xlab="", ylab="", xaxt = "n", yaxt = "n")
+plot(x, y, xlim = c(-2, 102), ylim = c(-2, 102),  col = "red", pch = 19, cex = t-0.15, las=1, xlab="", ylab="", xaxt = "n", yaxt = "n")
 
 axis(side=1, at=seq(0, 100, 20), padj=-3.2, tck=-0.02, cex.axis=t-0.25)
-axis(side=2, at=seq(0, 100, 20), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1)
-    
-mtext("Concentración real", side=2, line=0.9, cex=t-0.2)
-mtext("Concentración medida", side=1, line=0.6, cex=t-0.2)
+axis(side=1, at=seq(0, 100, 10), padj=-3.2, tck=-0.02, cex.axis=t-0.25, labels = FALSE)
+axis(side=2, at=0, hadj=-2, tck=-0.02, cex.axis=t-0.25, las=1)
+axis(side=2, at=seq(20, 80, 20), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1)
+axis(side=2, at=100, hadj=-0, tck=-0.02, cex.axis=t-0.25, las=1)
+axis(side=2, at=seq(0, 100, 10), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1, labels = FALSE)
+
+mtext("Concentración medida", side=2, line=0.9, cex=t-0.2)
+mtext("Concentración real", side=1, line=0.6, cex=t-0.2)
 abline(lm(y ~ x), col = "blue")
-segments(0, 0, 100, 100, col = "black", lwd = 1.5)
+#segments(0, 0, 100, 100, col = "black", lwd = 1.5)
 
 ###########################
 par(new = FALSE, mar=c(1.5, 1, 0.5, 2.7))
@@ -32,11 +36,14 @@ for (i in 1:50) {
     for (j in 1:50) {
       abline(lm(y1[,j] ~ x1), col = "blue")
     }
-    axis(side=1, at=seq(0, 100, 10), padj=-3.2, tck=-0.02, cex.axis=t-0.25)
-    axis(side=2, at=seq(0, 90, 10), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1)
-    axis(side=2, at=100, hadj=0, tck=-0.02, cex.axis=t-0.25, las=1)
-    mtext('X: Longitud línea mano', side=1, line=0.6, cex=t-0.2)
-    mtext('Y: Edad al morir', side=2, line=0.9, cex=t-0.2)
+    axis(side=1, at=seq(0, 100, 20), padj=-3.2, tck=-0.02, cex.axis=t-0.25)
+    axis(side=1, at=seq(0, 100, 10), padj=-3.2, tck=-0.02, cex.axis=t-0.25, labels = FALSE)
+    axis(side=2, at=0, hadj=-2, tck=-0.02, cex.axis=t-0.25, las=1)
+    axis(side=2, at=seq(20, 80, 20), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1)
+    axis(side=2, at=100, hadj=-0, tck=-0.02, cex.axis=t-0.25, las=1)
+    axis(side=2, at=seq(0, 100, 10), hadj=-0.5, tck=-0.02, cex.axis=t-0.25, las=1, labels = FALSE)
+    mtext("Concentración medida", side=2, line=0.9, cex=t-0.2)
+    mtext("Concentración real", side=1, line=0.6, cex=t-0.2)
     abline(lm(y ~ x), col = "green")
   }
 }
