@@ -137,3 +137,75 @@ texto
 texto
 
 ¿Qué hace esto aquí?
+
+## Apéndice 1.1: Otras medias {.unnumbered}
+
+### Media geométrica {.unnumbered}
+
+Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 \% y el tercer año al 50 \% ¿A que tasa promedio ha crecido  en estos tres años?
+
+
++:-----:+:-----------------:+:-------------------:+:-------------------:+:--------------------------:+
+| Año   |Población inicial  | Tasa de crecimiento | Factor de expansión | Población al final del año | 
++:=====:+:=================:+:===================:+:===================:+:==========================:+
+|  1    |10.000             | 0,05                | 1,05                | 10.500                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+|  2    |10.500             | 0,20                | 1,20                | 12.600                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+|  3    |12.600             | 0,50                | 1,50                | 18.900                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+: Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"}
+
+\noindent Si calculamos la media aritmética de la tasa de crecimiento \index{tasa de crecimiento} tenemos: $(0,05 + 0,20 + 0,50)/3 = 0,25$ y el factor medio de expansión sería $1,25$. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:
+
+
++:-----:+:-----------------:+:-------------------:+:-------------------:+:--------------------------:+
+| Año   |Población inicial  | Tasa de crecimiento | Factor de expansión | Población al final del año | 
++:=====:+:=================:+:===================:+:===================:+:==========================:+
+|  1    |10.000             | 0,25                | 1,25                | 12.500                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+|  2    |12.500             | 0,25                | 1,25                | 15.625                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+|  3    |15.625             | 0,25                | 1,25                | 19.531                     | 
++-------+-------------------+---------------------+---------------------+----------------------------+
+: Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"} :{.hover}
+
+
+\noindent Por tanto, la media aritmética no es un buen indicador de la tasa media de crecimiento.
+
+Si la población crece a una tasa constante $i$, para que al final del tercer año tenga el mismo efecto que las tasas del ejemplo, se debe verificar que:
+
+$$ 10\,000(1+i)(1+i)(1+i)=10\,000(1+0,05)(1+0,20)(1+0,50) $$
+\noindent De donde: 
+
+$$(1+i)= \sqrt[3]{1,05 \cdot 1,20 \cdot 1,50}=1,2364$$
+
+\noindent Si se hubiera tenido este factor de expansión cada año (nótese que es la media geométrica), hubiera conducido a una población final igual a la que tenemos.
+
+::: callout-note
+## Curiosidades sobre la media geométrica
+* A diferencia de la media aritmética, la media geométrica sólo se define para números positivos.
+
+* La media geométrica nunca es mayor que la media aritmética. La demostración para el caso
+	de 2 valores es fácil por reducción al absurdo. Supongamos que:
+	$\sqrt{ab} > (a+b)/2$, entonces $ab > (a^2+2ab+b^2)/4$, de donde: $0 >a^2-2ab+b^2$. Como $a^2-2ab+b^2=(a-b)^2$ es imposible que este valor sea negativo, luego es imposible que $\sqrt{ab}>(a+b)/2$.
+:::
+
+### Media armónica {.unnumbered}
+
+Se define la media armónica de $x_1, x_2, ..., x_N$ como:
+
+$$Mh = \frac{N}{\large{\frac{1}{x_1}+\frac{1}{x_2}+...+\frac{1}{x_N}}}$$
+
+Parece que esto sea un retorcimiento sin ningún interés, pero no. Si un coche recorre cierta distancia a una velocidad de 100 km/h y vuelve por el mismo camino a 120 km/h, la velocidad media a que ha realizado el viaje es:
+
+$$Mh = \frac{2}{\large{\frac{1}{100}+\frac{1}{120}}} = 109,1 \text{ km/h}$$
+
+y no 110 km/h como en principio se podría pensar.
+
+Observe que la velocidad es igual a la distancia recorrida dividida por el tiempo tardado en recorrerla,
+es decir $v=d/t$ y por tanto $t=d/v$. En nuestro caso, si la distancia a recorrer es $d$, el tiempo tardado en la ida es $t_1 =d/100$ y el tiempo tardado en el regreso es $t_2 =d/120$. De esta manera el tiempo total invertido en todo el recorrido $(2d)$ será $t=t_1+t_2$ y la velocidad media se calcula de la forma:
+
+$$ \text{Velocidad media} = \frac{\text{Distancia total recorrida}}{\text{Tiempo total empleado}} = \frac{2d}{\large{\frac{d}{100}+\frac{d}{120}}} $$
+Otro ejemplo: Un avión recorre 3000 km. Los 1000 primeros a 700 km/h, los 1000 siguientes a 800 km/h, y los 1000 restantes a 900 km/h ¿Cuál ha sido su velocidad media? No ha sido 800 km/h sino 791,6 km/h.
+
