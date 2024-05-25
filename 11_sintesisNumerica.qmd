@@ -6,34 +6,33 @@ Qué es. Símil del retrato robot.
 
 ### Media aritmética {.unnumbered}
 
-Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Seguramente ayuda su utilidad para saber si se aprobará una asignatura a la vista de los resultados obtenidos durante el curso.
+Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso.
 
-Cuando los datos se presentan tabulados hay que tener presente que estos se repiten tantas veces como indica su **frecuencia absoluta**. Por ejemplo, en la @tbl-hijosFamilia, el número de hijos (*X*) es la variable considerada y el número de familias (*n*) que tienen ese número de hijos es su frecuencia absoluta.
+Cuando los datos se presentan tabulados no hay que olvidar que cada uno se repite tantas veces como indica su **frecuencia absoluta**. En la @tbl-hijosFamilia, la variable considerada es el número de hijos por familia ($x$) y el número de familias para cada uno de esos valores es la frecuencia absoluta ($n$).
 
 |                        |     |     |     |     |     |     |
 |------------------------|:---:|:---:|:---:|:---:|:---:|:---:|
-| Núm de hijos (*X*):    |  0  |  1  |  2  |  3  |  4  |  5  |
-| Núm de familias (*n*): | 13  | 21  | 15  |  8  |  1  |  2  |
+| Número de hijos ($x$):    |  0  |  1  |  2  |  3  |  4  |  5  |
+| Número de familias ($n$): | 13  | 21  | 15  |  8  |  1  |  2  |
 
 : Número de hijos por familia {#tbl-hijosFamilia}
 
-El valor medio ($\bar{X}$) del número de hijos por famila es igual a:
+El valor medio ($\bar{x}$) del número de hijos por famila es igual a:
 
-$$
-\bar{X} = \frac{\sum_{i} n_i X_i }{N} \:  = \:  1,48
-$$ Donde $N$ es el número total de datos disponibles ($N=60$) e $i$ es el índice que en nuestro caso va de 1 a 6 (para valores de $X$ de 0 a 5).
+$$ \bar{x} = \frac{\sum_{i} n_i \, x_i }{N} \:  = \:  1,48 $$ 
 
-Para cada valor de X (X_i), su **frecuencia relativa** es igual a $n_i/N$. También podemos calcular la media usando la expresión:
+Donde $N$ es el número total de datos (en este caso $N=60$) e $i$ es el índice que aquí va de 1 a 6 (para valores de $x$ de 0 a 5).
 
-$$
-\sum_{i} f_i X_i \:  = \:  1,48
-$$ Esta expresión es análoga a la de la esperanza matemática para una variable aleatoria (cambiando frecuencia relativa por probabilidad) que veremos más adelante.
+Para cada valor de $x_i$ su **frecuencia relativa** es $f_i = n_i/N$. También podemos calcular la media usando la expresión:
 
-=====
+$$ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 $$
+Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante, 
 
-Notación: Media, promedio, esperanza matemática pros y contras
+::: callout-note
+## Media (*mean*), promedio (*average*) y esperanza matemática (*expected value*)
 
-=====
+Aquí texto
+:::
 
 ### Mediana {.unnumbered}
 

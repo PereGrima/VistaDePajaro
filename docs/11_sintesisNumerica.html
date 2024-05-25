@@ -338,14 +338,14 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.1" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">1.1</span> Medidas de tendencia central</h2>
 <section id="media-aritmética" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="media-aritmética">Media aritmética</h3>
-<p>Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Seguramente ayuda su utilidad para saber si se aprobará una asignatura a la vista de los resultados obtenidos durante el curso.</p>
-<p>Cuando los datos se presentan tabulados hay que tener presente que estos se repiten tantas veces como indica su <strong>frecuencia absoluta</strong>. Por ejemplo, en la <a href="#tbl-hijosFamilia">Tabla&nbsp;<span>1.1</span></a>, el número de hijos (<em>X</em>) es la variable considerada y el número de familias (<em>n</em>) que tienen ese número de hijos es su frecuencia absoluta.</p>
+<p>Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso.</p>
+<p>Cuando los datos se presentan tabulados no hay que olvidar que cada uno se repite tantas veces como indica su <strong>frecuencia absoluta</strong>. En la <a href="#tbl-hijosFamilia">Tabla&nbsp;<span>1.1</span></a>, la variable considerada es el número de hijos por familia (<span class="math inline">\(x\)</span>) y el número de familias para cada uno de esos valores es la frecuencia absoluta (<span class="math inline">\(n\)</span>).</p>
 <div id="tbl-hijosFamilia" class="anchored">
 <table class="table">
 <caption>Tabla&nbsp;1.1: Número de hijos por familia</caption>
 <tbody>
 <tr class="odd">
-<td>Núm de hijos (<em>X</em>):</td>
+<td>Número de hijos (<span class="math inline">\(x\)</span>):</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">2</td>
@@ -354,7 +354,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;">5</td>
 </tr>
 <tr class="even">
-<td>Núm de familias (<em>n</em>):</td>
+<td>Número de familias (<span class="math inline">\(n\)</span>):</td>
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">21</td>
 <td style="text-align: center;">15</td>
@@ -365,17 +365,24 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
-<p>El valor medio (<span class="math inline">\(\bar{X}\)</span>) del número de hijos por famila es igual a:</p>
-<p><span class="math display">\[
-\bar{X} = \frac{\sum_{i} n_i X_i }{N} \:  = \:  1,48
-\]</span> Donde <span class="math inline">\(N\)</span> es el número total de datos disponibles (<span class="math inline">\(N=60\)</span>) e <span class="math inline">\(i\)</span> es el índice que en nuestro caso va de 1 a 6 (para valores de <span class="math inline">\(X\)</span> de 0 a 5).</p>
-<p>Para cada valor de X (X_i), su <strong>frecuencia relativa</strong> es igual a <span class="math inline">\(n_i/N\)</span>. También podemos calcular la media usando la expresión:</p>
-<p><span class="math display">\[
-\sum_{i} f_i X_i \:  = \:  1,48
-\]</span> Esta expresión es análoga a la de la esperanza matemática para una variable aleatoria (cambiando frecuencia relativa por probabilidad) que veremos más adelante.</p>
-<p>=====</p>
-<p>Notación: Media, promedio, esperanza matemática pros y contras</p>
-<p>=====</p>
+<p>El valor medio (<span class="math inline">\(\bar{x}\)</span>) del número de hijos por famila es igual a:</p>
+<p><span class="math display">\[ \bar{x} = \frac{\sum_{i} n_i \, x_i }{N} \:  = \:  1,48 \]</span></p>
+<p>Donde <span class="math inline">\(N\)</span> es el número total de datos (en este caso <span class="math inline">\(N=60\)</span>) e <span class="math inline">\(i\)</span> es el índice que aquí va de 1 a 6 (para valores de <span class="math inline">\(x\)</span> de 0 a 5).</p>
+<p>Para cada valor de <span class="math inline">\(x_i\)</span> su <strong>frecuencia relativa</strong> es <span class="math inline">\(f_i = n_i/N\)</span>. También podemos calcular la media usando la expresión:</p>
+<p><span class="math display">\[ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 \]</span> Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante,</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>expected value</em>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí texto</p>
+</div>
+</div>
 </section>
 <section id="mediana" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="mediana">Mediana</h3>
