@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -336,9 +355,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Qué es. Símil del retrato robot.</p>
 <section id="medidas-de-tendencia-central" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">1.1</span> Medidas de tendencia central</h2>
+<p>Aquí texto sobre la importancia de no pretender describir datos solo con medidas de tendencia central.</p>
 <section id="media-aritmética" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="media-aritmética">Media aritmética</h3>
-<p>Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso.</p>
+<p>Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso. [esto quiere empezar con un toque de humor pero no sé si se entiende]</p>
 <p>Cuando los datos se presentan tabulados no hay que olvidar que cada uno se repite tantas veces como indica su <strong>frecuencia absoluta</strong>. En la <a href="#tbl-hijosFamilia">Tabla&nbsp;<span>1.1</span></a>, la variable considerada es el número de hijos por familia (<span class="math inline">\(x\)</span>) y el número de familias para cada uno de esos valores es la frecuencia absoluta (<span class="math inline">\(n\)</span>).</p>
 <div id="tbl-hijosFamilia" class="anchored">
 <table class="table">
@@ -367,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>El valor medio (<span class="math inline">\(\bar{x}\)</span>) del número de hijos por famila es igual a:</p>
 <p><span class="math display">\[ \bar{x} = \frac{\sum_{i} n_i \, x_i }{N} \:  = \:  1,48 \]</span></p>
-<p>Donde <span class="math inline">\(N\)</span> es el número total de datos (en este caso <span class="math inline">\(N=60\)</span>) e <span class="math inline">\(i\)</span> es el índice que aquí va de 1 a 6 (para valores de <span class="math inline">\(x\)</span> de 0 a 5).</p>
+<p>Donde <span class="math inline">\(N\)</span> es el número total de datos (en este caso <span class="math inline">\(N=60\)</span>) e <span class="math inline">\(i\)</span> es el índice que aquí va de 1 a 6 para valores de <span class="math inline">\(x\)</span> de 0 a 5.</p>
 <p>Para cada valor de <span class="math inline">\(x_i\)</span> su <strong>frecuencia relativa</strong> es <span class="math inline">\(f_i = n_i/N\)</span>. También podemos calcular la media usando la expresión:</p>
 <p><span class="math display">\[ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 \]</span> Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante,</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -386,49 +406,26 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 </section>
 <section id="mediana" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="mediana">Mediana</h3>
-<p>En una empresa con 500 trabajadores y la siguiente distribución de salario mensual:</p>
-<div id="tbl-salarios" class="anchored">
-<table class="table">
-<caption>Tabla&nbsp;1.2: Distribución de salarios</caption>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 10%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Salario mensual (€):</td>
-<td style="text-align: center;">1134</td>
-<td style="text-align: center;">1200</td>
-<td style="text-align: center;">2500</td>
-<td style="text-align: center;">3500</td>
-<td style="text-align: center;">5000</td>
-<td style="text-align: center;">7000</td>
-<td style="text-align: center;">10000</td>
-</tr>
-<tr class="even">
-<td>Núm de trabajadores</td>
-<td style="text-align: center;">240</td>
-<td style="text-align: center;">97</td>
-<td style="text-align: center;">60</td>
-<td style="text-align: center;">50</td>
-<td style="text-align: center;">43</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>texto</p>
+<p>Se ordenan los valores y el que queda en centro es la mediana. Si el número de valores es par se toma como mediana el promedio de los dos centrales.</p>
+<p>La mediana tiene unas propiedades de las que carece la media, por lo que es un buen complemento informativo e incluso puede ser más útil en algunos casos. Sus ventajas respecto a la media son:</p>
+<ul>
+<li><p>Es más robusta frente a la presencia de valores anómalos. Supongamos que nuestros datos son:<br>
+<span class="math display">\[2, \, 5, \, 6, \,7 \,\text{ y  }\, 9\]</span> La media es 5,6 y la mediana es 6. Si al introducir los datos al ordenador nos equivocamos y en último lugar en vez de 9 introducimos 99, la media pasa a ser 23,8 mientras que la mediana sigue siendo 6. Esto hace que la mediana sea útil cuando nos enfrentamos a un conjunto de datos que puede contener valores anómalos (posibles errores, problemas con la importación…) ya que da una idea menos contaminada por esos valores anomálos, del valor en torno al cual se mueven los datos.</p></li>
+<li><p>Por su propia definición, la mediana deja un 50% de las observaciones por debajo y otro 50% por encima y esto le da unas ventajas que la media no tiene. Si queremos saber si en nuestra empresa estamos entre los que cobran más o entre los que cobran menos, debemos comparar nuestro salario con la mediana, no con la media. Si sólo hay 10 trabajadores y los salarios son (en las unidades que corresponda):<br>
+<span class="math display">\[8, \, 8, \, 9, \,9, \, 10, \, 10, \, 11, \,11, \, 12 \,\text{ y  }\, 100\]</span> todos menos uno (en este caso el 90%) están por debajo de la media, que es 18,8. Esto no pasa nunca con la mediana: si estamos por encima de la mediana, estamos con el 50% de los que más cobra. Otro ejemplo. Si en un examen las notas van de 0 a 10 y se aprueba sacando una nota igual o superior a 5, si la nota media es 5 no sabemos cuántos han aprobado. Si se han examinado 50 estudiantes, puede ser que 41 hayan suspendido con un 4; 8 hayan sacado un 10 y uno haya obtenido un 6. Esto da media 5, aunque el 82 % ha suspendido. Si la mediana es 5, seguro que la mitad han aprobado.</p></li>
+</ul>
+<p>Si la distribución de los datos es simétrica, la media y la mediana coinciden y entonces todo son ventajas. Por ejemplo, en una distribución Normal la media y la mediana son iguales, por tanto, si los valores que tenemos provienen de una Normal, la media y la mediana no andarán muy lejos una de otra. En cualquier caso, siempre podemos calcular las dos y aprovechar lo mejor de cada una.</p>
+<p>Según publicó el diario El País <span class="citation" data-cites="ElPAisEjecutivo">(<a href="references.html#ref-ElPAisEjecutivo" role="doc-biblioref">El País, 2024</a>)</span>, el ejecutivo de las empresas cotizadas en la bolsa española mejor pagado en 2023 tuvo unos ingresos de 23,77 millones de euros. Esta empresa tenía ese año 2299 empleados en España, suponiendo que ese ejecutivo formara parte de la plantilla y que todos menos él cobraran solo el salario mínimo (15.120 €/año), se podría decir que en promedio cobran 25.453 €/año, un 68 % más de lo que cobrarían todos menos uno. [no sé si poner este párrafo, quizá se podría poner ejercicio y que busquen los datos]</p>
 </section>
 <section id="moda" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="moda">Moda</h3>
-<p>texto</p>
+<p>A título de resumen</p>
+<div id="fig-salariosINE" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Figuras/distribucionSalariosINE.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;1.1: Distribución de los salarios en España en 2021. <span class="citation" data-cites="salariosINE2021">(Fuente: <a href="references.html#ref-salariosINE2021" role="doc-biblioref">INE 2023</a>)</span>.</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="medidas-de-dispersión" class="level2" data-number="1.2">
@@ -497,7 +494,7 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 <p>Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?</p>
 <div id="tbl-evolucionpoblacion1" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.3: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.2: Evolución de la población</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 20%">
@@ -542,7 +539,7 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 <p>Si calculamos la media aritmética de la tasa de crecimiento tenemos: <span class="math inline">\((0,05 + 0,20 + 0,50)/3 = 0,25\)</span> y el factor medio de expansión sería <span class="math inline">\(1,25\)</span>. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:</p>
 <div id="tbl-evolucionpoblacion1-tbl-colwidths10202020" class="anchored">
 <table class="table-hover table">
-<caption>Tabla&nbsp;1.4: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.3: Evolución de la población</caption>
 <colgroup>
 <col style="width: 7%">
 <col style="width: 19%">
@@ -617,6 +614,14 @@ Curiosidades sobre la media geométrica
 <p><span class="math display">\[ \text{Velocidad media} = \frac{\text{Distancia total recorrida}}{\text{Tiempo total empleado}} = \frac{2d}{\large{\frac{d}{100}+\frac{d}{120}}} \]</span> Otro ejemplo: Un avión recorre 3000 km. Los 1000 primeros a 700 km/h, los 1000 siguientes a 800 km/h, y los 1000 restantes a 900 km/h ¿Cuál ha sido su velocidad media? No ha sido 800 km/h sino 791,6 km/h.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ElPAisEjecutivo" class="csl-entry" role="listitem">
+El País, 2024. <a href="https://elpais.com/economia/negocios/2024-05-04/mi-jefe-cobra-77-veces-mas-que-yo-estas-son-las-empresas-espanolas-con-mayor-desigualdad-salarial-entre-directivos-y-empleados.html">https://elpais.com/economia/negocios/2024-05-04/mi-jefe-cobra-77-veces-mas-que-yo-estas-son-las-empresas-espanolas-con-mayor-desigualdad-salarial-entre-directivos-y-empleados.html</a>.
+</div>
+<div id="ref-salariosINE2021" class="csl-entry" role="listitem">
+INE. 2023. <span>«Encuesta Anual de Estructura Salarial. Año 2021»</span>. Instituto Nacional de EStadística (INE), España. <a href="https://www.ine.es/prensa/ees_2021.pdf">https://www.ine.es/prensa/ees_2021.pdf</a>.
+</div>
+</div>
 </section>
 </section>
 

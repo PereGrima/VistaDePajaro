@@ -4,9 +4,11 @@ Qué es. Símil del retrato robot.
 
 ## Medidas de tendencia central
 
+Aquí texto sobre la importancia de no pretender describir datos solo con medidas de tendencia central.
+
 ### Media aritmética {.unnumbered}
 
-Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso.
+Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso. [esto quiere empezar con un toque de humor pero no sé si se entiende]
 
 Cuando los datos se presentan tabulados no hay que olvidar que cada uno se repite tantas veces como indica su **frecuencia absoluta**. En la @tbl-hijosFamilia, la variable considerada es el número de hijos por familia ($x$) y el número de familias para cada uno de esos valores es la frecuencia absoluta ($n$).
 
@@ -21,7 +23,7 @@ El valor medio ($\bar{x}$) del número de hijos por famila es igual a:
 
 $$ \bar{x} = \frac{\sum_{i} n_i \, x_i }{N} \:  = \:  1,48 $$ 
 
-Donde $N$ es el número total de datos (en este caso $N=60$) e $i$ es el índice que aquí va de 1 a 6 (para valores de $x$ de 0 a 5).
+Donde $N$ es el número total de datos (en este caso $N=60$) e $i$ es el índice que aquí va de 1 a 6 para valores de $x$ de 0 a 5.
 
 Para cada valor de $x_i$ su **frecuencia relativa** es $f_i = n_i/N$. También podemos calcular la media usando la expresión:
 
@@ -36,20 +38,29 @@ Aquí texto
 
 ### Mediana {.unnumbered}
 
-En una empresa con 500 trabajadores y la siguiente distribución de salario mensual:
+Se ordenan los valores y el que queda en centro es la mediana. Si el número de valores es par se toma como mediana el promedio de los dos centrales.
 
-|                      |      |      |      |      |      |      |       |
-|----------------------|:----:|:----:|:----:|:----:|:----:|:----:|:-----:|
-| Salario mensual (€): | 1134 | 1200 | 2500 | 3500 | 5000 | 7000 | 10000 |
-| Núm de trabajadores  | 240  |  97  |  60  |  50  |  43  |  8   |   2   |
+La mediana tiene unas propiedades de las que carece la media, por lo que es un buen complemento informativo e incluso puede ser más útil en algunos casos. Sus ventajas respecto a la media son:
 
-: Distribución de salarios {#tbl-salarios}
 
-texto
+* Es más robusta frente a la presencia de valores anómalos. Supongamos que nuestros datos son:  
+$$2, \, 5, \, 6, \,7 \,\text{ y  }\, 9$$  La media es 5,6 y la mediana es 6. Si al introducir los datos al ordenador nos equivocamos y en último lugar en vez de 9 introducimos 99, la media pasa a ser 23,8 mientras que la mediana sigue siendo 6. Esto hace que la mediana sea útil cuando nos enfrentamos a un conjunto de datos que puede contener valores anómalos (posibles errores, problemas con la importación...) ya que da una idea menos contaminada por esos valores anomálos, del valor en torno al cual se mueven los datos.
+
+* Por su propia definición, la mediana deja un 50\% de las observaciones por debajo y otro 50\% por encima y esto le da unas ventajas que la media no tiene. Si queremos saber si en nuestra empresa estamos entre los que cobran más o entre los que cobran menos, debemos comparar nuestro salario con la mediana, no con la media. Si sólo hay 10 trabajadores y los salarios son (en las unidades que corresponda):  
+$$8, \, 8, \, 9, \,9, \, 10, \, 10, \, 11, \,11, \, 12 \,\text{ y  }\, 100$$ todos menos uno (en este caso el 90\%) están por debajo de la media, que es 18,8. Esto no pasa nunca con la mediana: si estamos por encima de la mediana, estamos con el 50\% de los que más cobra. Otro ejemplo. Si en un examen las notas van de 0 a 10 y se aprueba sacando una nota igual o superior a 5, si la nota media es 5 no sabemos cuántos han aprobado. Si se han examinado 50 estudiantes, puede ser que 41 hayan suspendido con un 4; 8 hayan sacado un 10 y uno haya obtenido un 6. Esto da media 5, aunque el 82 % ha suspendido. Si la mediana es 5, seguro que la mitad han aprobado.
+
+Si la distribución de los datos es simétrica, la media y la mediana coinciden y entonces todo son ventajas. Por ejemplo, en una distribución Normal la media y la mediana son iguales, por tanto, si los valores que tenemos provienen de una Normal, la media y la mediana no andarán muy lejos una de otra. En cualquier caso, siempre podemos calcular las dos y aprovechar lo mejor de cada una.
+
+
+
+
+Según publicó el diario El País [@ElPAisEjecutivo], el ejecutivo de las empresas cotizadas en la bolsa española mejor pagado en 2023 tuvo unos ingresos de 23,77 millones de euros. Esta empresa tenía ese año 2299 empleados en España, suponiendo que ese ejecutivo formara parte de la plantilla y que todos menos él cobraran solo el salario mínimo (15.120 €/año), se podría decir que en promedio cobran 25.453 €/año, un 68 % más de lo que cobrarían todos menos uno. [no sé si poner este párrafo, quizá se podría poner ejercicio y que busquen los datos]
 
 ### Moda {.unnumbered}
 
-texto
+A título de resumen
+
+![Distribución de los salarios en España en 2021. [Fuente: @salariosINE2021].](Figuras/distribucionSalariosINE.png){#fig-salariosINE fig-align="center" width="80%"}
 
 ## Medidas de dispersión
 
