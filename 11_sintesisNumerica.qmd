@@ -66,7 +66,7 @@ A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la dis
 
 ## Medidas de dispersión
 
-Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, y para analizarlos y tomar decisiones tomándola en consideración.
+Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones.
 
 ### Rango {.unnumbered}
 
