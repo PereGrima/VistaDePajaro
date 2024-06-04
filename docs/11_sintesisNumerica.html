@@ -315,6 +315,7 @@ div.csl-indent {
   <li><a href="#medidas-de-dispersión" id="toc-medidas-de-dispersión" class="nav-link" data-scroll-target="#medidas-de-dispersión"><span class="header-section-number">1.2</span> Medidas de dispersión</a>
   <ul class="collapse">
   <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango">Rango</a></li>
+  <li><a href="#desviación-media" id="toc-desviación-media" class="nav-link" data-scroll-target="#desviación-media">Desviación media</a></li>
   <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza">Varianza</a></li>
   <li><a href="#desviación-típica" id="toc-desviación-típica" class="nav-link" data-scroll-target="#desviación-típica">Desviación típica</a></li>
   </ul></li>
@@ -403,6 +404,19 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 <p>Aquí texto</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La media de la edad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aquí texto</p>
+</div>
+</div>
 </section>
 <section id="mediana" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="mediana">Mediana</h3>
@@ -431,14 +445,79 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 </section>
 <section id="medidas-de-dispersión" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="medidas-de-dispersión"><span class="header-section-number">1.2</span> Medidas de dispersión</h2>
-<p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones.</p>
+<p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.</p>
 <section id="rango" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rango">Rango</h3>
-<p>texto</p>
+<p>Es la diferencia entre los valores máximo y mínimo. Si el rango de edades de los asistentes a un concierto es de 5 años significa que todos son de edades similares, pero si es de 50 años es que ese tipo de música interesa a personas de varias generaciones.</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.2: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Muy fácil de entender y de calcular.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Solo cuentan los valores extremos, que pueden ser anómalos o no representativos del conjunto de datos</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="desviación-media" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="desviación-media">Desviación media</h3>
+<p>Interesa una medida de dispersión en la que todos los valores tengan algo que decir, tal como ocurre con la media aritmética. En esta línea, una medida de dispersión podría ser el promedio de las distancias de cada valor respecto a la media, Pero una de las propiedades de la media aritmética es que equibra esas distancias de manera que esa expresión siempre será igual a cero. No importa que hay mucha o poca dispersión, siempre vale lo mismo, por tanto, está claro que no sirve para nada.</p>
+<p>Existen dos formas de resolver ese problema. Una de ellas es usar las distancias en valor aboluto. En este caso tenemos lo que llamamos Distancia Media, que sí es una medida de variabilidad (a más variabilidad, mayor desviación media). Si nuestros valores son: <span class="math inline">\(x_1,\, x_2, \, \dotsc \, x_N\)</span> y su valor medio es <span class="math inline">\(\bar{x}\)</span>, tendremos:</p>
+<p><span class="math display">\[ DM = \frac{\sum_{i=1}^N |x_i - \bar{x}|}{N} \]</span> Es interesante observar que la distancia media está relacionada de forma más natural con la mediana que con la media aritmética. Consideremos la función:</p>
+<p><span class="math display">\[ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} \]</span> Como la distancia promedio solo depende de <span class="math inline">\(a\)</span> le hemos llamado <span class="math inline">\(f(a)\)</span>. El valor que minimiza esta función y que, por tanto, puede considerarse el mejor representate de los datos con el criterio aplicado no es la media sinó la mediana.</p>
+<p>La otra forma de resolver el problema de la anulación de las diferencias es elevándolas al cuadrado. Parece una complicación innecesaria pero tiene muchas ventajas, es lo que llamamos varianza.</p>
 </section>
 <section id="varianza" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="varianza">Varianza</h3>
-<p>texto</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Varianza o variancia?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las dos son válidas según el diccionario de la Real Academia Española. Nosotros usaremos <em>varianza</em>.</p>
+</div>
+</div>
+<p>Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Por qué se prefiere usar la varianza en vez de la distancia media?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la DM no tiene, por ejemplo:</p>
+<ul>
+<li><p>En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la DM.</p></li>
+<li><p>La <span class="math inline">\(DM\)</span> incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.</p></li>
+<li><p>La desviación estándar () de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la (DM).</p></li>
+<li><p>La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza’’. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $ F $ de Snedecor.</p></li>
+<li><p>La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza (V(X)) y la varianza del contenido es (V(Y)), la varianza del conjunto es (V(X+Y) = V(X) + V(Y)).</p></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="desviación-típica" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="desviación-típica">Desviación típica</h3>
@@ -458,7 +537,8 @@ Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>
 <p>texto</p>
 <section id="cuartiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cuartiles">Cuartiles</h3>
-<p>texto</p>
+<p>Formas de calcular los cuartiles</p>
+<p>https://mathworld.wolfram.com/Quartile.html</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -507,7 +587,7 @@ Los cuartiles como zona
 <p>Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?</p>
 <div id="tbl-evolucionpoblacion1" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.2: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.3: Evolución de la población</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 20%">
@@ -552,13 +632,13 @@ Los cuartiles como zona
 <p>Si calculamos la media aritmética de la tasa de crecimiento tenemos: <span class="math inline">\((0,05 + 0,20 + 0,50)/3 = 0,25\)</span> y el factor medio de expansión sería <span class="math inline">\(1,25\)</span>. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:</p>
 <div id="tbl-evolucionpoblacion1-tbl-colwidths10202020" class="anchored">
 <table class="table-hover table">
-<caption>Tabla&nbsp;1.3: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.4: Evolución de la población</caption>
 <colgroup>
-<col style="width: 7%">
 <col style="width: 19%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 27%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
