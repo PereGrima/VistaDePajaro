@@ -497,17 +497,12 @@ La media de la edad
 </div>
 </div>
 <p>Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-¿Por qué se prefiere usar la varianza en vez de la distancia media?
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span> Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
+<p><span class="math display">\[g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} \]</span> En este caso lo podemos deducir derivando <span class="math inline">\(g(a)\)</span> con respecto a <span class="math inline">\(a\)</span>, igualando a cero y despejando su valor. Veamos:</p>
+<p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span> Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
+<p><span class="math display">\[ a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span> En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos $ $). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es (a=) y que el valor mínimo de (g(a)) es la varianza de (X) (le llamamos <span class="math inline">\(\sigma^2\)</span>).</p>
+<section id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media" class="level6 unnumbered">
+<h6 class="unnumbered anchored" data-anchor-id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media"><strong>¿Por qué se prefiere usar la varianza en vez de la distancia media?</strong></h6>
 <p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la DM no tiene, por ejemplo:</p>
 <ul>
 <li><p>En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la DM.</p></li>
@@ -516,8 +511,7 @@ La media de la edad
 <li><p>La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza’’. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $ F $ de Snedecor.</p></li>
 <li><p>La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza (V(X)) y la varianza del contenido es (V(Y)), la varianza del conjunto es (V(X+Y) = V(X) + V(Y)).</p></li>
 </ul>
-</div>
-</div>
+</section>
 </section>
 <section id="desviación-típica" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="desviación-típica">Desviación típica</h3>

@@ -108,9 +108,19 @@ Las dos son válidas según el diccionario de la Real Academia Española. Nosotr
 Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos $\sigma^2$:
 
 $$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$
+Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de $a$ que minimiza la función:
 
-::: callout-note
-## ¿Por qué se prefiere usar la varianza en vez de la distancia media?
+$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$
+En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
+
+$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$
+Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
+
+$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$
+En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos $ \mu $). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es \(a=\mu\) y que el valor mínimo de \(g(a)\) es la varianza de \(X\)  (le llamamos $\sigma^2$). 
+
+
+###### **¿Por qué se prefiere usar la varianza en vez de la distancia media?** {.unnumbered}
 
 Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la DM no tiene, por ejemplo:
 
@@ -124,7 +134,6 @@ Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parec
 
 * La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza \(V(X)\) y la varianza del contenido es \(V(Y)\), la varianza del conjunto es \(V(X+Y) = V(X) + V(Y)\).
 
-:::
 
 ### Desviación típica {.unnumbered}
 
