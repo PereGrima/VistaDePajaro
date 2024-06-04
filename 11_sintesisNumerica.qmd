@@ -41,6 +41,15 @@ Aquí texto
 Aquí texto
 :::
 
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Medida de tendencia central más conocida y utilizada.                                                 |
+|                                                                                | -   Fácil de interpretar                                                                                  |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Muy influenciable por valores extremos                                                                |
+|                                                                                | -   Poco representativa si la distribución es muy asimétrica                                              |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+: Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
 ### Mediana {.unnumbered}
 
 Se ordenan los valores y el que queda en centro es la mediana. Si el número de valores es par se toma como mediana el promedio de los dos centrales.
@@ -57,9 +66,27 @@ Si la distribución de los datos es simétrica, la media y la mediana coinciden 
 
 Según publicó el diario El País [@ElPAisEjecutivo], el ejecutivo de las empresas cotizadas en la bolsa española mejor pagado en 2023 tuvo unos ingresos de 23,77 millones de euros. Esta empresa tenía ese año 2299 empleados en España, suponiendo que ese ejecutivo formara parte de la plantilla y que todos menos él cobraran solo el salario mínimo (15.120 €/año), se podría decir que en promedio cobran 25.453 €/año, un 68 % más de lo que cobrarían todos menos uno. \[*no sé si poner este párrafo, quizá se podría poner ejercicio y que busquen los datos*\]
 
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Insensible a la presencia de valores extremos.                                                        |
+|                                                                                | -   Muy útil cuando la distribución de los datos es muy asimétrica.                                       |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No tiene fórmula. No la dan las calculadoras de uso académico.                                        |
+|                                                                                | -   Su uso no está tan popularizado como el de la media.                                                  |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+: Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
 ### Moda {.unnumbered}
 
 Dado un conjunto de valores, la moda es el que más se repite. A difencia de la media y la mediana puede no ser única y se puede aplicar también a varibles cualitativas (no numéricas). Si realizamos sobre el método de transporte que usan los estudiantes para ir a su centro de estudio la moda puede ser el autobús o ir andando. No es una medida muy relevante. Siempre aparece en los libros pero rara vez en los resúmenes estadísticos.
+
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   También se puede aplicar a datos cualitativos.                                                        |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   En general tiene poco interés práctico y es poco usada.                                               |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+: Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
 
 A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la distribución de los salarios en España en 2021. Tiene dos "Salarios más frecuentes" (observe que se evita el término "moda", quizá porque se puede prestar a malas interpretaciones). Cuando se da esta circunstancia se dice que la distribución es bimodal. El salario medio es mayor que el mediano porque los salarios muy altos tiran de la media pero apenas afectan a la mediana. <br><br>
 
@@ -68,6 +95,16 @@ A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la dis
 ## Medidas de dispersión
 
 Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.
+
+::: callout-note
+## Chistes a base de ignorar la variabilidad
+
+* Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.
+
+* Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.
+
+* Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.
+:::
 
 ### Rango {.unnumbered}
 
@@ -103,7 +140,9 @@ Las dos son válidas según el diccionario de la Real Academia Española. Nosotr
 
 Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos $\sigma^2$:
 
-$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$ Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de $a$ que minimiza la función:
+$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$ 
+
+Repitiendo el análisis que hemos hecho para la $DM$, vamos a elegir el valor de $a$ que minimiza la función:
 
 $$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
 
@@ -133,7 +172,11 @@ texto
 
 texto
 
-texto
+::: callout-note
+## Otros nombres para la desviación típica
+
+También se puede llamar desviación estándar, pero no de otra manera, aunque algunos textos se refieren a ella como desviación tipo o desvío típico.
+:::
 
 texto
 

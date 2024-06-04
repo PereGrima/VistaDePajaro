@@ -418,6 +418,31 @@ La media de la edad
 <p>Aquí texto</p>
 </div>
 </div>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.2: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Medida de tendencia central más conocida y utilizada.</li>
+<li>Fácil de interpretar</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Muy influenciable por valores extremos</li>
+<li>Poco representativa si la distribución es muy asimétrica</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="mediana" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="mediana">Mediana</h3>
@@ -431,10 +456,58 @@ La media de la edad
 </ul>
 <p>Si la distribución de los datos es simétrica, la media y la mediana coinciden y entonces todo son ventajas. Por ejemplo, en una distribución Normal la media y la mediana son iguales, por tanto, si los valores que tenemos provienen de una Normal, la media y la mediana no andarán muy lejos una de otra. En cualquier caso, siempre podemos calcular las dos y aprovechar lo mejor de cada una.</p>
 <p>Según publicó el diario El País <span class="citation" data-cites="ElPAisEjecutivo">(<a href="references.html#ref-ElPAisEjecutivo" role="doc-biblioref">El País, 2024</a>)</span>, el ejecutivo de las empresas cotizadas en la bolsa española mejor pagado en 2023 tuvo unos ingresos de 23,77 millones de euros. Esta empresa tenía ese año 2299 empleados en España, suponiendo que ese ejecutivo formara parte de la plantilla y que todos menos él cobraran solo el salario mínimo (15.120 €/año), se podría decir que en promedio cobran 25.453 €/año, un 68 % más de lo que cobrarían todos menos uno. [<em>no sé si poner este párrafo, quizá se podría poner ejercicio y que busquen los datos</em>]</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.3: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Insensible a la presencia de valores extremos.</li>
+<li>Muy útil cuando la distribución de los datos es muy asimétrica.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>No tiene fórmula. No la dan las calculadoras de uso académico.</li>
+<li>Su uso no está tan popularizado como el de la media.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="moda" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="moda">Moda</h3>
 <p>Dado un conjunto de valores, la moda es el que más se repite. A difencia de la media y la mediana puede no ser única y se puede aplicar también a varibles cualitativas (no numéricas). Si realizamos sobre el método de transporte que usan los estudiantes para ir a su centro de estudio la moda puede ser el autobús o ir andando. No es una medida muy relevante. Siempre aparece en los libros pero rara vez en los resúmenes estadísticos.</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.4: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>También se puede aplicar a datos cualitativos.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>En general tiene poco interés práctico y es poco usada.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>A modo de resumen de este apartado, la figura <a href="#fig-salariosINE"><span>1.1</span></a> muestra la distribución de los salarios en España en 2021. Tiene dos “Salarios más frecuentes” (observe que se evita el término “moda”, quizá porque se puede prestar a malas interpretaciones). Cuando se da esta circunstancia se dice que la distribución es bimodal. El salario medio es mayor que el mediano porque los salarios muy altos tiran de la media pero apenas afectan a la mediana. <br><br></p>
 <div id="fig-salariosINE" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -447,12 +520,29 @@ La media de la edad
 <section id="medidas-de-dispersión" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="medidas-de-dispersión"><span class="header-section-number">1.2</span> Medidas de dispersión</h2>
 <p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chistes a base de ignorar la variabilidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.</p></li>
+<li><p>Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.</p></li>
+<li><p>Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.</p></li>
+</ul>
+</div>
+</div>
 <section id="rango" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rango">Rango</h3>
 <p>Es la diferencia entre los valores máximo y mínimo. Si el rango de edades de los asistentes a un concierto es de 5 años significa que todos son de edades similares, pero si es de 50 años es que ese tipo de música interesa a personas de varias generaciones.</p>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.2: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;1.5: Ajuste a ojo. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -498,7 +588,8 @@ La media de la edad
 </div>
 </div>
 <p>Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span> Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
+<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span></p>
+<p>Repitiendo el análisis que hemos hecho para la <span class="math inline">\(DM\)</span>, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
 <p><span class="math display">\[g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} \]</span> En este caso lo podemos deducir derivando <span class="math inline">\(g(a)\)</span> con respecto a <span class="math inline">\(a\)</span>, igualando a cero y despejando su valor. Veamos:</p>
 <p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span> Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
 <p><span class="math display">\[ a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span> En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos (<span class="math inline">\(\mu\)</span>). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es <span class="math inline">\(a=\mu\)</span> y que el valor mínimo de <span class="math inline">\(g(a)\)</span> es la varianza de <span class="math inline">\(X\)</span> (le llamamos <span class="math inline">\(\sigma^2\)</span>).</p>
@@ -519,7 +610,19 @@ La media de la edad
 <p>texto</p>
 <p>texto</p>
 <p>texto</p>
-<p>texto</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Otros nombres para la desviación típica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>También se puede llamar desviación estándar, pero no de otra manera, aunque algunos textos se refieren a ella como desviación tipo o desvío típico.</p>
+</div>
+</div>
 <p>texto</p>
 <p>texto</p>
 <p>texto</p>
@@ -599,7 +702,7 @@ La paradoja de las patatas
 <p>Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?</p>
 <div id="tbl-evolucionpoblacion1" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.3: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.6: Evolución de la población</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 20%">
@@ -644,7 +747,7 @@ La paradoja de las patatas
 <p>Si calculamos la media aritmética de la tasa de crecimiento tenemos: <span class="math inline">\((0,05 + 0,20 + 0,50)/3 = 0,25\)</span> y el factor medio de expansión sería <span class="math inline">\(1,25\)</span>. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:</p>
 <div id="tbl-evolucionpoblacion1-tbl-colwidths10202020" class="anchored">
 <table class="table-hover table">
-<caption>Tabla&nbsp;1.4: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.7: Evolución de la población</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 18%">
