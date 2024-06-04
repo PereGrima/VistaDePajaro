@@ -318,6 +318,7 @@ div.csl-indent {
   <li><a href="#desviación-media" id="toc-desviación-media" class="nav-link" data-scroll-target="#desviación-media">Desviación media</a></li>
   <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza">Varianza</a></li>
   <li><a href="#desviación-típica" id="toc-desviación-típica" class="nav-link" data-scroll-target="#desviación-típica">Desviación típica</a></li>
+  <li><a href="#el-coeficiente-de-variación" id="toc-el-coeficiente-de-variación" class="nav-link" data-scroll-target="#el-coeficiente-de-variación">El coeficiente de variación</a></li>
   </ul></li>
   <li><a href="#medidas-de-posición" id="toc-medidas-de-posición" class="nav-link" data-scroll-target="#medidas-de-posición"><span class="header-section-number">1.3</span> Medidas de posición</a>
   <ul class="collapse">
@@ -500,16 +501,16 @@ La media de la edad
 <p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span> Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
 <p><span class="math display">\[g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} \]</span> En este caso lo podemos deducir derivando <span class="math inline">\(g(a)\)</span> con respecto a <span class="math inline">\(a\)</span>, igualando a cero y despejando su valor. Veamos:</p>
 <p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span> Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
-<p><span class="math display">\[ a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span> En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos $ $). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es (a=) y que el valor mínimo de (g(a)) es la varianza de (X) (le llamamos <span class="math inline">\(\sigma^2\)</span>).</p>
+<p><span class="math display">\[ a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span> En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos (<span class="math inline">\(\mu\)</span>). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es <span class="math inline">\(a=\mu\)</span> y que el valor mínimo de <span class="math inline">\(g(a)\)</span> es la varianza de <span class="math inline">\(X\)</span> (le llamamos <span class="math inline">\(\sigma^2\)</span>).</p>
 <section id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media"><strong>¿Por qué se prefiere usar la varianza en vez de la distancia media?</strong></h6>
-<p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la DM no tiene, por ejemplo:</p>
+<p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la <span class="math inline">\(DM\)</span> no tiene, veamos algunas:</p>
 <ul>
-<li><p>En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la DM.</p></li>
+<li><p>En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la <span class="math inline">\(DM\)</span>.</p></li>
 <li><p>La <span class="math inline">\(DM\)</span> incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.</p></li>
-<li><p>La desviación estándar () de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la (DM).</p></li>
-<li><p>La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza’’. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $ F $ de Snedecor.</p></li>
-<li><p>La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza (V(X)) y la varianza del contenido es (V(Y)), la varianza del conjunto es (V(X+Y) = V(X) + V(Y)).</p></li>
+<li><p>La desviación estándar <span class="math inline">\(\sigma\)</span> de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la <span class="math inline">\(DM\)</span>.</p></li>
+<li><p>La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza’’. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada <span class="math inline">\(F\)</span> de Snedecor.</p></li>
+<li><p>La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza <span class="math inline">\(V(X)\)</span> y la varianza del contenido es <span class="math inline">\(V(Y)\)</span>, la varianza del conjunto es <span class="math inline">\(V(X+Y) = V(X) + V(Y)\)</span>.</p></li>
 </ul>
 </section>
 </section>
@@ -521,6 +522,11 @@ La media de la edad
 <p>texto</p>
 <p>texto</p>
 <p>texto</p>
+<p>texto</p>
+<p>texto</p>
+</section>
+<section id="el-coeficiente-de-variación" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="el-coeficiente-de-variación">El coeficiente de variación</h3>
 <p>texto</p>
 <p>texto</p>
 </section>
@@ -558,7 +564,19 @@ Los cuartiles como zona
 <p>texto</p>
 <p>texto</p>
 <p>texto</p>
-<p>texto</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La paradoja de las patatas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su “factor de impacto”, un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.</p>
+</div>
+</div>
 <p>texto</p>
 <p>texto</p>
 <p>texto</p>
@@ -628,11 +646,11 @@ Los cuartiles como zona
 <table class="table-hover table">
 <caption>Tabla&nbsp;1.4: Evolución de la población</caption>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 22%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">

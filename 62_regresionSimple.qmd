@@ -157,7 +157,7 @@ Vayamos al diagrama de la figura [-@fig-coefSinFormulas] (izquierda) que ya hab�
 Con los datos de nuestro ejemplo, la superficie que representa la suma de los cuadrados de los residuos es un paraboloide donde la localización del mínimo es visulamente muy clara. Pero lo nomal es que las curvas de nivel sean muy elípticas de manera que la representación no queda tan clara. Nosotros hemos logrado esa forma regular haciendo que la media de los valores de $X$ sea igual a cero. De esta forma, los coeficientes son independientes y las curvas de nivel apararecen como círculos prácticamente concéntricos quedando más clara la idea que queremos representar.
 :::
 
-### Usando las fórmulas {.unnumbered} 
+### Usando las fórmulas {.unnumbered}
 
 En el diagrama que representa la relación entre $X$ e $Y$ cada punto puede ser identificado por sus coordenadas $(x_i, y_i)$ con $1 \leq i \leq n$ siendo $n$ el número total de puntos. \[creo que esto es redundante y habría que mejorarlo\]
 
@@ -355,13 +355,10 @@ En el caso del volumen de madera empezamos generando 31 números aleatorios (una
 
 Para el modelo de la edad al morir hacemos exactamente lo mismo con los valores que corresponden. La tabla [-@tbl-parametrosSimulacion] contiene los usados en cada caso.
 
-+--------------------+---------------+-----------------+----------------------+
-|                    | $n$           | Valores de $X$  | Valores de $Y$       |
-+====================+:=============:+:===============:+:====================:+
-| Volumen de madera: | 31            | $N(13.25; 3.2)$ | $30.2 + N(0; 4.25)$  |
-+--------------------+---------------+-----------------+----------------------+
-| Edad al morir      | 50            | $N(13.25; 3.2)$ | $66.7 + N(0; 14.15)$ |
-+--------------------+---------------+-----------------+----------------------+
+|                    | $n$ | Valores de $X$  |    Valores de $Y$    |
+|--------------------|:---:|:---------------:|:--------------------:|
+| Volumen de madera: | 31  | $N(13.25; 3.2)$ | $30.2 + N(0; 4.25)$  |
+| Edad al morir      | 50  | $N(13.25; 3.2)$ | $66.7 + N(0; 14.15)$ |
 
 : Valores usados para la simulación. {#tbl-parametrosSimulacion}
 
@@ -375,7 +372,6 @@ Para cada conjunto de puntos simulados se ha calculado la recta ajustada. En los
 
 Aunque pueden no ser necesarias en casos tan claros como los que acabamos de ver, conocer la distribución de los coeficientes nos permite realizar pruebas de significación de manera más directa, sin necesidad de realizar simulaciones.
 
-
 ::: callout-note
 ## Pruebas de significación y contraste de hipótesis
 
@@ -384,41 +380,37 @@ Una prueba de significación es un caso particular de contraste de hipótesis do
 
 Lo habitual es contrastar que el coeficiente, ya sea $\beta_0$ o $\beta_1$ es igual a cero frente a la alternativa de que es distinto de cero.
 
-###### **Sobre el valor de la ordenada en el origen, $\beta_0$**  {.unnumbered}
+###### **Sobre el valor de la ordenada en el origen,** $\beta_0$ {.unnumbered}
 
 Tiene interés cuando hay razones para suponer que la recta pasa por el origen de coordenadas. Permite verificar que los resultados obtenidos no están en contradicción con ese supuesto.
 
 Si los datos cumplen las condiciones que antes hemos comentado tendremos:
 
-$$b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)$$
-luego si $\beta_0 = 0$:
+$$b_0 \sim N \left(\beta_0; \; \sigma_{b_0} \right)$$ luego si $\beta_0 = 0$:
 
 $$ \frac{b_0-0}{\sigma_{b_0}} \sim N (0; 1) $$
 
 Pero como no conocemos $\sigma_{b_0}$ y usamos su estimación $s_{b_0}$, el estadístico de prueba es:
 
-$$ T = \frac{b_0}{s_{b_0}} $$ 
-y su distribución de referencia es una $t$-Student con $n-2$ grados de libertad, siendo $n$ el número de datos disponibles. Los 2 grados de libertad que se pierden tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
+$$ T = \frac{b_0}{s_{b_0}} $$ y su distribución de referencia es una $t$-Student con $n-2$ grados de libertad, siendo $n$ el número de datos disponibles. Los 2 grados de libertad que se pierden tienen que ver con las restricciones que presentan los residuos cuando el modelo se ha ajustado por el método de los mínimos cuadrados $\left ( \sum e_i = 0 \; \text{y} \; \sum e_ix_i = 0 \right )$.
 
 Como regla general, si $|T| > 2$, es decir, el valor obtenido está a más de dos desviaciones típicas de cero, se rechaza la hipótesis nula. Por supuesto, también se puede calcular el $p$-valor exacto y tomar la decisión de acuerdo con el nivel de significación establecido.
 
 Si se decide eliminar $b_0$ del modelo es necesario recalcular el valor de $b_1$ con una fórmula específica para esta situación puesto que ya no estamos aplicando el criterio de los mínimos cuadrados. En el apéndice 10.4 se comentan algunas peculiaridades de este caso particular.
 
-###### **Sobre el valor de la pendiente de la recta, $\beta_1$** {.unnumbered}
+###### **Sobre el valor de la pendiente de la recta,** $\beta_1$ {.unnumbered}
 
 Este contraste siempre tiene interés. Se trata de verificar que la pendiente de la recta es significativamente distinta de cero. Si no lo es, una recta horizontal es compatible con los datos por lo que no se puede afirmar que haya relación entre la variable regresora y la respuesta.
 
-El procedimiento es idéntico que para $\beta_0$. El estadístico de prueba ahora es: 
+El procedimiento es idéntico que para $\beta_0$. El estadístico de prueba ahora es:
 
-$$ T = \frac{b_1}{s_{b_1}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$ 
-
+$$ T = \frac{b_1}{s_{b_1}} \sim t-\text{Student} \;\text{con} \; n-2 \; \text{grados de libertad} $$
 
 ::: callout-note
 ## Ligando las pruebas se significación para $r$ y para $b_1$
 
 Aquí texto
 :::
-
 
 ###### **Resultados presentados por los paquetes de software estadístico** {.unnumbered}
 
@@ -428,30 +420,26 @@ En general, los paquetes de software estadístico además de presentar los coefi
 
 También puede interesar contrastar otros valores para la pendiente de la recta. Para verificar que un aparato mide correctamente la concentración de monoxido de carbono (CO) en el aire, se mide la concentración de 11 muestras con valores conocidos. Los resultados obtenidos son los que se indican en la tabla [-@tbl-concentracion] [@Navidi, pág. 585].
 
-+--------------+---+----+----+----+----+----+----+----+----+----+-----+
-| Valor real   |0  | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 |
-+--------------+---+----+----+----+----+----+----+----+----+----+-----+
-| Valor medido |1  | 11 | 21 | 28 | 37 | 48 | 56 | 68 | 75 | 86 |  96 |
-+--------------+---+----+----+----+----+----+----+----+----+----+-----+
+|              |     |     |     |     |     |     |     |     |     |     |     |
+|--------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Valor real   | 0   | 10  | 20  | 30  | 40  | 50  | 60  | 70  | 80  | 90  | 100 |
+| Valor medido | 1   | 11  | 21  | 28  | 37  | 48  | 56  | 68  | 75  | 86  | 96  |
+
 : Concentración de CO. Valores reales y valores medidos (ppm) {#tbl-concentracion}
 
 La figura [-@fig-pendiente1] (izq.) muestra el diagrama bivariante de los valores medidos frente a los reales con su recta ajustada. El aparato estará bien calibrado si -en promedio- el valor de la concentración medida es igual a la concentración real. Es decir, si los datos se ajustan al modelo: $y = x$.
 
-![Recta ajustada de la concentración medida frente a la real (izq.). Rectas simuladas suponiendo que -en promedio- la concentración medida es igual a la real (der.)](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"} 
+![Recta ajustada de la concentración medida frente a la real (izq.). Rectas simuladas suponiendo que -en promedio- la concentración medida es igual a la real (der.)](regresionSimple/220_pendiente1.png){#fig-pendiente1 fig-align="center" width="100%"}
 
-
-Usando Minitab tenemos los coeficientes del modelo y la prueba de significación para sus valores (figura [-@fig-salidaConcentracion]). 
+Usando Minitab tenemos los coeficientes del modelo y la prueba de significación para sus valores (figura [-@fig-salidaConcentracion]).
 
 ![Salida del paquete de software estadístico Minitab al ajustar modelos de regresión en los dos ejemplos que hemos visto.](Figuras/salidaConcentracion.png){#fig-salidaConcentracion fig-align="center" width="100%"}
 
-
 Vemos que la ordenada en el origen (Minitab le llama "Constant" pero ya dijimos que esta no nos parece una denominación adecuada) no es significativamente distinta de cero por lo que hemos recalculado el modelo sin ese término. En el nuevo modelo el valor de $b_1$ (coeficiente de la concentración real) es claramente significativo (significativamente distinto de cero) pero no es eso lo que nos preocupa. Lo que queremos saber es si es significativamente distinto de 1. Minitab no lo hace automaticamente pero es muy fácil hacerlo a mano:
 
-$$  T =  \frac{b_1-1}{s_{b_1}} = \frac{0.95351-1}{0.00598} = -7.77$$
-Si efectivamente $\beta_1 = 1$ el valor de $T$ pertenece a una distribución $t$-Student, pero si lo fuera su valor estaría comprendido aproximadamente entre -2 y 2, y el valor que hemos obtenido está muy lejos de este intervalo. Por tanto, la hipótesis nula de que $\beta_1=1$ queda descartada. El aparato no está bien calibrado.
+$$  T =  \frac{b_1-1}{s_{b_1}} = \frac{0.95351-1}{0.00598} = -7.77$$ Si efectivamente $\beta_1 = 1$ el valor de $T$ pertenece a una distribución $t$-Student, pero si lo fuera su valor estaría comprendido aproximadamente entre -2 y 2, y el valor que hemos obtenido está muy lejos de este intervalo. Por tanto, la hipótesis nula de que $\beta_1=1$ queda descartada. El aparato no está bien calibrado.
 
 En la figura [-@fig-pendiente1] (der.) se han representado las rectas ajustadas (color azul) de valores de la concentración medida ($y$) en función de la concentración real ($x$) generados con el modelo $y = x + e$ siendo $e$ valores de una distribución Normal con media cero y una desviación típica igual a la que presentan los residuos del modelo obtenido. La recta ajustada con los datos reales aparece de color verde (es la misma que tenemos en el diagrama de la izquierda), claramente se ve que no se confunde con las generadas aleatoriamente suponiendo que el aparato está bien calibrado, a partir de una concentración de 50 tiende a dar valores menores que los reales.
-
 
 ### Intervalos de confianza para la respuesta
 

@@ -73,12 +73,11 @@ Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar
 
 Es la diferencia entre los valores máximo y mínimo. Si el rango de edades de los asistentes a un concierto es de 5 años significa que todos son de edades similares, pero si es de 50 años es que ese tipo de música interesa a personas de varias generaciones.
 
-
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Muy fácil de entender y de calcular.                                                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Solo cuentan los valores extremos, que pueden ser anómalos o no representativos del conjunto de datos    |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Muy fácil de entender y de calcular.                                                                  |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Solo cuentan los valores extremos, que pueden ser anómalos o no representativos del conjunto de datos |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
 : Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
@@ -88,14 +87,11 @@ Interesa una medida de dispersión en la que todos los valores tengan algo que d
 
 Existen dos formas de resolver ese problema. Una de ellas es usar las distancias en valor aboluto. En este caso tenemos lo que llamamos Distancia Media, que sí es una medida de variabilidad (a más variabilidad, mayor desviación media). Si nuestros valores son: $x_1,\, x_2, \, \dotsc \, x_N$ y su valor medio es $\bar{x}$, tendremos:
 
-$$ DM = \frac{\sum_{i=1}^N |x_i - \bar{x}|}{N} $$
-Es interesante observar que la distancia media está relacionada de forma más natural con la mediana que con la media aritmética. Consideremos la función:
+$$ DM = \frac{\sum_{i=1}^N |x_i - \bar{x}|}{N} $$ Es interesante observar que la distancia media está relacionada de forma más natural con la mediana que con la media aritmética. Consideremos la función:
 
-$$ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} $$
-Como la distancia promedio solo depende de $a$ le hemos llamado $f(a)$. El valor que minimiza esta función y que, por tanto, puede considerarse el mejor representate de los datos con el criterio aplicado no es la media sinó la mediana. 
+$$ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} $$ Como la distancia promedio solo depende de $a$ le hemos llamado $f(a)$. El valor que minimiza esta función y que, por tanto, puede considerarse el mejor representate de los datos con el criterio aplicado no es la media sinó la mediana.
 
 La otra forma de resolver el problema de la anulación de las diferencias es elevándolas al cuadrado. Parece una complicación innecesaria pero tiene muchas ventajas, es lo que llamamos varianza.
-
 
 ### Varianza {.unnumbered}
 
@@ -107,33 +103,27 @@ Las dos son válidas según el diccionario de la Real Academia Española. Nosotr
 
 Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos $\sigma^2$:
 
-$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$
-Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de $a$ que minimiza la función:
+$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$ Repitiendo el análisis que hemos hecho para la DM, vamos a elegir el valor de $a$ que minimiza la función:
 
-$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$
-En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
+$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
 
-$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$
-Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
+$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$ Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
 
-$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$
-En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos $ \mu $). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es \(a=\mu\) y que el valor mínimo de \(g(a)\) es la varianza de \(X\)  (le llamamos $\sigma^2$). 
-
+$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$ En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos ($\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$ (le llamamos $\sigma^2$).
 
 ###### **¿Por qué se prefiere usar la varianza en vez de la distancia media?** {.unnumbered}
 
-Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la DM no tiene, por ejemplo:
+Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la $DM$ no tiene, veamos algunas:
 
-* En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la DM.
+-   En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la $DM$.
 
-* La $DM$ incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.
+-   La $DM$ incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.
 
-* La desviación estándar \(\sigma\) de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la \(DM\).
+-   La desviación estándar $\sigma$ de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la $DM$.
 
-* La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza''\index{análisis de la varianza}. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $ F $ de Snedecor.
+-   La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado \`\`Análisis de la Varianza''\index{análisis de la varianza}. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $F$ de Snedecor.
 
-* La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza \(V(X)\) y la varianza del contenido es \(V(Y)\), la varianza del conjunto es \(V(X+Y) = V(X) + V(Y)\).
-
+-   La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza $V(X)$ y la varianza del contenido es $V(Y)$, la varianza del conjunto es $V(X+Y) = V(X) + V(Y)$.
 
 ### Desviación típica {.unnumbered}
 
@@ -148,6 +138,12 @@ texto
 texto
 
 texto
+
+texto
+
+texto
+
+### El coeficiente de variación {.unnumbered}
 
 texto
 
@@ -185,7 +181,11 @@ texto
 
 texto
 
-texto
+::: callout-note
+## La paradoja de las patatas
+
+Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.
+:::
 
 texto
 
@@ -221,21 +221,29 @@ texto
 
 Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?
 
-| Año | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
-|:------------:|:------------:|:------------:|:------------:|:--------------:|
-|  1  |      10.000       |        0,05         |        1,05         |           10.500           |
-|  2  |      10.500       |        0,20         |        1,20         |           12.600           |
-|  3  |      12.600       |        0,50         |        1,50         |           18.900           |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| Año         | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
++:===========:+:=================:+:===================:+:===================:+:==========================:+
+| 1           | 10.000            | 0,05                | 1,05                | 10.500                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| 2           | 10.500            | 0,20                | 1,20                | 12.600                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| 3           | 12.600            | 0,50                | 1,50                | 18.900                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
 
 : Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"}
 
 \noindent Si calculamos la media aritmética de la tasa de crecimiento \index{tasa de crecimiento} tenemos: $(0,05 + 0,20 + 0,50)/3 = 0,25$ y el factor medio de expansión sería $1,25$. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:
 
-| Año | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
-|:------------:|:------------:|:------------:|:------------:|:--------------:|
-|  1  |      10.000       |        0,25         |        1,25         |           12.500           |
-|  2  |      12.500       |        0,25         |        1,25         |           15.625           |
-|  3  |      15.625       |        0,25         |        1,25         |           19.531           |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| Año         | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
++:===========:+:=================:+:===================:+:===================:+:==========================:+
+| 1           | 10.000            | 0,25                | 1,25                | 12.500                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| 2           | 12.500            | 0,25                | 1,25                | 15.625                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
+| 3           | 15.625            | 0,25                | 1,25                | 19.531                     |
++-------------+-------------------+---------------------+---------------------+----------------------------+
 
 : Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"} :{.hover}
 
