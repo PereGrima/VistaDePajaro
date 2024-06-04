@@ -148,7 +148,7 @@ $$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ En este caso lo podemos deduci
 
 $$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$ Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
 
-$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$ En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos ($\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$ (le llamamos $\sigma^2$).
+$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$ En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos ($\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$.
 
 ###### **¿Por qué se prefiere usar la varianza en vez de la distancia media?** {.unnumbered}
 
