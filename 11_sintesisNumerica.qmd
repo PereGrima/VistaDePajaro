@@ -1,25 +1,25 @@
 # Síntesis numérica de datos
 
+Si tiene que describir la cara de alguien al que ha visto cometer un delito es posible que se centre en aspectos poco relevantes o que utilice unos términos que su interlocutor no sepa interpretar tal como usted pretende. Sin embargo, los policías que están entrenados para realizar este tipo de descripciones saben en que aspectos se deben fijar y en como describir cada uno de ellos. También, por supuesto, el que recibe la información debe saber interpretar la información que recibe.
 
-::: callout-note
-## Simil del retrato robot
+Con la síntesis numérica de datos pasa algo parecido, se trata de saber en qué aspectos nos tenemos que fijar, en como describirlos --en este caso medirlos-- y en como interpretar los resultados obtenidos.
 
-Aquí texto
-:::
+Estas medidas de síntesis numérica se pueden agrupar en varios tipos:
 
-Resumir los datos en uno pocos valores es lo que llamamos **síntesis numérica**. Hay que elegir bien cuales son esos valores para que sintetizen bien la información que andamos buscando. ====Aquí lo del retrato robot====
+* Medidas de tendencia central: Indican en torno a que valor se mueven los datos. Típicamente se consideran la media, la mediana y la moda, auqneu esta última --en generl-- no es demasiado relevante.
 
-Medidas de tendencia central
+* Medidas de dispersión: Informan sobre la variabilidad de los datos. Los valores 0 y 1000 tienen media 500, como 550 y 450, pero la variabilidad -que muchas veces es lo más importante- es muy distinta. Medias típicas de dispersión son: el rango, la desviación media, la la varianza y desviación típica. El coeficiente de variación no es exactamente una medida de dispersión pero también la colocamos en este grupo.
+
+* Medidas de posición: Sirven para entender la posición de un valor dentro de un conjunto. Si quiere saber si en su empresa está entre el 25% que tiene mejor salario o en el 25% de los que lo tienen más bajo, solo necesita saber el primer y el tercer cuartil de la distribución delos salarios. Además de los cuartiles hablaremos de deciles y percentiles, una simple generalización. 
+
+* Porcentajes: Muchas veces se utilizan para describir situaciones numéricas, parecen fáciles pero no lo son tanto y pesamos que vale la pena dedeciarles tambien un apartado.
 
 
-
-
-
-Qué es. Símil del retrato robot.
 
 ## Medidas de tendencia central
 
-Seguramente deberíamos dedicar este texto a destacar la importancia de estas medidas. Está claro que es importante saber en torno a qué valor se mueven los datos, pero lo que nos parece más importante destacar es que pretender describir los datos solo con estas medidas es un error muy típico, no solo al realizar estudios estadísticos, sino al analizar datos y situaciones de la vida cotidiana.
+La cantinela "media, mediana y moda" --medidas de tendencia central por excelencia-- constitue para muchos el primer recuerdo de su recorrido por el curso de estadística. Vamos a repasar el significado, los peligros y lo que se puede esperar de cada una de estas medidas.
+
 
 ### Media aritmética {.unnumbered}
 
@@ -44,18 +44,6 @@ Para cada valor de $x_i$ su **frecuencia relativa** es $f_i = n_i/N$. También p
 
 $$ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 $$ Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante,
 
-::: callout-note
-## Media (*mean*), promedio (*average*) y esperanza matemática (*expected value*)
-
-Aquí texto
-:::
-
-::: callout-note
-## La media de la edad
-
-Aquí texto
-:::
-
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 | **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Medida de tendencia central más conocida y utilizada.                                                 |
 |                                                                                | -   Fácil de interpretar                                                                                  |
@@ -64,6 +52,15 @@ Aquí texto
 |                                                                                | -   Poco representativa si la distribución es muy asimétrica                                              |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 : Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+::: callout-note
+## Ojo con la media
+
+La media es un concepto tan fácil que a veces lo tratamos con descuido y nos da sorpresas. Si usted pregunta la edad a un grupo de personas, en rigor la edad media no es el promedio de los valores que le diagan (aunque todos digan la verdad). Es el promedio más 0,5 años.
+
+También hay que estar atento a las medias que no está claro como se han calculado. Un ejemplo sencillo: ¿cómo se calcula la temperatura media de un día? ¿Se toman cada minuto y se hace el promedio? ¿o se toman cada hora o cada 6 horas? Se se hace el promedio de las temperaturas máxima y mínima no se le debería llamar temperatura media.
+:::
+
 
 ### Mediana {.unnumbered}
 
@@ -110,6 +107,9 @@ A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la dis
 ## Medidas de dispersión
 
 Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.
+
+Catálogod e chistes
+
 
 ::: callout-note
 ## Chistes a base de ignorar la variabilidad

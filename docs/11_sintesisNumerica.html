@@ -354,25 +354,18 @@ div.csl-indent {
 
 </header>
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Simil del retrato robot
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Aquí texto</p>
-</div>
-</div>
-<p>Resumir los datos en uno pocos valores es lo que llamamos <strong>síntesis numérica</strong>. Hay que elegir bien cuales son esos valores para que sintetizen bien la información que andamos buscando. ====Aquí lo del retrato robot====</p>
-<p>Medidas de tendencia central</p>
-<p>Qué es. Símil del retrato robot.</p>
+<p>Si tiene que describir la cara de alguien al que ha visto cometer un delito es posible que se centre en aspectos poco relevantes o que utilice unos términos que su interlocutor no sepa interpretar tal como usted pretende. Sin embargo, los policías que están entrenados para realizar este tipo de descripciones saben en que aspectos se deben fijar y en como describir cada uno de ellos. También, por supuesto, el que recibe la información debe saber interpretar la información que recibe.</p>
+<p>Con la síntesis numérica de datos pasa algo parecido, se trata de saber en qué aspectos nos tenemos que fijar, en como describirlos –en este caso medirlos– y en como interpretar los resultados obtenidos.</p>
+<p>Estas medidas de síntesis numérica se pueden agrupar en varios tipos:</p>
+<ul>
+<li><p>Medidas de tendencia central: Indican en torno a que valor se mueven los datos. Típicamente se consideran la media, la mediana y la moda, auqneu esta última –en generl– no es demasiado relevante.</p></li>
+<li><p>Medidas de dispersión: Informan sobre la variabilidad de los datos. Los valores 0 y 1000 tienen media 500, como 550 y 450, pero la variabilidad -que muchas veces es lo más importante- es muy distinta. Medias típicas de dispersión son: el rango, la desviación media, la la varianza y desviación típica. El coeficiente de variación no es exactamente una medida de dispersión pero también la colocamos en este grupo.</p></li>
+<li><p>Medidas de posición: Sirven para entender la posición de un valor dentro de un conjunto. Si quiere saber si en su empresa está entre el 25% que tiene mejor salario o en el 25% de los que lo tienen más bajo, solo necesita saber el primer y el tercer cuartil de la distribución delos salarios. Además de los cuartiles hablaremos de deciles y percentiles, una simple generalización.</p></li>
+<li><p>Porcentajes: Muchas veces se utilizan para describir situaciones numéricas, parecen fáciles pero no lo son tanto y pesamos que vale la pena dedeciarles tambien un apartado.</p></li>
+</ul>
 <section id="medidas-de-tendencia-central" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">1.1</span> Medidas de tendencia central</h2>
-<p>Seguramente deberíamos dedicar este texto a destacar la importancia de estas medidas. Está claro que es importante saber en torno a qué valor se mueven los datos, pero lo que nos parece más importante destacar es que pretender describir los datos solo con estas medidas es un error muy típico, no solo al realizar estudios estadísticos, sino al analizar datos y situaciones de la vida cotidiana.</p>
+<p>La cantinela “media, mediana y moda” –medidas de tendencia central por excelencia– constitue para muchos el primer recuerdo de su recorrido por el curso de estadística. Vamos a repasar el significado, los peligros y lo que se puede esperar de cada una de estas medidas.</p>
 <section id="media-aritmética" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="media-aritmética">Media aritmética</h3>
 <p>Tanto el cálculo como el significado de la media aritmética son bien conocidos por los estudiantes. Además de que la idea es sencilla, su cálculo tiene interés para saber si se aprobará una asignatura a la vista de las notas del curso. [<em>pretendo empezar con un toque de humor pero no sé si se entiende</em>]</p>
@@ -407,32 +400,6 @@ Simil del retrato robot
 <p>Donde <span class="math inline">\(N\)</span> es el número total de datos (en este caso <span class="math inline">\(N=60\)</span>) e <span class="math inline">\(i\)</span> es el índice que aquí va de 1 a 6 para valores de <span class="math inline">\(x\)</span> de 0 a 5.</p>
 <p>Para cada valor de <span class="math inline">\(x_i\)</span> su <strong>frecuencia relativa</strong> es <span class="math inline">\(f_i = n_i/N\)</span>. También podemos calcular la media usando la expresión:</p>
 <p><span class="math display">\[ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 \]</span> Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante,</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Media (<em>mean</em>), promedio (<em>average</em>) y esperanza matemática (<em>expected value</em>)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Aquí texto</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-La media de la edad
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Aquí texto</p>
-</div>
-</div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
 <caption>Tabla&nbsp;1.2: Ajuste a ojo. Ventajas e inconvenientes</caption>
@@ -457,6 +424,20 @@ La media de la edad
 </tr>
 </tbody>
 </table>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ojo con la media
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La media es un concepto tan fácil que a veces lo tratamos con descuido y nos da sorpresas. Si usted pregunta la edad a un grupo de personas, en rigor la edad media no es el promedio de los valores que le diagan (aunque todos digan la verdad). Es el promedio más 0,5 años.</p>
+<p>También hay que estar atento a las medias que no está claro como se han calculado. Un ejemplo sencillo: ¿cómo se calcula la temperatura media de un día? ¿Se toman cada minuto y se hace el promedio? ¿o se toman cada hora o cada 6 horas? Se se hace el promedio de las temperaturas máxima y mínima no se le debería llamar temperatura media.</p>
+</div>
 </div>
 </section>
 <section id="mediana" class="level3 unnumbered">
@@ -535,6 +516,7 @@ La media de la edad
 <section id="medidas-de-dispersión" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="medidas-de-dispersión"><span class="header-section-number">1.2</span> Medidas de dispersión</h2>
 <p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.</p>
+<p>Catálogod e chistes</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
