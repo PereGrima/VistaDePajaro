@@ -1,11 +1,13 @@
 # ESTADÍSTICA DESCRIPTIVA
 
-Síntesis numérica de datos y representaciones gráficas.
+Captar la información que contienen los datos solo a base de irlos mirando es, desde luego, misión imposible. No hace falta que el conjunto sea muy grande, nuestra mente no es hábil haciendo esa tarea. Cuando miramos un número se nos olvida otro y no somos capaces --aunque nos cueste reconocerlo-- de hacernos una idea clara de todos los aspectos relevantes.
 
-Ideas de:
+Sí somos buenos detectando patrones y analizando imágenes --en esto somos incluso mejores que los ordenadores, que nos piden que interpretemos una imagen para confirmar que somos personas y no máquinas--, por lo que analizar los datos a través de **represetanciones gráficas** es una excelente forma de hacerlo.
 
--   Libro Preguntas frecuentes: Media, mediana, por qué dividimos por n-1, como calcular los cuartiles.
+También podemos resumir los datos en unos pocos valores que den una buena visión de los aspectos que interesa conocer. Es lo que llamamos **síntesis numérica**.
 
--   Artículo analogías: Síntesis numérica y retrato robot, el rio tiene una profundidad media de 1,5 m
+Tanto representaciones gráficas como valores de síntesis numérica los hay de varios tipos. Existen gráficos que son adecuados para representar la evolución de una característica, otros para mostrar su dispersión o la relación entre variables. Respecto a la síntesis numérica hay medidas que fijan su atención en diferentes aspectos de los datos y no hay que olvidar que la variabilidad también es muy importante.
 
--   Libro matemáticas en primera plana: Buenos y malos usos de las representaciones gráficas.
+En el siguiente capítulo tratamos la síntesis numérica de datos dando un repaso a las medidas de uso más habitual. En el siguiente tratamos sobre tipos de gráficos, cuales conviene usar en cada caso y caules deben evitarse.
+
+

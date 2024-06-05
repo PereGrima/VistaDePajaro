@@ -1,5 +1,21 @@
 # Síntesis numérica de datos
 
+Pretender captar la información que contiene un conjunto de datos solo a base de irlos mirando es, desde luego, misión imposible. No hace falta que el conjunto de datos sea muy grande, nuesta mente no es hábil haciendo esa labor. Sí somo buenos detectando patrones y analizando imágenes, por lo que representar los datos con gràficos adecuados a la información que se quierer obtenr es, seguramente, la mejor forma de hacerlo. Otra manera, es resumir la información que continen los datos en unos pocos valores que corectamente interpretados dan una buen visión de lo que andamos buscando.
+
+::: callout-note
+## Simil del retrato robot
+
+Aquí texto
+:::
+
+Resumir los datos en uno pocos valores es lo que llamamos **síntesis numérica**. Hay que elegir bien cuales son esos valores para que sintetizen bien la información que andamos buscando. ====Aquí lo del retrato robot====
+
+Medidas de tendencia central
+
+
+
+
+
 Qué es. Símil del retrato robot.
 
 ## Medidas de tendencia central
