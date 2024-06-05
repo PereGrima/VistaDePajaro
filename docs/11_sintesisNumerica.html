@@ -331,6 +331,7 @@ div.csl-indent {
   <li><a href="#media-geométrica" id="toc-media-geométrica" class="nav-link" data-scroll-target="#media-geométrica">Media geométrica</a></li>
   <li><a href="#media-armónica" id="toc-media-armónica" class="nav-link" data-scroll-target="#media-armónica">Media armónica</a></li>
   </ul></li>
+  <li><a href="#apéndice-1.2-por-qué-dividimos-por-n-1" id="toc-apéndice-1.2-por-qué-dividimos-por-n-1" class="nav-link" data-scroll-target="#apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por <span class="math inline">\(n-1\)</span>?</a></li>
   </ul>
 </nav>
     </div>
@@ -817,6 +818,214 @@ Curiosidades sobre la media geométrica
 <p>y no 110 km/h como en principio se podría pensar.</p>
 <p>Observe que la velocidad es igual a la distancia recorrida dividida por el tiempo tardado en recorrerla, es decir <span class="math inline">\(v=d/t\)</span> y por tanto <span class="math inline">\(t=d/v\)</span>. En nuestro caso, si la distancia a recorrer es <span class="math inline">\(d\)</span>, el tiempo tardado en la ida es <span class="math inline">\(t_1 =d/100\)</span> y el tiempo tardado en el regreso es <span class="math inline">\(t_2 =d/120\)</span>. De esta manera el tiempo total invertido en todo el recorrido <span class="math inline">\((2d)\)</span> será <span class="math inline">\(t=t_1+t_2\)</span> y la velocidad media se calcula de la forma:</p>
 <p><span class="math display">\[ \text{Velocidad media} = \frac{\text{Distancia total recorrida}}{\text{Tiempo total empleado}} = \frac{2d}{\large{\frac{d}{100}+\frac{d}{120}}} \]</span> Otro ejemplo: Un avión recorre 3000 km. Los 1000 primeros a 700 km/h, los 1000 siguientes a 800 km/h, y los 1000 restantes a 900 km/h ¿Cuál ha sido su velocidad media? No ha sido 800 km/h sino 791,6 km/h.</p>
+</section>
+</section>
+<section id="apéndice-1.2-por-qué-dividimos-por-n-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por <span class="math inline">\(n-1\)</span>?</h2>
+<p>Vamos a trabajar con un ejemplo suponiendo que conocemos la población completa, lujo que no tendremos en la práctica. Los elementos que componen la población, junto con sus mediciones respectivas, son:</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(A)</td>
+<td style="text-align: center;">(B)</td>
+<td style="text-align: center;">(C)</td>
+<td style="text-align: center;">(D)</td>
+<td style="text-align: center;">(D)</td>
+<td style="text-align: center;">(E)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">12</td>
+</tr>
+</tbody>
+</table>
+<p>En primer lugar ilustraremos la propiedad de insesgamiento de un estimador para el caso de la media, con la cual estamos más familiarizados, y luego repetiremos la experiencia para el caso que nos ocupa de la varianza.</p>
+<p>La media poblacional <span class="math inline">\(\mu\)</span>, de los datos del ejemplo, es:</p>
+<p><span class="math display">\[\mu = \frac{2+6+8+10+10+12}{6}=8\]</span> Supongamos que nosotros queremos estimar (“hacernos una idea”) el valor <span class="math inline">\(\mu\)</span>, usando una muestra aleatoria de <span class="math inline">\(n = 2\)</span> unidades. En este caso, en que la población consta sólo de 6 unidades, podemos hacer un listado de todas las muestras que pueden resultar al escoger dos unidades al azar. Estas muestras aparecen enumeradas en la siguiente tabla.</p>
+
+<h8>
+    <table width="650" cellpadding="10" border="0" class="center">
+    <tbody><tr style="border-bottom:0.5px solid grey">
+    <td colspan="100%"></td>
+  </tr>
+        <tr>
+            <td style="text-align:center">Muestra nº</td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">2</td>
+            <td style="text-align:center">3</td>
+            <td style="text-align:center">4</td>
+            <td style="text-align:center">5</td>
+            <td style="text-align:center">6</td>
+            <td style="text-align:center">7</td>
+            <td style="text-align:center">8</td>
+            <td style="text-align:center">9</td>
+            <td style="text-align:center">10</td>
+            <td style="text-align:center">11</td>
+            <td style="text-align:center">12</td>
+            <td style="text-align:center">13</td>
+            <td style="text-align:center">14</td>
+            <td style="text-align:center">15</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid grey">
+    
+        </tr><tr>
+            <td style="text-align:center">Unidades de <br> la muestra</td>
+            <td style="text-align:center">A <br> B</td>
+            <td style="text-align:center">A <br> C</td>
+            <td style="text-align:center">A <br> D</td>
+            <td style="text-align:center">A <br> E</td>
+            <td style="text-align:center">A <br> F</td>
+            <td style="text-align:center">B <br> C</td>
+            <td style="text-align:center">B <br> D</td>
+            <td style="text-align:center">B <br> E</td>
+            <td style="text-align:center">B <br> F</td>
+            <td style="text-align:center">C <br> D</td>
+            <td style="text-align:center">C <br> E</td>
+            <td style="text-align:center">C <br> F</td>
+            <td style="text-align:center">D <br> E</td>
+            <td style="text-align:center">D <br> F</td>
+            <td style="text-align:center">E <br> F</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid grey">
+   
+        </tr><tr>
+            <td style="text-align:center">Valores de <br> la muestra</td>
+            <td style="text-align:center">2 <br> 6</td>
+            <td style="text-align:center">2 <br> 8</td>
+            <td style="text-align:center">2 <br> 10</td>
+            <td style="text-align:center">2 <br> 10</td>
+            <td style="text-align:center">2 <br> 12</td>
+            <td style="text-align:center">6 <br> 8</td>
+            <td style="text-align:center">6 <br> 10</td>
+            <td style="text-align:center">6 <br> 10</td>
+            <td style="text-align:center">6 <br> 12</td>
+            <td style="text-align:center">8 <br> 10</td>
+            <td style="text-align:center">8 <br> 10</td>
+            <td style="text-align:center">8 <br> 12</td>
+            <td style="text-align:center">10 <br> 10</td>
+            <td style="text-align:center">10 <br> 12</td>
+            <td style="text-align:center">10 <br> 12</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid grey">
+    
+         </tr><tr>
+            <td style="text-align:center">Media <br> muestral</td>
+            <td style="text-align:center">4 </td>
+            <td style="text-align:center">5 </td>
+            <td style="text-align:center">6 </td>
+            <td style="text-align:center">6 </td>
+            <td style="text-align:center">7 </td>
+            <td style="text-align:center">7 </td>
+            <td style="text-align:center">8 </td>
+            <td style="text-align:center">8 </td>
+            <td style="text-align:center">9 </td>
+            <td style="text-align:center">9 </td>
+            <td style="text-align:center">9 </td>
+            <td style="text-align:center">10 </td>
+            <td style="text-align:center">10 </td>
+            <td style="text-align:center">11 </td>
+            <td style="text-align:center">11 </td>
+        </tr>
+         <tr style="border-bottom:0.5px solid grey">
+  
+    </tr></tbody></table>
+<p>Cuando se seleccione al azar una muestra de dos unidades, el resultado será necesariamente alguna de estas 15 posibles combinaciones de 2 elementos, con su media <span class="math inline">\(\bar{x}\)</span> correspondiente.</p>
+<p>Decimos que <span class="math inline">\(\bar{x}\)</span> es un estimador insesgado de <span class="math inline">\(\mu\)</span> si el promedio de todas las posibles medias coincide exactamente con la media de la población. Para verificarlo, hagamos el promedio de nuestras 15 posibles medias:</p>
+<p><span class="math display">\[ \frac{4+5+6+6+7+7+8+8+9+9+9+10+10+11+11}{15}=8 \]</span></p>
+<p>El promedio coincide con <span class="math inline">\(\mu\)</span>. Esto pasa en todos los casos, independientemente del tipo de población o del tamaño de la muestra, por eso decimos que <span class="math inline">\(\bar{x}\)</span> es un estimador insesgado de <span class="math inline">\(\mu\)</span>.</p>
+<p>Veamos ahora si el estadístico:</p>
+<p><span class="math display">\[  S_{n}^{2}= \frac{ \sum_{i=1}^{n}{(x_i-\bar{x})^2} }{n} \]</span></p>
+<p>donde <span class="math inline">\(n\)</span> es el tamaño de las muestras, es un estimador insesgado para la varianza <span class="math inline">\(\sigma_{N}^{2}\)</span>, calculada como:</p>
+<p><span class="math display">\[  \sigma_{N}^{2}= \frac{ \sum_{i=1}^{N}{(x_i-\mu)^2} }{N} \]</span></p>
+<p>donde <span class="math inline">\(N\)</span> es el tamaño de la población. Queremos saber si el promedio de los valores de <span class="math inline">\(S_{n}^{2}\)</span>, para cada una de las posibles muestras, da el valor de <span class="math inline">\(\sigma_{N}^{2}\)</span> y para averiguarlo, en primer lugar vamos a calcular la varianza poblacional:</p>
+<p><span class="math display">\[\sigma_{N}^{2}= \frac{(2-8)^2+(6-8)^2+(8-8)^2+...+(12-8)^2}{6} = 10,67 \]</span></p>
+<p>Ahora calculamos la varianza para cada muestra de 2 unidades, con la fórmula:</p>
+<p><span class="math display">\[  S_{n}^{2}= \frac{ (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 }{2} \]</span></p>
+<p>obteniéndose los resultados que aparecen en la siguiente tabla:</p>
+
+<h8>
+    <table width="650" cellpadding="10" border="0" class="center">
+    <tbody><tr style="border-bottom:0.5px solid grey">
+    <td colspan="100%"></td>
+  </tr>
+        <tr>
+            <td style="text-align:center">Muestra nº</td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">2</td>
+            <td style="text-align:center">3</td>
+            <td style="text-align:center">4</td>
+            <td style="text-align:center">5</td>
+            <td style="text-align:center">6</td>
+            <td style="text-align:center">7</td>
+            <td style="text-align:center">8</td>
+            <td style="text-align:center">9</td>
+            <td style="text-align:center">10</td>
+            <td style="text-align:center">11</td>
+            <td style="text-align:center">12</td>
+            <td style="text-align:center">13</td>
+            <td style="text-align:center">14</td>
+            <td style="text-align:center">15</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid grey">
+   
+        </tr><tr>
+            <td style="text-align:center">Valores de <br> la muestra</td>
+            <td style="text-align:center">2 <br> 6</td>
+            <td style="text-align:center">2 <br> 8</td>
+            <td style="text-align:center">2 <br> 10</td>
+            <td style="text-align:center">2 <br> 10</td>
+            <td style="text-align:center">2 <br> 12</td>
+            <td style="text-align:center">6 <br> 8</td>
+            <td style="text-align:center">6 <br> 10</td>
+            <td style="text-align:center">6 <br> 10</td>
+            <td style="text-align:center">6 <br> 12</td>
+            <td style="text-align:center">8 <br> 10</td>
+            <td style="text-align:center">8 <br> 10</td>
+            <td style="text-align:center">8 <br> 12</td>
+            <td style="text-align:center">10 <br> 10</td>
+            <td style="text-align:center">10 <br> 12</td>
+            <td style="text-align:center">10 <br> 12</td>
+        </tr>
+        <tr style="border-bottom:0.5px solid grey">
+    
+         </tr><tr>
+            <td style="text-align:center">Varianza <br> muestral</td>
+            <td style="text-align:center">4 </td>
+            <td style="text-align:center">9 </td>
+            <td style="text-align:center">16 </td>
+            <td style="text-align:center">16 </td>
+            <td style="text-align:center">25 </td>
+            <td style="text-align:center">1 </td>
+            <td style="text-align:center">4 </td>
+            <td style="text-align:center">4 </td>
+            <td style="text-align:center">9 </td>
+            <td style="text-align:center">1 </td>
+            <td style="text-align:center">1 </td>
+            <td style="text-align:center">4 </td>
+            <td style="text-align:center">0 </td>
+            <td style="text-align:center">1 </td>
+            <td style="text-align:center">1 </td>
+        </tr>
+         <tr style="border-bottom:0.5px solid grey">
+  
+    </tr></tbody></table>
+<p>Veamos si el promedio de las posibles varianzas muestrales, coincide con 10,67 que es el valor obtenido para <span class="math inline">\(\sigma_{N}^{2}\)</span>.</p>
+<p><span class="math display">\[ \bar{S}^2 = \frac{4+9+16+16+25+1+4+4+9+...+1}{15} = 6,4 \]</span></p>
+<p>No coincide y, por tanto, <span class="math inline">\(S_{n}^{2}\)</span> no es un estimador insesgado de <span class="math inline">\(\sigma_{N}^{2}\)</span>. Sin embargo <span class="math inline">\(S_{n-1}^{2}\)</span>, definido de la forma:</p>
+<p><span class="math display">\[S_{n-1}^{2}= \frac{ \sum_{i=1}^{n}{(x_i-\bar{x})^2} }{n-1} \]</span></p>
+<p>aunque tampoco es un estimador insesgado para <span class="math inline">\(\sigma_{N}^{2}\)</span>, sí lo es para <span class="math inline">\(\sigma_{N-1}^{2}\)</span> definido como:</p>
+<p><span class="math display">\[\sigma_{N-1}^{2}= \frac{ \sum_{i=1}^{N-1}{(x_i-\mu)^2} }{N-1} \]</span></p>
+<p>Efectivamente, <span class="math inline">\(\sigma_{N-1}^{2}\)</span> tiene el valor:</p>
+<p><span class="math display">\[\sigma_{N-1}^{2}= \frac{(2-8)^2+(6-8)^2+(8-8)^2+...+(12-8)^2}{6-1} = 12,8 \]</span></p>
+<p>Y si calculamos <span class="math inline">\(S_{n-1}^{2}\)</span> para cada una de nuestras muestras deberemos aplicar la fórmula:</p>
+<p><span class="math display">\[S_{n-1}^{2}= \frac{ (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 }{2-1} = \frac{ (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 }{1}  \]</span></p>
+<p>Es decir que todos los valores de la varianza que aparecen en la tabla anterior, quedan ahora multiplicados por 2 y por lo tanto la media de las varianzas queda también multiplicada por 2, es decir:</p>
+<p><span class="math display">\[\bar{S}_{n-1}^{2}= 2\cdot 6,4 = 12,8 \]</span></p>
+<p>Quizá este resultado decepcione, y hasta sorprenda, porque seguramente lo esperado era que <span class="math inline">\(S_{n-1}^{2}\)</span> fuera un estimador insesgado de <span class="math inline">\(\sigma_{N}^{2}\)</span> y no de <span class="math inline">\(\sigma_{N-1}^{2}\)</span>, pero no hay que preocuparse demasiado. A efectos prácticos es casi lo mismo cuando la población es grande, y nosotros no vamos a estimar a través de muestras las características de una población de 6 elementos (en nuestro ejemplo esta ha sido una población “de juguete” para entender lo que estábamos haciendo). Cuando estimemos la varianza de una población se tratará de una población grande, en la que <span class="math inline">\(\sigma_{N}^{2}\)</span> será prácticamente igual a <span class="math inline">\(\sigma_{N-1}^{2}\)</span>. En realidad, el caso más frecuente es tener poblaciones teóricas (infinitas), en las que es exactamente lo mismo <span class="math inline">\(\sigma_{N}^{2}\)</span> que <span class="math inline">\(\sigma_{N-1}^{2}\)</span>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -827,8 +1036,7 @@ El País, 2024. <a href="https://elpais.com/economia/negocios/2024-05-04/mi-jefe
 INE. 2023. <span>«Encuesta Anual de Estructura Salarial. Año 2021»</span>. Instituto Nacional de EStadística (INE), España. <a href="https://www.ine.es/prensa/ees_2021.pdf">https://www.ine.es/prensa/ees_2021.pdf</a>.
 </div>
 </div>
-</section>
-</section>
+</h8></h8></section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
