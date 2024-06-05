@@ -1,6 +1,5 @@
 # Síntesis numérica de datos
 
-Pretender captar la información que contiene un conjunto de datos solo a base de irlos mirando es, desde luego, misión imposible. No hace falta que el conjunto de datos sea muy grande, nuesta mente no es hábil haciendo esa labor. Sí somo buenos detectando patrones y analizando imágenes, por lo que representar los datos con gràficos adecuados a la información que se quierer obtenr es, seguramente, la mejor forma de hacerlo. Otra manera, es resumir la información que continen los datos en unos pocos valores que corectamente interpretados dan una buen visión de lo que andamos buscando.
 
 ::: callout-note
 ## Simil del retrato robot
@@ -20,7 +19,7 @@ Qué es. Símil del retrato robot.
 
 ## Medidas de tendencia central
 
-Aquí texto sobre la importancia de no pretender describir datos solo con medidas de tendencia central.
+Seguramente deberíamos dedicar este texto a destacar la importancia de estas medidas. Está claro que es importante saber en torno a qué valor se mueven los datos, pero lo que nos parece más importante destacar es que pretender describir los datos solo con estas medidas es un error muy típico, no solo al realizar estudios estadísticos, sino al analizar datos y situaciones de la vida cotidiana.
 
 ### Media aritmética {.unnumbered}
 
