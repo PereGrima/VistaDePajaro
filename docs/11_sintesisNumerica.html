@@ -331,7 +331,7 @@ div.csl-indent {
   <li><a href="#media-geométrica" id="toc-media-geométrica" class="nav-link" data-scroll-target="#media-geométrica">Media geométrica</a></li>
   <li><a href="#media-armónica" id="toc-media-armónica" class="nav-link" data-scroll-target="#media-armónica">Media armónica</a></li>
   </ul></li>
-  <li><a href="#apéndice-1.2-por-qué-dividimos-por-n-1" id="toc-apéndice-1.2-por-qué-dividimos-por-n-1" class="nav-link" data-scroll-target="#apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por <span class="math inline">\(n-1\)</span>?</a></li>
+  <li><a href="#apéndice-1.2-por-qué-dividimos-por-n-1" id="toc-apéndice-1.2-por-qué-dividimos-por-n-1" class="nav-link" data-scroll-target="#apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por n-1?</a></li>
   </ul>
 </nav>
     </div>
@@ -516,31 +516,21 @@ Ojo con la media
 </section>
 <section id="medidas-de-dispersión" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="medidas-de-dispersión"><span class="header-section-number">1.2</span> Medidas de dispersión</h2>
-<p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.</p>
-<p>Catálogod e chistes</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Chistes a base de ignorar la variabilidad
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p>Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones.</p>
+<p>Todos hemos oido algún chiste que ridiculiza esa interpretación de la realidad basada solo en valores medios (pero eso no es buena estadística!):</p>
 <ul>
 <li><p>Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.</p></li>
 <li><p>Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.</p></li>
 <li><p>Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.</p></li>
 </ul>
-</div>
-</div>
+<p>En ocasiones la práctica habitual no está muy alejada de esas caricaturas. Estamos acostumbrados a clasificar los países por su renta per cápita y eso es el medio pollo que se come cada uno. La variabilidad en la renta también es un excelente indicador del nivel de desarrollo y bienestar de un país. Un caso similar en un terreno que nos queda cercano son los resultados de las pruebas PISA, estamos acostumbrados a ver la clasificación de los valores medios por países pero apenas se habla de la variabilidad dentro de cada país.</p>
+<p>En el ámbito de la ingeniría y del control de calidad, la variabilidad suele ser el enemigo más importante al que hay que enfrentarse. En general, en los análisis estadísticos hay que saber distinguir entre esa variabilidad de fondo, inevitable, que muchas veces denominamos “ruido” de lo que es una variación debida a una causa concreta que conviene identificar, lo que llamamos “señal”. En fin, lo primero será saber como medir la variabilidad. Vamos a repasar las medidas más habituales.</p>
 <section id="rango" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rango">Rango</h3>
 <p>Es la diferencia entre los valores máximo y mínimo. Si el rango de edades de los asistentes a un concierto es de 5 años significa que todos son de edades similares, pero si es de 50 años es que ese tipo de música interesa a personas de varias generaciones.</p>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.5: Ajuste a ojo. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;1.5: Rango. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -569,6 +559,30 @@ Chistes a base de ignorar la variabilidad
 <p><span class="math display">\[ DM = \frac{\sum_{i=1}^N |x_i - \bar{x}|}{N} \]</span> Es interesante observar que la distancia media está relacionada de forma más natural con la mediana que con la media aritmética. Consideremos la función:</p>
 <p><span class="math display">\[ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} \]</span> Como la distancia promedio solo depende de <span class="math inline">\(a\)</span> le hemos llamado <span class="math inline">\(f(a)\)</span>. El valor que minimiza esta función y que, por tanto, puede considerarse el mejor representate de los datos con el criterio aplicado no es la media sinó la mediana.</p>
 <p>La otra forma de resolver el problema de la anulación de las diferencias es elevándolas al cuadrado. Parece una complicación innecesaria pero tiene muchas ventajas, es lo que llamamos varianza.</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.6: Desviación media. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Fácil de explicar y de justificar.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Tiene poco recorrido en la teoría estadística</li>
+<li>Existe otra medida –la desviación típica– con más posibilidades de aplicación y mejores propiedades</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="varianza" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="varianza">Varianza</h3>
@@ -589,18 +603,48 @@ Chistes a base de ignorar la variabilidad
 <p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span></p>
 <p>Repitiendo el análisis que hemos hecho para la <span class="math inline">\(DM\)</span>, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
 <p><span class="math display">\[g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} \]</span> En este caso lo podemos deducir derivando <span class="math inline">\(g(a)\)</span> con respecto a <span class="math inline">\(a\)</span>, igualando a cero y despejando su valor. Veamos:</p>
-<p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span> Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
-<p><span class="math display">\[ a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span> En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos (<span class="math inline">\(\mu\)</span>). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es <span class="math inline">\(a=\mu\)</span> y que el valor mínimo de <span class="math inline">\(g(a)\)</span> es la varianza de <span class="math inline">\(X\)</span>.</p>
+<p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span></p>
+<p>Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
+<p><span class="math display">\[a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span></p>
+<p>En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos <span class="math inline">\(\mu\)</span>). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es <span class="math inline">\(a=\mu\)</span> y que el valor mínimo de <span class="math inline">\(g(a)\)</span> es la varianza de <span class="math inline">\(X\)</span>.</p>
 <section id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media"><strong>¿Por qué se prefiere usar la varianza en vez de la distancia media?</strong></h6>
 <p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la <span class="math inline">\(DM\)</span> no tiene, veamos algunas:</p>
 <ul>
 <li><p>En los desarrollos anteriores hemos visto que la media, medida descriptiva por excelencia, está asociada de forma más natural con la varianza que con la <span class="math inline">\(DM\)</span>.</p></li>
 <li><p>La <span class="math inline">\(DM\)</span> incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.</p></li>
-<li><p>La desviación estándar <span class="math inline">\(\sigma\)</span> de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la <span class="math inline">\(DM\)</span>.</p></li>
 <li><p>La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado ``Análisis de la Varianza’’. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada <span class="math inline">\(F\)</span> de Snedecor.</p></li>
 <li><p>La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza <span class="math inline">\(V(X)\)</span> y la varianza del contenido es <span class="math inline">\(V(Y)\)</span>, la varianza del conjunto es <span class="math inline">\(V(X+Y) = V(X) + V(Y)\)</span>.</p></li>
+<li><p>La raiz cuadrada de la varianza –la desviación típica– es uno de los parámetros que definen la distribución Normal (el otro es la media). Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la <span class="math inline">\(DM\)</span>.</p></li>
 </ul>
+</section>
+<section id="se-divide-por-n-o-por-n-1" class="level6 unnumbered">
+<h6 class="unnumbered anchored" data-anchor-id="se-divide-por-n-o-por-n-1"><strong>¿Se divide por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span>?</strong></h6>
+<p>El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto la hace poco intuitiva y dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.7: Varianza. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Excelentes propiedades que no tieneninguna otra medida.</li>
+<li>Constituye uno de los ejes centrales de muchos métodos estadísticos.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <section id="desviación-típica" class="level3 unnumbered">
@@ -700,7 +744,7 @@ La paradoja de las patatas
 <p>Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?</p>
 <div id="tbl-evolucionpoblacion1" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.6: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.8: Evolución de la población</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 20%">
@@ -745,7 +789,7 @@ La paradoja de las patatas
 <p>Si calculamos la media aritmética de la tasa de crecimiento tenemos: <span class="math inline">\((0,05 + 0,20 + 0,50)/3 = 0,25\)</span> y el factor medio de expansión sería <span class="math inline">\(1,25\)</span>. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:</p>
 <div id="tbl-evolucionpoblacion1-tbl-colwidths10202020" class="anchored">
 <table class="table-hover table">
-<caption>Tabla&nbsp;1.7: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.9: Evolución de la población</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 18%">
@@ -821,7 +865,7 @@ Curiosidades sobre la media geométrica
 </section>
 </section>
 <section id="apéndice-1.2-por-qué-dividimos-por-n-1" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por <span class="math inline">\(n-1\)</span>?</h2>
+<h2 class="unnumbered anchored" data-anchor-id="apéndice-1.2-por-qué-dividimos-por-n-1">Apéndice 1.2: ¿Por qué dividimos por n-1?</h2>
 <p>Vamos a trabajar con un ejemplo suponiendo que conocemos la población completa, lujo que no tendremos en la práctica. Los elementos que componen la población, junto con sus mediciones respectivas, son:</p>
 <table class="table">
 <tbody>

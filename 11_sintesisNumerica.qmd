@@ -106,20 +106,20 @@ A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la dis
 
 ## Medidas de dispersión
 
-Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. Veamos las formas más habituales de medirla.
+Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. 
 
-Catálogod e chistes
-
-
-::: callout-note
-## Chistes a base de ignorar la variabilidad
+Todos hemos oido algún chiste que ridiculiza esa interpretación de la realidad basada solo en valores medios (pero eso no es buena estadística!):
 
 * Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.
 
 * Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.
 
 * Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.
-:::
+
+En ocasiones la práctica habitual no está muy alejada de esas caricaturas. Estamos acostumbrados a clasificar los países por su renta per cápita y eso es el medio pollo que se come cada uno. La variabilidad en la renta también es un excelente indicador del nivel de desarrollo y bienestar de un país. Un caso similar en un terreno que nos queda cercano son los resultados de las pruebas PISA, estamos acostumbrados a ver la clasificación de los valores medios por países pero apenas se habla de la variabilidad dentro de cada país.
+
+En el ámbito de la ingeniría y del control de calidad, la variabilidad suele ser el enemigo más importante al que hay que enfrentarse. En general, en los análisis estadísticos hay que saber distinguir entre esa variabilidad de fondo, inevitable, que muchas veces denominamos "ruido" de lo que es una variación debida a una causa concreta que conviene identificar, lo que llamamos "señal". En fin, lo primero será saber como medir la variabilidad. Vamos a repasar las medidas más habituales.
+
 
 ### Rango {.unnumbered}
 
@@ -131,7 +131,7 @@ Es la diferencia entre los valores máximo y mínimo. Si el rango de edades de l
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Solo cuentan los valores extremos, que pueden ser anómalos o no representativos del conjunto de datos |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
-: Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+: Rango. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ### Desviación media {.unnumbered}
 
@@ -144,6 +144,17 @@ $$ DM = \frac{\sum_{i=1}^N |x_i - \bar{x}|}{N} $$ Es interesante observar que la
 $$ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} $$ Como la distancia promedio solo depende de $a$ le hemos llamado $f(a)$. El valor que minimiza esta función y que, por tanto, puede considerarse el mejor representate de los datos con el criterio aplicado no es la media sinó la mediana.
 
 La otra forma de resolver el problema de la anulación de las diferencias es elevándolas al cuadrado. Parece una complicación innecesaria pero tiene muchas ventajas, es lo que llamamos varianza.
+
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Fácil de explicar y de justificar.                                                                    |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Tiene poco recorrido en la teoría estadística                                                         |
+|                                                                                | -   Existe otra medida --la desviación típica-- con más posibilidades de aplicación y mejores propiedades | 
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+
+: Desviación media. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
 
 ### Varianza {.unnumbered}
 
@@ -159,11 +170,16 @@ $$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$
 
 Repitiendo el análisis que hemos hecho para la $DM$, vamos a elegir el valor de $a$ que minimiza la función:
 
-$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
+$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ 
+En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
 
-$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$ Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
+$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$ 
 
-$$ a = \sum_{i=1}^{N} \frac{x_i}{N} $$ En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos ($\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$.
+Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
+
+$$a = \sum_{i=1}^{N} \frac{x_i}{N} $$ 
+
+En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos $\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$.
 
 ###### **¿Por qué se prefiere usar la varianza en vez de la distancia media?** {.unnumbered}
 
@@ -173,11 +189,27 @@ Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parec
 
 -   La $DM$ incluye en su expresión la función “valor absoluto” que se comporta mal desde un punto de vista matemático, mientras que la función cuadrática es muy fácilmente tratable. Observe, por ejemplo, que la demostración de que la media hace mínimo el promedio de los cuadrados se ha realizado de forma casi inmediata, mientras que probar que la mediana hace mínima la media de las distancias es bastante más complejo.
 
--   La desviación estándar $\sigma$ de la población es usada para definir la distribución más famosa y útil, como es la Normal. Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la $DM$.
-
 -   La varianza es una suma de cuadrados que se puede descomponer en diversos sumandos dando origen al llamado \`\`Análisis de la Varianza''\index{análisis de la varianza}. El desarrollo de la teoría de los modelos lineales está basado en gran parte en el criterio de los mínimos cuadrados, que es el mismo en que está basada la varianza. Cuando la población origen de los datos es Normal, el cociente de varianzas muestrales sigue una distribución conocida, llamada $F$ de Snedecor.
 
 -   La varianza de una suma de variables aleatorias se calcula de una forma muy fácil, especialmente si las variables son independientes. Por ejemplo, en un proceso de envasado, si el peso del envase tiene una varianza $V(X)$ y la varianza del contenido es $V(Y)$, la varianza del conjunto es $V(X+Y) = V(X) + V(Y)$.
+
+-   La raiz cuadrada de la varianza --la desviación típica-- es uno de los parámetros que definen la distribución Normal (el otro es la media). Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la $DM$.
+
+###### **¿Se divide por $n$ o por $n-1$?** {.unnumbered}
+
+El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto la hace poco intuitiva y dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tieneninguna otra medida.                                               |
+|                                                                                | -   Constituye uno de los ejes centrales de muchos métodos estadísticos.                                  |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.        |
+|                                                                                |                                                                                                           | 
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+
+: Varianza. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
+
 
 ### Desviación típica {.unnumbered}
 
@@ -339,7 +371,7 @@ Observe que la velocidad es igual a la distancia recorrida dividida por el tiemp
 
 $$ \text{Velocidad media} = \frac{\text{Distancia total recorrida}}{\text{Tiempo total empleado}} = \frac{2d}{\large{\frac{d}{100}+\frac{d}{120}}} $$ Otro ejemplo: Un avión recorre 3000 km. Los 1000 primeros a 700 km/h, los 1000 siguientes a 800 km/h, y los 1000 restantes a 900 km/h ¿Cuál ha sido su velocidad media? No ha sido 800 km/h sino 791,6 km/h.
 
-## Apéndice 1.2: ¿Por qué dividimos por $n-1$? {.unnumbered}
+## Apéndice 1.2: ¿Por qué dividimos por n-1? {.unnumbered}
 
 Vamos a trabajar con un ejemplo suponiendo que conocemos la población completa, lujo que no tendremos en la práctica. Los elementos que componen la población, junto con sus mediciones respectivas, son:
 
