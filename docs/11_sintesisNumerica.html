@@ -599,14 +599,14 @@ Ojo con la media
 <p>Las dos son válidas según el diccionario de la Real Academia Española. Nosotros usaremos <em>varianza</em>.</p>
 </div>
 </div>
-<p>Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} \]</span></p>
-<p>Repitiendo el análisis que hemos hecho para la <span class="math inline">\(DM\)</span>, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
+<p>Simplemente elevamos las diferencias al cuadrado en vez de usar su valor absoluto. Si tenemos un conjunto de <span class="math inline">\(N\)</span> datos con media <span class="math inline">\(\mu\)</span> y queremos conocer la varianza de <strong>esos datos</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> usamos la expresión:</p>
+<p><span class="math display">\[ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \mu )^2}{N} \]</span> Repitiendo el análisis que hemos hecho para la <span class="math inline">\(DM\)</span>, vamos a elegir el valor de <span class="math inline">\(a\)</span> que minimiza la función:</p>
 <p><span class="math display">\[g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} \]</span> En este caso lo podemos deducir derivando <span class="math inline">\(g(a)\)</span> con respecto a <span class="math inline">\(a\)</span>, igualando a cero y despejando su valor. Veamos:</p>
 <p><span class="math display">\[\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0\]</span></p>
 <p>Por tanto <span class="math inline">\(\sum_{i=1}^{N}(x_i-a) = 0\)</span>, de donde se deduce que <span class="math inline">\(\sum x_i =N \cdot a\)</span> y despejando <span class="math inline">\(a\)</span> tenemos:</p>
 <p><span class="math display">\[a = \sum_{i=1}^{N} \frac{x_i}{N} \]</span></p>
 <p>En este caso el valor de <span class="math inline">\(a\)</span> sí coincide con la media aritmética (le llamamos <span class="math inline">\(\mu\)</span>). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es <span class="math inline">\(a=\mu\)</span> y que el valor mínimo de <span class="math inline">\(g(a)\)</span> es la varianza de <span class="math inline">\(X\)</span>.</p>
+<p>El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica</p>
 <section id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="por-qué-se-prefiere-usar-la-varianza-en-vez-de-la-distancia-media"><strong>¿Por qué se prefiere usar la varianza en vez de la distancia media?</strong></h6>
 <p>Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parece una complicación innecesaria, pero la varianza tienes unas ventajas que la <span class="math inline">\(DM\)</span> no tiene, veamos algunas:</p>
@@ -620,7 +620,22 @@ Ojo con la media
 </section>
 <section id="se-divide-por-n-o-por-n-1" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="se-divide-por-n-o-por-n-1"><strong>¿Se divide por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span>?</strong></h6>
-<p>El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto la hace poco intuitiva y dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica</p>
+<p>Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de <strong>esos datos</strong> dividimos por el número de los que tenemos, pero aunque esta parede la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como estimar la varianza de la población de la cual provienen y de la que solo tenemos unos representantes.</p>
+<p>En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra (<span class="math inline">\(\bar{x}\)</span>). Esta sustitución tiene más influencia de la que parece ya que la media de los datos disponibles se adapta a esos datos y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos <span class="math inline">\(n\)</span> (al número de elementos de la muestra le llamamos <span class="math inline">\(n\)</span> minúscula) subestima la variabilidad de la población. Puede demostrarse que si en vez de dividir por <span class="math inline">\(n\)</span> se divide por <span class="math inline">\(n-1\)</span> esa subestimación –se llama <em>sesgo</em>– ya no se da. Esto es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por <span class="math inline">\(n\)</span> o hacerlo por <span class="math inline">\(n-1\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cálculo de la varianza con calculadora u ordenador
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En algunas calculadoras y en hojas de cálculo como Excel, existen las dos opciones para calcular la varianza: dividiendo por <span class="math inline">\(N\)</span> o por <span class="math inline">\(n-1\)</span> según se tenga una población o una muestra. En los paquetes de software estadístico cuando se piede la varianza siempre la dan dividiendo por <span class="math inline">\(n-1\)</span> porque en la práctica siempre tenemos muestras. Si en algún caso interesa conocer el valor dividiendo por <span class="math inline">\(n\)</span> el truco consiste en añadir la media como un dato más.</p>
+</div>
+</div>
+<p>Como este tema puede ser controvertido, le dedicamos un apéndice que profundiza en este tema sin abandonar la visión intuitiva.</p>
 <div id="tbl-letters" class="anchored">
 <table class="table">
 <caption>Tabla&nbsp;1.7: Varianza. Ventajas e inconvenientes</caption>
@@ -1081,6 +1096,12 @@ INE. 2023. <span>«Encuesta Anual de Estructura Salarial. Año 2021»</span>. In
 </div>
 </div>
 </h8></h8></section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>leyenda nota pie de página<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

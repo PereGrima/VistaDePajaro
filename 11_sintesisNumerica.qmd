@@ -164,10 +164,11 @@ La otra forma de resolver el problema de la anulación de las diferencias es ele
 Las dos son válidas según el diccionario de la Real Academia Española. Nosotros usaremos *varianza*.
 :::
 
-Simplemente elevamos las diferencias al cuadrado en vez de usar el valor absoluto. Le llamaremos $\sigma^2$:
+Simplemente elevamos las diferencias al cuadrado en vez de usar su valor absoluto. Si tenemos un conjunto de $N$ datos con media $\mu$ y queremos conocer la varianza de **esos datos**[^1] usamos la expresión:
 
-$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \bar{x} )^2}{N} $$ 
+[^1]: leyenda nota pie de página
 
+$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \mu )^2}{N} $$ 
 Repitiendo el análisis que hemos hecho para la $DM$, vamos a elegir el valor de $a$ que minimiza la función:
 
 $$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ 
@@ -180,6 +181,8 @@ Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot
 $$a = \sum_{i=1}^{N} \frac{x_i}{N} $$ 
 
 En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos $\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$.
+
+El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica
 
 ###### **¿Por qué se prefiere usar la varianza en vez de la distancia media?** {.unnumbered}
 
@@ -195,9 +198,21 @@ Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parec
 
 -   La raiz cuadrada de la varianza --la desviación típica-- es uno de los parámetros que definen la distribución Normal (el otro es la media). Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la $DM$.
 
+
 ###### **¿Se divide por $n$ o por $n-1$?** {.unnumbered}
 
-El principal problema de la varianza es que sus unidades son el cuadrado de las unidades de los datos. Esto la hace poco intuitiva y dificulta su interpretación pero este problema se resuelve fácilmente usando como medida su raiz cuadrada, es lo que llamamos desviación típica
+Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de **esos datos** dividimos por el número de los que tenemos, pero aunque esta parede la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como estimar la varianza de la población de la cual provienen y de la que solo tenemos unos representantes.
+
+En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra ($\bar{x}$). Esta sustitución tiene más influencia de la que parece ya que la media de los datos disponibles se adapta a esos datos y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos $n$ (al número de elementos de la muestra le llamamos $n$ minúscula) subestima la variabilidad de la población. Puede demostrarse que si en vez de dividir por $n$ se divide por $n-1$ esa subestimación --se llama *sesgo*-- ya no se da. Esto es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por $n$ o hacerlo por $n-1$.
+
+::: callout-note
+## Cálculo de la varianza con calculadora u ordenador
+
+En algunas calculadoras y en hojas de cálculo como Excel, existen las dos opciones para calcular la varianza: dividiendo por $N$ o por $n-1$ según se tenga una población o una muestra. En los paquetes de software estadístico cuando se piede la varianza siempre la dan dividiendo por $n-1$ porque en la práctica siempre tenemos muestras. Si en algún caso interesa conocer el valor dividiendo por $n$ el truco consiste en añadir la media como un dato más.
+:::
+
+
+Como este tema puede ser controvertido, le dedicamos un apéndice que profundiza en este tema sin abandonar la visión intuitiva.
 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 | **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tieneninguna otra medida.                                               |
