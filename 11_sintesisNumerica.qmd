@@ -201,9 +201,13 @@ Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parec
 
 ###### **¿Se divide por $n$ o por $n-1$?** {.unnumbered}
 
-Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de **esos datos** dividimos por el número de los que tenemos, pero aunque esta parede la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como estimar la varianza de la población de la cual provienen y de la que solo tenemos unos representantes.
+Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de **esos datos** dividimos por el número de los que tenemos, pero aunque esta parece la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como **estimar la varianza de la población** de la cual provienen y de la que solo tenemos unos representantes.
 
-En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra ($\bar{x}$). Esta sustitución tiene más influencia de la que parece ya que la media de los datos disponibles se adapta a esos datos y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos $n$ (al número de elementos de la muestra le llamamos $n$ minúscula) subestima la variabilidad de la población. Puede demostrarse que si en vez de dividir por $n$ se divide por $n-1$ esa subestimación --se llama *sesgo*-- ya no se da. Esto es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por $n$ o hacerlo por $n-1$.
+En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra ($\bar{x}$). Esta sustitución tiene más influencia de la que parece ya que la media de de la muestra se adapta a los datos con los que se calcula y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos $n$ (al número de elementos de la muestra le llamamos $n$ minúscula) se divide por $n-1$ esa subestimación --se llama *sesgo*-- ya no se da. Por tanto, la fórmula que usamos en la práctica es:
+
+$$ s^2 = \frac{\sum_{i=1}^n ( x_i - \bar{x})^2}{n-1} $$ 
+
+Esta corrección es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por $n$ o hacerlo por $n-1$.
 
 ::: callout-note
 ## Cálculo de la varianza con calculadora u ordenador
@@ -215,7 +219,7 @@ En algunas calculadoras y en hojas de cálculo como Excel, existen las dos opcio
 Como este tema puede ser controvertido, le dedicamos un apéndice que profundiza en este tema sin abandonar la visión intuitiva.
 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tieneninguna otra medida.                                               |
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tiene ninguna otra medida.                                             |
 |                                                                                | -   Constituye uno de los ejes centrales de muchos métodos estadísticos.                                  |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.        |
@@ -237,28 +241,38 @@ También se puede llamar desviación estándar, pero no de otra manera, aunque a
 
 Es la raiz cuadrada de la varianza. En el caso más habitual de tener una muestra:
 
-$$s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}} $$ 
-Tiene la ventaja de que sus unidades son las mismas que las de los datos. El precio a pagar es que la raiz cuadrada estropea las propiedades algebraicas que tiene la varianza, por lo que en los desarrollos teóricos en muy habitual que el protagonismo lo tenga la varianza.
+$$s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}}$$ 
 
-La desviación típica, junto con la media, forman una pareja perfecta para describir el comportamiento de muchas variables aleatorias. En particular, forman parte del *ADN* de la distribución Normal. 
+La raiz cuadrada hace que sus unidades sean las mismas que las de los datos. El precio a pagar es la pérdida de las propiedades algebraicas que tiene la varianza, por lo que en los desarrollos teóricos en muy habitual que el protagonismo lo tenga esta última.
 
-Si una variable aleatoria tiene distribución Normal, basta conocer su media y su desviación típica para calcular cualquier probabilidad relacionada con los valores que puede tomar. Si el peso de unos paquetes de azúcar sigue una distribución Normal con una media de 1000 g y una desviación típica de 15 g, podemos decir que aproximadamente el 95% de los paquetes tendrán un peso comprendido entre 970 y 1030 g, y también podemos decir que el 68% tendrá un peso comprendido entre 985 y 1015. Además, podríamos responder cualquier pregunta similar, por ejemplo qué porcentaje de paquetes tendrá un peso por debajo de 980 g (será el 9%).
+Entre los muchos méritos de la desviación típica podemos decir que, junto con la media, forman una pareja perfecta para describir el comportamiento de muchas variables aleatorias. En particular, forman parte del *"ADN"* de la distribución Normal. Si una variable sigue esta distribución basta conocer su media y su desviación típica para calcular cualquier probabilidad relacionada con los valores que puede tomar. Si el peso de unos paquetes de azúcar sigue una distribución Normal con una media de 1000 g y una desviación típica de 15 g, podemos decir que --en números redondos-- el 95% de los paquetes tendrán un peso comprendido entre 970 y 1030 g, y también podemos decir que el 68% tendrá un peso comprendido entre 985 y 1015. Además, podríamos responder cualquier pregunta similar, por ejemplo qué porcentaje de paquetes tendrá un peso por debajo de 980 g (será el 9%).
 
-Si la variable considerada no sigue una distribución Normal ¿sigue siendo útil la desviación típica? La respuesta es sorprendente. Para una amplia gama de distribuciones de probabilidad se pueden responder preguntas de naturaleza similar usando la llamada "desigualdad de Chebyshev" [^2] 
-
-[^2]: La idea es que para una amplia variedad de distribuciones, en el intervalo $\mu \pm k\sigma$  se tiene como mínimo una proporción de observaciones igual a $1-1/k^2$. Es decir, si $k=\sqrt{2}$, el intervalo es $\mu \pm \sqrt{2}\sigma$ y podemos afirmar que, con independencia del tipo de distribución, tendremos como mínimo el 50% de las observaciones dentro de ese intervalo, y si $k=2$ tendremos como mínimo el 75%. Una curiosa propiedad en la que nuestra pareja media--desviación típica también es protagonista.
-
-En muchas situaciones tenemos interés en estimar el valor de la media poblacional $\mu$. Para ello tomamos una muestra y calculamos su media  $\bar{x}$ para hacernos una idea del valor desconocido del parámetro $\mu$. El problema es que cada vez que se tome una muestra, el valor de la media muestral $\bar{x}$ cambiará, pero sabemos que si tomamos muchas muestras de tamaño $n$, sus medias estarán alrededor del verdadero valor de la media poblacional $\mu$. Pero decir que están alrededor de $\mu$ no significa que estén cerca de $\mu$. ¿Cómo podemos saber que tan cerca están? En la respuesta a esta pregunta la desviación típica también tiene un papel protagonista. La desviación típica de esas medias muestrales \textbf{siempre} es igual a la desviación típica de la población dividida por $\sqrt{n}$. Esto es verdad para \textbf{todas} las distribuciones, no solo para la Normal.
+También destaca su presencia en la estimación del valor de la media poblacional $\mu$. Lo hacemos tomando una muestra de tamaño $n$ y calculando su media $\bar{x}$. El problema es que cada vez que tomemos una muestra, el valor de $\bar{x}$ cambiará, así que mejor que apostar por un valor concreto preferimos dar un intervalo de valores razonables para $\mu$. Para calcular ese intervalo necesitamos conocer la variabilidad que presentan los valores de $\bar{x}$. Pues bien, la desviación típica de $\bar{x}$ **siempre** es igual a la desviación típica de la población dividida por $\sqrt{n}$. Esto es verdad para **todas** las distribuciones, no solo para la Normal.
 
 En definitiva, la desviación típica aparece en muchos contextos y con mucha relevancia. El calificativo ``típica'' resulta en este caso apropiado y bien merecido.
 
+::: callout-note
+## ¿Qué desviación típica tienen las estaturas?
+
+Si un extraterrestre le pregunta como somos los terrícolas usted le puede decir que nuestra estatura media es de aproximadamente 1,70, pero solo con esa información el extraterrestre puede pensar que hay terrícolas de 40 cm y también de 3 m. Le podría decir que casi todos estamos entre 1,40 y 2 m, por poner números redondos, pero ¿y si le quiere dar la desviación típica?
+
+Si una variable sigue una distribución Normal --y la estatura podemos considerar que la sigue-- se dan unas proporciones que siempre son las mismas, no importa si estamos hablando de estaturas, del peso de paquetes de azúcar o de las longitudes de los pétalos de un determinado tipo de flor. Estas proporciones son:
+
+$$\mu \pm \sigma: \;\; 68\, \%$$
+
+$$\mu \pm 2 \sigma: \;\; 95\, \%$$
+
+$$\mu \pm 3 \sigma: \;\; 99,7\, \%$$
+
+Dando por bueno 1,70 m como valor de la media y fijándonos en el intervalor $\mu \pm 3 \sigma$ ¿qué valor de la estutura será superado por el 1-2 por mil de los individuos? (el 3 por mil que queda fuera del intervalo lo repartimos entre los dos extremos). Si ese valor es 1,91 m la desviación típica será 7 cm. (1,70 + 3·0,07 = 1,91)
+:::
 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tieneninguna otra medida.                                               |
-|                                                                                | -   Constituye uno de los ejes centrales de muchos métodos estadísticos.                                  |
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Es la medida de dispersión más utilizada.                                                             |
+|                                                                                | -   Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.       | 
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.        |
-|                                                                                |                                                                                                           | 
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Malas propiedades algebraicas.                                                                        |
+|                                                                                | -   Su interpretación no es intuitiva.
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
 : Desviación típica. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
@@ -266,13 +280,34 @@ En definitiva, la desviación típica aparece en muchos contextos y con mucha re
 
 ### El coeficiente de variación {.unnumbered}
 
-texto
+Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? seguramente pensará que en el del los gatos, donde uno pesa más 4 veces mlo que pesa otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:
 
-texto
+$$ s_{gatos} = 2,61\, kg$$
+$$ s_{vacas} = 9,13\, kg$$
+Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias de cada uno de los valores respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.
+
+En un caso como este lo que interesa es la variabilidad respecto a la media, y para medir ese aspecto de los datos usamos el coeficiente de variación $CV$ que se define como:
+
+$$CV = \frac{s}{\bar{x}}$$
+Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. EN nuestro ejemplo, para los gatos tenemos un $CV$ del 65,35% mientras que para las vacas es solo del 1,83%.
+
+Cuando se informa sobre las características de un conjunto de datos, la desviación típica suele ir acompañada de la media ya que esos dos valroes --conjuntamente-- dicen mucho de los datos. El coeficiente de variación puede ir solo poque incluye información de los dos, aunque nos perdemos sus valroes concretos ===Esto hay que mejorarlo o quitarlo===
+
+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Es la medida de dispersión más utilizada.                                                             |
+|                                                                                | -   Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.       | 
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Malas propiedades algebraicas.                                                                        |
+|                                                                                | -   Su interpretación no es intuitiva.
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+
+: Desviación típica. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+
 
 ## Medidas de posición
 
-texto
+Mojones
 
 texto
 

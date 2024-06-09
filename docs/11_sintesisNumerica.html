@@ -620,8 +620,10 @@ Ojo con la media
 </section>
 <section id="se-divide-por-n-o-por-n-1" class="level6 unnumbered">
 <h6 class="unnumbered anchored" data-anchor-id="se-divide-por-n-o-por-n-1"><strong>¿Se divide por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span>?</strong></h6>
-<p>Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de <strong>esos datos</strong> dividimos por el número de los que tenemos, pero aunque esta parede la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como estimar la varianza de la población de la cual provienen y de la que solo tenemos unos representantes.</p>
-<p>En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra (<span class="math inline">\(\bar{x}\)</span>). Esta sustitución tiene más influencia de la que parece ya que la media de los datos disponibles se adapta a esos datos y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos <span class="math inline">\(n\)</span> (al número de elementos de la muestra le llamamos <span class="math inline">\(n\)</span> minúscula) subestima la variabilidad de la población. Puede demostrarse que si en vez de dividir por <span class="math inline">\(n\)</span> se divide por <span class="math inline">\(n-1\)</span> esa subestimación –se llama <em>sesgo</em>– ya no se da. Esto es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por <span class="math inline">\(n\)</span> o hacerlo por <span class="math inline">\(n-1\)</span>.</p>
+<p>Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de <strong>esos datos</strong> dividimos por el número de los que tenemos, pero aunque esta parece la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como <strong>estimar la varianza de la población</strong> de la cual provienen y de la que solo tenemos unos representantes.</p>
+<p>En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra (<span class="math inline">\(\bar{x}\)</span>). Esta sustitución tiene más influencia de la que parece ya que la media de de la muestra se adapta a los datos con los que se calcula y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos <span class="math inline">\(n\)</span> (al número de elementos de la muestra le llamamos <span class="math inline">\(n\)</span> minúscula) se divide por <span class="math inline">\(n-1\)</span> esa subestimación –se llama <em>sesgo</em>– ya no se da. Por tanto, la fórmula que usamos en la práctica es:</p>
+<p><span class="math display">\[ s^2 = \frac{\sum_{i=1}^n ( x_i - \bar{x})^2}{n-1} \]</span></p>
+<p>Esta corrección es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por <span class="math inline">\(n\)</span> o hacerlo por <span class="math inline">\(n-1\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,7 +649,7 @@ Cálculo de la varianza con calculadora u ordenador
 <tr class="odd">
 <td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
 <td><ul>
-<li>Excelentes propiedades que no tieneninguna otra medida.</li>
+<li>Excelentes propiedades que no tiene ninguna otra medida. |</li>
 <li>Constituye uno de los ejes centrales de muchos métodos estadísticos.</li>
 </ul></td>
 </tr>
@@ -678,12 +680,29 @@ Otros nombres para la desviación típica
 </div>
 </div>
 <p>Es la raiz cuadrada de la varianza. En el caso más habitual de tener una muestra:</p>
-<p><span class="math display">\[s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}} \]</span> Tiene la ventaja de que sus unidades son las mismas que las de los datos. El precio a pagar es que la raiz cuadrada estropea las propiedades algebraicas que tiene la varianza, por lo que en los desarrollos teóricos en muy habitual que el protagonismo lo tenga la varianza.</p>
-<p>La desviación típica, junto con la media, forman una pareja perfecta para describir el comportamiento de muchas variables aleatorias. En particular, forman parte del <em>ADN</em> de la distribución Normal.</p>
-<p>Si una variable aleatoria tiene distribución Normal, basta conocer su media y su desviación típica para calcular cualquier probabilidad relacionada con los valores que puede tomar. Si el peso de unos paquetes de azúcar sigue una distribución Normal con una media de 1000 g y una desviación típica de 15 g, podemos decir que aproximadamente el 95% de los paquetes tendrán un peso comprendido entre 970 y 1030 g, y también podemos decir que el 68% tendrá un peso comprendido entre 985 y 1015. Además, podríamos responder cualquier pregunta similar, por ejemplo qué porcentaje de paquetes tendrá un peso por debajo de 980 g (será el 9%).</p>
-<p>Si la variable considerada no sigue una distribución Normal ¿sigue siendo útil la desviación típica? La respuesta es sorprendente. Para una amplia gama de distribuciones de probabilidad se pueden responder preguntas de naturaleza similar usando la llamada “desigualdad de Chebyshev” <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>En muchas situaciones tenemos interés en estimar el valor de la media poblacional <span class="math inline">\(\mu\)</span>. Para ello tomamos una muestra y calculamos su media <span class="math inline">\(\bar{x}\)</span> para hacernos una idea del valor desconocido del parámetro <span class="math inline">\(\mu\)</span>. El problema es que cada vez que se tome una muestra, el valor de la media muestral <span class="math inline">\(\bar{x}\)</span> cambiará, pero sabemos que si tomamos muchas muestras de tamaño <span class="math inline">\(n\)</span>, sus medias estarán alrededor del verdadero valor de la media poblacional <span class="math inline">\(\mu\)</span>. Pero decir que están alrededor de <span class="math inline">\(\mu\)</span> no significa que estén cerca de <span class="math inline">\(\mu\)</span>. ¿Cómo podemos saber que tan cerca están? En la respuesta a esta pregunta la desviación típica también tiene un papel protagonista. La desviación típica de esas medias muestrales es igual a la desviación típica de la población dividida por <span class="math inline">\(\sqrt{n}\)</span>. Esto es verdad para las distribuciones, no solo para la Normal.</p>
+<p><span class="math display">\[s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}}\]</span></p>
+<p>La raiz cuadrada hace que sus unidades sean las mismas que las de los datos. El precio a pagar es la pérdida de las propiedades algebraicas que tiene la varianza, por lo que en los desarrollos teóricos en muy habitual que el protagonismo lo tenga esta última.</p>
+<p>Entre los muchos méritos de la desviación típica podemos decir que, junto con la media, forman una pareja perfecta para describir el comportamiento de muchas variables aleatorias. En particular, forman parte del <em>“ADN”</em> de la distribución Normal. Si una variable sigue esta distribución basta conocer su media y su desviación típica para calcular cualquier probabilidad relacionada con los valores que puede tomar. Si el peso de unos paquetes de azúcar sigue una distribución Normal con una media de 1000 g y una desviación típica de 15 g, podemos decir que –en números redondos– el 95% de los paquetes tendrán un peso comprendido entre 970 y 1030 g, y también podemos decir que el 68% tendrá un peso comprendido entre 985 y 1015. Además, podríamos responder cualquier pregunta similar, por ejemplo qué porcentaje de paquetes tendrá un peso por debajo de 980 g (será el 9%).</p>
+<p>También destaca su presencia en la estimación del valor de la media poblacional <span class="math inline">\(\mu\)</span>. Lo hacemos tomando una muestra de tamaño <span class="math inline">\(n\)</span> y calculando su media <span class="math inline">\(\bar{x}\)</span>. El problema es que cada vez que tomemos una muestra, el valor de <span class="math inline">\(\bar{x}\)</span> cambiará, así que mejor que apostar por un valor concreto preferimos dar un intervalo de valores razonables para <span class="math inline">\(\mu\)</span>. Para calcular ese intervalo necesitamos conocer la variabilidad que presentan los valores de <span class="math inline">\(\bar{x}\)</span>. Pues bien, la desviación típica de <span class="math inline">\(\bar{x}\)</span> <strong>siempre</strong> es igual a la desviación típica de la población dividida por <span class="math inline">\(\sqrt{n}\)</span>. Esto es verdad para <strong>todas</strong> las distribuciones, no solo para la Normal.</p>
 <p>En definitiva, la desviación típica aparece en muchos contextos y con mucha relevancia. El calificativo ``típica’’ resulta en este caso apropiado y bien merecido.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+¿Qué desviación típica tienen las estaturas?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si un extraterrestre le pregunta como somos los terrícolas usted le puede decir que nuestra estatura media es de aproximadamente 1,70, pero solo con esa información el extraterrestre puede pensar que hay terrícolas de 40 cm y también de 3 m. Le podría decir que casi todos estamos entre 1,40 y 2 m, por poner números redondos, pero ¿y si le quiere dar la desviación típica?</p>
+<p>Si una variable sigue una distribución Normal –y la estatura podemos considerar que la sigue– se dan unas proporciones que siempre son las mismas, no importa si estamos hablando de estaturas, del peso de paquetes de azúcar o de las longitudes de los pétalos de un determinado tipo de flor. Estas proporciones son:</p>
+<p><span class="math display">\[\mu \pm \sigma: \;\; 68\, \%\]</span></p>
+<p><span class="math display">\[\mu \pm 2 \sigma: \;\; 95\, \%\]</span></p>
+<p><span class="math display">\[\mu \pm 3 \sigma: \;\; 99,7\, \%\]</span></p>
+<p>Dando por bueno 1,70 m como valor de la media y fijándonos en el intervalor <span class="math inline">\(\mu \pm 3 \sigma\)</span> ¿qué valor de la estutura será superado por el 1-2 por mil de los individuos? (el 3 por mil que queda fuera del intervalo lo repartimos entre los dos extremos). Si ese valor es 1,91 m la desviación típica será 7 cm. (1,70 + 3·0,07 = 1,91)</p>
+</div>
+</div>
 <div id="tbl-letters" class="anchored">
 <table class="table">
 <caption>Tabla&nbsp;1.8: Desviación típica. Ventajas e inconvenientes</caption>
@@ -695,14 +714,15 @@ Otros nombres para la desviación típica
 <tr class="odd">
 <td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
 <td><ul>
-<li>Excelentes propiedades que no tieneninguna otra medida.</li>
-<li>Constituye uno de los ejes centrales de muchos métodos estadísticos.</li>
+<li>Es la medida de dispersión más utilizada.</li>
+<li>Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
 <td><ul>
-<li>Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.</li>
+<li>Malas propiedades algebraicas.</li>
+<li>Su interpretación no es intuitiva.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -711,13 +731,41 @@ Otros nombres para la desviación típica
 </section>
 <section id="el-coeficiente-de-variación" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="el-coeficiente-de-variación">El coeficiente de variación</h3>
-<p>texto</p>
-<p>texto</p>
+<p>Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? seguramente pensará que en el del los gatos, donde uno pesa más 4 veces mlo que pesa otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:</p>
+<p><span class="math display">\[ s_{gatos} = 2,61\, kg\]</span> <span class="math display">\[ s_{vacas} = 9,13\, kg\]</span> Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias de cada uno de los valores respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.</p>
+<p>En un caso como este lo que interesa es la variabilidad respecto a la media, y para medir ese aspecto de los datos usamos el coeficiente de variación <span class="math inline">\(CV\)</span> que se define como:</p>
+<p><span class="math display">\[CV = \frac{s}{\bar{x}}\]</span> Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. EN nuestro ejemplo, para los gatos tenemos un <span class="math inline">\(CV\)</span> del 65,35% mientras que para las vacas es solo del 1,83%.</p>
+<p>Cuando se informa sobre las características de un conjunto de datos, la desviación típica suele ir acompañada de la media ya que esos dos valroes –conjuntamente– dicen mucho de los datos. El coeficiente de variación puede ir solo poque incluye información de los dos, aunque nos perdemos sus valroes concretos ===Esto hay que mejorarlo o quitarlo===</p>
+<div id="tbl-letters" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1.9: Desviación típica. Ventajas e inconvenientes</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
+<td><ul>
+<li>Es la medida de dispersión más utilizada.</li>
+<li>Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
+<td><ul>
+<li>Malas propiedades algebraicas.</li>
+<li>Su interpretación no es intuitiva.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <section id="medidas-de-posición" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="medidas-de-posición"><span class="header-section-number">1.3</span> Medidas de posición</h2>
-<p>texto</p>
+<p>Mojones</p>
 <p>texto</p>
 <section id="cuartiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cuartiles">Cuartiles</h3>
@@ -783,7 +831,7 @@ La paradoja de las patatas
 <p>Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?</p>
 <div id="tbl-evolucionpoblacion1" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.9: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.10: Evolución de la población</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 20%">
@@ -828,7 +876,7 @@ La paradoja de las patatas
 <p>Si calculamos la media aritmética de la tasa de crecimiento tenemos: <span class="math inline">\((0,05 + 0,20 + 0,50)/3 = 0,25\)</span> y el factor medio de expansión sería <span class="math inline">\(1,25\)</span>. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:</p>
 <div id="tbl-evolucionpoblacion1-tbl-colwidths10202020" class="anchored">
 <table class="table-hover table">
-<caption>Tabla&nbsp;1.10: Evolución de la población</caption>
+<caption>Tabla&nbsp;1.11: Evolución de la población</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 18%">
@@ -1124,7 +1172,6 @@ INE. 2023. <span>«Encuesta Anual de Estructura Salarial. Año 2021»</span>. In
 <hr>
 <ol>
 <li id="fn1"><p>leyenda nota pie de página<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>La idea es que para una amplia variedad de distribuciones, en el intervalo <span class="math inline">\(\mu \pm k\sigma\)</span> se tiene como mínimo una proporción de observaciones igual a <span class="math inline">\(1-1/k^2\)</span>. Es decir, si <span class="math inline">\(k=\sqrt{2}\)</span>, el intervalo es <span class="math inline">\(\mu \pm \sqrt{2}\sigma\)</span> y podemos afirmar que, con independencia del tipo de distribución, tendremos como mínimo el 50% de las observaciones dentro de ese intervalo, y si <span class="math inline">\(k=2\)</span> tendremos como mínimo el 75%. Una curiosa propiedad en la que nuestra pareja media–desviación típica también es protagonista.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
