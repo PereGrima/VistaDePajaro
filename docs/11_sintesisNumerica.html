@@ -731,14 +731,14 @@ Otros nombres para la desviación típica
 </section>
 <section id="el-coeficiente-de-variación" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="el-coeficiente-de-variación">El coeficiente de variación</h3>
-<p>Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? seguramente pensará que en el del los gatos, donde uno pesa más 4 veces mlo que pesa otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:</p>
-<p><span class="math display">\[ s_{gatos} = 2,61\, kg\]</span> <span class="math display">\[ s_{vacas} = 9,13\, kg\]</span> Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias de cada uno de los valores respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.</p>
-<p>En un caso como este lo que interesa es la variabilidad respecto a la media, y para medir ese aspecto de los datos usamos el coeficiente de variación <span class="math inline">\(CV\)</span> que se define como:</p>
-<p><span class="math display">\[CV = \frac{s}{\bar{x}}\]</span> Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. EN nuestro ejemplo, para los gatos tenemos un <span class="math inline">\(CV\)</span> del 65,35% mientras que para las vacas es solo del 1,83%.</p>
-<p>Cuando se informa sobre las características de un conjunto de datos, la desviación típica suele ir acompañada de la media ya que esos dos valroes –conjuntamente– dicen mucho de los datos. El coeficiente de variación puede ir solo poque incluye información de los dos, aunque nos perdemos sus valroes concretos ===Esto hay que mejorarlo o quitarlo===</p>
+<p>Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? Seguramente pensará que en el del los gatos, donde uno pesa más 4 veces más que otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:</p>
+<p><span class="math display">\[ s_{gatos} = 2,61\, kg\]</span> <span class="math display">\[ s_{vacas} = 9,13\, kg\]</span> Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.</p>
+<p>En un caso como este lo que interesa es la variabilidad respecto a la media, y para esto usamos el coeficiente de variación <span class="math inline">\(CV\)</span> que se define como:</p>
+<p><span class="math display">\[CV = \frac{s}{\bar{x}}\]</span> Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. Ennuestro ejemplo, para los gatos tenemos un <span class="math inline">\(CV\)</span> del 65,35% mientras que para las vacas es solo del 1,83%.</p>
+<p>Para comaprar la variabilidad de conjuntos de datos con valores medios muy disitntos es mejor utilizar el coeficiente de variación.</p>
 <div id="tbl-letters" class="anchored">
 <table class="table">
-<caption>Tabla&nbsp;1.9: Desviación típica. Ventajas e inconvenientes</caption>
+<caption>Tabla&nbsp;1.9: Coeficiente de variación. Ventajas e inconvenientes</caption>
 <colgroup>
 <col style="width: 10%">
 <col style="width: 90%">
@@ -747,15 +747,14 @@ Otros nombres para la desviación típica
 <tr class="odd">
 <td><strong>PROS</strong> <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i></td>
 <td><ul>
-<li>Es la medida de dispersión más utilizada.</li>
-<li>Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.</li>
+<li>Permite interpretar la variabilidad en el contexto del nivel de respuesta (valor medio)</li>
+<li>Es adimensional. Permite comparar situaciones medidas con diferentes unidades</li>
 </ul></td>
 </tr>
 <tr class="even">
 <td><strong>CONS</strong> <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i></td>
 <td><ul>
-<li>Malas propiedades algebraicas.</li>
-<li>Su interpretación no es intuitiva.</li>
+<li>Tiene poco juego en la descripción de variables aleatorias y en de la estimación de característica de la población</li>
 </ul></td>
 </tr>
 </tbody>
@@ -765,10 +764,19 @@ Otros nombres para la desviación típica
 </section>
 <section id="medidas-de-posición" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="medidas-de-posición"><span class="header-section-number">1.3</span> Medidas de posición</h2>
-<p>Mojones</p>
-<p>texto</p>
+<p>Sirven para establecer unas parcas que delimitan zonas en el conjunto de los datos. Así, dado un valor se sabe a qué zona pertenerce, si está entre los mayores o entre los menores.</p>
 <section id="cuartiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cuartiles">Cuartiles</h3>
+<p>Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. El primer cuartil es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil, que deja el 75% por debajo y el 25% por encima.</p>
+<div id="fig-cuartiles" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="sintesisNumerica/cuartiles.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figura&nbsp;1.2: Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color===</figcaption>
+</figure>
+</div>
+<p>Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si el primer cuartil es 1.300€, la mediana 1.500€ y el tercer cuartil 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.00€ está entre el 25% de privilegiados que más ganan.</p>
+<section id="cómo-se-calculan-los-cuartiles" class="level6 unnumbered">
+<h6 class="unnumbered anchored" data-anchor-id="cómo-se-calculan-los-cuartiles"><strong>¿Cómo se calculan los cuartiles?</strong></h6>
 <p>Formas de calcular los cuartiles</p>
 <p>https://mathworld.wolfram.com/Quartile.html</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -785,6 +793,7 @@ Los cuartiles como zona
 </div>
 </div>
 </section>
+</section>
 <section id="deciles.-percentiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="deciles.-percentiles">Deciles. Percentiles</h3>
 <p>texto</p>
@@ -795,7 +804,7 @@ Los cuartiles como zona
 <h2 data-number="1.4" class="anchored" data-anchor-id="porcentajes"><span class="header-section-number">1.4</span> Porcentajes</h2>
 <p>texto</p>
 <p>texto</p>
-<p>texto</p>
+<p>Paradoja de Simpson</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

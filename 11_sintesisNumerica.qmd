@@ -280,38 +280,48 @@ Dando por bueno 1,70 m como valor de la media y fijándonos en el intervalor $\m
 
 ### El coeficiente de variación {.unnumbered}
 
-Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? seguramente pensará que en el del los gatos, donde uno pesa más 4 veces mlo que pesa otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:
+Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? Seguramente pensará que en el del los gatos, donde uno pesa más 4 veces más que otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:
 
 $$ s_{gatos} = 2,61\, kg$$
 $$ s_{vacas} = 9,13\, kg$$
-Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias de cada uno de los valores respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.
+Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.
 
-En un caso como este lo que interesa es la variabilidad respecto a la media, y para medir ese aspecto de los datos usamos el coeficiente de variación $CV$ que se define como:
+En un caso como este lo que interesa es la variabilidad respecto a la media, y para esto usamos el coeficiente de variación $CV$ que se define como:
 
 $$CV = \frac{s}{\bar{x}}$$
-Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. EN nuestro ejemplo, para los gatos tenemos un $CV$ del 65,35% mientras que para las vacas es solo del 1,83%.
+Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. Ennuestro ejemplo, para los gatos tenemos un $CV$ del 65,35% mientras que para las vacas es solo del 1,83%.
 
-Cuando se informa sobre las características de un conjunto de datos, la desviación típica suele ir acompañada de la media ya que esos dos valroes --conjuntamente-- dicen mucho de los datos. El coeficiente de variación puede ir solo poque incluye información de los dos, aunque nos perdemos sus valroes concretos ===Esto hay que mejorarlo o quitarlo===
+Para comaprar la variabilidad de conjuntos de datos con valores medios muy disitntos es mejor utilizar el coeficiente de variación.
 
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Es la medida de dispersión más utilizada.                                                             |
-|                                                                                | -   Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.       | 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Malas propiedades algebraicas.                                                                        |
-|                                                                                | -   Su interpretación no es intuitiva.
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Permite interpretar la variabilidad en el contexto del nivel de respuesta (valor medio)                            |
+|                                                                                | -   Es adimensional. Permite comparar situaciones medidas con diferentes unidades                                      | 
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Tiene poco juego en la descripción de variables aleatorias y en de la estimación de característica de la población |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 
-: Desviación típica. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
+: Coeficiente de variación. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 
 ## Medidas de posición
 
-Mojones
+Sirven para establecer unas parcas que delimitan zonas en el conjunto de los datos. Así, dado un valor se sabe a qué zona pertenerce, si está entre los mayores o entre los menores.
 
-texto
 
 ### Cuartiles {.unnumbered}
+
+Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. El primer cuartil es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil, que deja el 75% por debajo y el 25% por encima.
+
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color===](sintesisNumerica/cuartiles.png){#fig-cuartiles fig-align="center" width="100%"}
+
+Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si el primer cuartil es 1.300€, la mediana 1.500€ y el tercer cuartil 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.00€ está entre el 25% de privilegiados que más ganan.
+
+###### **¿Cómo se calculan los cuartiles?** {.unnumbered}
+
+
+
+
 
 Formas de calcular los cuartiles
 
@@ -335,7 +345,7 @@ texto
 
 texto
 
-texto
+Paradoja de Simpson
 
 ::: callout-note
 ## La paradoja de las patatas
