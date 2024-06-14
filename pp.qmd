@@ -1,0 +1,99 @@
+---
+title: "Untitled"
+---
+
+```{=html}
+
+ <h8>
+    <table width="750" cellpadding="5"  border="1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td style="text-align:center">Interf_1</td>
+            <td style="text-align:center">Interf_2</td>
+            <td style="text-align:center">Interf_3</td>
+            <td style="text-align:center">Interf_4</td>
+            <td style="text-align:center">Interf_5</td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="text-align:center"> Matrix 1</td>
+            <td>Lev: Neg</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td> 
+        </tr>
+        <tr>
+            <td>Lev: Pos low</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+            <td style="text-align:center" bgcolor="#FFF0EC">C: N(40; 2) <br> T: N(41; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+        </tr>
+        <tr>
+            <td>Lev: Pos high</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td> 
+            <td style="text-align:center" bgcolor="#FFC8BC">C: N(10; 0.5) <br> T: N(12; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>  
+        </tr>
+        
+        <tr>
+            <td rowspan="3" style="text-align:center"> Matrix 2</td>
+            <td>Lev: Neg</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>  
+        </tr>
+        <tr>
+            <td>Lev: Pos low</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+        </tr>
+        <tr>
+            <td>Lev: Pos high</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td> 
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>   
+        </tr>
+        
+        <tr>
+            <td rowspan="3" style="text-align:center"> Matrix 3</td>
+            <td>Lev: Neg</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#FFF0EC">C: N(20; 1) <br> T: N(20.5; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(20; 1) <br> T: N(20; 1)</td>  
+        </tr>
+        <tr>
+            <td>Lev: Pos low</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+            <td style="text-align:center" bgcolor="#FFC8BC">C: N(40; 2) <br> T: N(45; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(40; 2) <br> T: N(40; 2)</td>  
+        </tr>
+        <tr>
+            <td>Lev: Pos high</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td> 
+            <td style="text-align:center" bgcolor="#FFC8BC">C: N(10; 0.5) <br> T: N(14; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>
+            <td style="text-align:center" bgcolor="#C2FFBC">C: N(10; 0.5) <br> T: N(10; 0.5)</td>  
+        </tr>
+  
+    </table>
+    </h8>
+
+```

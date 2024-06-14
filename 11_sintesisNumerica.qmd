@@ -354,7 +354,7 @@ El paquete de software estadístico Minitab utiliza las expresiones $0,25(n+1)$ 
         <tr>
             <td style="text-align:center">2, 4, 6, 8 (n=4)<br> 2, 4, 6, 8, 10 (n=5)</td>
             <td style="text-align:center">0.25·5=1.25 <br>0.25·6=1.5</td>
-            <td style="text-align:center">2+0.25(4-2) = <p><b>2.5</b> <br>2+0.5(4-2) = <b>3</b></td>
+            <td style="text-align:center">2+0.25(4-2) = <b>2.5</b> <br>2+0.5(4-2) = <b>3</b></td>
             <td style="text-align:center">0.75·5=3.75 <br>0.75·6  =4.5</td>
             <td style="text-align:center">6+0.75(8-6) = <b>7.5</b> <br>8+0.5(10-8) = <b>9</b></td>
         </tr>
@@ -367,36 +367,33 @@ El paquete de software estadístico Minitab utiliza las expresiones $0,25(n+1)$ 
 
 ```
 
-<!-- \vspace{0.5cm} -->
-<!-- \noindent $ \bullet \;$ Datos: 2, 4, 6, 8, 10 \\ -->
-<!-- Posición de \(Q_1:\) \(0,25\cdot6=1,5\); Valor de \(Q_1:\) \(2+0,5(4-2)=3\) \\ -->
-<!-- Posición de \(Q_3:\) \(0,75\cdot6=4,5\); Valor de \(Q_3:\) \(8+0,5(10-8)=9\)  -->
+Excel dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: \(0,25(n-1)+1\) y \(0,75(n-1)+1\) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con versiones anteriores) y se han añadido: 
 
-<!-- \vspace{0.3cm} -->
-<!-- \noindent $ \bullet \;$ Datos: 2, 4, 6, 8 \\ -->
-<!-- Posición  \(Q_1:\) \(0,25\cdot5=1,25\); Valor  \(Q_1:\) \(2+0,25(4-2)=2,5\) \\ -->
-<!-- Posición  \(Q_3:\) \(0,75\cdot5=3,75\); Valor  \(Q_3:\) \(6+0,75(8-6)=7,5\)  -->
+* CUARTIL.INC: Coincide con la función CUARTIL. 
+* CUARTIL.EXC: Identifica los cuartiles de la misma forma que Minitab. 
 
-<!-- \vspace{0.5cm} -->
-<!-- \noindent \textbf{Excel} dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: \(0,25(n-1)+1\) y \(0,75(n-1)+1\) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con \index{cuartiles!cálculo con Excel} versiones anteriores) y se han añadido: -->
+En la figura \ref{Figura020704} se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019). -->
 
-<!-- \begin{itemize}[leftmargin=*] -->
-<!-- 	\itemsep0em  -->
-<!-- 	\item CUARTIL.INC: Coincide con la función CUARTIL. -->
-<!-- 	\item CUARTIL.EXC: Identifica los cuartiles de la misma forma que Minitab. -->
-<!-- \end{itemize} -->
+![Cálculo de los cuartiles con Excel](sintesisNumerica/Cuartiles_4.png){#fig-cuartilesExcel fig-align="center" width="85%"}
 
-<!-- \noindent En la figura \ref{Figura020704} se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019). -->
+En resumen, los valores obtenidos con los métodos comentados han sido: 
 
-<!-- \begin{figure} [h] -->
-<!-- 	%\captionsetup{font=small,labelfont=it} -->
-<!-- 	\centering -->
-<!-- 	\includegraphics[scale = 0.7]{\MyPath/LibroResp_2_EstDesc/0207 Cuartiles_4.png} -->
-<!-- 	\caption{\small{\textit{Cálculo de los cuartiles con Excel}}} -->
-<!-- 	\label{Figura020704} -->
-<!-- \end{figure} -->
+```{=html}
+<h8>
 
-<!-- \noindent En resumen, los valores obtenidos con los métodos comentados han sido: -->
+    <TABLE BORDER>
+	<TR>
+		<TD ROWSPAN=2>Item 1</TD>
+	    	<TD>Item 2</TD> <TD>Item 3</TD> <TD>Item 4</TD>
+	</TR>
+	<TR>
+		<TD>Item 5</TD> <TD>Item 6</TD> <TD>Item 7</TD>
+	</TR>
+</TABLE>
+
+ </h8> 
+   
+```
 <!-- \vspace{0.4cm} -->
 <!-- {\small -->
 <!-- \begin{center} -->
