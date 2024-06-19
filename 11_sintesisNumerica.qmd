@@ -6,20 +6,17 @@ Con la síntesis numérica de datos pasa algo parecido, se trata de saber en qu�
 
 Estas medidas de síntesis numérica se pueden agrupar en varios tipos:
 
-* Medidas de tendencia central: Indican en torno a que valor se mueven los datos. Típicamente se consideran la media, la mediana y la moda, auqneu esta última --en generl-- no es demasiado relevante.
+-   Medidas de tendencia central: Indican en torno a que valor se mueven los datos. Típicamente se consideran la media, la mediana y la moda, auqneu esta última --en generl-- no es demasiado relevante.
 
-* Medidas de dispersión: Informan sobre la variabilidad de los datos. Los valores 0 y 1000 tienen media 500, como 550 y 450, pero la variabilidad -que muchas veces es lo más importante- es muy distinta. Medias típicas de dispersión son: el rango, la desviación media, la la varianza y desviación típica. El coeficiente de variación no es exactamente una medida de dispersión pero también la colocamos en este grupo.
+-   Medidas de dispersión: Informan sobre la variabilidad de los datos. Los valores 0 y 1000 tienen media 500, como 550 y 450, pero la variabilidad -que muchas veces es lo más importante- es muy distinta. Medias típicas de dispersión son: el rango, la desviación media, la la varianza y desviación típica. El coeficiente de variación no es exactamente una medida de dispersión pero también la colocamos en este grupo.
 
-* Medidas de posición: Sirven para entender la posición de un valor dentro de un conjunto. Si quiere saber si en su empresa está entre el 25% que tiene mejor salario o en el 25% de los que lo tienen más bajo, solo necesita saber el primer y el tercer cuartil de la distribución delos salarios. Además de los cuartiles hablaremos de deciles y percentiles, una simple generalización. 
+-   Medidas de posición: Sirven para entender la posición de un valor dentro de un conjunto. Si quiere saber si en su empresa está entre el 25% que tiene mejor salario o en el 25% de los que lo tienen más bajo, solo necesita saber el primer y el tercer cuartil de la distribución delos salarios. Además de los cuartiles hablaremos de deciles y percentiles, una simple generalización.
 
-* Porcentajes: Muchas veces se utilizan para describir situaciones numéricas, parecen fáciles pero no lo son tanto y pesamos que vale la pena dedeciarles tambien un apartado.
-
-
+-   Porcentajes: Muchas veces se utilizan para describir situaciones numéricas, parecen fáciles pero no lo son tanto y pesamos que vale la pena dedeciarles tambien un apartado.
 
 ## Medidas de tendencia central
 
 La cantinela "media, mediana y moda" --medidas de tendencia central por excelencia-- constitue para muchos el primer recuerdo de su recorrido por el curso de estadística. Vamos a repasar el significado, los peligros y lo que se puede esperar de cada una de estas medidas.
-
 
 ### Media aritmética {.unnumbered}
 
@@ -44,13 +41,14 @@ Para cada valor de $x_i$ su **frecuencia relativa** es $f_i = n_i/N$. También p
 
 $$ \bar{x} = \sum_{i} f_i \, x_i   =  1,48 $$ Esta expresión es análoga a la de la esperanza matemática (solo hay que cambiar frecuencia relativa por probabilidad) que veremos más adelante,
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Medida de tendencia central más conocida y utilizada.                                                 |
-|                                                                                | -   Fácil de interpretar                                                                                  |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Muy influenciable por valores extremos                                                                |
-|                                                                                | -   Poco representativa si la distribución es muy asimétrica                                              |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+--------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Medida de tendencia central más conocida y utilizada.    |
+|                                                                                | -   Fácil de interpretar                                     |
++--------------------------------------------------------------------------------+--------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Muy influenciable por valores extremos                   |
+|                                                                                | -   Poco representativa si la distribución es muy asimétrica |
++--------------------------------------------------------------------------------+--------------------------------------------------------------+
+
 : Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ::: callout-note
@@ -60,7 +58,6 @@ La media es un concepto tan fácil que a veces lo tratamos con descuido y nos da
 
 También hay que estar atento a las medias que no está claro como se han calculado. Un ejemplo sencillo: ¿cómo se calcula la temperatura media de un día? ¿Se toman cada minuto y se hace el promedio? ¿o se toman cada hora o cada 6 horas? Se se hace el promedio de las temperaturas máxima y mínima no se le debería llamar temperatura media.
 :::
-
 
 ### Mediana {.unnumbered}
 
@@ -78,27 +75,27 @@ Si la distribución de los datos es simétrica, la media y la mediana coinciden 
 
 Según publicó el diario El País [@ElPAisEjecutivo], el ejecutivo de las empresas cotizadas en la bolsa española mejor pagado en 2023 tuvo unos ingresos de 23,77 millones de euros. Esta empresa tenía ese año 2299 empleados en España, suponiendo que ese ejecutivo formara parte de la plantilla y que todos menos él cobraran solo el salario mínimo (15.120 €/año), se podría decir que en promedio cobran 25.453 €/año, un 68 % más de lo que cobrarían todos menos uno. \[*no sé si poner este párrafo, quizá se podría poner ejercicio y que busquen los datos*\]
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Insensible a la presencia de valores extremos.                                                        |
-|                                                                                | -   Muy útil cuando la distribución de los datos es muy asimétrica.                                       |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No tiene fórmula. No la dan las calculadoras de uso académico.                                        |
-|                                                                                | -   Su uso no está tan popularizado como el de la media.                                                  |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Insensible a la presencia de valores extremos.                  |
+|                                                                                | -   Muy útil cuando la distribución de los datos es muy asimétrica. |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   No tiene fórmula. No la dan las calculadoras de uso académico.  |
+|                                                                                | -   Su uso no está tan popularizado como el de la media.            |
++--------------------------------------------------------------------------------+---------------------------------------------------------------------+
+
 : Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
 ### Moda {.unnumbered}
 
 Dado un conjunto de valores, la moda es el que más se repite. A difencia de la media y la mediana puede no ser única y se puede aplicar también a varibles cualitativas (no numéricas). Si realizamos sobre el método de transporte que usan los estudiantes para ir a su centro de estudio la moda puede ser el autobús o ir andando. No es una medida muy relevante. Siempre aparece en los libros pero rara vez en los resúmenes estadísticos.
 
++--------------------------------------------------------------------------------+-------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   También se puede aplicar a datos cualitativos.          |
++--------------------------------------------------------------------------------+-------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   En general tiene poco interés práctico y es poco usada. |
++--------------------------------------------------------------------------------+-------------------------------------------------------------+
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   También se puede aplicar a datos cualitativos.                                                        |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   En general tiene poco interés práctico y es poco usada.                                               |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 : Ajuste a ojo. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
-
 
 A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la distribución de los salarios en España en 2021. Tiene dos "Salarios más frecuentes" (observe que se evita el término "moda", quizá porque se puede prestar a malas interpretaciones). Cuando se da esta circunstancia se dice que la distribución es bimodal. El salario medio es mayor que el mediano porque los salarios muy altos tiran de la media pero apenas afectan a la mediana. <br><br>
 
@@ -106,20 +103,19 @@ A modo de resumen de este apartado, la figura [-@fig-salariosINE] muestra la dis
 
 ## Medidas de dispersión
 
-Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones. 
+Quizá lo más importante de este capítulo -y de todo el libro- es interiorizar la importancia de considerar la variabilidad para para describir datos, para analizarlos y para tomar decisiones.
 
 Todos hemos oido algún chiste que ridiculiza esa interpretación de la realidad basada solo en valores medios (pero eso no es buena estadística!):
 
-* Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.
+-   Si un señor se come un pollo y otro no come nada la estadística lo explica diciendo que han comido un promedio de medio pollo cada uno.
 
-* Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.
+-   Si usted va a la cocina de su casa, pone la cabeza en el horno y los pies en el frigorífico tendrá el cuerpo a la temperatura media ideal.
 
-* Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.
+-   Aunque no sabía nadar se atrevió a cruzar el rio cuando le dijeron que la profundidad media era solo de un metro. Se ahogó.
 
 En ocasiones la práctica habitual no está muy alejada de esas caricaturas. Estamos acostumbrados a clasificar los países por su renta per cápita y eso es el medio pollo que se come cada uno. La variabilidad en la renta también es un excelente indicador del nivel de desarrollo y bienestar de un país. Un caso similar en un terreno que nos queda cercano son los resultados de las pruebas PISA, estamos acostumbrados a ver la clasificación de los valores medios por países pero apenas se habla de la variabilidad dentro de cada país.
 
 En el ámbito de la ingeniría y del control de calidad, la variabilidad suele ser el enemigo más importante al que hay que enfrentarse. En general, en los análisis estadísticos hay que saber distinguir entre esa variabilidad de fondo, inevitable, que muchas veces denominamos "ruido" de lo que es una variación debida a una causa concreta que conviene identificar, lo que llamamos "señal". En fin, lo primero será saber como medir la variabilidad. Vamos a repasar las medidas más habituales.
-
 
 ### Rango {.unnumbered}
 
@@ -145,16 +141,14 @@ $$ f(a) =  \frac{\sum_{i=1}^N |x_i -a|}{N} $$ Como la distancia promedio solo de
 
 La otra forma de resolver el problema de la anulación de las diferencias es elevándolas al cuadrado. Parece una complicación innecesaria pero tiene muchas ventajas, es lo que llamamos varianza.
 
-
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 | **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Fácil de explicar y de justificar.                                                                    |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Tiene poco recorrido en la teoría estadística                                                         |
-|                                                                                | -   Existe otra medida --la desviación típica-- con más posibilidades de aplicación y mejores propiedades | 
+|                                                                                | -   Existe otra medida --la desviación típica-- con más posibilidades de aplicación y mejores propiedades |
 +--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
 : Desviación media. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
-
 
 ### Varianza {.unnumbered}
 
@@ -164,21 +158,19 @@ La otra forma de resolver el problema de la anulación de las diferencias es ele
 Las dos son válidas según el diccionario de la Real Academia Española. Nosotros usaremos *varianza*.
 :::
 
-Simplemente elevamos las diferencias al cuadrado en vez de usar su valor absoluto. Si tenemos un conjunto de $N$ datos con media $\mu$ y queremos conocer la varianza de **esos datos**[^1] usamos la expresión:
+Simplemente elevamos las diferencias al cuadrado en vez de usar su valor absoluto. Si tenemos un conjunto de $N$ datos con media $\mu$ y queremos conocer la varianza de **esos datos**[^11_sintesisnumerica-1] usamos la expresión:
 
-[^1]: leyenda nota pie de página
+[^11_sintesisnumerica-1]: leyenda nota pie de página
 
-$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \mu )^2}{N} $$ 
-Repitiendo el análisis que hemos hecho para la $DM$, vamos a elegir el valor de $a$ que minimiza la función:
+$$ \sigma^2 = \frac{\sum_{i=1}^N ( x_i - \mu )^2}{N} $$ Repitiendo el análisis que hemos hecho para la $DM$, vamos a elegir el valor de $a$ que minimiza la función:
 
-$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ 
-En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
+$$g(a) =  \frac{\sum_{i=1}^N ( x_i - a )^2}{N} $$ En este caso lo podemos deducir derivando $g(a)$ con respecto a $a$, igualando a cero y despejando su valor. Veamos:
 
-$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$ 
+$$\frac{\partial g(a)}{\partial a} = \frac{-2}{N} \sum_{i=1}^{N}(x_i-a) = 0$$
 
 Por tanto $\sum_{i=1}^{N}(x_i-a) = 0$, de donde se deduce que $\sum x_i =N \cdot a$ y despejando $a$ tenemos:
 
-$$a = \sum_{i=1}^{N} \frac{x_i}{N} $$ 
+$$a = \sum_{i=1}^{N} \frac{x_i}{N} $$
 
 En este caso el valor de $a$ sí coincide con la media aritmética (le llamamos $\mu$). Si hacemos la segunda derivada vemos que siempre es positiva, lo cual confirma que el punto crítico es $a=\mu$ y que el valor mínimo de $g(a)$ es la varianza de $X$.
 
@@ -198,14 +190,13 @@ Elevar al cuadrado las diferencias pudiendo trabajar con su valor absoluto parec
 
 -   La raiz cuadrada de la varianza --la desviación típica-- es uno de los parámetros que definen la distribución Normal (el otro es la media). Esto posibilita la construcción de intervalos de confianza para estimar, por ejemplo, la media de la población, lo que sería mucho más complejo si se usara la $DM$.
 
-
-###### **¿Se divide por $n$ o por $n-1$?** {.unnumbered}
+###### **¿Se divide por** $n$ o por $n-1$? {.unnumbered}
 
 Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de **esos datos** dividimos por el número de los que tenemos, pero aunque esta parece la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como **estimar la varianza de la población** de la cual provienen y de la que solo tenemos unos representantes.
 
 En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra ($\bar{x}$). Esta sustitución tiene más influencia de la que parece ya que la media de de la muestra se adapta a los datos con los que se calcula y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos $n$ (al número de elementos de la muestra le llamamos $n$ minúscula) se divide por $n-1$ esa subestimación --se llama *sesgo*-- ya no se da. Por tanto, la fórmula que usamos en la práctica es:
 
-$$ s^2 = \frac{\sum_{i=1}^n ( x_i - \bar{x})^2}{n-1} $$ 
+$$ s^2 = \frac{\sum_{i=1}^n ( x_i - \bar{x})^2}{n-1} $$
 
 Esta corrección es especialmente importante cuando se tienen muestras pequeñas ya que puede haber una diferencia importante entre dividir por $n$ o hacerlo por $n-1$.
 
@@ -215,20 +206,16 @@ Esta corrección es especialmente importante cuando se tienen muestras pequeñas
 En algunas calculadoras y en hojas de cálculo como Excel, existen las dos opciones para calcular la varianza: dividiendo por $N$ o por $n-1$ según se tenga una población o una muestra. En los paquetes de software estadístico cuando se piede la varianza siempre la dan dividiendo por $n-1$ porque en la práctica siempre tenemos muestras. Si en algún caso interesa conocer el valor dividiendo por $n$ el truco consiste en añadir la media como un dato más.
 :::
 
-
 Como este tema puede ser controvertido, le dedicamos un apéndice que profundiza en este tema sin abandonar la visión intuitiva.
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tiene ninguna otra medida.                                             |
-|                                                                                | -   Constituye uno de los ejes centrales de muchos métodos estadísticos.                                  |
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación.        |
-|                                                                                |                                                                                                           | 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Excelentes propiedades que no tiene ninguna otra medida. \|                                    |
+|                                                                                | -   Constituye uno de los ejes centrales de muchos métodos estadísticos.                           |
++--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Sus unidades son el cuadrado de las unidades de los datos, lo que dificulta su interpretación. |
++--------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
 
 : Varianza. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
-
-
 
 ### Desviación típica {.unnumbered}
 
@@ -238,10 +225,9 @@ Como este tema puede ser controvertido, le dedicamos un apéndice que profundiza
 También se puede llamar desviación estándar, pero no de otra manera, aunque algunos textos se refieren a ella como desviación tipo o desvío típico.
 :::
 
-
 Es la raiz cuadrada de la varianza. En el caso más habitual de tener una muestra:
 
-$$s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}}$$ 
+$$s = \sqrt {\frac{\sum_{i=1}^n ( x_i - \bar{x} )^2}{n-1}}$$
 
 La raiz cuadrada hace que sus unidades sean las mismas que las de los datos. El precio a pagar es la pérdida de las propiedades algebraicas que tiene la varianza, por lo que en los desarrollos teóricos en muy habitual que el protagonismo lo tenga esta última.
 
@@ -249,7 +235,7 @@ Entre los muchos méritos de la desviación típica podemos decir que, junto con
 
 También destaca su presencia en la estimación del valor de la media poblacional $\mu$. Lo hacemos tomando una muestra de tamaño $n$ y calculando su media $\bar{x}$. El problema es que cada vez que tomemos una muestra, el valor de $\bar{x}$ cambiará, así que mejor que apostar por un valor concreto preferimos dar un intervalo de valores razonables para $\mu$. Para calcular ese intervalo necesitamos conocer la variabilidad que presentan los valores de $\bar{x}$. Pues bien, la desviación típica de $\bar{x}$ **siempre** es igual a la desviación típica de la población dividida por $\sqrt{n}$. Esto es verdad para **todas** las distribuciones, no solo para la Normal.
 
-En definitiva, la desviación típica aparece en muchos contextos y con mucha relevancia. El calificativo ``típica'' resulta en este caso apropiado y bien merecido.
+En definitiva, la desviación típica aparece en muchos contextos y con mucha relevancia. El calificativo \`\`típica'' resulta en este caso apropiado y bien merecido.
 
 ::: callout-note
 ## ¿Qué desviación típica tienen las estaturas?
@@ -267,169 +253,93 @@ $$\mu \pm 3 \sigma: \;\; 99,7\, \%$$
 Dando por bueno 1,70 m como valor de la media y fijándonos en el intervalor $\mu \pm 3 \sigma$ ¿qué valor de la estutura será superado por el 1-2 por mil de los individuos? (el 3 por mil que queda fuera del intervalo lo repartimos entre los dos extremos). Si ese valor es 1,91 m la desviación típica será 7 cm. (1,70 + 3·0,07 = 1,91)
 :::
 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Es la medida de dispersión más utilizada.                                                             |
-|                                                                                | -   Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal.       | 
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Malas propiedades algebraicas.                                                                        |
-|                                                                                | -   Su interpretación no es intuitiva.
-+--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Es la medida de dispersión más utilizada.                                                       |
+|                                                                                | -   Con la media forman una pareja perfecta. Son los parámetros que definen la distribución Normal. |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+| **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Malas propiedades algebraicas.                                                                  |
+|                                                                                | -   Su interpretación no es intuitiva.                                                              |
++--------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------+
 
 : Desviación típica. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
-
 
 ### El coeficiente de variación {.unnumbered}
 
 Suponga que tiene delante 4 gatos con los siguientes pesos: 1,5; 2,0; 6,0; 6,5 kg. Y ahora piense en 4 vacas cuyos pesos son: 490, 495, 505, 510 kg. ¿En que grupo de animales hay más variabilidad? Seguramente pensará que en el del los gatos, donde uno pesa más 4 veces más que otro, sin embargo verá las vacas practicamente iguales. Pero si calcula las desviaciones típicas obtendrá:
 
-$$ s_{gatos} = 2,61\, kg$$
-$$ s_{vacas} = 9,13\, kg$$
-Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.
+$$ s_{gatos} = 2,61\, kg$$ $$ s_{vacas} = 9,13\, kg$$ Es mayor la desviación típica del peso de las vacas. Esto es así porque las diferencias respecto a la media (4 en el caso de los gatos y 500 en el de las vacas) son para los gatos: 2,5; 2,0; 2,0; 2,5 y para las vacas: 10, 5, 5, 10. Como estas diferencia son mayores en el caso de las vacas, su desviación típica es mayor.
 
 En un caso como este lo que interesa es la variabilidad respecto a la media, y para esto usamos el coeficiente de variación $CV$ que se define como:
 
-$$CV = \frac{s}{\bar{x}}$$
-Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. Ennuestro ejemplo, para los gatos tenemos un $CV$ del 65,35% mientras que para las vacas es solo del 1,83%.
+$$CV = \frac{s}{\bar{x}}$$ Con frecuentcia ese valor se multiplica por 100 para darlo como porcentaje. Ennuestro ejemplo, para los gatos tenemos un $CV$ del 65,35% mientras que para las vacas es solo del 1,83%.
 
 Para comaprar la variabilidad de conjuntos de datos con valores medios muy disitntos es mejor utilizar el coeficiente de variación.
 
-
 +--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 | **PROS** <i class="fa-solid fa-thumbs-up fa-xl" style="color: #0ca701;"></i>   | -   Permite interpretar la variabilidad en el contexto del nivel de respuesta (valor medio)                            |
-|                                                                                | -   Es adimensional. Permite comparar situaciones medidas con diferentes unidades                                      | 
+|                                                                                | -   Es adimensional. Permite comparar situaciones medidas con diferentes unidades                                      |
 +--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 | **CONS** <i class="fa-solid fa-thumbs-down fa-xl" style="color: #f03333;"></i> | -   Tiene poco juego en la descripción de variables aleatorias y en de la estimación de característica de la población |
 +--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 
 : Coeficiente de variación. Ventajas e inconvenientes {#tbl-letters} : {tbl-colwidths="\[10,90\]"}
 
-
 ## Medidas de posición
 
 Sirven para establecer unas parcas que delimitan zonas en el conjunto de los datos. Así, dado un valor se sabe a qué zona pertenerce, si está entre los mayores o entre los menores.
 
-
 ### Cuartiles {.unnumbered}
 
-Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. El primer cuartil es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil, que deja el 75% por debajo y el 25% por encima.
+Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. Pues bien, el primer cuartil (Q1) es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil (Q3), que deja el 75% por debajo y el 25% por encima (figura [-@fig-cuartiles]).
 
-![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color===](sintesisNumerica/cuartiles.png){#fig-cuartiles fig-align="center" width="100%"}
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color y en mejorar visualmente===](sintesisNumerica/cuartiles.png){#fig-cuartiles fig-align="center" width="100%"}
 
-Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si el primer cuartil es 1.300€, la mediana 1.500€ y el tercer cuartil 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.000€ está entre el 25% de privilegiados que más ganan.
+Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si Q1 = 1.300€, la mediana 1.500€ y Q3 = 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.000€ está entre el 25% de privilegiados que más ganan.
 
-###### **¿Cómo se calculan los cuartiles?** {.unnumbered}
+Una forma fácil de determinar el valor de los cuartiles consiste en calcular primero su posición y después su valor. Si los datos son (ya los hemos ordenado):
 
-AUnque el concepto está claro, existen diferentes criterios para determinar los cuartiles y no todos dan el mismo resultado.
+$$2, \; 3, \; 5, \; 7, \; 8, \; 13, \; 14, \; 16$$
 
-John Tukey, creador de muchas de las modernas técnicas de análisis exploratorio de datos, identifica los cuartiles buscando las medianas de los que quedan por encima y por debajo de la mediana global. Para los datos 2, 4, 6, 8 y 10 (número impar) tenemos:
+Determinamos las posiciones mediante las expresiones:
 
-![](sintesisNumerica/Cuartiles_1.png){fig-align="center" width="65%"} 
+$$P_{Q_1} = 0.25(n+1)$$ $$P_{Q_3} = 0.75(n+1)$$
 
-Y si los datos son 2, 4, 6, y 8 (número par):
+Como en este caso $n=8$ tenemos que $P_{Q_1} = 2.25$ y $P_{Q_3} = 6.75$
 
-![](sintesisNumerica/Cuartiles_2.png){fig-align="center" width="65%"}
+Como las posiciones son números decimales, siendo $x_k$ es el valor en la posición $k$, interpolamos de la forma:
 
-David Moore y George McCabe en su libro “Introduction to the Practice of Statistics”, muy valorado por su carácter pedagógico e innovador, proponen un método similar al de Tukey pero sin incluir la mediana global en la determinación de las medianas de cada una de las mitades. Cuando el número de datos es par el valor de los cuartiles coincide con el método de Tukey, pero en general no coincide cuando el número de datos es impar.
+$$Q_1 = x_2 + 0.25(x_3 - x_2) = 3 + 0,25(5-3) = 3.5$$ $$Q_3 = x_6 + 0.75(x_7 - x_6) = 13 + 0,75(14-13) = 13.75$$ Existen otras formas de determinar el valor de los cuartiles y no todas dan exactamente el mismo resultado (para sorpresa y preocupación...).
 
-![](sintesisNumerica/Cuartiles_3.png){fig-align="center" width="65%"}
+Por ejemplo, Excel dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: (0,25(n-1)+1) y (0,75(n-1)+1) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con versiones anteriores) y se han añadido:
 
-El paquete de software estadístico Minitab utiliza las expresiones $0,25(n+1)$ y $0,75(n+1)$ para determinar las posiciones de $Q_1$ y $Q_3$ respectivamente. Si la posición obtenida para $Q_1$ es, por ejemplo, 1,25, su valor estará comprendido entre $x_1$ y $x_2$ interpolando de la forma: $Q_1 = x_1 + 0,25(x_2-x_1)$. Utilizando los mismos datos que en los ejemplos anteriores resulta:
+-   CUARTIL.INC: Coincide con la función CUARTIL.
+-   CUARTIL.EXC: Identifica los cuartiles de la misma forma que Minitab.
 
-```{=html}
-<h8>
-    <table width=100%" cellpadding="10"  border="0" class="center">
-    <tr style="border-bottom:0.5px solid grey">
-    <!-- <td colspan="100%"></td> -->
-  </tr>
-        <tr>
-            <td style="text-align:center">Datos</td>
-            <td style="text-align:center">Posición Q1</td>
-            <td style="text-align:center">Valor Q1</td>
-            <td style="text-align:center">Posición Q3</td>
-            <td style="text-align:center">Valor Q3</td>
-        </tr>
-        
-        <tr style="border-bottom:0.5px solid grey">
-    
-        <tr>
-            <td style="text-align:center">2, 4, 6, 8 (n=4)<br> 2, 4, 6, 8, 10 (n=5)</td>
-            <td style="text-align:center">0.25·5=1.25 <br>0.25·6=1.5</td>
-            <td style="text-align:center">2+0.25(4-2) = <b>2.5</b> <br>2+0.5(4-2) = <b>3</b></td>
-            <td style="text-align:center">0.75·5=3.75 <br>0.75·6  =4.5</td>
-            <td style="text-align:center">6+0.75(8-6) = <b>7.5</b> <br>8+0.5(10-8) = <b>9</b></td>
-        </tr>
-        
-        <tr style="border-bottom:0.5px solid grey">
-   
-       
- </h8> 
-    </table>
+En la figura [-@fig-cuartilesExcel] se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019).
 
-```
+![Cálculo de los cuartiles con Excel](sintesisNumerica/Cuartiles_4.png){#fig-cuartilesExcel fig-align="center" width="90%"}
 
-Excel dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: \(0,25(n-1)+1\) y \(0,75(n-1)+1\) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con versiones anteriores) y se han añadido: 
-
-* CUARTIL.INC: Coincide con la función CUARTIL. 
-* CUARTIL.EXC: Identifica los cuartiles de la misma forma que Minitab. 
-
-En la figura \ref{Figura020704} se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019). -->
-
-![Cálculo de los cuartiles con Excel](sintesisNumerica/Cuartiles_4.png){#fig-cuartilesExcel fig-align="center" width="85%"}
-
-En resumen, los valores obtenidos con los métodos comentados han sido: 
-
-```{=html}
-<h8>
-
-    <TABLE BORDER>
-	<TR>
-		<TD ROWSPAN=2>Item 1</TD>
-	    	<TD>Item 2</TD> <TD>Item 3</TD> <TD>Item 4</TD>
-	</TR>
-	<TR>
-		<TD>Item 5</TD> <TD>Item 6</TD> <TD>Item 7</TD>
-	</TR>
-</TABLE>
-
- </h8> 
-   
-```
-<!-- \vspace{0.4cm} -->
-<!-- {\small -->
-<!-- \begin{center} -->
-<!-- 	\begin{tabular}{ lccccc } \hline -->
-<!-- 		\multirow{2}{3em}{Método} & \multicolumn{2}{l}{Datos: 2, 4, 6, 8} & &  \multicolumn{2}{c}{Datos: 2, 4, 6, 8, 10} \\ -->
-<!-- 		 & \(\;\;\;\;Q_1\) & \(Q_3\) & \(\;\) & \(\;\;\;\;\;\;\;\;Q_1\) & \(Q_3\) \\ -->
-<!-- 		\hline -->
-<!-- 		Tukey & \(\;\;\) 3 & 7 & & \(\;\;\;\;\;\;\) 4 & 8 \\  -->
-<!-- 		Moore y McCabe \(\;\;\;\) & \(\;\;\) 3 & 7 & & \(\;\;\;\;\;\;\) 3 & 9 \\  -->
-<!-- 		Minitab & \(\;\;\) 2,5 & 7,5 & &\(\;\;\;\;\;\;\) 3 & 9 \\ -->
-<!-- 		Excel, CUARTIL.INC &\(\;\;\) 3,5 & 6,5 & & \(\;\;\;\;\;\;\) 4 & 8 \\ -->
-<!-- 		Excel, CUARTIL.EXC &\(\;\;\) 2,5 & 7,5 & & \(\;\;\;\;\;\;\) 3 & 9 \\ -->
-<!-- 		\hline  -->
-<!-- 	\end{tabular} -->
-<!-- \end{center}}  -->
-
-<!-- \vspace{0.4cm} -->
-<!-- \noindent ¿Qué método es el correcto? ¿Cuál debemos utilizar? \textbf{En la práctica no importa demasiado}. Solo se está interesado en conocer los cuartiles cuando el conjunto de datos es grande (nunca si tenemos solo 4 o 5 datos) y en este caso las diferencias entre los distintos métodos no son relevantes. Por ejemplo, si tenemos 500 valores, la posición del primer cuartil con el método de Minitab es 125,25 y con la función CUARTIL.INC de Excel es 125,75. Como habrá poca diferencia entre los valores que ocupan las posiciones 125 y 126, la diferencia en el valor del cuartil no será relevante. -->
-
-=====================================
-
-Formas de calcular los cuartiles
-
-https://mathworld.wolfram.com/Quartile.html
+Otros criterios para calcular los cuartiles pueden verse en [Wolfram MathWorld](https://mathworld.wolfram.com/Quartile.html) y también la [Wikipedia](https://en.wikipedia.org/wiki/Quartile). Esta diversidad de criterios que además dan resultados distintos desconcierta a los estudiantes. En realidad el problema no es grave porque los cuartiles nos interesan cuando tenemos muchos datos o para describir poblaciones, nunca con tan pocos datos como en nuestros ejemplo. Con muchos datos, las dieferencias entre los valores obtenidos con los diferentes criterios no son relevantes a efectos prácticos.
 
 ::: callout-note
 ## Los cuartiles como zona
-
-Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.
+Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenecer al primer cuartil significa que es menor que $Q_1$ y que pertenece al tercero cuando es mayor que la mediana y menor que $Q_3$, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un valor relacionado con el número de citas que tienen los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.
 :::
 
-### Deciles. Percentiles {.unnumbered}
+### Percentiles {.unnumbered}
 
-texto
+Se usan para identificar la posición de un valor en el conjunto al que pertenece. Si la estatura de un niño está en el percentil del 46% significa que el 46% de aquellos con los que se comparara (los de su edad y sexo) tienen una estatura menor que la suya, el 54% la tienen más mayor.
 
-texto
+En un test de inteligencia o de otras habilidades, o en concursos de matemáticas a los que se presentan muchos estudiantes, se informa mejor del resultado obtenido dando el percentil en el que se ha quedado que dando una nota, especialmente si no está clara la escala que se usa ni si es fácil o difícil obtener notas altas. Si se dice que ha quedado en el percentil del 98% está claro que su puntución ha sido muy buena ya que solo ha sido superada por el 2%. 
+
+También en la valoración de méritos para la admisión en cursos de postgrado, muchas universidades están más interesadas por el percentil en que quedó el aspirante entre los de su promoción en los estudios de grado que en las calificciones obtenidas, dificilmente comparables entre varios tipos de estudio y distintas universidades.
+
+Al igual que ocurre con los cuartiles, existen diferentes criterios para determinar los percentiles. Una forma sencilla y razonable es identificar primero su posición mediante la expresión $p(N+1)$ siendo $p$ el percentil en escala de 0 a 1 y $N$ el número total de datos y si es. un número decimal interpolar tal como hemos hecho con los cuartiles.
+
+::: callout-note
+## Deciles
+Son los percentiles del 10, 20,... , 100%
+:::
 
 ## Porcentajes
 
@@ -442,7 +352,7 @@ Paradoja de Simpson
 ::: callout-note
 ## La paradoja de las patatas
 
-Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.
+Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto cuartil sino las del primero. En este caso el ranking se hace de más a menos.
 :::
 
 texto
@@ -479,29 +389,29 @@ texto
 
 Si una población tenía 10.000 habitantes en el año cero, creció el primer año a una tasa del 5 %, el segundo a una tasa del 20 % y el tercer año al 50 % ¿A que tasa promedio ha crecido en estos tres años?
 
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| Año         | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
-+:===========:+:=================:+:===================:+:===================:+:==========================:+
-| 1           | 10.000            | 0,05                | 1,05                | 10.500                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| 2           | 10.500            | 0,20                | 1,20                | 12.600                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| 3           | 12.600            | 0,50                | 1,50                | 18.900                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
++------------+-------------------+---------------------+---------------------+----------------------------+
+| Año        | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
++:==========:+:=================:+:===================:+:===================:+:==========================:+
+| 1          | 10.000            | 0,05                | 1,05                | 10.500                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
+| 2          | 10.500            | 0,20                | 1,20                | 12.600                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
+| 3          | 12.600            | 0,50                | 1,50                | 18.900                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
 
 : Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"}
 
 \noindent Si calculamos la media aritmética de la tasa de crecimiento \index{tasa de crecimiento} tenemos: $(0,05 + 0,20 + 0,50)/3 = 0,25$ y el factor medio de expansión sería $1,25$. Pero si la población hubiera crecido los tres años de esta forma, no se llegaría al mismo resultado final:
 
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| Año         | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
-+:===========:+:=================:+:===================:+:===================:+:==========================:+
-| 1           | 10.000            | 0,25                | 1,25                | 12.500                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| 2           | 12.500            | 0,25                | 1,25                | 15.625                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
-| 3           | 15.625            | 0,25                | 1,25                | 19.531                     |
-+-------------+-------------------+---------------------+---------------------+----------------------------+
++------------+-------------------+---------------------+---------------------+----------------------------+
+| Año        | Población inicial | Tasa de crecimiento | Factor de expansión | Población al final del año |
++:==========:+:=================:+:===================:+:===================:+:==========================:+
+| 1          | 10.000            | 0,25                | 1,25                | 12.500                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
+| 2          | 12.500            | 0,25                | 1,25                | 15.625                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
+| 3          | 15.625            | 0,25                | 1,25                | 19.531                     |
++------------+-------------------+---------------------+---------------------+----------------------------+
 
 : Evolución de la población {#tbl-evolucionPoblacion1} : {tbl-colwidths="\[10,20,20,20\]"} :{.hover}
 
@@ -543,113 +453,111 @@ $$ \text{Velocidad media} = \frac{\text{Distancia total recorrida}}{\text{Tiempo
 
 Vamos a trabajar con un ejemplo suponiendo que conocemos la población completa, lujo que no tendremos en la práctica. Los elementos que componen la población, junto con sus mediciones respectivas, son:
 
-|     |     |     |     |     |     |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| (A) | (B) | (C) | (D) | (D) | (E) |
-|  2  |  6  |  8  | 10  | 10  | 12  |
+|       |       |       |       |       |       |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| \(A\) | \(B\) | \(C\) | \(D\) | \(D\) | \(E\) |
+|   2   |   6   |   8   |  10   |  10   |  12   |
 
 En primer lugar ilustraremos la propiedad de insesgamiento de un estimador para el caso de la media, con la cual estamos más familiarizados, y luego repetiremos la experiencia para el caso que nos ocupa de la varianza.
 
 La media poblacional $\mu$, de los datos del ejemplo, es:
 
-$$\mu = \frac{2+6+8+10+10+12}{6}=8$$
-Supongamos que nosotros queremos estimar (“hacernos una idea”) el valor $\mu$, usando una muestra aleatoria de $n = 2$ unidades. En este caso, en que la población consta sólo de 6 unidades, podemos hacer un listado de todas las muestras que pueden resultar al escoger dos unidades al azar. Estas muestras aparecen enumeradas en la siguiente tabla.
+$$\mu = \frac{2+6+8+10+10+12}{6}=8$$ Supongamos que nosotros queremos estimar (“hacernos una idea”) el valor $\mu$, usando una muestra aleatoria de $n = 2$ unidades. En este caso, en que la población consta sólo de 6 unidades, podemos hacer un listado de todas las muestras que pueden resultar al escoger dos unidades al azar. Estas muestras aparecen enumeradas en la siguiente tabla.
 
 ```{=html}
 <h8>
     <table width="650" cellpadding="10"  border="0" class="center">
-    <tr style="border-bottom:0.5px solid grey">
-    <td colspan="100%"></td>
+<tr style="border-bottom:0.5px solid grey">
+<td colspan="100%"></td>
   </tr>
-        <tr>
-            <td style="text-align:center">Muestra nº</td>
-            <td style="text-align:center">1</td>
-            <td style="text-align:center">2</td>
-            <td style="text-align:center">3</td>
-            <td style="text-align:center">4</td>
-            <td style="text-align:center">5</td>
-            <td style="text-align:center">6</td>
-            <td style="text-align:center">7</td>
-            <td style="text-align:center">8</td>
-            <td style="text-align:center">9</td>
-            <td style="text-align:center">10</td>
-            <td style="text-align:center">11</td>
-            <td style="text-align:center">12</td>
-            <td style="text-align:center">13</td>
-            <td style="text-align:center">14</td>
-            <td style="text-align:center">15</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-        <tr>
-            <td style="text-align:center">Unidades de <br> la muestra</td>
-            <td style="text-align:center">A <br> B</td>
-            <td style="text-align:center">A <br> C</td>
-            <td style="text-align:center">A <br> D</td>
-            <td style="text-align:center">A <br> E</td>
-            <td style="text-align:center">A <br> F</td>
-            <td style="text-align:center">B <br> C</td>
-            <td style="text-align:center">B <br> D</td>
-            <td style="text-align:center">B <br> E</td>
-            <td style="text-align:center">B <br> F</td>
-            <td style="text-align:center">C <br> D</td>
-            <td style="text-align:center">C <br> E</td>
-            <td style="text-align:center">C <br> F</td>
-            <td style="text-align:center">D <br> E</td>
-            <td style="text-align:center">D <br> F</td>
-            <td style="text-align:center">E <br> F</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-   
-        <tr>
-            <td style="text-align:center">Valores de <br> la muestra</td>
-            <td style="text-align:center">2 <br> 6</td>
-            <td style="text-align:center">2 <br> 8</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 12</td>
-            <td style="text-align:center">6 <br> 8</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 12</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 12</td>
-            <td style="text-align:center">10 <br> 10</td>
-            <td style="text-align:center">10 <br> 12</td>
-            <td style="text-align:center">10 <br> 12</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-         <tr>
-            <td style="text-align:center">Media <br> muestral</td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">5 </td>
-            <td style="text-align:center">6 </td>
-            <td style="text-align:center">6 </td>
-            <td style="text-align:center">7 </td>
-            <td style="text-align:center">7 </td>
-            <td style="text-align:center">8 </td>
-            <td style="text-align:center">8 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">10 </td>
-            <td style="text-align:center">10 </td>
-            <td style="text-align:center">11 </td>
-            <td style="text-align:center">11 </td>
-        </tr>
-         <tr style="border-bottom:0.5px solid grey">
- </h8> 
-    </table>
-```
+    <tr>
+        <td style="text-align:center">Muestra nº</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">3</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">5</td>
+        <td style="text-align:center">6</td>
+        <td style="text-align:center">7</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">9</td>
+        <td style="text-align:center">10</td>
+        <td style="text-align:center">11</td>
+        <td style="text-align:center">12</td>
+        <td style="text-align:center">13</td>
+        <td style="text-align:center">14</td>
+        <td style="text-align:center">15</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
 
+    <tr>
+        <td style="text-align:center">Unidades de <br> la muestra</td>
+        <td style="text-align:center">A <br> B</td>
+        <td style="text-align:center">A <br> C</td>
+        <td style="text-align:center">A <br> D</td>
+        <td style="text-align:center">A <br> E</td>
+        <td style="text-align:center">A <br> F</td>
+        <td style="text-align:center">B <br> C</td>
+        <td style="text-align:center">B <br> D</td>
+        <td style="text-align:center">B <br> E</td>
+        <td style="text-align:center">B <br> F</td>
+        <td style="text-align:center">C <br> D</td>
+        <td style="text-align:center">C <br> E</td>
+        <td style="text-align:center">C <br> F</td>
+        <td style="text-align:center">D <br> E</td>
+        <td style="text-align:center">D <br> F</td>
+        <td style="text-align:center">E <br> F</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
+   
+    <tr>
+        <td style="text-align:center">Valores de <br> la muestra</td>
+        <td style="text-align:center">2 <br> 6</td>
+        <td style="text-align:center">2 <br> 8</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 12</td>
+        <td style="text-align:center">6 <br> 8</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 12</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 12</td>
+        <td style="text-align:center">10 <br> 10</td>
+        <td style="text-align:center">10 <br> 12</td>
+        <td style="text-align:center">10 <br> 12</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
+
+     <tr>
+        <td style="text-align:center">Media <br> muestral</td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">5 </td>
+        <td style="text-align:center">6 </td>
+        <td style="text-align:center">6 </td>
+        <td style="text-align:center">7 </td>
+        <td style="text-align:center">7 </td>
+        <td style="text-align:center">8 </td>
+        <td style="text-align:center">8 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">10 </td>
+        <td style="text-align:center">10 </td>
+        <td style="text-align:center">11 </td>
+        <td style="text-align:center">11 </td>
+    </tr>
+     <tr style="border-bottom:0.5px solid grey">
+ </h8> 
+</table>
+```
 Cuando se seleccione al azar una muestra de dos unidades, el resultado será necesariamente alguna de estas 15 posibles combinaciones de 2 elementos, con su media $\bar{x}$ correspondiente.
- 
+
 Decimos que $\bar{x}$ es un estimador insesgado de $\mu$ si el promedio de todas las posibles medias coincide exactamente con la media de la población. Para verificarlo, hagamos el promedio de nuestras 15 posibles medias:
 
 $$ \frac{4+5+6+6+7+7+8+8+9+9+9+10+10+11+11}{15}=8 $$
- 
+
 El promedio coincide con $\mu$. Esto pasa en todos los casos, independientemente del tipo de población o del tamaño de la muestra, por eso decimos que $\bar{x}$ es un estimador insesgado de $\mu$.
 
 Veamos ahora si el estadístico:
@@ -673,72 +581,71 @@ obteniéndose los resultados que aparecen en la siguiente tabla:
 ```{=html}
 <h8>
     <table width="650" cellpadding="10"  border="0" class="center">
-    <tr style="border-bottom:0.5px solid grey">
-    <td colspan="100%"></td>
+<tr style="border-bottom:0.5px solid grey">
+<td colspan="100%"></td>
   </tr>
-        <tr>
-            <td style="text-align:center">Muestra nº</td>
-            <td style="text-align:center">1</td>
-            <td style="text-align:center">2</td>
-            <td style="text-align:center">3</td>
-            <td style="text-align:center">4</td>
-            <td style="text-align:center">5</td>
-            <td style="text-align:center">6</td>
-            <td style="text-align:center">7</td>
-            <td style="text-align:center">8</td>
-            <td style="text-align:center">9</td>
-            <td style="text-align:center">10</td>
-            <td style="text-align:center">11</td>
-            <td style="text-align:center">12</td>
-            <td style="text-align:center">13</td>
-            <td style="text-align:center">14</td>
-            <td style="text-align:center">15</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
+    <tr>
+        <td style="text-align:center">Muestra nº</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">3</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">5</td>
+        <td style="text-align:center">6</td>
+        <td style="text-align:center">7</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">9</td>
+        <td style="text-align:center">10</td>
+        <td style="text-align:center">11</td>
+        <td style="text-align:center">12</td>
+        <td style="text-align:center">13</td>
+        <td style="text-align:center">14</td>
+        <td style="text-align:center">15</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
    
-        <tr>
-            <td style="text-align:center">Valores de <br> la muestra</td>
-            <td style="text-align:center">2 <br> 6</td>
-            <td style="text-align:center">2 <br> 8</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 12</td>
-            <td style="text-align:center">6 <br> 8</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 12</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 12</td>
-            <td style="text-align:center">10 <br> 10</td>
-            <td style="text-align:center">10 <br> 12</td>
-            <td style="text-align:center">10 <br> 12</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-         <tr>
-            <td style="text-align:center">Varianza <br> muestral</td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">16 </td>
-            <td style="text-align:center">16 </td>
-            <td style="text-align:center">25 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">0 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">1 </td>
-        </tr>
-         <tr style="border-bottom:0.5px solid grey">
- </h8> 
-    </table>
-```
+    <tr>
+        <td style="text-align:center">Valores de <br> la muestra</td>
+        <td style="text-align:center">2 <br> 6</td>
+        <td style="text-align:center">2 <br> 8</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 12</td>
+        <td style="text-align:center">6 <br> 8</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 12</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 12</td>
+        <td style="text-align:center">10 <br> 10</td>
+        <td style="text-align:center">10 <br> 12</td>
+        <td style="text-align:center">10 <br> 12</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
 
+     <tr>
+        <td style="text-align:center">Varianza <br> muestral</td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">16 </td>
+        <td style="text-align:center">16 </td>
+        <td style="text-align:center">25 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">0 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">1 </td>
+    </tr>
+     <tr style="border-bottom:0.5px solid grey">
+ </h8> 
+</table>
+```
 Veamos si el promedio de las posibles varianzas muestrales, coincide con 10,67 que es el valor obtenido para $\sigma_{N}^{2}$.
 
 $$ \bar{S}^2 = \frac{4+9+16+16+25+1+4+4+9+...+1}{15} = 6,4 $$
@@ -759,9 +666,8 @@ Y si calculamos $S_{n-1}^{2}$ para cada una de nuestras muestras deberemos aplic
 
 $$S_{n-1}^{2}= \frac{ (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 }{2-1} = \frac{ (x_1 - \bar{x})^2 + (x_2 - \bar{x})^2 }{1}  $$
 
-Es decir que todos los valores de la varianza que aparecen en la tabla anterior, quedan ahora multiplicados por 2 y por lo tanto la media de las varianzas queda también multiplicada por 2, es decir: 
+Es decir que todos los valores de la varianza que aparecen en la tabla anterior, quedan ahora multiplicados por 2 y por lo tanto la media de las varianzas queda también multiplicada por 2, es decir:
 
 $$\bar{S}_{n-1}^{2}= 2\cdot 6,4 = 12,8 $$
 
-Quizá este resultado decepcione, y hasta sorprenda, porque seguramente lo esperado era que $S_{n-1}^{2}$ fuera un estimador insesgado de $\sigma_{N}^{2}$ y no de $\sigma_{N-1}^{2}$, pero no hay que preocuparse demasiado. A efectos prácticos es casi lo mismo cuando la población es grande, y  nosotros no vamos a estimar a través de muestras las características de una población de 6 elementos (en nuestro ejemplo esta ha sido una población “de juguete” para entender lo que estábamos haciendo). Cuando estimemos la varianza de una población se tratará de una población grande, en la que $\sigma_{N}^{2}$ será prácticamente igual a $\sigma_{N-1}^{2}$. En realidad, el caso más frecuente es tener poblaciones teóricas (infinitas), en las que es exactamente lo mismo $\sigma_{N}^{2}$ que $\sigma_{N-1}^{2}$.
-
+Quizá este resultado decepcione, y hasta sorprenda, porque seguramente lo esperado era que $S_{n-1}^{2}$ fuera un estimador insesgado de $\sigma_{N}^{2}$ y no de $\sigma_{N-1}^{2}$, pero no hay que preocuparse demasiado. A efectos prácticos es casi lo mismo cuando la población es grande, y nosotros no vamos a estimar a través de muestras las características de una población de 6 elementos (en nuestro ejemplo esta ha sido una población “de juguete” para entender lo que estábamos haciendo). Cuando estimemos la varianza de una población se tratará de una población grande, en la que $\sigma_{N}^{2}$ será prácticamente igual a $\sigma_{N-1}^{2}$. En realidad, el caso más frecuente es tener poblaciones teóricas (infinitas), en las que es exactamente lo mismo $\sigma_{N}^{2}$ que $\sigma_{N-1}^{2}$.

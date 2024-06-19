@@ -358,7 +358,7 @@ window.Quarto = {
   <li><a href="#medidas-de-posición" id="toc-medidas-de-posición" class="nav-link" data-scroll-target="#medidas-de-posición"><span class="header-section-number">1.3</span> Medidas de posición</a>
   <ul class="collapse">
   <li><a href="#cuartiles" id="toc-cuartiles" class="nav-link" data-scroll-target="#cuartiles">Cuartiles</a></li>
-  <li><a href="#deciles.-percentiles" id="toc-deciles.-percentiles" class="nav-link" data-scroll-target="#deciles.-percentiles">Deciles. Percentiles</a></li>
+  <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles">Percentiles</a></li>
   </ul></li>
   <li><a href="#porcentajes" id="toc-porcentajes" class="nav-link" data-scroll-target="#porcentajes"><span class="header-section-number">1.4</span> Porcentajes</a></li>
   <li><a href="#apéndice-1.1-otras-medias" id="toc-apéndice-1.1-otras-medias" class="nav-link" data-scroll-target="#apéndice-1.1-otras-medias">Apéndice 1.1: Otras medias</a>
@@ -696,7 +696,7 @@ Tabla&nbsp;1.6: Desviación media. Ventajas e inconvenientes
 </ul>
 </section>
 <section id="se-divide-por-n-o-por-n-1" class="level6 unnumbered">
-<h6 class="unnumbered anchored" data-anchor-id="se-divide-por-n-o-por-n-1"><strong>¿Se divide por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span>?</strong></h6>
+<h6 class="unnumbered anchored" data-anchor-id="se-divide-por-n-o-por-n-1"><strong>¿Se divide por</strong> <span class="math inline">\(n\)</span> o por <span class="math inline">\(n-1\)</span>?</h6>
 <p>Cuando tenemos un conjunto de datos y nos interesa conocer la varianza de <strong>esos datos</strong> dividimos por el número de los que tenemos, pero aunque esta parece la situación más habitual, no es así. Lo habitual es que nuestro interés no sea tanto conocer la varianza de los datos dispobles como <strong>estimar la varianza de la población</strong> de la cual provienen y de la que solo tenemos unos representantes.</p>
 <p>En este caso tampoco se conoce la media de la población de manera que debemos sustituir su valor por la media de la muestra (<span class="math inline">\(\bar{x}\)</span>). Esta sustitución tiene más influencia de la que parece ya que la media de de la muestra se adapta a los datos con los que se calcula y la variabilidad obtenida tiende a subestimar la varianza de la población. Puede demostrarse que se si en vez de dividir por el número de datos <span class="math inline">\(n\)</span> (al número de elementos de la muestra le llamamos <span class="math inline">\(n\)</span> minúscula) se divide por <span class="math inline">\(n-1\)</span> esa subestimación –se llama <em>sesgo</em>– ya no se da. Por tanto, la fórmula que usamos en la práctica es:</p>
 <p><span class="math display">\[ s^2 = \frac{\sum_{i=1}^n ( x_i - \bar{x})^2}{n-1} \]</span></p>
@@ -862,128 +862,42 @@ Tabla&nbsp;1.9: Coeficiente de variación. Ventajas e inconvenientes
 <p>Sirven para establecer unas parcas que delimitan zonas en el conjunto de los datos. Así, dado un valor se sabe a qué zona pertenerce, si está entre los mayores o entre los menores.</p>
 <section id="cuartiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="cuartiles">Cuartiles</h3>
-<p>Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. El primer cuartil es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil, que deja el 75% por debajo y el 25% por encima.</p>
+<p>Ordenados los datos de menor a mayor, la mediana es el que los separa en dos mitades. Pues bien, el primer cuartil (Q1) es la mediana de la primera mitad dejando, por tanto, el 25% de valores por debajo y el 75% por encima. La mediana de la segunda mitad es el tercer cuartil (Q3), que deja el 75% por debajo y el 25% por encima (figura <a href="#fig-cuartiles" class="quarto-xref"><span>1.2</span></a>).</p>
 <div id="fig-cuartiles" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cuartiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="sintesisNumerica/cuartiles.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cuartiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.2: Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color===
+Figura&nbsp;1.2: Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ===pensar en poner color y en mejorar visualmente===
 </figcaption>
 </figure>
 </div>
-<p>Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si el primer cuartil es 1.300€, la mediana 1.500€ y el tercer cuartil 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.000€ está entre el 25% de privilegiados que más ganan.</p>
-<section id="cómo-se-calculan-los-cuartiles" class="level6 unnumbered">
-<h6 class="unnumbered anchored" data-anchor-id="cómo-se-calculan-los-cuartiles"><strong>¿Cómo se calculan los cuartiles?</strong></h6>
-<p>AUnque el concepto está claro, existen diferentes criterios para determinar los cuartiles y no todos dan el mismo resultado.</p>
-<p>John Tukey, creador de muchas de las modernas técnicas de análisis exploratorio de datos, identifica los cuartiles buscando las medianas de los que quedan por encima y por debajo de la mediana global. Para los datos 2, 4, 6, 8 y 10 (número impar) tenemos:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sintesisNumerica/Cuartiles_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
-</figure>
-</div>
-<p>Y si los datos son 2, 4, 6, y 8 (número par):</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sintesisNumerica/Cuartiles_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
-</figure>
-</div>
-<p>David Moore y George McCabe en su libro “Introduction to the Practice of Statistics”, muy valorado por su carácter pedagógico e innovador, proponen un método similar al de Tukey pero sin incluir la mediana global en la determinación de las medianas de cada una de las mitades. Cuando el número de datos es par el valor de los cuartiles coincide con el método de Tukey, pero en general no coincide cuando el número de datos es impar.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="sintesisNumerica/Cuartiles_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
-</figure>
-</div>
-<p>El paquete de software estadístico Minitab utiliza las expresiones <span class="math inline">\(0,25(n+1)\)</span> y <span class="math inline">\(0,75(n+1)\)</span> para determinar las posiciones de <span class="math inline">\(Q_1\)</span> y <span class="math inline">\(Q_3\)</span> respectivamente. Si la posición obtenida para <span class="math inline">\(Q_1\)</span> es, por ejemplo, 1,25, su valor estará comprendido entre <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> interpolando de la forma: <span class="math inline">\(Q_1 = x_1 + 0,25(x_2-x_1)\)</span>. Utilizando los mismos datos que en los ejemplos anteriores resulta:</p>
-<h8>
-    <table width="100%&quot;" cellpadding="10" border="0" class="center">
-    <tbody><tr style="border-bottom:0.5px solid grey">
-    <!-- <td colspan="100%"></td> -->
-  </tr>
-        <tr>
-            <td style="text-align:center">Datos</td>
-            <td style="text-align:center">Posición Q1</td>
-            <td style="text-align:center">Valor Q1</td>
-            <td style="text-align:center">Posición Q3</td>
-            <td style="text-align:center">Valor Q3</td>
-        </tr>
-        
-        <tr style="border-bottom:0.5px solid grey">
-    
-        </tr><tr>
-            <td style="text-align:center">2, 4, 6, 8 (n=4)<br> 2, 4, 6, 8, 10 (n=5)</td>
-            <td style="text-align:center">0.25·5=1.25 <br>0.25·6=1.5</td>
-            <td style="text-align:center">2+0.25(4-2) = <b>2.5</b> <br>2+0.5(4-2) = <b>3</b></td>
-            <td style="text-align:center">0.75·5=3.75 <br>0.75·6  =4.5</td>
-            <td style="text-align:center">6+0.75(8-6) = <b>7.5</b> <br>8+0.5(10-8) = <b>9</b></td>
-        </tr>
-        
-        <tr style="border-bottom:0.5px solid grey">
-   
-       
-  
-    </tr></tbody></table>
-
-<p>Excel dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: (0,25(n-1)+1) y (0,75(n-1)+1) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con versiones anteriores) y se han añadido:</p>
+<p>Si usted conoce la mediana y los cuartiles de los salarios de su empresa, puede posicionar facilmente el suyo. Si Q1 = 1.300€, la mediana 1.500€ y Q3 = 1.800€, si usted cobra 1.400€ está entre el 25% que menos gana. Si su salario es de 1.600€ está en entre la mitad de los que más ganan pero como mínimo el 25% de los empleados gana más que usted. Si cobra 2.000€ está entre el 25% de privilegiados que más ganan.</p>
+<p>Una forma fácil de determinar el valor de los cuartiles consiste en calcular primero su posición y después su valor. Si los datos son (ya los hemos ordenado):</p>
+<p><span class="math display">\[2, \; 3, \; 5, \; 7, \; 8, \; 13, \; 14, \; 16\]</span></p>
+<p>Determinamos las posiciones mediante las expresiones:</p>
+<p><span class="math display">\[P_{Q_1} = 0.25(n+1)\]</span> <span class="math display">\[P_{Q_3} = 0.75(n+1)\]</span></p>
+<p>Como en este caso <span class="math inline">\(n=8\)</span> tenemos que <span class="math inline">\(P_{Q_1} = 2.25\)</span> y <span class="math inline">\(P_{Q_3} = 6.75\)</span></p>
+<p>Como las posiciones son números decimales, siendo <span class="math inline">\(x_k\)</span> es el valor en la posición <span class="math inline">\(k\)</span>, interpolamos de la forma:</p>
+<p><span class="math display">\[Q_1 = x_2 + 0.25(x_3 - x_2) = 3 + 0,25(5-3) = 3.5\]</span> <span class="math display">\[Q_3 = x_6 + 0.75(x_7 - x_6) = 13 + 0,75(14-13) = 13.75\]</span> Existen otras formas de determinar el valor de los cuartiles y no todas dan exactamente el mismo resultado (para sorpresa y preocupación…).</p>
+<p>Por ejemplo, Excel dispone de la función CUARTIL que identifica la posición de los cuartiles mediante las expresiones: (0,25(n-1)+1) y (0,75(n-1)+1) y los calcula interpolando igual que hace Minitab. Seguramente no satisfechos con su forma de identificar los cuartiles, en las últimas versiones se ha mantenido esa función (se indica que por compatibilidad con versiones anteriores) y se han añadido:</p>
 <ul>
 <li>CUARTIL.INC: Coincide con la función CUARTIL.</li>
 <li>CUARTIL.EXC: Identifica los cuartiles de la misma forma que Minitab.</li>
 </ul>
-<p>En la figura <span class="math inline">\(\ref{Figura020704}\)</span> se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019). –&gt;</p>
+<p>En la figura <a href="#fig-cuartilesExcel" class="quarto-xref"><span>1.3</span></a> se muestran los cuartiles de nuestros datos con las funciones de Excel (versión 2019).</p>
 <div id="fig-cuartilesExcel" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cuartilesExcel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="sintesisNumerica/Cuartiles_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%">
+<img src="sintesisNumerica/Cuartiles_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cuartilesExcel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;1.3: Cálculo de los cuartiles con Excel
 </figcaption>
 </figure>
 </div>
-<p>En resumen, los valores obtenidos con los métodos comentados han sido:</p>
-<h8>
-
-    
-<table class="caption-top table" data-border="">
-<tbody>
-<tr class="odd">
-<td rowspan="2">Item 1</td>
-<td>Item 2</td>
-<td>Item 3</td>
-<td>Item 4</td>
-</tr>
-<tr class="even">
-<td>Item 5</td>
-<td>Item 6</td>
-<td>Item 7</td>
-</tr>
-</tbody>
-</table>
-
-
- </h8> 
-   
-<!-- \vspace{0.4cm} -->
-<!-- {\small -->
-<!-- \begin{center} -->
-<!--    \begin{tabular}{ lccccc } \hline -->
-<!--        \multirow{2}{3em}{Método} & \multicolumn{2}{l}{Datos: 2, 4, 6, 8} & &  \multicolumn{2}{c}{Datos: 2, 4, 6, 8, 10} \\ -->
-<!--         & \(\;\;\;\;Q_1\) & \(Q_3\) & \(\;\) & \(\;\;\;\;\;\;\;\;Q_1\) & \(Q_3\) \\ -->
-<!--        \hline -->
-<!--        Tukey & \(\;\;\) 3 & 7 & & \(\;\;\;\;\;\;\) 4 & 8 \\  -->
-<!--        Moore y McCabe \(\;\;\;\) & \(\;\;\) 3 & 7 & & \(\;\;\;\;\;\;\) 3 & 9 \\  -->
-<!--        Minitab & \(\;\;\) 2,5 & 7,5 & &\(\;\;\;\;\;\;\) 3 & 9 \\ -->
-<!--        Excel, CUARTIL.INC &\(\;\;\) 3,5 & 6,5 & & \(\;\;\;\;\;\;\) 4 & 8 \\ -->
-<!--        Excel, CUARTIL.EXC &\(\;\;\) 2,5 & 7,5 & & \(\;\;\;\;\;\;\) 3 & 9 \\ -->
-<!--        \hline  -->
-<!--    \end{tabular} -->
-<!-- \end{center}}  -->
-<!-- \vspace{0.4cm} -->
-<!-- \noindent ¿Qué método es el correcto? ¿Cuál debemos utilizar? \textbf{En la práctica no importa demasiado}. Solo se está interesado en conocer los cuartiles cuando el conjunto de datos es grande (nunca si tenemos solo 4 o 5 datos) y en este caso las diferencias entre los distintos métodos no son relevantes. Por ejemplo, si tenemos 500 valores, la posición del primer cuartil con el método de Minitab es 125,25 y con la función CUARTIL.INC de Excel es 125,75. Como habrá poca diferencia entre los valores que ocupan las posiciones 125 y 126, la diferencia en el valor del cuartil no será relevante. -->
-<p>=====================================</p>
-<p>Formas de calcular los cuartiles</p>
-<p>https://mathworld.wolfram.com/Quartile.html</p>
+<p>Otros criterios para calcular los cuartiles pueden verse en <a href="https://mathworld.wolfram.com/Quartile.html">Wolfram MathWorld</a> y también la <a href="https://en.wikipedia.org/wiki/Quartile">Wikipedia</a>. Esta diversidad de criterios que además dan resultados distintos desconcierta a los estudiantes. En realidad el problema no es grave porque los cuartiles nos interesan cuando tenemos muchos datos o para describir poblaciones, nunca con tan pocos datos como en nuestros ejemplo. Con muchos datos, las dieferencias entre los valores obtenidos con los diferentes criterios no son relevantes a efectos prácticos.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -994,15 +908,29 @@ Los cuartiles como zona
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su “factor de impacto”, un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.</p>
+<p>Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenecer al primer cuartil significa que es menor que <span class="math inline">\(Q_1\)</span> y que pertenece al tercero cuando es mayor que la mediana y menor que <span class="math inline">\(Q_3\)</span>, pero no siempre es así. La relevancia de las revistas científicas se mide por su “factor de impacto”, un valor relacionado con el número de citas que tienen los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.</p>
 </div>
 </div>
-</h8></section>
 </section>
-<section id="deciles.-percentiles" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="deciles.-percentiles">Deciles. Percentiles</h3>
-<p>texto</p>
-<p>texto</p>
+<section id="percentiles" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="percentiles">Percentiles</h3>
+<p>Se usan para identificar la posición de un valor en el conjunto al que pertenece. Si la estatura de un niño está en el percentil del 46% significa que el 46% de aquellos con los que se comparara (los de su edad y sexo) tienen una estatura menor que la suya, el 54% la tienen más mayor.</p>
+<p>En un test de inteligencia o de otras habilidades, o en concursos de matemáticas a los que se presentan muchos estudiantes, se informa mejor del resultado obtenido dando el percentil en el que se ha quedado que dando una nota, especialmente si no está clara la escala que se usa ni si es fácil o difícil obtener notas altas. Si se dice que ha quedado en el percentil del 98% está claro que su puntución ha sido muy buena ya que solo ha sido superada por el 2%.</p>
+<p>También en la valoración de méritos para la admisión en cursos de postgrado, muchas universidades están más interesadas por el percentil en que quedó el aspirante entre los de su promoción en los estudios de grado que en las calificciones obtenidas, dificilmente comparables entre varios tipos de estudio y distintas universidades.</p>
+<p>Al igual que ocurre con los cuartiles, existen diferentes criterios para determinar los percentiles. Una forma sencilla y razonable es identificar primero su posición mediante la expresión <span class="math inline">\(p(N+1)\)</span> siendo <span class="math inline">\(p\)</span> el percentil en escala de 0 a 1 y <span class="math inline">\(N\)</span> el número total de datos y si es. un número decimal interpolar tal como hemos hecho con los cuartiles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Deciles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Son los percentiles del 10, 20,… , 100%</p>
+</div>
+</div>
 </section>
 </section>
 <section id="porcentajes" class="level2" data-number="1.4">
@@ -1020,7 +948,7 @@ La paradoja de las patatas
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su “factor de impacto”, un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankins de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.</p>
+<p>Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su “factor de impacto”, un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto cuartil sino las del primero. En este caso el ranking se hace de más a menos.</p>
 </div>
 </div>
 <p>texto</p>
@@ -1102,7 +1030,7 @@ Tabla&nbsp;1.11: Evolución de la población
 <div aria-describedby="tbl-evolucionpoblacion1-tbl-colwidths10202020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-hover caption-top table">
 <colgroup>
-<col style="width: 12%">
+<col style="width: 11%">
 <col style="width: 18%">
 <col style="width: 20%">
 <col style="width: 20%">
@@ -1205,90 +1133,90 @@ Curiosidades sobre la media geométrica
 <p><span class="math display">\[\mu = \frac{2+6+8+10+10+12}{6}=8\]</span> Supongamos que nosotros queremos estimar (“hacernos una idea”) el valor <span class="math inline">\(\mu\)</span>, usando una muestra aleatoria de <span class="math inline">\(n = 2\)</span> unidades. En este caso, en que la población consta sólo de 6 unidades, podemos hacer un listado de todas las muestras que pueden resultar al escoger dos unidades al azar. Estas muestras aparecen enumeradas en la siguiente tabla.</p>
 <h8>
     <table width="650" cellpadding="10" border="0" class="center">
-    <tbody><tr style="border-bottom:0.5px solid grey">
-    <td colspan="100%"></td>
+<tbody><tr style="border-bottom:0.5px solid grey">
+<td colspan="100%"></td>
   </tr>
-        <tr>
-            <td style="text-align:center">Muestra nº</td>
-            <td style="text-align:center">1</td>
-            <td style="text-align:center">2</td>
-            <td style="text-align:center">3</td>
-            <td style="text-align:center">4</td>
-            <td style="text-align:center">5</td>
-            <td style="text-align:center">6</td>
-            <td style="text-align:center">7</td>
-            <td style="text-align:center">8</td>
-            <td style="text-align:center">9</td>
-            <td style="text-align:center">10</td>
-            <td style="text-align:center">11</td>
-            <td style="text-align:center">12</td>
-            <td style="text-align:center">13</td>
-            <td style="text-align:center">14</td>
-            <td style="text-align:center">15</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-        </tr><tr>
-            <td style="text-align:center">Unidades de <br> la muestra</td>
-            <td style="text-align:center">A <br> B</td>
-            <td style="text-align:center">A <br> C</td>
-            <td style="text-align:center">A <br> D</td>
-            <td style="text-align:center">A <br> E</td>
-            <td style="text-align:center">A <br> F</td>
-            <td style="text-align:center">B <br> C</td>
-            <td style="text-align:center">B <br> D</td>
-            <td style="text-align:center">B <br> E</td>
-            <td style="text-align:center">B <br> F</td>
-            <td style="text-align:center">C <br> D</td>
-            <td style="text-align:center">C <br> E</td>
-            <td style="text-align:center">C <br> F</td>
-            <td style="text-align:center">D <br> E</td>
-            <td style="text-align:center">D <br> F</td>
-            <td style="text-align:center">E <br> F</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
+    <tr>
+        <td style="text-align:center">Muestra nº</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">3</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">5</td>
+        <td style="text-align:center">6</td>
+        <td style="text-align:center">7</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">9</td>
+        <td style="text-align:center">10</td>
+        <td style="text-align:center">11</td>
+        <td style="text-align:center">12</td>
+        <td style="text-align:center">13</td>
+        <td style="text-align:center">14</td>
+        <td style="text-align:center">15</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
+
+    </tr><tr>
+        <td style="text-align:center">Unidades de <br> la muestra</td>
+        <td style="text-align:center">A <br> B</td>
+        <td style="text-align:center">A <br> C</td>
+        <td style="text-align:center">A <br> D</td>
+        <td style="text-align:center">A <br> E</td>
+        <td style="text-align:center">A <br> F</td>
+        <td style="text-align:center">B <br> C</td>
+        <td style="text-align:center">B <br> D</td>
+        <td style="text-align:center">B <br> E</td>
+        <td style="text-align:center">B <br> F</td>
+        <td style="text-align:center">C <br> D</td>
+        <td style="text-align:center">C <br> E</td>
+        <td style="text-align:center">C <br> F</td>
+        <td style="text-align:center">D <br> E</td>
+        <td style="text-align:center">D <br> F</td>
+        <td style="text-align:center">E <br> F</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
    
-        </tr><tr>
-            <td style="text-align:center">Valores de <br> la muestra</td>
-            <td style="text-align:center">2 <br> 6</td>
-            <td style="text-align:center">2 <br> 8</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 12</td>
-            <td style="text-align:center">6 <br> 8</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 12</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 12</td>
-            <td style="text-align:center">10 <br> 10</td>
-            <td style="text-align:center">10 <br> 12</td>
-            <td style="text-align:center">10 <br> 12</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-         </tr><tr>
-            <td style="text-align:center">Media <br> muestral</td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">5 </td>
-            <td style="text-align:center">6 </td>
-            <td style="text-align:center">6 </td>
-            <td style="text-align:center">7 </td>
-            <td style="text-align:center">7 </td>
-            <td style="text-align:center">8 </td>
-            <td style="text-align:center">8 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">10 </td>
-            <td style="text-align:center">10 </td>
-            <td style="text-align:center">11 </td>
-            <td style="text-align:center">11 </td>
-        </tr>
-         <tr style="border-bottom:0.5px solid grey">
+    </tr><tr>
+        <td style="text-align:center">Valores de <br> la muestra</td>
+        <td style="text-align:center">2 <br> 6</td>
+        <td style="text-align:center">2 <br> 8</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 12</td>
+        <td style="text-align:center">6 <br> 8</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 12</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 12</td>
+        <td style="text-align:center">10 <br> 10</td>
+        <td style="text-align:center">10 <br> 12</td>
+        <td style="text-align:center">10 <br> 12</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
+
+     </tr><tr>
+        <td style="text-align:center">Media <br> muestral</td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">5 </td>
+        <td style="text-align:center">6 </td>
+        <td style="text-align:center">6 </td>
+        <td style="text-align:center">7 </td>
+        <td style="text-align:center">7 </td>
+        <td style="text-align:center">8 </td>
+        <td style="text-align:center">8 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">10 </td>
+        <td style="text-align:center">10 </td>
+        <td style="text-align:center">11 </td>
+        <td style="text-align:center">11 </td>
+    </tr>
+     <tr style="border-bottom:0.5px solid grey">
   
-    </tr></tbody></table>
+</tr></tbody></table>
 <p>Cuando se seleccione al azar una muestra de dos unidades, el resultado será necesariamente alguna de estas 15 posibles combinaciones de 2 elementos, con su media <span class="math inline">\(\bar{x}\)</span> correspondiente.</p>
 <p>Decimos que <span class="math inline">\(\bar{x}\)</span> es un estimador insesgado de <span class="math inline">\(\mu\)</span> si el promedio de todas las posibles medias coincide exactamente con la media de la población. Para verificarlo, hagamos el promedio de nuestras 15 posibles medias:</p>
 <p><span class="math display">\[ \frac{4+5+6+6+7+7+8+8+9+9+9+10+10+11+11}{15}=8 \]</span></p>
@@ -1304,70 +1232,70 @@ Curiosidades sobre la media geométrica
 <p>obteniéndose los resultados que aparecen en la siguiente tabla:</p>
 <h8>
     <table width="650" cellpadding="10" border="0" class="center">
-    <tbody><tr style="border-bottom:0.5px solid grey">
-    <td colspan="100%"></td>
+<tbody><tr style="border-bottom:0.5px solid grey">
+<td colspan="100%"></td>
   </tr>
-        <tr>
-            <td style="text-align:center">Muestra nº</td>
-            <td style="text-align:center">1</td>
-            <td style="text-align:center">2</td>
-            <td style="text-align:center">3</td>
-            <td style="text-align:center">4</td>
-            <td style="text-align:center">5</td>
-            <td style="text-align:center">6</td>
-            <td style="text-align:center">7</td>
-            <td style="text-align:center">8</td>
-            <td style="text-align:center">9</td>
-            <td style="text-align:center">10</td>
-            <td style="text-align:center">11</td>
-            <td style="text-align:center">12</td>
-            <td style="text-align:center">13</td>
-            <td style="text-align:center">14</td>
-            <td style="text-align:center">15</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
+    <tr>
+        <td style="text-align:center">Muestra nº</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">3</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">5</td>
+        <td style="text-align:center">6</td>
+        <td style="text-align:center">7</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">9</td>
+        <td style="text-align:center">10</td>
+        <td style="text-align:center">11</td>
+        <td style="text-align:center">12</td>
+        <td style="text-align:center">13</td>
+        <td style="text-align:center">14</td>
+        <td style="text-align:center">15</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
    
-        </tr><tr>
-            <td style="text-align:center">Valores de <br> la muestra</td>
-            <td style="text-align:center">2 <br> 6</td>
-            <td style="text-align:center">2 <br> 8</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 10</td>
-            <td style="text-align:center">2 <br> 12</td>
-            <td style="text-align:center">6 <br> 8</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 10</td>
-            <td style="text-align:center">6 <br> 12</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 10</td>
-            <td style="text-align:center">8 <br> 12</td>
-            <td style="text-align:center">10 <br> 10</td>
-            <td style="text-align:center">10 <br> 12</td>
-            <td style="text-align:center">10 <br> 12</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid grey">
-    
-         </tr><tr>
-            <td style="text-align:center">Varianza <br> muestral</td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">16 </td>
-            <td style="text-align:center">16 </td>
-            <td style="text-align:center">25 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">9 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">4 </td>
-            <td style="text-align:center">0 </td>
-            <td style="text-align:center">1 </td>
-            <td style="text-align:center">1 </td>
-        </tr>
-         <tr style="border-bottom:0.5px solid grey">
+    </tr><tr>
+        <td style="text-align:center">Valores de <br> la muestra</td>
+        <td style="text-align:center">2 <br> 6</td>
+        <td style="text-align:center">2 <br> 8</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 10</td>
+        <td style="text-align:center">2 <br> 12</td>
+        <td style="text-align:center">6 <br> 8</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 10</td>
+        <td style="text-align:center">6 <br> 12</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 10</td>
+        <td style="text-align:center">8 <br> 12</td>
+        <td style="text-align:center">10 <br> 10</td>
+        <td style="text-align:center">10 <br> 12</td>
+        <td style="text-align:center">10 <br> 12</td>
+    </tr>
+    <tr style="border-bottom:0.5px solid grey">
+
+     </tr><tr>
+        <td style="text-align:center">Varianza <br> muestral</td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">16 </td>
+        <td style="text-align:center">16 </td>
+        <td style="text-align:center">25 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">9 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">4 </td>
+        <td style="text-align:center">0 </td>
+        <td style="text-align:center">1 </td>
+        <td style="text-align:center">1 </td>
+    </tr>
+     <tr style="border-bottom:0.5px solid grey">
   
-    </tr></tbody></table>
+</tr></tbody></table>
 <p>Veamos si el promedio de las posibles varianzas muestrales, coincide con 10,67 que es el valor obtenido para <span class="math inline">\(\sigma_{N}^{2}\)</span>.</p>
 <p><span class="math display">\[ \bar{S}^2 = \frac{4+9+16+16+25+1+4+4+9+...+1}{15} = 6,4 \]</span></p>
 <p>No coincide y, por tanto, <span class="math inline">\(S_{n}^{2}\)</span> no es un estimador insesgado de <span class="math inline">\(\sigma_{N}^{2}\)</span>. Sin embargo <span class="math inline">\(S_{n-1}^{2}\)</span>, definido de la forma:</p>
