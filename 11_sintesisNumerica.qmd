@@ -323,6 +323,7 @@ Otros criterios para calcular los cuartiles pueden verse en [Wolfram MathWorld](
 
 ::: callout-note
 ## Los cuartiles como zona
+
 Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenecer al primer cuartil significa que es menor que $Q_1$ y que pertenece al tercero cuando es mayor que la mediana y menor que $Q_3$, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un valor relacionado con el número de citas que tienen los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto, seguido por las del tercer cuartil, sino en del primero y el segundo. El ranking se hace de más a menos.
 :::
 
@@ -330,7 +331,7 @@ Aunque un cuartil es un número y no una zona, a veces se dice que un valor pert
 
 Se usan para identificar la posición de un valor en el conjunto al que pertenece. Si la estatura de un niño está en el percentil del 46% significa que el 46% de aquellos con los que se comparara (los de su edad y sexo) tienen una estatura menor que la suya, el 54% la tienen más mayor.
 
-En un test de inteligencia o de otras habilidades, o en concursos de matemáticas a los que se presentan muchos estudiantes, se informa mejor del resultado obtenido dando el percentil en el que se ha quedado que dando una nota, especialmente si no está clara la escala que se usa ni si es fácil o difícil obtener notas altas. Si se dice que ha quedado en el percentil del 98% está claro que su puntución ha sido muy buena ya que solo ha sido superada por el 2%. 
+En un test de inteligencia o de otras habilidades, o en concursos de matemáticas a los que se presentan muchos estudiantes, se informa mejor del resultado obtenido dando el percentil en el que se ha quedado que dando una nota, especialmente si no está clara la escala que se usa ni si es fácil o difícil obtener notas altas. Si se dice que ha quedado en el percentil del 98% está claro que su puntución ha sido muy buena ya que solo ha sido superada por el 2%.
 
 También en la valoración de méritos para la admisión en cursos de postgrado, muchas universidades están más interesadas por el percentil en que quedó el aspirante entre los de su promoción en los estudios de grado que en las calificciones obtenidas, dificilmente comparables entre varios tipos de estudio y distintas universidades.
 
@@ -338,52 +339,59 @@ Al igual que ocurre con los cuartiles, existen diferentes criterios para determi
 
 ::: callout-note
 ## Deciles
+
 Son los percentiles del 10, 20,... , 100%
 :::
 
 ## Porcentajes
 
-texto
+   texto
 
 texto
-
-Paradoja de Simpson
 
 ::: callout-note
-## La paradoja de las patatas
+## Paradoja de las patatas
 
-Aunque un cuartil es un número y no una zona, a veces se dice que un valor pertenece al primer o al tercer cuartil y lo que eso significa no siempre está claro. Podria pensarse que pertenece al primer cuartil cuando es menor que Q1 y al tercero cuando es mayor que la mediana y menor que Q3, pero no siempre es así. La relevancia de las revistas científicas se mide por su "factor de impacto", un número relacionado con las citas en otras revistas de los artículos que publican. Para cada ámbito de conocimiento se realizan rankings de revistas según su factor de impacto y todos queremos publicar en las que lo tienen más alto, que no son las del cuarto cuartil sino las del primero. En este caso el ranking se hace de más a menos.
+Supongamos que tenemos 100 kg de patatas cuyo peso está compuesto por agua en un 99%. Con el paso del tiempo las patatas pierden humedad ¿Cuanto pesarán cuando el porcentaje de humedad sea del 98%? En la Wikipedia puede ver si si sus calculos són correctos.
 :::
 
-texto
 
-texto
+::: callout-note
+## Paradoja de Simpson
 
-texto
+Una empresa crea 250 nuevos puestos de trabajo en sus departamentos de comparas, fabricación y ventas. En total se presentan 355 hombres y 325 mujres de los cuales son admitidos 190 hombres (el 53,5%) y solo 60 mujeres (el 18,5%). Se comprueba que el nivel de preparación de hombres y mujeres es similar entre los aspirantes a cada departamento. ¿Podemos asegurar que se ha discriminado a las mujeres? La respuesta es no. Los datos son los siguientes:
 
-texto
+```{=html}
 
-texto
+<h8>
+<TABLE >
+	<TR> 
+	    <TD style="vertical-align: middle"> Departamento</TD>
+	    <TD style="vertical-align: middle" ALIGN=center> Plazas</TD>
+	    <TD ALIGN=center COLSPAN=2 >Aspirantes - Admitidos <br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Mujeres</TD>
+	    <TD ALIGN=center COLSPAN=2>% Admitidos<br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Mujeres</TD>
 
-texto
+	</TR>
+	
+	<TR >	
+	<TD>Compras <br> Fabricación <br> Ventas <br> <TOTAL> </TD> <TD ALIGN=center>30 <br> 200 <br> 20 </TD> <TD ALIGN=center>25 - 5 <br> 250 - 180 <br> 80 - 5 </TD> <TD ALIGN=center>100 - 25 <br> 25 - 20 <br> 200 - 15</TD>   <TD ALIGN=center>20 % <br> 72 %<br> 6,25 %</TD> <TD ALIGN=center><b>25 % <br> 80 %<br> 7,5 %</b></TD>
+	</TR>
 
-texto
+<TR >	
+<TD> <b>TOTAL</b></TD> <TD ALIGN=center>250</TD> <TD ALIGN=center>355 - 190</TD> <TD ALIGN=center>325 - 60</TD>  <TD ALIGN=center><b>53,5 %</b></TD> <TD ALIGN=center>18,5 %</TD>
+	</TR>
+</table>
+</h8> 
+```
 
-texto
-
-texto
-
-texto
-
-texto
-
-texto
-
-texto
+En realidad han sido las mujeres las quehan tenido maor proporción de admitidos en los tres departamentos. La clave está en que al departamento que ofrece más plazas se han presentado muchos hombres y pocas mujeres, mientras que ocurre lo contrario en los departamentos en que se ofrecen menos plazas.
+:::
 
 ¿Qué hace esto aquí?
 
 ## Apéndice 1.1: Otras medias {.unnumbered}
+
+Citar también la media ponderada y la media truncada.
 
 ### Media geométrica {.unnumbered}
 
@@ -470,85 +478,85 @@ $$\mu = \frac{2+6+8+10+10+12}{6}=8$$ Supongamos que nosotros queremos estimar (�
 <tr style="border-bottom:0.5px solid grey">
 <td colspan="100%"></td>
   </tr>
-    <tr>
-        <td style="text-align:center">Muestra nº</td>
-        <td style="text-align:center">1</td>
-        <td style="text-align:center">2</td>
-        <td style="text-align:center">3</td>
-        <td style="text-align:center">4</td>
-        <td style="text-align:center">5</td>
-        <td style="text-align:center">6</td>
-        <td style="text-align:center">7</td>
-        <td style="text-align:center">8</td>
-        <td style="text-align:center">9</td>
-        <td style="text-align:center">10</td>
-        <td style="text-align:center">11</td>
-        <td style="text-align:center">12</td>
-        <td style="text-align:center">13</td>
-        <td style="text-align:center">14</td>
-        <td style="text-align:center">15</td>
-    </tr>
-    <tr style="border-bottom:0.5px solid grey">
+<tr>
+    <td style="text-align:center">Muestra nº</td>
+    <td style="text-align:center">1</td>
+    <td style="text-align:center">2</td>
+    <td style="text-align:center">3</td>
+    <td style="text-align:center">4</td>
+    <td style="text-align:center">5</td>
+    <td style="text-align:center">6</td>
+    <td style="text-align:center">7</td>
+    <td style="text-align:center">8</td>
+    <td style="text-align:center">9</td>
+    <td style="text-align:center">10</td>
+    <td style="text-align:center">11</td>
+    <td style="text-align:center">12</td>
+    <td style="text-align:center">13</td>
+    <td style="text-align:center">14</td>
+    <td style="text-align:center">15</td>
+</tr>
+<tr style="border-bottom:0.5px solid grey">
 
-    <tr>
-        <td style="text-align:center">Unidades de <br> la muestra</td>
-        <td style="text-align:center">A <br> B</td>
-        <td style="text-align:center">A <br> C</td>
-        <td style="text-align:center">A <br> D</td>
-        <td style="text-align:center">A <br> E</td>
-        <td style="text-align:center">A <br> F</td>
-        <td style="text-align:center">B <br> C</td>
-        <td style="text-align:center">B <br> D</td>
-        <td style="text-align:center">B <br> E</td>
-        <td style="text-align:center">B <br> F</td>
-        <td style="text-align:center">C <br> D</td>
-        <td style="text-align:center">C <br> E</td>
-        <td style="text-align:center">C <br> F</td>
-        <td style="text-align:center">D <br> E</td>
-        <td style="text-align:center">D <br> F</td>
-        <td style="text-align:center">E <br> F</td>
-    </tr>
-    <tr style="border-bottom:0.5px solid grey">
+<tr>
+    <td style="text-align:center">Unidades de <br> la muestra</td>
+    <td style="text-align:center">A <br> B</td>
+    <td style="text-align:center">A <br> C</td>
+    <td style="text-align:center">A <br> D</td>
+    <td style="text-align:center">A <br> E</td>
+    <td style="text-align:center">A <br> F</td>
+    <td style="text-align:center">B <br> C</td>
+    <td style="text-align:center">B <br> D</td>
+    <td style="text-align:center">B <br> E</td>
+    <td style="text-align:center">B <br> F</td>
+    <td style="text-align:center">C <br> D</td>
+    <td style="text-align:center">C <br> E</td>
+    <td style="text-align:center">C <br> F</td>
+    <td style="text-align:center">D <br> E</td>
+    <td style="text-align:center">D <br> F</td>
+    <td style="text-align:center">E <br> F</td>
+</tr>
+<tr style="border-bottom:0.5px solid grey">
    
-    <tr>
-        <td style="text-align:center">Valores de <br> la muestra</td>
-        <td style="text-align:center">2 <br> 6</td>
-        <td style="text-align:center">2 <br> 8</td>
-        <td style="text-align:center">2 <br> 10</td>
-        <td style="text-align:center">2 <br> 10</td>
-        <td style="text-align:center">2 <br> 12</td>
-        <td style="text-align:center">6 <br> 8</td>
-        <td style="text-align:center">6 <br> 10</td>
-        <td style="text-align:center">6 <br> 10</td>
-        <td style="text-align:center">6 <br> 12</td>
-        <td style="text-align:center">8 <br> 10</td>
-        <td style="text-align:center">8 <br> 10</td>
-        <td style="text-align:center">8 <br> 12</td>
-        <td style="text-align:center">10 <br> 10</td>
-        <td style="text-align:center">10 <br> 12</td>
-        <td style="text-align:center">10 <br> 12</td>
-    </tr>
-    <tr style="border-bottom:0.5px solid grey">
+<tr>
+    <td style="text-align:center">Valores de <br> la muestra</td>
+    <td style="text-align:center">2 <br> 6</td>
+    <td style="text-align:center">2 <br> 8</td>
+    <td style="text-align:center">2 <br> 10</td>
+    <td style="text-align:center">2 <br> 10</td>
+    <td style="text-align:center">2 <br> 12</td>
+    <td style="text-align:center">6 <br> 8</td>
+    <td style="text-align:center">6 <br> 10</td>
+    <td style="text-align:center">6 <br> 10</td>
+    <td style="text-align:center">6 <br> 12</td>
+    <td style="text-align:center">8 <br> 10</td>
+    <td style="text-align:center">8 <br> 10</td>
+    <td style="text-align:center">8 <br> 12</td>
+    <td style="text-align:center">10 <br> 10</td>
+    <td style="text-align:center">10 <br> 12</td>
+    <td style="text-align:center">10 <br> 12</td>
+</tr>
+<tr style="border-bottom:0.5px solid grey">
 
-     <tr>
-        <td style="text-align:center">Media <br> muestral</td>
-        <td style="text-align:center">4 </td>
-        <td style="text-align:center">5 </td>
-        <td style="text-align:center">6 </td>
-        <td style="text-align:center">6 </td>
-        <td style="text-align:center">7 </td>
-        <td style="text-align:center">7 </td>
-        <td style="text-align:center">8 </td>
-        <td style="text-align:center">8 </td>
-        <td style="text-align:center">9 </td>
-        <td style="text-align:center">9 </td>
-        <td style="text-align:center">9 </td>
-        <td style="text-align:center">10 </td>
-        <td style="text-align:center">10 </td>
-        <td style="text-align:center">11 </td>
-        <td style="text-align:center">11 </td>
-    </tr>
-     <tr style="border-bottom:0.5px solid grey">
+ <tr>
+    <td style="text-align:center">Media <br> muestral</td>
+    <td style="text-align:center">4 </td>
+    <td style="text-align:center">5 </td>
+    <td style="text-align:center">6 </td>
+    <td style="text-align:center">6 </td>
+    <td style="text-align:center">7 </td>
+    <td style="text-align:center">7 </td>
+    <td style="text-align:center">8 </td>
+    <td style="text-align:center">8 </td>
+    <td style="text-align:center">9 </td>
+    <td style="text-align:center">9 </td>
+    <td style="text-align:center">9 </td>
+    <td style="text-align:center">10 </td>
+    <td style="text-align:center">10 </td>
+    <td style="text-align:center">11 </td>
+    <td style="text-align:center">11 </td>
+</tr>
+ <tr style="border-bottom:0.5px solid grey">
  </h8> 
 </table>
 ```
@@ -584,65 +592,65 @@ obteniéndose los resultados que aparecen en la siguiente tabla:
 <tr style="border-bottom:0.5px solid grey">
 <td colspan="100%"></td>
   </tr>
-    <tr>
-        <td style="text-align:center">Muestra nº</td>
-        <td style="text-align:center">1</td>
-        <td style="text-align:center">2</td>
-        <td style="text-align:center">3</td>
-        <td style="text-align:center">4</td>
-        <td style="text-align:center">5</td>
-        <td style="text-align:center">6</td>
-        <td style="text-align:center">7</td>
-        <td style="text-align:center">8</td>
-        <td style="text-align:center">9</td>
-        <td style="text-align:center">10</td>
-        <td style="text-align:center">11</td>
-        <td style="text-align:center">12</td>
-        <td style="text-align:center">13</td>
-        <td style="text-align:center">14</td>
-        <td style="text-align:center">15</td>
-    </tr>
-    <tr style="border-bottom:0.5px solid grey">
+<tr>
+    <td style="text-align:center">Muestra nº</td>
+    <td style="text-align:center">1</td>
+    <td style="text-align:center">2</td>
+    <td style="text-align:center">3</td>
+    <td style="text-align:center">4</td>
+    <td style="text-align:center">5</td>
+    <td style="text-align:center">6</td>
+    <td style="text-align:center">7</td>
+    <td style="text-align:center">8</td>
+    <td style="text-align:center">9</td>
+    <td style="text-align:center">10</td>
+    <td style="text-align:center">11</td>
+    <td style="text-align:center">12</td>
+    <td style="text-align:center">13</td>
+    <td style="text-align:center">14</td>
+    <td style="text-align:center">15</td>
+</tr>
+<tr style="border-bottom:0.5px solid grey">
    
-    <tr>
-        <td style="text-align:center">Valores de <br> la muestra</td>
-        <td style="text-align:center">2 <br> 6</td>
-        <td style="text-align:center">2 <br> 8</td>
-        <td style="text-align:center">2 <br> 10</td>
-        <td style="text-align:center">2 <br> 10</td>
-        <td style="text-align:center">2 <br> 12</td>
-        <td style="text-align:center">6 <br> 8</td>
-        <td style="text-align:center">6 <br> 10</td>
-        <td style="text-align:center">6 <br> 10</td>
-        <td style="text-align:center">6 <br> 12</td>
-        <td style="text-align:center">8 <br> 10</td>
-        <td style="text-align:center">8 <br> 10</td>
-        <td style="text-align:center">8 <br> 12</td>
-        <td style="text-align:center">10 <br> 10</td>
-        <td style="text-align:center">10 <br> 12</td>
-        <td style="text-align:center">10 <br> 12</td>
-    </tr>
-    <tr style="border-bottom:0.5px solid grey">
+<tr>
+    <td style="text-align:center">Valores de <br> la muestra</td>
+    <td style="text-align:center">2 <br> 6</td>
+    <td style="text-align:center">2 <br> 8</td>
+    <td style="text-align:center">2 <br> 10</td>
+    <td style="text-align:center">2 <br> 10</td>
+    <td style="text-align:center">2 <br> 12</td>
+    <td style="text-align:center">6 <br> 8</td>
+    <td style="text-align:center">6 <br> 10</td>
+    <td style="text-align:center">6 <br> 10</td>
+    <td style="text-align:center">6 <br> 12</td>
+    <td style="text-align:center">8 <br> 10</td>
+    <td style="text-align:center">8 <br> 10</td>
+    <td style="text-align:center">8 <br> 12</td>
+    <td style="text-align:center">10 <br> 10</td>
+    <td style="text-align:center">10 <br> 12</td>
+    <td style="text-align:center">10 <br> 12</td>
+</tr>
+<tr style="border-bottom:0.5px solid grey">
 
-     <tr>
-        <td style="text-align:center">Varianza <br> muestral</td>
-        <td style="text-align:center">4 </td>
-        <td style="text-align:center">9 </td>
-        <td style="text-align:center">16 </td>
-        <td style="text-align:center">16 </td>
-        <td style="text-align:center">25 </td>
-        <td style="text-align:center">1 </td>
-        <td style="text-align:center">4 </td>
-        <td style="text-align:center">4 </td>
-        <td style="text-align:center">9 </td>
-        <td style="text-align:center">1 </td>
-        <td style="text-align:center">1 </td>
-        <td style="text-align:center">4 </td>
-        <td style="text-align:center">0 </td>
-        <td style="text-align:center">1 </td>
-        <td style="text-align:center">1 </td>
-    </tr>
-     <tr style="border-bottom:0.5px solid grey">
+ <tr>
+    <td style="text-align:center">Varianza <br> muestral</td>
+    <td style="text-align:center">4 </td>
+    <td style="text-align:center">9 </td>
+    <td style="text-align:center">16 </td>
+    <td style="text-align:center">16 </td>
+    <td style="text-align:center">25 </td>
+    <td style="text-align:center">1 </td>
+    <td style="text-align:center">4 </td>
+    <td style="text-align:center">4 </td>
+    <td style="text-align:center">9 </td>
+    <td style="text-align:center">1 </td>
+    <td style="text-align:center">1 </td>
+    <td style="text-align:center">4 </td>
+    <td style="text-align:center">0 </td>
+    <td style="text-align:center">1 </td>
+    <td style="text-align:center">1 </td>
+</tr>
+ <tr style="border-bottom:0.5px solid grey">
  </h8> 
 </table>
 ```
