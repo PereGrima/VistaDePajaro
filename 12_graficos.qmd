@@ -4,9 +4,23 @@ Todavía no he hecho nada sobre esto, pero tengo mucho material y las ideas clar
 
 
 ```{=html}
-
-<h8>
-<TABLE >
+<h6>
+<FONT SIZE=3>
+<TABLE style="width: 100%">
+<colgroup>
+        <col style="width: 8%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 2%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+        <col style="width: 10%;">
+    </colgroup>
     <TR> 
         <TD ALIGN=center> Día</TD>
         <TD ALIGN=center>Operario</TD>
@@ -15,7 +29,7 @@ Todavía no he hecho nada sobre esto, pero tengo mucho material y las ideas clar
         <TD ALIGN=center colspan=4>Máquina 2</TD>
     </TR>
     
-    <TR >   
+    <TR>   
     
     <TD ALIGN=center>
     1 <br> 
@@ -291,5 +305,23 @@ Todavía no he hecho nada sobre esto, pero tengo mucho material y las ideas clar
   </TR>
 
 </table>
-</h8> 
+</font> 
+</h6>
+<FONT SIZE=1>A</font><FONT SIZE=2>A</font><FONT SIZE=3>A</font>
+
+<TABLE BORDER WIDTH="10%">
+	<TR><TD>Width=50%</TD><TD>Width=50%</TD>
+	</TR>
+	<TR><TD>Celda 3</TD><TD>Celda 4</TD>
+	</TR>
+</TABLE>
+
+
+<TABLE BORDER WIDTH="50%">
+	<TR><TD>Celda 1</TD><TD>Celda 2</TD>
+	</TR>
+	<TR><TD>Celda 3</TD><TD>Celda 4</TD>
+	</TR>
+</TABLE>
+
 ```
