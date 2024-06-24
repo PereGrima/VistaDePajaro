@@ -343,57 +343,6 @@ Al igual que ocurre con los cuartiles, existen diferentes criterios para determi
 Son los percentiles del 10, 20,... , 100%
 :::
 
-## Porcentajes
-
-Muchas veces son preferibles a los valores absolutos aunque tampoco hay que olvidar estos últimos. Después de una negociación laboral se puede decir que los salarios han aumentado 0,5 €/hora o que la masa salarial aumentará 2 millones de euros. Si se dice que los salarios aumentarán un 5% queda todo más claro.
-
-Quizá porque parecen simples y que no hay mucho que decir sobre ellos no forman parte del elenco de medidas estadísticas. Sin embargo, conviene tenerlos presentes por su utilidad para describir datos y también porque a veces se se prestan a confusiones y malas interpretaciones.
-
-###### Cálculo de procentajes {.unnumbered}
-
--   El porcentaje siempre se debe referir al valor inicial. Si el año pasado las naranjas costaban 4 €/kg y este año cuestan 5, su precio ha aumentado un 25%. Si pasa de 5 a 2 habrá disminuido un 20%. Observe que no hay simetría al aumentar y disminuir.
-
--   Las operaciones con porcentajes no son triviales. Hacer un 50% de descuento y después otro 20% no es lo mismo que hacer el 70%. Si el valor inicial era 100€, con el 50% de descuento queda en 50€ y al hacer el 20% sobre esa cantidad queda 40. Si hubiéramos hemos el 70% de descuento el precio final sería de 30€. A veces se dan situaciones paradójicas: si usted está vendiendo al mismo precio que la competencia puede hacer un 33% de descuento y decir que la competencia está vendiendo un 50% más caro.
-
-::: callout-note
-## Paradoja de las patatas
-
-Supongamos que tenemos 100 kg de patatas cuyo peso está compuesto por agua en un 99%. Con el paso del tiempo las patatas pierden humedad ¿Cuanto pesarán cuando el porcentaje de humedad sea del 98%? En la [Wikipedia](https://es.wikipedia.org/wiki/Paradoja_de_las_patatas) puede ver si si sus calculos són correctos.
-:::
-
-###### Porcentajes y puntos porcentuales {.unnumbered}
-
-Si los beneficios han pasado del 2 al 4% de la facturación, si esta se ha mantedo constante no han aumentado un 
-
-::: callout-note
-## Paradoja de Simpson
-
-Una empresa crea 250 nuevos puestos de trabajo en sus departamentos de comparas, fabricación y ventas. En total se presentan 355 hombres y 325 mujres de los cuales son admitidos 190 hombres (el 53,5%) y solo 60 mujeres (el 18,5%). Se comprueba que el nivel de preparación de hombres y mujeres es similar entre los aspirantes a cada departamento. ¿Podemos asegurar que se ha discriminado a las mujeres? La respuesta es no. Los datos son los siguientes:
-
-```{=html}
-
-<h8>
-<TABLE >
-    <TR> 
-        <TD style="vertical-align: middle"> Departamento</TD>
-        <TD style="vertical-align: middle" ALIGN=center> Plazas</TD>
-        <TD ALIGN=center COLSPAN=2 >Aspirantes - Admitidos <br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Mujeres</TD>
-        <TD ALIGN=center COLSPAN=2>% Admitidos<br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Mujeres</TD>
-
-    </TR>
-    
-    <TR >   
-    <TD>Compras <br> Fabricación <br> Ventas <br> <TOTAL> </TD> <TD ALIGN=center>30 <br> 200 <br> 20 </TD> <TD ALIGN=center>25 - 5 <br> 250 - 180 <br> 80 - 5 </TD> <TD ALIGN=center>100 - 25 <br> 25 - 20 <br> 200 - 15</TD>   <TD ALIGN=center>20 % <br> 72 %<br> 6,25 %</TD> <TD ALIGN=center><b>25 % <br> 80 %<br> 7,5 %</b></TD>
-    </TR>
-
-<TR >   
-<TD> <b>TOTAL</b></TD> <TD ALIGN=center>250</TD> <TD ALIGN=center>355 - 190</TD> <TD ALIGN=center>325 - 60</TD>  <TD ALIGN=center><b>53,5 %</b></TD> <TD ALIGN=center>18,5 %</TD>
-    </TR>
-</table>
-</h8> 
-```
-En realidad han sido las mujeres las quehan tenido maor proporción de admitidos en los tres departamentos. La clave está en que al departamento que ofrece más plazas se han presentado muchos hombres y pocas mujeres, mientras que ocurre lo contrario en los departamentos en que se ofrecen menos plazas.
-:::
 
 ## Apéndice 1.1: Otras medias {.unnumbered}
 
@@ -685,3 +634,63 @@ Es decir que todos los valores de la varianza que aparecen en la tabla anterior,
 $$\bar{S}_{n-1}^{2}= 2\cdot 6,4 = 12,8 $$
 
 Quizá este resultado decepcione, y hasta sorprenda, porque seguramente lo esperado era que $S_{n-1}^{2}$ fuera un estimador insesgado de $\sigma_{N}^{2}$ y no de $\sigma_{N-1}^{2}$, pero no hay que preocuparse demasiado. A efectos prácticos es casi lo mismo cuando la población es grande, y nosotros no vamos a estimar a través de muestras las características de una población de 6 elementos (en nuestro ejemplo esta ha sido una población “de juguete” para entender lo que estábamos haciendo). Cuando estimemos la varianza de una población se tratará de una población grande, en la que $\sigma_{N}^{2}$ será prácticamente igual a $\sigma_{N-1}^{2}$. En realidad, el caso más frecuente es tener poblaciones teóricas (infinitas), en las que es exactamente lo mismo $\sigma_{N}^{2}$ que $\sigma_{N-1}^{2}$.
+
+## Apéndice 1.3: Porcentajes {.unnumbered}
+
+Son de uso habitual para presentar información numérica pero no forman parte del elenco de medidas estadísticas quizá porque parecen simples y no hay mucho que decir sobre ellos. Sin embargo, conviene tenerlos presentes porque se prestan a confusiones y malas interpretaciones.
+
+###### **Cálculo del porcentaje** {.unnumbered}
+
+iempre se debe referir al valor inicial. Si el año pasado las naranjas costaban 4 €/kg y este año cuestan 5, su precio ha aumentado un 25%. Si pasan de 5 a 4 habrán disminuido un 20%. o hay simetría al aumentar y disminuir.
+
+###### **Operaciones con procentajes** {.unnumbered}
+
+Las operaciones con porcentajes no son triviales. Hacer un 50% de descuento y después otro 20% no es lo mismo que hacer el 70%. Si el valor inicial era 100€, en el primer caso queda en 40 € mientras que el segundo el valor final es de 30 €. Si el IVA es del 21%, vender sin IVA no es hacer un 21% de descuento. A veces se dan situaciones paradójicas: si usted está vendiendo al mismo precio que la competencia puede hacer un 33% de descuento y decir que la competencia está vendiendo un 50% más caro.
+
+Los problemas con porcentajes pueden pareer triviales y no serlo. Uno de los más famosos es la llamada "paradoja de las patatas": Supongamos que tenemos 100 kg de patatas cuyo peso está compuesto por agua en un 99%. Con el paso del tiempo las patatas pierden humedad ¿Cuanto pesarán cuando el porcentaje de humedad sea del 98%? En la [Wikipedia](https://es.wikipedia.org/wiki/Paradoja_de_las_patatas) puede ver si si sus calculos són correctos.
+
+###### **Porcentajes y puntos porcentuales** {.unnumbered}
+
+Si los beneficios han pasado del 2 al 4% no han aumentado un 2% sino el 100% (suponiendo que la base sobre la que se calculan se haya mantenido constante). También podemos decir que han aumentado 2 puntos porcentuales.  Es necesario cuidar el lenguaje y no confundir una cosa con otra.
+
+Curiosidad: Si los beneficios se han multiplicado por 5 no han aumentado un 500% sino un 400%. En efecto, si se doblan han aumentado un 100%, si se triplican habrán aumentado un 200%, y así sucesivamente.
+
+###### **Porcentajes basados en niveles y en cambios de nivel** {.unnumbered}
+
+Un vendedor vendió el año pasado por valor de 10 millones de euros. Su objetivo para este año era aumentar su factruración un 6%, es decir, vender por valor de 10,6 millones. El vendedor solo ha logrado vender por valor de 10,3 millones,  ¿qué porcentaje de objetivo ha logrado? Si el objetivo era el incremento, se ha quedado en la mitad y por tanto solo ha conseguido el 50%, pero si era vender 10,6 millones y ha vendido 10,3 se ha quedado en el 97,2%. En general, los objetivos siempre son sobre el incremento, no sobre el valor absoluto, y esto debe quedar claro.
+
+
+###### **No olvidar los valores a partir de los cuales se calculan los porcentajes** {.unnumbered}
+
+Si se realiza un estudio y resulta que 66,7% de los consumidores prefiere el producto X puede ser que se haya consultado a 3 y lo prefieran 2 o que se haya entrevistado a 3.000 y lo hayan preferido 2.000. La información que da ese porcentaje no es la misma en un caso y en otro. 
+
+El porcetaje global para un colectivo formado por varios grupos puede sugerir unas conclusiones que no se dan en ningno de los grupos, es lo que se conoce como "Paradoja de Simpson": Una empresa crea 250 nuevos puestos de trabajo en sus departamentos de compras, fabricación y ventas. En total se presentan 355 hombres y 325 mujeres de los cuales son admitidos 190 hombres (el 53,5%) y solo 60 mujeres (el 18,5%). Se comprueba que el nivel de preparación de hombres y mujeres es similar entre los aspirantes a cada departamento. ¿Podemos asegurar que se ha discriminado a las mujeres? La respuesta es no. Los datos son los siguientes:
+
+```{=html}
+
+<h8>
+<TABLE >
+    <TR> 
+        <TD style="vertical-align: middle"> Departamento</TD>
+        <TD style="vertical-align: middle" ALIGN=center> Plazas</TD>
+        <TD ALIGN=center COLSPAN=2 >Aspirantes - Admitidos <br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Mujeres</TD>
+        <TD ALIGN=center COLSPAN=2>% Admitidos<br>Hombres &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Mujeres</TD>
+
+    </TR>
+    
+    <TR >   
+    <TD>Compras <br> Fabricación <br> Ventas <br> <TOTAL> </TD> <TD ALIGN=center>30 <br> 200 <br> 20 </TD> <TD ALIGN=center>25 - 5 <br> 250 - 180 <br> 80 - 5 </TD> <TD ALIGN=center>100 - 25 <br> 25 - 20 <br> 200 - 15</TD>   <TD ALIGN=center>20 % <br> 72 %<br> 6,25 %</TD> <TD ALIGN=center><b>25 % <br> 80 %<br> 7,5 %</b></TD>
+    </TR>
+
+<TR >   
+<TD> <b>TOTAL</b></TD> <TD ALIGN=center>250</TD> <TD ALIGN=center>355 - 190</TD> <TD ALIGN=center>325 - 60</TD>  <TD ALIGN=center><b>53,5 %</b></TD> <TD ALIGN=center>18,5 %</TD>
+    </TR>
+</table>
+</h8> 
+```
+En realidad han sido las mujeres las que han tenido mayor proporción de admitidos en los tres departamentos. La clave está en que al departamento que ofrece más plazas se han presentado muchos hombres y pocas mujeres, mientras que ocurre lo contrario en los departamentos en que se ofrecen menos plazas.
+
+###### **Porcentaje ¿de qué?** {.unnumbered}
+
+Ante un porcentaje siempre conviene preguntarse qué significa y cómo se han medido los valores con los que se ha calculado. Ya sabemos que en el mundo de la publidad esas preguntas no suelen tener respuesta: si una crema reduce las arrugas un 33% no está claro si elimina una de cada tres o si reduce un tercio la profundidad de todas ellas. El problema es que estas ambiguedades se presentan también en otros ámbitos, quizá también en los porcentajes que nosotros manejamos. Es necesario que esté claro a qué nos estamos refiriendo. 
+
