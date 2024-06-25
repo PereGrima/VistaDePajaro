@@ -1,327 +1,44 @@
 # Representaciones gráficas
 
-Todavía no he hecho nada sobre esto, pero tengo mucho material y las ideas claras.
+Empezamos planteando un reto: El dueño de una panadería sospecha que las barras de pan que está vendiendo tienen un peso demasiado variable, de forma que algunas pueden estar por debajo del límite que marca la ley. Se elaboran en dos máquinas que son utilizadas por dos operarios, uno por la mañana y otro por la tarde. La tabla [-@tbl-panaderia] contiene los pesos (en gramos) de muestras que se han ido recogiendo durante 20 días.
 
+::: {style="font-size:15px"}
++:-----------:+:---------------------------:+:------------------------------------------:+:------------------------------------------:+
+| Día         | Operario                    | Máquina 1                                  | Máquina 2                                  |
++-------------+-----------------------------+--------------------------------------------+--------------------------------------------+
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| []{}\       | []{}\                       | []{}\                                      | []{}\                                      |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| []{}\       | []{}\                       | []{}\                                      | []{}\                                      |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| []{}\       | []{}\                       | []{}\                                      | []{}\                                      |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
+| 2\          | A\                          | 220,3       215,5       219,1       219,2\ | 220,3       215,5       219,1       219,2\ |
++-------------+-----------------------------+--------------------------------------------+--------------------------------------------+
 
-```{=html}
-<h6>
-<FONT SIZE=3>
-<TABLE style="width: 100%">
-<colgroup>
-        <col style="width: 8%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 2%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-        <col style="width: 10%;">
-    </colgroup>
-    <TR> 
-        <TD ALIGN=center> Día</TD>
-        <TD ALIGN=center>Operario</TD>
-        <TD ALIGN=center colspan=4>Máquina 1</TD>
-        <TD> </TD>
-        <TD ALIGN=center colspan=4>Máquina 2</TD>
-    </TR>
-    
-    <TR>   
-    
-    <TD ALIGN=center>
-    1 <br> 
-    2 <br> 
-    3 <br> 
-    4 <br>
-    5 <br>
-      <br>
-    6 <br>
-    7 <br>
-    8 <br>
-    9 <br>
-    10 <br>
-       <br>
-    11 <br> 
-    12 <br> 
-    13 <br> 
-    14 <br>
-    15 <br>
-       <br>
-    16 <br>
-    17 <br>
-    18 <br>
-    19 <br>
-    20 
-    </TD> 
-    
-    <TD ALIGN=center>
-    A <br> 
-    B <br> 
-    B <br>
-    B <br>
-    A <br>
-      <br>
-    A <br>
-    A <br>
-    B <br>
-    B <br>
-    A <br>
-      <br>
-    B <br>
-    B <br>
-    B <br>
-    A <br>
-    A <br>
-      <br>
-    B <br>
-    B <br>
-    A <br>
-    A <br>
-    A 
-    </TD> 
-    
-    <!-- Máquina 1-1 -->
-    <TD ALIGN=center>
-    220,3 <br> 
-    215,8 <br> 
-    220,4 <br>
-    221,5 <br>
-    215,7 <br>
-          <br>
-    222,7 <br>
-    216,0 <br>
-    219,4 <br>
-    219,8 <br>
-    220,2 <br>
-          <br>
-    218,0 <br>
-    219,3 <br>
-    220,0 <br>
-    223,9 <br>
-    218,1 <br>
-          <br>
-    216,9 <br>
-    217,9 <br>
-    224,2 <br>
-    214,1 <br>
-    221,1 
-    </TD> 
-    
-    <!-- Máquina 1-2 -->
-    <TD ALIGN=center>
-    215,5 <br> 
-    220,0 <br> 
-    218,7 <br>
-    227,0 <br>
-    225,3 <br>
-          <br>
-    215,1 <br>
-    218,8 <br>
-    218,3 <br>
-    222,6 <br>
-    219,5 <br>
-          <br>
-    223,9 <br>
-    219,6 <br>
-    214,1 <br>
-    220,6 <br>
-    218,8 <br>
-          <br>
-    221,6 <br>
-    225,7 <br>
-    216,2 <br>
-    219,7 <br>
-    225,0 
-    </TD>   
-    
-    <!-- Máquina 1-3 -->
-    <TD ALIGN=center>
-    219,1 <br> 
-    218,9 <br> 
-    218,6 <br>
-    219,5 <br>
-    223,0 <br>
-          <br>
-    219,6 <br>
-    217,9 <br>
-    216,7 <br>
-    219,1 <br>
-    222,4 <br>
-          <br>
-    219,6 <br>
-    218,8 <br>
-    224,3 <br>
-    219,5 <br>
-    218,4 <br>
-          <br>
-    220,6 <br>
-    222,2 <br>
-    219,9 <br>
-    222,4 <br>
-    222,7
-    </TD> 
-    
-    <!-- Máquina 1-4 -->
-    <TD ALIGN=center>
-    219,2 <br> 
-    213,6 <br> 
-    219,6 <br>
-    222,5 <br>
-    218,0 <br>
-          <br>
-    217,3 <br>
-    213,0 <br>
-    224,1 <br>
-    217,7 <br>
-    219,9 <br>
-          <br>
-    221,9 <br>
-    219,9 <br>
-    217,4 <br>
-    219,6 <br>
-    217,9 <br>
-          <br>
-    222,6 <br>
-    216,1 <br>
-    220,4 <br>
-    224,5 <br>
-    222,2 
-    </TD>
-    
-    <!-- Espacio -->
-    <TD>
-    </TD>
-    
-    <!-- Máquina 2-1 -->
-    <TD ALIGN=center>
-    220,3 <br> 
-    216,9 <br> 
-    222,9 <br>
-    223,1 <br>
-    216,0 <br>
-          <br>
-    212,1 <br>
-    216,9 <br>
-    216,2 <br>
-    216,2 <br>
-    222,9 <br>
-          <br>
-    214,9 <br>
-    219,0 <br>
-    218,0 <br>
-    211,8 <br>
-    214,6 <br>
-          <br>
-    215,6 <br>
-    212,5 <br>
-    215,8 <br>
-    213,7 <br>
-    212,5 
-    </TD> 
-    
-    <!-- Máquina 2-2 -->
-    <TD ALIGN=center>
-    208,0 <br> 
-    213,4 <br> 
-    219,7 <br>
-    215,3 <br>
-    210,9 <br>
-          <br>
-    213,0 <br>
-    216,0 <br>
-    218,4 <br>
-    212,2 <br>
-    214,3 <br>
-          <br>
-    212,6 <br>
-    216,7 <br>
-    219,5 <br>
-    218,2 <br>
-    215,7 <br>
-          <br>
-    220,4 <br>
-    214,6 <br>
-    219,9 <br>
-    209,7 <br>
-    217,5 
-    </TD>   
-    
-    <!-- Máquina 2-3 -->
-    <TD ALIGN=center>
-    214,4 <br> 
-    217,7 <br> 
-    209,4 <br>
-    220,4 <br>
-    221,4 <br>
-          <br>
-    218,0 <br>
-    213,5 <br>
-    216,6 <br>
-    216,9 <br>
-    219,1 <br>
-          <br>
-    219,4 <br>
-    216,4 <br>
-    219,5 <br>
-    218,3 <br>
-    218,0 <br>
-     <br>
-    217,3 <br>
-    209,7 <br>
-    216,5 <br>
-    216,9 <br>
-    217,4 
-    </TD> 
-    
-    <!-- Máquina 2-4 -->
-    <TD ALIGN=center>
-    219,2 <br> 
-    217,7 <br> 
-    221,6 <br>
-    215,6 <br>
-    210,9 <br>
-          <br>
-    216,5 <br>
-    219,2 <br>
-    214,9 <br>
-    214,9 <br>
-    216,7 <br>
-          <br>
-    213,3 <br>
-    213,5 <br>
-    222,3 <br>
-    217,4 <br>
-    216,4 <br>
-          <br>
-    216,2 <br>
-    211,3 <br>
-    211,9 <br>
-    213,1 <br>
-    215,7
-    </TD>
-  </TR>
+: Peso de barras de pan elaboradas en una panadería {#tbl-panaderia} : {tbl-colwidths="\[5, 15, 40, 40\]"}
+:::
 
-</table>
-</font> 
-</h6>
-<FONT SIZE=1>A</font><FONT SIZE=2>A</font><FONT SIZE=3>A</font>
+El peso debe ser de 210 $\pm$ 10 g. Las preguntas que nos planteamos son: ¿Existe algún problema? ¿Qué está pasando? ¿qué hay que hacer para resolver el problema, si es que existe?
 
-<TABLE BORDER WIDTH="10%">
-	<TR><TD>Width=50%</TD><TD>Width=50%</TD>
-	</TR>
-	<TR><TD>Celda 3</TD><TD>Celda 4</TD>
-	</TR>
-</TABLE>
+Si trata de sacar conclusiones mirando los números seguramente se equivocará. Aunque en este caso solo hay 160 valores, analizarlos "a ojo" siempre es arriesgado. Tampoco es una buena idea empezar calculado medias y desviaciones típicas o, peor todavía, emnpezar planteando test estadísticos más o menos sofisticados.
 
+Cuando queremos analizar datos, lo primero que siempre conviene hacer es representarlos gráficamente. Así tenemos una primera idea --muchas veces ya suficiente-- de lo que está pasando. 
 
-<TABLE BORDER WIDTH="50%">
-	<TR><TD>Celda 1</TD><TD>Celda 2</TD>
-	</TR>
-	<TR><TD>Celda 3</TD><TD>Celda 4</TD>
-	</TR>
-</TABLE>
+En la figura +++++ por máquina y operario.
 
-```

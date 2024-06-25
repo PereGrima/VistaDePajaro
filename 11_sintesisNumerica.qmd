@@ -343,7 +343,6 @@ Al igual que ocurre con los cuartiles, existen diferentes criterios para determi
 Son los percentiles del 10, 20,... , 100%
 :::
 
-
 ## Apéndice 1.1: Otras medias {.unnumbered}
 
 Citar también la media ponderada y la media truncada.
@@ -651,18 +650,17 @@ Los problemas con porcentajes pueden pareer triviales y no serlo. Uno de los má
 
 ###### **Porcentajes y puntos porcentuales** {.unnumbered}
 
-Si los beneficios han pasado del 2 al 4% no han aumentado un 2% sino el 100% (suponiendo que la base sobre la que se calculan se haya mantenido constante). También podemos decir que han aumentado 2 puntos porcentuales.  Es necesario cuidar el lenguaje y no confundir una cosa con otra.
+Si los beneficios han pasado del 2 al 4% no han aumentado un 2% sino el 100% (suponiendo que la base sobre la que se calculan se haya mantenido constante). También podemos decir que han aumentado 2 puntos porcentuales. Es necesario cuidar el lenguaje y no confundir una cosa con otra.
 
 Curiosidad: Si los beneficios se han multiplicado por 5 no han aumentado un 500% sino un 400%. En efecto, si se doblan han aumentado un 100%, si se triplican habrán aumentado un 200%, y así sucesivamente.
 
 ###### **Porcentajes basados en niveles y en cambios de nivel** {.unnumbered}
 
-Un vendedor vendió el año pasado por valor de 10 millones de euros. Su objetivo para este año era aumentar su factruración un 6%, es decir, vender por valor de 10,6 millones. El vendedor solo ha logrado vender por valor de 10,3 millones,  ¿qué porcentaje de objetivo ha logrado? Si el objetivo era el incremento, se ha quedado en la mitad y por tanto solo ha conseguido el 50%, pero si era vender 10,6 millones y ha vendido 10,3 se ha quedado en el 97,2%. En general, los objetivos siempre son sobre el incremento, no sobre el valor absoluto, y esto debe quedar claro.
-
+Un vendedor vendió el año pasado por valor de 10 millones de euros. Su objetivo para este año era aumentar su factruración un 6%, es decir, vender por valor de 10,6 millones. El vendedor solo ha logrado vender por valor de 10,3 millones, ¿qué porcentaje de objetivo ha logrado? Si el objetivo era el incremento, se ha quedado en la mitad y por tanto solo ha conseguido el 50%, pero si era vender 10,6 millones y ha vendido 10,3 se ha quedado en el 97,2%. En general, los objetivos siempre son sobre el incremento, no sobre el valor absoluto, y esto debe quedar claro.
 
 ###### **No olvidar los valores a partir de los cuales se calculan los porcentajes** {.unnumbered}
 
-Si se realiza un estudio y resulta que 66,7% de los consumidores prefiere el producto X puede ser que se haya consultado a 3 y lo prefieran 2 o que se haya entrevistado a 3.000 y lo hayan preferido 2.000. La información que da ese porcentaje no es la misma en un caso y en otro. 
+Si se realiza un estudio y resulta que 66,7% de los consumidores prefiere el producto X puede ser que se haya consultado a 3 y lo prefieran 2 o que se haya entrevistado a 3.000 y lo hayan preferido 2.000. La información que da ese porcentaje no es la misma en un caso y en otro.
 
 El porcetaje global para un colectivo formado por varios grupos puede sugerir unas conclusiones que no se dan en ningno de los grupos, es lo que se conoce como "Paradoja de Simpson": Una empresa crea 250 nuevos puestos de trabajo en sus departamentos de compras, fabricación y ventas. En total se presentan 355 hombres y 325 mujeres de los cuales son admitidos 190 hombres (el 53,5%) y solo 60 mujeres (el 18,5%). Se comprueba que el nivel de preparación de hombres y mujeres es similar entre los aspirantes a cada departamento. ¿Podemos asegurar que se ha discriminado a las mujeres? La respuesta es no. Los datos son los siguientes:
 
@@ -692,5 +690,4 @@ En realidad han sido las mujeres las que han tenido mayor proporción de admitid
 
 ###### **Porcentaje ¿de qué?** {.unnumbered}
 
-Ante un porcentaje siempre conviene preguntarse qué significa y cómo se han medido los valores con los que se ha calculado. Ya sabemos que en el mundo de la publidad esas preguntas no suelen tener respuesta: si una crema reduce las arrugas un 33% no está claro si elimina una de cada tres o si reduce un tercio la profundidad de todas ellas. El problema es que estas ambiguedades se presentan también en otros ámbitos, quizá también en los porcentajes que nosotros manejamos. Es necesario que esté claro a qué nos estamos refiriendo. 
-
+Ante un porcentaje siempre conviene preguntarse qué significa y cómo se han medido los valores con los que se ha calculado. Ya sabemos que en el mundo de la publidad esas preguntas no suelen tener respuesta: si una crema reduce las arrugas un 33% no está claro si elimina una de cada tres o si reduce un tercio la profundidad de todas ellas. El problema es que estas ambiguedades se presentan también en otros ámbitos, quizá también en los porcentajes que nosotros manejamos. Es necesario que esté claro a qué nos estamos refiriendo.
