@@ -1,6 +1,6 @@
 # Representaciones gráficas
 
-Empezamos planteando un reto: El dueño de una panadería sospecha que las barras de pan que está vendiendo tienen un peso demasiado variable, de forma que algunas pueden estar por debajo del límite que marca la ley. Se elaboran en dos máquinas que son utilizadas por dos operarios, uno por la mañana y otro por la tarde. La tabla [-@tbl-panaderia] contiene los pesos (en gramos) de muestras que se han ido recogiendo durante 20 días.
+Empezamos planteando un reto: El dueño de una panadería sospecha que las barras de pan que está vendiendo tienen un peso demasiado variable, de forma que algunas pueden estar por debajo del límite que marca la ley. El pan se elabora en dos máquinas que son utilizadas por dos operarios, uno por la mañana y otro por la tarde. La tabla [-@tbl-panaderia] contiene los pesos (en gramos) de las muestras que se han ido recogiendo durante 20 días.
 
 ::: {style="font-size:15px"}
 +:-----------:+:---------------------------:+:------------------------------------------:+:------------------------------------------:+
@@ -42,3 +42,4 @@ Cuando queremos analizar datos, lo primero que siempre conviene hacer es represe
 
 En la figura +++++ por máquina y operario.
 
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/histogramaPanaderia.png){#fig-panaderia fig-align="center" width="90%"}
