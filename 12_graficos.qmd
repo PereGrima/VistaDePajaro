@@ -43,3 +43,52 @@ Cuando queremos analizar datos, lo primero que siempre conviene hacer es represe
 En la figura +++++ por máquina y operario.
 
 ![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/histogramaPanaderia.png){#fig-panaderia fig-align="center" width="90%"}
+Moraleja: +++++++++++++
+
+## Valor central, dispersión y forma de la distribución.
+
+texto
+
+### Histograma
+
+texto
+
+### Diagrama de puntos
+
+texto
+
+### Boxplot
+
+texto
+
+## Evolución
+
+texto
+
+### Diagrama en serie de tiempo
+
+## Relación entre variables
+
+texto
+
+### Las dos son cuantitativas: Diagramas bivariantes
+
+texto
+
+### Una es cuantitatica y la otra cualitativa: Boxplots estratificados
+
+texto
+
+## Frecuencias
+
+texto
+
+### Diagramas de barras
+
+texto
+
+### Gráficos de donut
+
+texto
+
+
