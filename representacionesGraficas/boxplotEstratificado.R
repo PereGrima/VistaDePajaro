@@ -1,2 +1,3 @@
 data_mundial <- read.csv("https://bitsandbricks.github.io/data/gapminder.csv")
-data_mundial
+x = subset(data_mundial, anio==2007)
+boxplot(expVida ~ continente, x)
