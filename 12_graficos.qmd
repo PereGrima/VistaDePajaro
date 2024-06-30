@@ -2,7 +2,7 @@
 
 Empezamos planteando un reto: El dueño de una panadería sospecha que las barras de pan que está vendiendo tienen un peso demasiado variable, de forma que algunas pueden estar por debajo del límite que marca la ley. El pan se elabora en dos máquinas que son utilizadas por dos operarios, uno por la mañana y otro por la tarde. La tabla [-@tbl-panaderia] contiene los pesos (en gramos) de las muestras que se han ido recogiendo durante 20 días.
 
-::: {style="font-size:15px"}
+::: {style="font-size:13px"}
 +:-----------:+:---------------------------:+:------------------------------------------:+:------------------------------------------:+
 | Día         | Operario                    | Máquina 1                                  | Máquina 2                                  |
 +-------------+-----------------------------+--------------------------------------------+--------------------------------------------+
@@ -45,13 +45,20 @@ En la figura +++++ por máquina y operario.
 ![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/histogramaPanaderia.png){#fig-panaderia fig-align="center" width="90%"}
 Moraleja: +++++++++++++
 
-## Valor central, dispersión y forma de la distribución.
+## Forma de la distribución, valro central y dispersión
 
-texto
+El tipo de gráfico que hemos usado para analizar los datos de la panadería 
 
 ### Histograma
 
-texto
+Número de intervalos
+
+Números redondos, al marcar los ejes y en la anchura de los intervalos
+
+Si hay valro objetivo y límites es una buena idea ponerlos.
+
+No hay que esperar que cuando proviene de una distribución normal tengan formade campana
+
 
 ### Diagrama de puntos
 
@@ -61,11 +68,24 @@ texto
 
 texto
 
+::: {style="font-size:13px"}
++:----------+:----:+:---:+:---:+:---:+:---:+:---:+:---:+:---:+:---:+:---:+:----:+:----:+:----:+:----:+:----:+:----:+:----:+:----:+:----:+:----:+
+| *Orden*\  | *1*\ |*2*\ |*3*\ | *4*\|*5*\ |*6*\ |*7*\ |*8*\ |*9*\ |*10*\|*11*\ |*12*\ |*13*\ |*14*\ |*15*\ |*16*\ |*17*\ |*18*\ |*19*\ |*20*\ | 
+|**Valores**|**5** |**7**|**7**|**9**|**9**|**9**|**9**|**9**|**9**|**9**|**10**|**11**|**11**|**11**|**11**|**11**|**14**|**15**|**16**|**18**|       
++-----------+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+------+------+------+------+------+------+------+------+------+------+
+:::
+texto deduciendo los valores de la mediana y los cuartiles. Podría poner antes el rango intercuartílico.
+
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplot.png){#fig-boxplot fig-align="center" width="100%"}
+
+
 ## Evolución
 
 texto
 
 ### Diagrama en serie de tiempo
+
+texto
 
 ## Relación entre variables
 
@@ -90,5 +110,15 @@ texto
 ### Gráficos de donut
 
 texto
+
+
+## Gráficos a evitar
+
+texto
+
+## Malos usos y manipulaciones
+
+texto
+
 
 

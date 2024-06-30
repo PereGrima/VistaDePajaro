@@ -551,7 +551,7 @@
     "href": "12_graficos.html",
     "title": "2  Representaciones gráficas",
     "section": "",
-    "text": "2.1 Valor central, dispersión y forma de la distribución.\ntexto",
+    "text": "2.1 Forma de la distribución, valro central y dispersión\nEl tipo de gráfico que hemos usado para analizar los datos de la panadería",
     "crumbs": [
       "ESTADÍSTICA DESCRIPTIVA",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
@@ -930,7 +930,7 @@
     "href": "12_graficos.html#valor-central-dispersión-y-forma-de-la-distribución.",
     "title": "2  Representaciones gráficas",
     "section": "",
-    "text": "2.1.1 Histograma\ntexto\n\n\n2.1.2 Diagrama de puntos\ntexto\n\n\n2.1.3 Boxplot\ntexto",
+    "text": "2.1.1 Histograma\nNúmero de intervalos\nNúmeros redondos, al marcar los ejes y en la anchura de los intervalos\nSi hay valro objetivo y límites es una buena idea ponerlos.\n\n\n2.1.2 Diagrama de puntos\ntexto\n\n\n2.1.3 Boxplot\ntexto",
     "crumbs": [
       "ESTADÍSTICA DESCRIPTIVA",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
@@ -941,7 +941,7 @@
     "href": "12_graficos.html#evolución",
     "title": "2  Representaciones gráficas",
     "section": "2.2 Evolución",
-    "text": "2.2 Evolución\ntexto\n\n2.2.1 Diagrama en serie de tiempo",
+    "text": "2.2 Evolución\ntexto\n\n2.2.1 Diagrama en serie de tiempo\ntexto",
     "crumbs": [
       "ESTADÍSTICA DESCRIPTIVA",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
@@ -975,6 +975,39 @@
     "title": "2  Representaciones gráficas",
     "section": "2.3 Relación entre variables",
     "text": "2.3 Relación entre variables\ntexto\n\n2.3.1 Las dos son cuantitativas: Diagramas bivariantes\ntexto\n\n\n2.3.2 Una es cuantitatica y la otra cualitativa: Boxplots estratificados\ntexto",
+    "crumbs": [
+      "ESTADÍSTICA DESCRIPTIVA",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
+    ]
+  },
+  {
+    "objectID": "12_graficos.html#gráficos-a-evitar",
+    "href": "12_graficos.html#gráficos-a-evitar",
+    "title": "2  Representaciones gráficas",
+    "section": "2.5 Gráficos a evitar",
+    "text": "2.5 Gráficos a evitar\ntexto",
+    "crumbs": [
+      "ESTADÍSTICA DESCRIPTIVA",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
+    ]
+  },
+  {
+    "objectID": "12_graficos.html#malos-usos-y-manipulaciones",
+    "href": "12_graficos.html#malos-usos-y-manipulaciones",
+    "title": "2  Representaciones gráficas",
+    "section": "2.6 Malos usos y manipulaciones",
+    "text": "2.6 Malos usos y manipulaciones\ntexto",
+    "crumbs": [
+      "ESTADÍSTICA DESCRIPTIVA",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
+    ]
+  },
+  {
+    "objectID": "12_graficos.html#forma-de-la-distribución-valro-central-y-dispersión",
+    "href": "12_graficos.html#forma-de-la-distribución-valro-central-y-dispersión",
+    "title": "2  Representaciones gráficas",
+    "section": "",
+    "text": "2.1.1 Histograma\nNúmero de intervalos\nNúmeros redondos, al marcar los ejes y en la anchura de los intervalos\nSi hay valro objetivo y límites es una buena idea ponerlos.\nNo hay que esperar que cuando proviene de una distribución normal tengan formade campana\n\n\n2.1.2 Diagrama de puntos\ntexto\n\n\n2.1.3 Boxplot\ntexto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrden\nValores\n1\n5\n2\n7\n3\n7\n4\n9\n5\n9\n6\n9\n7\n9\n8\n9\n9\n9\n10\n9\n11\n10\n12\n11\n13\n11\n14\n11\n15\n11\n16\n11\n17\n14\n18\n15\n19\n16\n20\n18\n\n\n\n\ntexto deduciendo los valores de la mediana y los cuartiles. Podría poner antes el rango intercuartílico.\n\n\n\n\n\n\nFigura 2.1: Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos",
     "crumbs": [
       "ESTADÍSTICA DESCRIPTIVA",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Representaciones gráficas</span>"
