@@ -80,7 +80,16 @@ texto deduciendo los valores de la mediana y los cuartiles. Podría poner antes 
 
 texto
 
-![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplotEstratificado.png){#fig-boxplotEstra fig-align="center" width="90%"}
+![](representacionesGraficas/boxplotEstratificado1.png){fig-align="center" width="100%"}
+
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplotEstratificado2.png){#fig-boxplotEstra fig-align="center" width="100%"}
+
+texto
+
+texto
+
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplotEstratificado.png){#fig-boxplotEstra fig-align="center" width="100%"}
+
 
 ## Evolución
 
