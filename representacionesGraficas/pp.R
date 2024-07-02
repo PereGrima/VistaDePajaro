@@ -1,6 +1,25 @@
-x = c(5,7,7,9,9,9,9,9,9,9,10,11,11,11,11,11,14,15,16,18)
-t = 0.65
+data_mundial <- read.csv("https://bitsandbricks.github.io/data/gapminder.csv")
+x = subset(data_mundial, anio==2007)
+t = 0.6
 
-plot(1, type="n", xlab="X", ylab="Y", xlim=c(4, 19), ylim=c(0.8, 1.2), xaxt="n")
-boxplot(x, horizontal = TRUE, cex = t, ylim = c(4, 19),
-        width = 1, boxwex = 0.3, add=T, medcol="red")
+png("boxplotEstratificado.png", width=1250, height=650, res = 300)
+
+par(mar=c(1, 0, 0, 0) , mgp = c(0,0,0), mfrow=c(1,2), family = "sans")
+boxplot(expVida ~ continente, x,
+        col = "white", medcol="white", staplecol="white",
+        boxcol = "white", whiskcol = "white",
+        outline = F, cex=t)
+stripchart(expVida ~ continente,
+           data = x,
+           method = "jitter",
+           pch = 19,
+           col = 2:4,
+           vertical = TRUE,
+           add = TRUE, cex=t)
+
+boxplot(expVida ~ continente, x,
+        medlwd=1, whisklty = 1, cex=t)
+
+# boxplot(pobl ~ continente, x)
+# boxplot(PBI_PC ~ continente, x)
+dev.off()

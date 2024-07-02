@@ -29,7 +29,7 @@ arrows(q1-1.5*iqr, 1.045, q1, 1.045, length = 0.075, angle = 20, code=3)
 arrows(q1, 1.045, q3, 1.045, length = 0.075, angle = 20, code=3)
 arrows(q3+1.5*iqr, 1.045, q3, 1.045, length = 0.075, angle = 20, code=3)
 
-t=0.6
+t=0.55
 text(7.5, 1.057, "1,5·IQR", cex=t)
 text(10, 1.057, "IQR", cex=t)
 text(12.5, 1.057, "1,5·IQR", cex=t)

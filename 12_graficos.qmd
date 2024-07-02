@@ -78,6 +78,9 @@ texto deduciendo los valores de la mediana y los cuartiles. Podría poner antes 
 
 ![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplot.png){#fig-boxplot fig-align="center" width="100%"}
 
+texto
+
+![Esquema de obtención de la mediana y los cuartiles en un conjunto de 30 datos ](representacionesGraficas/boxplotEstratificado.png){#fig-boxplotEstra fig-align="center" width="90%"}
 
 ## Evolución
 
@@ -85,8 +88,11 @@ texto
 
 ### Diagrama en serie de tiempo
 
-texto
+Evolución de la esperanza de vida en los países donde tienen más y donede tienen menos.
 
+Asia: Afganistan, Japón. Menor de áfrica y otro con EV muy alta.
+
+También hay buenos datos en web de comunidd de Madrid: Indicadores de nacimientos.
 ## Relación entre variables
 
 texto
